@@ -1,0 +1,37 @@
+@startuml
+
+skinparam defaultFontColor #4080a9
+skinparam defaultBackgroundColor #d7f8ff
+skinparam defaultComponentColour #61d9de
+skinparam defaultActorColour #61d9de
+skinparam defaultFontSize 16
+skinparam defaultArrowThickness 6
+skinparam Linetype polyline
+
+rectangle Organisations {
+    component "API Provider"  as AG
+    component "API Consumer" as AC
+    actor "Applicaiton Developer" as APPD
+    actor "API Developer" as APID
+}
+rectangle Hira {
+    component "Developer Portal" as DP
+    component "Connector Plane" as CP
+    component "API Provider"  as HAP
+    'DP -[hidden]- CP
+    'HAP -[hidden]- CP
+}
+rectangle "Health Sector Participants" as HSP {
+    actor "Health Consumer" as HC
+    actor "Whanau"
+    actor "Iwi"
+
+}
+rectangle "Health Workforce"  as HWF {
+    actor "Health Worker" AS HW
+}
+
+'HSP --[hidden]up-- HWF
+'Organisations --[hidden]up-- Hira
+
+@enduml

@@ -1,0 +1,5 @@
+{
+  "default": true,
+  "MD013": false, // disable MD013/line-length initially
+  "MD033": false  // disable MD033/no-inline-html
+}

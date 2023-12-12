@@ -1,0 +1,24 @@
+name: "Standards feedback"
+description: Create a new issue with a feedback on the API Standards
+title: "[FEEDBACK] - <title>"
+labels: [
+  "feedback"
+]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a summary of your feedback
+      placeholder: Your feedback
+    validations:
+      required: true
+  - type: checkboxes
+    id: standards-area
+    attributes:
+      label: Which area of the standards does this apply to?
+      description: You may select more than one.
+      options:
+        - label: Part B
+        - label: Part C
+        - label: FHIR

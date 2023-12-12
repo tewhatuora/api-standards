@@ -1,0 +1,41 @@
+{
+  // Enable your dictionary by adding it to the list of `dictionaries`
+  "dictionaries": [
+    "en-gb",
+    "softwareTerms",
+    "core-dictionary",
+    "oauthTerms",
+    "securityTerms",
+    "plantumlTerms",
+    "miscTerms"
+  ],
+
+  // Tell CSpell about your dictionary
+  "dictionaryDefinitions": [
+    {
+      "name": "core-dictionary",
+      "path": "./dictionaries/core-dictionary.txt",
+      "addWords": true
+    },
+    {
+      "name": "oauthTerms",
+      "path": "./dictionaries/oauthTerms.txt",
+      "addWords": true
+    },
+    {
+      "name": "securityTerms",
+      "path": "./dictionaries/securityTerms.txt",
+      "addWords": true
+    },
+    {
+      "name": "plantumlTerms",
+      "path": "./dictionaries/plantumlTerms.txt",
+      "addWords": true
+    },
+    {
+      "name": "miscTerms",
+      "path": "./dictionaries/miscTerms.txt",
+      "addWords": true
+    }
+  ]
+}

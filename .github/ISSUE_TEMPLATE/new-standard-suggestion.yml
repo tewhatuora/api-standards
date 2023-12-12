@@ -1,0 +1,33 @@
+name: "Suggest a new API Standard"
+description: Create a new issue to suggest a new API Standards
+title: "[NEW STANDARD] - <title>"
+labels: [
+  "newstandard"
+]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a detailed summary of the standard you are suggesting
+      placeholder: Describe your new standard suggestion
+    validations:
+      required: true
+  - type: textarea
+    id: drawbacks
+    attributes:
+      label: "Drawbacks"
+      description: What are the drawbacks/impacts of your new standard suggestion?
+      placeholder: Identify the drawbacks and impacts while being neutral and vendor agnostic on your standards suggestion
+    validations:
+      required: true
+  - type: checkboxes
+    id: standards-area
+    attributes:
+      label: Which area of the standards does this apply to?
+      description: You may select more than one.
+      options:
+        - label: Part B
+        - label: Part C
+        - label: FHIR
+
