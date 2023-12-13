@@ -33,4 +33,4 @@ jobs:
 
       - name: Sync files to S3 bucket
         run: |
-          aws s3 sync build s3://${{ secrets.S3_BUCKET_NAME }}}
+          aws s3 sync build s3://${{ secrets.S3_BUCKET_NAME }}
