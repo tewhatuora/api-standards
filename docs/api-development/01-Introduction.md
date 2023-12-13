@@ -6,11 +6,11 @@ title: Introduction
 Ready for review
 :::
 
-Digital health can transform the outcomes and experience of consumers if information is shared seamlessly. When digital products, services and information systems work together in this way, we call it being interoperable.
+Digital health can transform the outcomes and experience of health consumers if information is shared seamlessly. When digital products, services and information systems work together in this way, we call it being interoperable.
 
 The [HISO Interoperability Roadmap](https://www.tewhatuora.govt.nz/assets/Our-health-system/Digital-health/Health-information-standards/hiso-10083-2020-interoperability-roadmap-11sept2020.pdf) defines interoperability as a key enabler of the digital health ecosystem. Core to interoperability is the delivery of performant, secure and well documented application programming interfaces (APIs).
 
-The roadmap envisions a future where the Aotearoa health sector prioritises the creation of open APIs to enable reuse of data, transactions and rules, which, in turn, creates an opportunity for greater cooperation and interoperability between health sector participants to dramatically improve service design and delivery.
+The roadmap envisions a future where the health sector in Aotearoa prioritises the creation of open APIs to enable reuse of data, transactions and rules, which, in turn, creates an opportunity for greater cooperation and interoperability between health sector participants to dramatically improve service design and delivery.
 
 The health sector needs focused standards, guidance, approaches and techniques to help increase their knowledge and skills around APIs. There is a wide range in the level of knowledge and skill regarding API design and delivery across the sector. This document tries to offer a balance of guidance for those new to APIs along with quick lookup standards, which should assist sector participants in achieving consistency and commonality in their API deliverables.
 
