@@ -28,7 +28,7 @@ as the default. So, when is it better to build an API than a web
 application? Below are some situations where an API may be more
 appropriate:
 
-- When applications are screen scraping data your website
+- When applications are screen scraping data from your website
 
 - When your organisation holds a single authoritative source of the truth
 
@@ -42,11 +42,18 @@ appropriate:
 
 - Where businesses require easy access to (public) information
 
-- Where commercial organisations want to build capability into their own applications which will benefit the public (mobile/web apps)
+- Where commercial organisations want to build capability into their own applications that will benefit the public (mobile/web apps)
 
 - If you expect other parties to act as agents or intermediaries for services provided by your organisation
 
-- When multiple service delivery channels are in use
+- When multiple service delivery channels are in use.
+
+Developing traditional applications for each of these situations would be expensive
+and time consuming.  Developing APIs allows you to focus on the access to your data, the
+quality, integrity
+and security considerations to protect the value of the data while other organisations
+develop applications or uses for the data specific to them. This is a change in thinking
+from functionality and applications to make data available to others for them to use.
 
 ## Types of API
 
@@ -54,7 +61,7 @@ There are several different types of API and the type you choose may depend on t
 
 | API Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |               Status                |
 | :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------: |
-| **REST**              | Representational State Transfer (REST) is the most common and well understood API type. REST should be considered an architectural style for developing distributed hypermedia systems. There is a wealth of information and tooling to support the definition and creation of REST APIs. Typically, a REST API will have a well-defined and strongly typed schema definition (OpenAPI) where strict compliance can be achieved.                                    | Creating distributed system where a set of API resources are well defined. If medium latency resource creation or modification (POST, PUT, DELETE) is required then typically a REST API is a better fit. Typically used for synchronous interactions.                                                                                                                                                                                                                                                                                                                                     |    Supported :white_check_mark:     |
+| **REST**              | Representational State Transfer (REST) is the most common and well understood API type. REST should be considered an architectural style for developing distributed hypermedia systems. There is a wealth of information and tooling to support the definition and creation of REST APIs. Typically, a REST API will have a well-defined and strongly typed schema definition (OpenAPI) where strict compliance can be achieved.                                    | Creating distributed systems where a set of API resources are well defined. If medium latency resource creation or modification (POST, PUT, DELETE) is required then typically a REST API is a better fit. Typically used for synchronous interactions.                                                                                                                                                                                                                                                                                                                                     |    Supported :white_check_mark:     |
 |                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                     |
 | **GraphQL**           | GraphQL is an open source query and manipulation language developed by Facebook primarily designed to empower API consumers to consume only the data that they require. A common criticism of REST is that only the entire resource is available for consumption, sometimes referred to as “over fetching”, however with GraphQL the client decides the data that it requires. GraphQL also has a strongly typed schema (GraphQL Schema Definition Language – SDL). | An API that has a widely distributed client set with a variety of data requirements. Particularly well suited to high read (GET) clients                                                                                                                                                                                                                                                                                                                                                                                                                                                   |    Supported :white_check_mark:     |
 |                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                     |
@@ -97,7 +104,7 @@ SPS -[#Pink]> CA : POST /register
 note right of SPS
     This call is to enable the API Consumer
     to register their notification endpoint. Note
-    that this is illustrative only. In reality most
+    that this is illustrative only. In reality most API
     consumers will register with Te Whatu Ora using a
     developer portal or equivalent and create client
     application credentials with registered notification
@@ -157,8 +164,8 @@ APIs should not be tightly coupled to legacy applications, exposing
 whatever capabilities the legacy system offered. Nor should they be
 designed to work in the way the legacy system currently works.
 
-Instead they should be consumer driven – so built to expose the
-resources that consumers need, whether those resources are in legacy
+Instead they should be API consumer driven – so built to expose the
+resources that API consumers need, whether those resources are in legacy
 systems or new. There should not be a drive to expose an entire product
 via the API, or wait for the perfect backend system to be available.
 Just offer as much as is practically useful, then evolve it to meet
@@ -193,7 +200,7 @@ API, it also includes threat protection (DDoS, SQL Injection, Cross site
 scripting etc.) as well as availability and quality of service (QoS).
 When designing and developing APIs it is often cost effective to create
 a common framework that handles security for all APIs. See the
-associated document, [Part B: API Security](../api-security/introduction), for more details.
+associated document, [Part B: API Security](../api-security), for more details.
 
 #### Caching
 
@@ -225,8 +232,8 @@ skinparam {
     linetype ortho
     minRectangleWidth 1000
 }
-actor Consumer
-rectangle ConsumingApplication {
+actor "Health Sector Participant" as Consumer
+rectangle "API Consumer" as ConsumingApplication {
 
 }
 rectangle "            Security            " as S {
@@ -253,7 +260,7 @@ ConsumingApplication -[#blue,thickness=4]up-> Consumer
 
 ```
 
-<DetailedDescription text="The diagram illustrates the interactions between a consumer, a consuming application, security, caching, representation, and API components. The consumer initiates the process by sending a request down to the consuming application. The consuming application then calls the security component for authentication and authorization. The security component communicates with the caching component to retrieve or store data as needed. The security component then passes the request to the representation component, which transforms the data into the desired format. Finally, the representation component interacts with the API to retrieve or store data. The API responds to the representation component, which then updates the consuming application. The consuming application sends a response back to the consumer, completing the cycle." />
+<DetailedDescription text="The diagram illustrates the interactions between a health sector participant, an API consumer, security, caching, representation, and API components. The health sector participant initiates the process by sending a request down to the API consumer. The API consumer then calls the security component for authentication and authorization. The security component communicates with the caching component to retrieve or store data as needed. The security component then passes the request to the representation component, which transforms the data into the desired format. Finally, the representation component interacts with the API to retrieve or store data. The API responds to the representation component, which then updates the API consumer. The API consumer sends a response back to the health sector participant, completing the cycle." />
 
 ### Standards-Based
 
@@ -283,14 +290,14 @@ information about relevant standards.
 When designing an API, it is important to perform business process
 analysis to ensure that API development is business-driven rather than
 technology-driven. Technology driven projects rarely meet customers’
-needs in the long run, so it important to gain background in who could
-be using the API, for what. As mentioned previously, co-design is
+needs in the long run, so it is important to gain background in who could
+be using the API and for what. As mentioned previously, co-design is
 fundamental to driving the right API development. To help identify
 potential partners to involve in the co-design, consider:
 
-- processes which currently depend on information the API could expose
+- processes that currently depend on information the API could expose
 
-- processes which require a capability an API could expose
+- processes that require a capability an API could expose
 
 Some actors in the design process will be human such as [application developers](../api-concepts/ComponentDefinitions#application-developers) or [health sector participants](../api-concepts/ComponentDefinitions#health-sector-participants) whilst some
 actors will be [systems or organisations](../api-concepts/ComponentDefinitions#health-sector-organisations) that will interact with, or depend on, the
@@ -319,8 +326,8 @@ Usually this results in a poor API design and tightly couples the API
 design to the underlying data structure. Another common pitfall is to
 design APIs as an extension to, or way into, monolithic legacy systems.
 This should be avoided as it tightly couples the API to the legacy
-system. Both of these pitfalls will create issues for both provider and
-consumers in the long term.
+system. Both of these pitfalls will create issues for both API providers and
+API consumers in the long term.
 
 At this point in the design process, agility is probably more important
 than completeness. Share early design thoughts and interface
@@ -345,11 +352,11 @@ applications.
 The following considerations emerge when looking to develop APIs in the
 health sector:
 
-- Understand your data, understand your consumers. Before starting
+- Understand your data, understand your API consumers. Before starting
   work on APIs, gain a good understanding of what data you hold, the
   complexity of that data, its relationships to other data, the
-  downstream dependents on that data and potential consumers of the
-  data. It is also a good idea to understand your consumers' drivers
+  downstream dependents on that data and potential API consumers of the
+  data. It is also a good idea to understand your API consumers' drivers
   and downstream usage or customers.
 
 - Design for REST. If the interaction appears RESTful then develop a
@@ -364,7 +371,7 @@ health sector:
 - The information supplied via an API may still be dependent on
   overnight batch processes for update. It is worth making the
   information’s timeliness and update period clear to potential
-  consumers of the API.
+  API consumers.
 
 - APIs should not be used to handle large batch transfers because of
   the atomic nature of the usage i.e. if one single data write fails
@@ -390,7 +397,7 @@ This includes:
 ### Interface Specification First
 
 The best way to design an API is in collaboration with potential
-consumers of that API. Creating the interface specification first makes
+API consumers. Creating the interface specification first makes
 it easier for application developers to see what the API is going to
 offer and how it could be used. Their early feedback will ensure that
 the API design is heading on the right track and will be usable and
@@ -407,10 +414,10 @@ offering gradual improvement or evolving capability, gives a finer tuned
 delivery, better sense of momentum, illustrates progress and enables
 third parties to coordinate efforts with API developments.
 
-An iterative approach incorporates continuous improvement, which
+An iterative approach incorporates continuous improvement, that
 recognises the need to support continuing evolvement of the API beyond
 the first delivery. The API is a product whose capabilities should
-undergo continuing improvements based on consumer feedback, performance
+undergo continuing improvements based on API consumer feedback, performance
 analytics and emerging needs. This aligns to Phase 6 in the Accelerate
 framework.
 
@@ -462,7 +469,7 @@ offering the ability to comment on the images it would make
 sense, for clarity and ease of use, to offer these as separate
 sub-resources, for example, notes or comments.
 
-It is important to aim for a granularity which will prevent business
+It is important to aim for a granularity that will prevent business
 logic from leaking into the API e.g. requiring API calls to be made in a
 certain sequence to meet with internal business processes. With the
 imaging example, consider the impact of a fine-grained API being
@@ -488,8 +495,8 @@ General guidelines are:
   state transition
 
 - Resources can be identified by reviewing a business process and
-  identifying the key entities which underpin the process. Any
-  entities which the organisation manages or maintains throughout its
+  identifying the key entities that underpin the process. Any
+  entities that the organisation manages or maintains throughout its
   full lifecycle will be potential API resources. There is typically
   one API operation for each entity lifecycle state transition.
 
@@ -502,7 +509,7 @@ General guidelines are:
 
 ## Interface Specification
 
-An API represents a contract between the provider and the consumer for
+An API represents a contract between the API provider and the API consumer for
 access to provider resources. Because API consumption is a programmatic
 exercise, it is important to have a clear definition of what the API
 offers and how those API resources are to be accessed. This definition
@@ -550,7 +557,7 @@ creates a new logical API resource by combining related data held in two
 or more back end systems.
 
 A mashup is not appropriate when you create an API that merges two
-distinct API products together. If a consumer requires this
+distinct API products together. If an API consumer requires this
 functionality the mashup should be performed by the consuming
 application.
 
