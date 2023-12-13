@@ -40,7 +40,7 @@ critical when it comes time to implement aspects of the API
 lifecycle, such as deprecation, or notification of an outage. It
 also enables the API provider to implement different service levels for
 different consumers. E.g. commercial customers might have a higher
-request limit per day than customers not paying for the use of the.
+request limit per day than customers not paying for the use of the API.
 
 Ensuring application developers register for use of the API also means
 they must sign up to terms and conditions that define how they might use
@@ -141,9 +141,7 @@ application/service do not have to run on the same device (e.g.
 smartphone) or be linked.
 
 In the CIBA flow the initial authorisation call is made to the new
-(OAuth2) backchannel authentication endpoint,
-
-and the authorisation server then delegates the authentication and
+(OAuth2) backchannel authentication endpoint and the authorisation server then delegates the authentication and
 consent approval tasks to the authentication device (smartphone) of
 the user, who will accept or deny the request.
 
@@ -158,7 +156,7 @@ flows:
    Server and then it requests the token
 
 - Push – The Authorisation server, when it receives approval from the
-   authentication device pushed the Access, ID Token and Refresh token
+   authentication device pushes the Access ID Token and Refresh token
    to the client
 
 ```plantuml
@@ -291,8 +289,8 @@ The CIBA flow is not widely used and is included here as guidance for API design
 **<span class="smallcaps">Appropriate authorisation MUST be applied</span>**
 
 Authorisation is the act of performing access control on a resource.
-Authorisation doesn’t just cover the enforcement of access controls,
-but also the definition of those controls. This includes the access
+Authorisation covers both the definition of access controls and the enforcement of those controls.
+ This includes the access
 rules and policies, which should define the required level of access
 agreeable to both provider and consuming application. The foundation
 of access control is a provider granting or denying a consuming
@@ -316,7 +314,7 @@ process is applied using either a coarse grained or fine-grained
 access control process.
 
 The normal model is to provide coarse grained access at the API or API
-Gateway request point, and fine-grained control at the API Provider service implementation
+Gateway request point, and fine-grained control at the API Provider service implementation.
 
 ### Role Based Access Controls (RBAC)
 
