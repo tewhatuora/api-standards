@@ -4,8 +4,8 @@ sidebar_position: 1
 slug: /
 ---
 
-:::warning[In Development]
-This section is in development and is not complete or ready for review.
+:::tip[Status]
+Ready for review
 :::
 
 Learn about how Te Whatu Ora are implementing APIs to their systems and what the benefits are of doing this.
