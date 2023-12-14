@@ -49,7 +49,7 @@ API designers/developers **MUST** ensure the API implementation adheres to all o
 The following resources are recommended reading for those who are new to API implementation.
 :::
 
-- Design Driven Development (refer to Part C)
+- [<u>Design Driven Development</u>](../api-development/API%20Design#design-driven-development)
 
 - [<u>OWASP Top Ten</u>](https://owasp.org/www-project-top-ten/) – A
   summary of the standard attacks and mitigations

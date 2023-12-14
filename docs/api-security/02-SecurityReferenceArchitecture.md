@@ -116,6 +116,15 @@ information, then only a solution for enforcing threat protection
 (i.e. Denial of Service) might be required, and this could be
 delivered using an existing service protection capability.
 
+| Component | Functions |
+|--|--|
+|API Developer Portal |The API Portal often provides the following functions for internal and external application developers:<li>Discovery of APIs</li><li>Analytics to monitor APIs</li><li>Access to specifications and descriptions of APIs, includingSLAs</li><li>Social network capability to share and publish ideas</li><li>Also supports the development, build and test of consuming applications.</li>|
+|API Manager |The API Manager functions cover:<li>Centralised API administration and governance for APIcatalogues</li><li>Management of registration and on-boarding processes for communities of API developers</li><li>Lifecycle Management of APIs</li><li>Applying pre-defined security profiles</li><li>Security policy administration / definition</li><li>Policy evaluation</li>|
+|API Gateway|The API Gateway capability can provide:<li>Act as the API proxy or the host acting as the primary point of access for exposed APIs</li><li>Enforce threat protection, throttling and quota management</li><li>Authorisation Services to control access to APIs</li><li>Authentication Services to ensure only permitted users(internal/external) have access to the API</li><li>Security Policy enforcement</li>|
+|Event Broker|The Event Broker (or "broker") is responsible for:<li>Receiving events (aka messages) from publishers and making them available to subscribers, that is, the API consumers who have registered interest in events of that type.</li><li>Brokers often store events until they have been consumed, which is what makes event driven architectures very resilient to failures.</li><li>Examples of commercially available event brokers are RabbitMQ, Apache Kafka and Solace.</li><li>The [<u>AsyncAPI standard</u>](https://www.asyncapi.com/docs) ensures that event driven architectures and APIs can be standardised.</li>|
+|Monitoring and analytics for business and security analysts|Business owners and security specialists need to be able to monitor the use of APIs:<li>Monitor uptake of API services</li><li>Define when to deprecate an old version</li><li>Profile usage for business</li><li>Profile usage for security baselines</li><li>Detect and respond to security events (SEIM)</li><li>This helps adapt to change in usage/demand.</li>|
+| Credential Stores | The credential stores are identity and key stores which are used to securely store:<li>Internal and external user objects, and possibly groups</li><li>API keys and secrets, certificates etc.</li><br/>These stores are used by the API Gateway for authorisation and authentication services|
+
 <table>
 <colgroup>
 <col  />

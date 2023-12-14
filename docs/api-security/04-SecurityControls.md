@@ -23,7 +23,7 @@ Using the Resource Type definition detailed in FHIR, the controls above will be 
 |---|---|---|
 |Anonymous Read Access|<li>Does not contain any individual data, or business sensitive data</li><li>Contains important information that must be authenticated back to the source publishing them</li>**Examples:**<li>Capability Statement</li><li>Clinical User Definition</li>| PUBLIC|
 |Business Sensitive|<li>Does not contain any individual data</li><li>Contains data that describe business or service sensitive data</li><li>Contains data related to organisation, location, or other group that is not identifiable as individuals</li>**Examples:**<li>Location</li><li>Medication</li>| IN-CONFIDENCE|
-|Individual Sensitive|<li>Does NOT contain Patient data</li><li>Contains individual information about other participants i.e. Practitioners and Practitioner Role.</li> **Examples;**<li>Practitioner</li><li>Practitioner Role</li>| IN-CONFIDENCE|
+|Individual Sensitive|<li>Does NOT contain Patient data</li><li>Contains individual information about other participants i.e. Practitioners and Practitioner Role.</li> **Examples**<li>Practitioner</li><li>Practitioner Role</li>| IN-CONFIDENCE|
 |Patient Sensitive|<li>Contain highly sensitive health information</li><li>Closely linked to highly sensitive health information</li>**Examples:**<li>Procedure</li><li>Invoices</li>| SENSITIVE|
 
 The following controls are recommended by the FHIR specification and **MUST** be implemented by the API provider:

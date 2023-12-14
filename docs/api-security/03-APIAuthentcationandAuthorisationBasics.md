@@ -178,7 +178,7 @@ skinparam {
 scale 700 width
 scale 1768 height
 
-Actor "Health Sector Participant\" as customer
+Actor "Health Sector Participant" as customer
 Entity "API Consumer" as tp
 Entity "Edge Network Components" as edge
 Entity "API Provider IDP" as apipa

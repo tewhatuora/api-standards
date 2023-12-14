@@ -1,5 +1,5 @@
 ---
-title: Glossary
+title: Glossary of Terms
 ---
 
 - **Authentication** is the process of verifying the identity of a

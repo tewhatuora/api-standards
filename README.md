@@ -13,7 +13,7 @@
     This GitHub project is the source repository for the Te Whatu Ora API Development and Security Standards project, which are officially published at [updateme].
     <br />
     <br />
-    <a href="https://google.com">View standards website</a>
+    <a href="https://dhzf2wyhwgplf.cloudfront.net/">View standards website</a>
     ·
     <a href="https://github.com/tewhatuora/api-standards/issues">Submit feedback</a>
   </p>
