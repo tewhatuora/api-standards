@@ -168,3 +168,54 @@ As discussed in [HTTP Verbs - PUT](./HTTPVerbs#put) there are some scenarios in 
 | Performance when conflicts are rare | Good | Bad |
 | Performance when conflicts are common | Bad | Good |
 | Deadlocks | Fewer | More |
+
+Optimistic and pessimistic concurrency differ in their strategies for preventing data inconsistencies when multiple API consumers or health sector participants attempt to modify the same resource at the same time.
+
+### Optimistic Concurrency
+
+**Assumption:** Concurrency conflicts are rare, and most requests will succeed without conflicting with others.
+**Mechanism:** No explicit locking is used before modifying data.
+**Validation:** When a request arrives, the server checks if the data has changed since the client retrieved it (e.g., using version numbers or timestamps).
+**Conflict Resolution:** If the data has changed, the server returns a conflict error, and the client must retry the operation with the updated data.
+
+#### Optimistic Concurrency Advantages
+
+- Higher performance: No locking overhead, so potentially faster response times.
+- Scalability: Handles concurrent requests better in scenarios with low conflict rates.
+- Simplicity: Easier to implement for developers.
+
+#### Optimistic Concurrency Disadvantages
+
+- Data inconsistencies can occur if conflicts are not handled properly.
+- Requires additional logic for conflict resolution on the server and client.
+- May not be suitable for highly contested resources.
+
+### Pessimistic Concurrency
+
+**Assumption:** Concurrency conflicts are frequent, and data needs protection from simultaneous modifications.
+**Mechanism:** Explicit locking is used before modifying data.
+**Locking:** A client acquires a lock on the resource before making changes. Other clients attempting to access the resource are blocked until the lock is released.
+**Validation:** Locking ensures data consistency during the locked period.
+**Conflict Resolution:** No conflicts can occur as data is locked during modifications.
+
+#### Pessimistic Concurrency Advantages
+
+- Strong consistency guarantees: No risk of data inconsistencies.
+- Predictable behavior: Easier to reason about the state of data.
+- Suitable for highly contested resources.
+
+#### Pessimistic Concurrency Disadvantages
+
+- Lower performance: Locking overhead can lead to slower response times and reduced concurrency.
+- Scalability challenges: Locking can become a bottleneck in high-traffic scenarios.
+- Complexity: Requires additional infrastructure and logic for managing locks.
+- Choosing the Right Approach:
+
+The best approach for your API depends on several factors:
+
+- Frequency of concurrent access: If conflicts are rare, optimistic concurrency might be sufficient.
+- Acceptable data inconsistency risk: How critical is it to avoid data inconsistencies?
+- Performance requirements: Can your system handle the overhead of pessimistic locking?
+- Complexity considerations: How easy is it to implement and maintain pessimistic locking in your API?
+
+Typically, optimistic concurrency is preferred for APIs due to its simplicity and scalability. However, pessimistic concurrency is necessary for scenarios where data consistency is paramount and conflicts are frequent.
