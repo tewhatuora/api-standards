@@ -160,26 +160,11 @@ specifications are available for reference [here](../api-specifications/example-
 
 ### Future-Focused Design
 
-APIs should not be tightly coupled to legacy applications, exposing
-whatever capabilities the legacy system offered. Nor should they be
-designed to work in the way the legacy system currently works.
+APIs should avoid exposing obsolete or legacy structures or functions.
 
-Instead they should be API consumer driven – so built to expose the
-resources that API consumers need, whether those resources are in legacy
-systems or new. There should not be a drive to expose an entire product
-via the API, or wait for the perfect backend system to be available.
-Just offer as much as is practically useful, then evolve it to meet
-needs. Design the API interface to be abstracted from the backend, so
-that backend systems can be changed or replaced over time without
-needing to change the interface.
+Good API design seeks to avoid future breakage in dependent consumer applications by minimising functions, data structures and behaviour exposed, while planning for (at least signalling) foreseeable future change.  
 
-The aim is to be future-focused (whilst still pragmatic) and develop
-APIs to meet future needs. A good example of being future focussed is
-building APIs to support HATEOAS (Hypermedia as the Engine of
-Application State). This is where an API, in response to a consuming
-application's request, is programmed to return hyperlinks (URLs) which
-indicate the options for subsequent actions or information. See
-[HATEOAS](./Content#hateoas) for more details on HATEOAS.
+Like any interface that has to be maintained, **less is definitely more** when it comes to functions, structures and behaviour exposed.
 
 ### Layering
 
@@ -211,56 +196,46 @@ consideration, as well as which layer it is most appropriate to cache
 at. A common caching strategy should be developed for APIs that would
 benefit from it. See [Caching](./Caching) for more details.
 
-#### Representation
+```plantuml alt="PlantUML diagram of API layering"
 
-When designing and developing an API it is important to consider the
-representation of that API. This commonly includes an interface
-specification that fully describes the API. To ensure the success of an
-API it should be easy to consume driving a well-considered
-representation layer.
-
-```plantuml alt="PlantUML diagram describing the API representation layer"
 @startuml
+
+scale max 400 width
+'left to right direction
+
 skinparam {
+    arrowThickness 2
+    arrowColor #Green
     defaultFontColor #4080a9
     defaultBackgroundColor #d7f8ff
-    defaultComponentColour #61d9de
+    defaultComponentColour #GhostWhite
     defaultActorColour #61d9de
-    defaultFontSize 16
-    defaultArrowThickness 6
+    defaultFontSize 12
     actorStyle awesome
     linetype ortho
-    minRectangleWidth 1000
+    minRectangleWidth 100
 }
-actor "Health Sector Participant" as Consumer
-rectangle "API Consumer" as ConsumingApplication {
+actor "Health\nSector\nParticipant" as Consumer
+component "API Consumer" as APIC
+component "Security" as S
+component "Caching" as C
+component "**API**" as API #LightSalmon
 
-}
-rectangle "            Security            " as S {
-}
-rectangle "            Caching            " as C{
-}
-rectangle "         Representation        " as Representation{
-}
-rectangle "              API              " as API #LightSalmon{
-}
-Consumer -[#green,thickness=4]down-> ConsumingApplication
-ConsumingApplication -[#green,thickness=4]down-> S
-S -[#green,thickness=4]down-> C
-C -[#green,thickness=4]down-> Representation
-Representation -[#green,thickness=4]down-> API
+Consumer -r-> APIC
+APIC -r-> S
+S -r-> C
+C -r-> API
 
-API -[#blue,thickness=4]up-> Representation
-Representation -[#blue,thickness=4]up-> C
-C -[#blue,thickness=4]up-> S
-S -[#blue,thickness=4]up-> ConsumingApplication
-ConsumingApplication -[#blue,thickness=4]up-> Consumer
+API -[#blue,dotted]l-> C
+C -[#blue,dotted]l-> S
+S -[#blue,dotted]l-> APIC
+APIC -[#blue,dotted]l-> Consumer
 
 @enduml
 
 ```
 
-<DetailedDescription text="The diagram illustrates the interactions between a health sector participant, an API consumer, security, caching, representation, and API components. The health sector participant initiates the process by sending a request down to the API consumer. The API consumer then calls the security component for authentication and authorization. The security component communicates with the caching component to retrieve or store data as needed. The security component then passes the request to the representation component, which transforms the data into the desired format. Finally, the representation component interacts with the API to retrieve or store data. The API responds to the representation component, which then updates the API consumer. The API consumer sends a response back to the health sector participant, completing the cycle." />
+<DetailedDescription text="The diagram illustrates the interactions between a health sector participant, an API consumer, security, caching and API components. The health sector participant initiates the process by performing some action within the API consumer. The API consumer makes a request and calls the security component for authentication and authorization. The security component communicates with the cache which fulfils or passes through the data request as needed. Behind the cache is the API component itself which implements the API's operations and defines the representation of data served. A response flow returns data to the API consumer in the opposite direction." />
 
 ### Standards-Based
 

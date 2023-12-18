@@ -39,7 +39,7 @@ skinparam {
 skinparam defaultTextAlignment centre
 allowmixing
 
-package "Health Sector\lParticipants" as HSP {
+package "Health Sector Participants" as HSP {
     actor "Health Consumers" as HC
     actor Practitioners
     actor Providers
@@ -51,16 +51,16 @@ package "API Consumers" as Devices {
     component "Server App" as SA
 }
 
-package "API Monitoring\lAPI Analytics\lAPI Policy Definition" as AAPD #LightGreen {
+package "API Monitoring | Analytics | Policy Definition" as AAPD #LightGreen {
     component "API Developer\n      Portal" as ADP
     component "API Manager" as AM
     component "API Gateway" as AG
 }
-package "API\lDocumentation" as APID #LightSalmon {
+package "API documentation" as APID #LightSalmon {
     artifact "AsyncAPI\n   Spec"
     artifact "OpenAPI\n   Spec"
 }
-package "Internal\lStaff" {
+package "Internal Staff" {
     actor "Application\nDevelopers" as IAppD
     actor "      API\nDevelopers" as IAD
     actor "Business Owners\n    and Security" as IBOS
@@ -88,7 +88,7 @@ APID -up-> ADP
 @enduml
 ```
 
-<DetailedDescription text="The diagram captures the interactions between various actors, components, and artifacts within the healthcare ecosystem, emphasizing the roles of API developers, API managers, and API consumers. It also highlights the importance of secure interactions, API documentation, and identity management in enabling seamless API usage. The diagram is divided into several packages, each representing a distinct area of focus within the healthcare ecosystem. These packages include: Health Sector Participants (HSP): Encapsulates the key actors within the healthcare system, namely Health Consumers, Practitioners, and Providers. API Consumers: Represents the various devices used to access and interact with the healthcare system, including Browser-based Web Apps, Mobile Apps, and Server Apps. API Monitoring, API Analytics, API Policy Definition (AAPD): Encompasses the tools and functionalities for managing and governing APIs, including API Developer Portal, API Manager, and API Gateway. API Documentation (APID): Highlights the documentation artifacts that serve as guidelines for API development, including AsyncAPI Spec and OpenAPI Spec. Internal Staff: Represents the internal personnel involved in the development and management of the healthcare system, including Application Developers, API Developers, and Business Owners and Security. External Developers: Encapsulates external application developers who may utilize the healthcare system's APIs. Key Relationships: The diagram illustrates several significant relationships between the various components: Device Interaction with API Gateway: API Consumers, including Browser-based Web Apps, Mobile Apps, and Server Apps, communicate with the API Gateway to access and utilize the healthcare system's APIs. API Developer Portal and API Documentation Access: Application Developers and API Developers interact with the API Developer Portal to access and utilize API documentation, such as AsyncAPI Spec and OpenAPI Spec. API Management and Governance: The API Developer Portal, API Manager, and API Gateway work together to manage, govern, and secure the healthcare system's APIs. Identity Management: The Identity Store serves as a central repository for managing user identities and access permissions, ensuring secure access to the healthcare system's resources. API Consumption: External Application Developers can access and utilize the healthcare system's APIs through the API Developer Portal and API Gateway. Additional Elements: Collections: The Applications collection represents the various applications that utilize the healthcare system's APIs. Artifact: The OpenAPI Spec artifact highlights the importance of OpenAPI Specification in defining the structure and behavior of the APIs."/>
+<DetailedDescription text="The diagram captures the interactions between various actors, components, and artifacts within the healthcare ecosystem, emphasizing the roles of API developers, API managers, and API consumers. It also highlights the importance of secure interactions, API documentation, and identity management in enabling seamless API usage. The diagram is divided into several packages, each representing a distinct area of focus within the healthcare ecosystem. These packages include: Health Sector Participants (HSP): Encapsulates the key actors within the healthcare system, namely Health Consumers, Practitioners, and Providers. API Consumers: Represents the various devices used to access and interact with the healthcare system, including Browser-based Web Apps, Mobile Apps, and Server Apps. API Monitoring, API Analytics, API Policy Definition (AAPD): Encompasses the tools and functionalities for managing and governing APIs, including API Developer Portal, API Manager, and API Gateway. API Documentation (APID): API specifications for developers including AsyncAPI Spec and OpenAPI Spec. Internal Staff: Represents the internal personnel involved in the development and management of the healthcare system, including Application Developers, API Developers, and Business Owners and Security. External Developers: Encapsulates external application developers who may utilize the healthcare system's APIs. Key Relationships: The diagram illustrates several significant relationships between the various components: Device Interaction with API Gateway: API Consumers, including Browser-based Web Apps, Mobile Apps, and Server Apps, communicate with the API Gateway to access and utilize the healthcare system's APIs. API Developer Portal and API Documentation Access: Application Developers and API Developers interact with the API Developer Portal to access and utilize API documentation, such as AsyncAPI Spec and OpenAPI Spec. API Management and Governance: The API Developer Portal, API Manager, and API Gateway work together to manage, govern, and secure the healthcare system's APIs. Identity Management: The Identity Store serves as a central repository for managing user identities and access permissions, ensuring secure access to the healthcare system's resources. API Consumption: External Application Developers can access and utilize the healthcare system's APIs through the API Developer Portal and API Gateway. Additional Elements: Collections: The Applications collection represents the various applications that utilize the healthcare system's APIs. Artifact: The OpenAPI Spec artifact highlights the importance of OpenAPI Specification in defining the structure and behavior of the APIs."/>
 
 The components defined remain valid no matter what API architecture
 (internal, cloud, hybrid) is implemented.
@@ -115,15 +115,6 @@ public consumption and only allows consuming applications to read
 information, then only a solution for enforcing threat protection
 (i.e. Denial of Service) might be required, and this could be
 delivered using an existing service protection capability.
-
-| Component | Functions |
-|--|--|
-|API Developer Portal |The API Portal often provides the following functions for internal and external application developers:<li>Discovery of APIs</li><li>Analytics to monitor APIs</li><li>Access to specifications and descriptions of APIs, includingSLAs</li><li>Social network capability to share and publish ideas</li><li>Also supports the development, build and test of consuming applications.</li>|
-|API Manager |The API Manager functions cover:<li>Centralised API administration and governance for APIcatalogues</li><li>Management of registration and on-boarding processes for communities of API developers</li><li>Lifecycle Management of APIs</li><li>Applying pre-defined security profiles</li><li>Security policy administration / definition</li><li>Policy evaluation</li>|
-|API Gateway|The API Gateway capability can provide:<li>Act as the API proxy or the host acting as the primary point of access for exposed APIs</li><li>Enforce threat protection, throttling and quota management</li><li>Authorisation Services to control access to APIs</li><li>Authentication Services to ensure only permitted users(internal/external) have access to the API</li><li>Security Policy enforcement</li>|
-|Event Broker|The Event Broker (or "broker") is responsible for:<li>Receiving events (aka messages) from publishers and making them available to subscribers, that is, the API consumers who have registered interest in events of that type.</li><li>Brokers often store events until they have been consumed, which is what makes event driven architectures very resilient to failures.</li><li>Examples of commercially available event brokers are RabbitMQ, Apache Kafka and Solace.</li><li>The [<u>AsyncAPI standard</u>](https://www.asyncapi.com/docs) ensures that event driven architectures and APIs can be standardised.</li>|
-|Monitoring and analytics for business and security analysts|Business owners and security specialists need to be able to monitor the use of APIs:<li>Monitor uptake of API services</li><li>Define when to deprecate an old version</li><li>Profile usage for business</li><li>Profile usage for security baselines</li><li>Detect and respond to security events (SEIM)</li><li>This helps adapt to change in usage/demand.</li>|
-| Credential Stores | The credential stores are identity and key stores which are used to securely store:<li>Internal and external user objects, and possibly groups</li><li>API keys and secrets, certificates etc.</li><br/>These stores are used by the API Gateway for authorisation and authentication services|
 
 <table>
 <colgroup>
@@ -243,7 +234,7 @@ skinparam {
 skinparam defaultTextAlignment centre
 allowmixing
 
-package "Health Sector\lParticipants" as HSP {
+package "Health Sector Participants" as HSP {
     actor "Health Consumers" as HC
     actor Practitioners
     actor Providers
@@ -255,7 +246,7 @@ package "Devices" {
     component "Server App" as SA
 }
 
-package "API Monitoring\lAPI Analytics\lAPI Policy Definition" as AAPD #LightGreen {
+package "API Monitoring | Analytics | Policy Definition" as AAPD #LightGreen {
     'package "External" {
         component EAS #LightCyan[
             **External API Stack:**
@@ -274,20 +265,20 @@ package "API Monitoring\lAPI Analytics\lAPI Policy Definition" as AAPD #LightGre
     '}
     component "Identity\nStore" as IS
 }
-package "API\lDocumentation" as APID #LightSalmon {
+package "API Documentation" as APID #LightSalmon {
     artifact "AsyncAPI\n   Spec"
     artifact "OpenAPI\n   Spec"
 }
-package "Internal\lStaff" as IStaff {
+package "Internal Staff" as IStaff {
     actor "Application\nDevelopers" as IAppD
     actor "      API\nDevelopers" as IAD
     actor "Business Owners\n    and Security" as IBOS
 
 }
-package "Internal Consumer\nApplications" as IApp {
+package "Internal Applications" as IApp {
     collections "Applications" as IApps
 }
-package "External\lDevelopers" as ED {
+package "External Developers" as ED {
     actor "Application\nDevelopers" as EAD
 }
 

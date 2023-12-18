@@ -48,10 +48,9 @@ the data they get from the API, and that they agree to ensure that their
 API consumer(s) will behave in an acceptable and non-abusive manner that
 preserves the privacy of the information owner.
 
-### Authentication Techniques
+### Authentication Mechanisms
 
-The diagram below lists the authentication techniques that can be used
-to secure APIs.
+The diagram below identifies mechanisms and recommended usage for API security.
 
 ```plantuml
 @startuml
@@ -70,28 +69,31 @@ skinparam {
 }
 
 allowmixing
-'top to bottom direction
+top to bottom direction
 
-rectangle Usage {
-    rectangle "Not Recommended                                   " as NR
-    rectangle "Not recommended for public facing APIs.\n\n---\n* Sometimes useful in non-production\n   environments" as NRPFA
-    rectangle "Recommended for **all** APIs.                      \n\n---\n* Used to identify API Consumer" as RAA
-    rectangle "Usually B2B although common in              \nthe Health Sector.\n\n---\n* Discouraged for practitioner identity.\n* Mandatory in some standards\n   e.g. Payments NZ" as D
-    rectangle "Recommended for internal and external  \nAPIs." as R
-    rectangle "Recommended where an OpenID Connect\nProvider is available." as ROIDC
-}
-
-rectangle "Authentication Mechanisms" {
-    rectangle "Anonymous" as Anonymous
-    rectangle "Username and Password" as UAP
+package "Authentication Mechanisms" as mech {
+    rectangle "Anonymous" as ANON
+    rectangle "Username \n& Password" as UAP
     rectangle "API Key" as AK
-    rectangle "Certificates (mTLS)" as MTLS
+    rectangle "Mutual Certificates (mTLS)" as MTLS
     rectangle OAUTH {
         rectangle "OAuth2" as OAuth2
         rectangle "Open ID Connect (OIDC)" as OIDC
     }
 }
-Anonymous -[hidden]- UAP
+
+package "Recommended Usage" as usage {
+    rectangle "Not recommended" as NR
+    rectangle "Not recommended for public APIs.\n* Can use in pre-prod environments" as NRPFA
+    rectangle "Recommended for **all** APIs.\n* Use to identify API Consumer" as RAA
+    rectangle "Common for B2B; In use in NZ health sector.\n* Discouraged for practitioner identity.\n* Mandated in some standards eg. Payments NZ" as D
+    rectangle "Recommended for public and internal APIs." as R
+    rectangle "Recommended where an OpenID\nConnect Provider available." as ROIDC
+}
+
+mech -[hidden]r- usage
+
+ANON -[hidden]- UAP
 UAP -[hidden]- AK
 AK -[hidden]- MTLS
 MTLS -[hidden]- OAUTH
@@ -102,13 +104,13 @@ RAA -[hidden]- D
 D -[hidden]- R
 R -[hidden]- ROIDC
 
+ANON -r-> NR
+UAP -r-> NRPFA
+AK -r-> RAA
+MTLS -r-> D
+OAuth2 -r-> R
+OIDC -r-> ROIDC
 
-NR -right-> Anonymous
-NRPFA -right-> UAP
-RAA -right-> AK
-D -right-> MTLS
-R -right-> OAUTH
-ROIDC -right-> OIDC
 @enduml
 ```
 
@@ -178,7 +180,7 @@ skinparam {
 scale 700 width
 scale 1768 height
 
-Actor "Health Sector Participant" as customer
+Actor "Health Sector Participant\" as customer
 Entity "API Consumer" as tp
 Entity "Edge Network Components" as edge
 Entity "API Provider IDP" as apipa

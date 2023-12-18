@@ -1,6 +1,9 @@
 AAPD
 allowmixing
+APIC
 APIG
+apipa
+apips
 APPD
 APPT
 APRD
@@ -8,6 +11,7 @@ asend
 asstart
 autonumber
 benzathine
+consentapp
 CONTMEDSTMT
 crowsfoot
 datamodel
@@ -32,6 +36,7 @@ n'cacheid
 NNXXXX
 nodesep
 norank
+NRPFA
 NZCONDITION
 NZMEDICATIONREQUEST
 NZMEDICATIONSTATEMENT
@@ -41,6 +46,7 @@ plantuml
 PUML_ENTITY
 ranksep
 RFCCS
+ROIDC
 roundcorner
 skinparam
 startuml
