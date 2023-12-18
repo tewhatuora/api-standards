@@ -5,7 +5,7 @@ title: Security Controls
 Ready for review
 :::
 
-Depending on the classification of the information that is presented in the APIs and the Risk Framework applied different access controls will need to be applied. This section provides a summary of the controls that **SHOULD** be implemented when protecting Health APIs. The five areas that **MUST** be considered are:
+Depending on the classification of the information that is presented in the APIs and the Risk Framework applied, different access controls will need to be applied. This section provides a summary of the controls that **SHOULD** be implemented when protecting Health APIs. The five areas that **MUST** be considered are:
 
 - Confidentiality
 
@@ -33,7 +33,7 @@ The following controls are recommended by the FHIR specification and **MUST** be
 |Anonymous Read Access|<li>No access control based on the user or system requesting are required</li><li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li>|
 |Business Sensitive|<li>Client authentication is required to assure that only authorized access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
 |Individual Sensitive|<li>Apply RBAC or ABAC access polices</li>|
-Patient Sensitive|<li>often requires a declared Purpose Of Use</li><li>controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
+Patient Sensitive|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
 
 ## Confidentiality and Integrity
 
@@ -41,22 +41,22 @@ Confidentiality and integrity cover the handling of request and response data, b
 
 |Data Classification | Control|
 |---|---|
-|Public|<li>TLS 1.3 **MUST** be applied between client, authorisation server and resource server</li><li>**MAY** encrypt the payload</li><li>Authentication **MAY** be applied</li><li>Course grained Authorisation **MAY** be applied</li>|
-|In-Confidence|<li>TLS 1.3 **MUST** be applied, MTLS **MAY** be applied, between client, authorisation server and resource server</li><li>Encryption of the payload **SHOULD** be considered</li><li>Strong AUthentication **SHOULD** be applied</li><li>Fine grained Authorisation **SHOULD** be applied using ABAC or RBAC</li>|
-|Sensitive|<li>TLS 1.3 MTLS **MUST** applied between client, authorisation server and resource server</li><li>The Payload **MUST** be encrypted</li><li>Security Tags (labels) **MUST** be used for FHIR APIs to apply the masking or removal sensitive data in the response</li><li>Strong Authentication **MUST** be applied</li><li>Course grained Authorisation **MUST** be applied</li><li>Fine grained Authorisation **MUST** be applied</li>|
+|Public|<li>TLS 1.3 **MUST** be applied between client, authorisation server and resource server</li><li>**MAY** encrypt the payload</li><li>Authentication **MAY** be applied</li><li>Coarse grained Authorisation **MAY** be applied</li>|
+|In-Confidence|<li>TLS 1.3 **MUST** be applied, MTLS **MAY** be applied, between client, authorisation server and resource server</li><li>Encryption of the payload **SHOULD** be considered</li><li>Strong Authentication **SHOULD** be applied</li><li>Fine grained Authorisation **SHOULD** be applied using ABAC or RBAC</li>|
+|Sensitive|<li>TLS 1.3 MTLS **MUST** applied between client, authorisation server and resource server</li><li>The Payload **MUST** be encrypted</li><li>Security Tags (labels) **MUST** be used for FHIR APIs to apply the masking or removal sensitive data in the response</li><li>Strong Authentication **MUST** be applied</li><li>Coarse grained Authorisation **MUST** be applied</li><li>Fine grained Authorisation **MUST** be applied</li>|
 
 The following table details the data classification application for API Security using OAuth 2 and OpenID Connect:
 
 |Data Classification | API Security Control (Grant Flows)|
 |---|---|
-|Public|<li>Client Credentials with Scopes **MAY** be applied</li><li>Implicit Grant flow with PKCE **MAY** be applied</li><li>Authorisation Code grant with PKCE **MAY** be Applied</li>|
-|In-confidence|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **SHOULD** be Applied</li>|
-|Sensitive|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **MUST** be Applied</li> |
+|Public|<li>Client Credentials with Scopes **MAY** be applied</li><li>Implicit Grant flow with PKCE **MAY** be applied</li><li>Authorisation Code grant with PKCE **MAY** be applied</li>|
+|In-confidence|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **SHOULD** be applied</li>|
+|Sensitive|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **MUST** be applied</li> |
 
 |Grant Type| Control Required|
 |---|---|
 |Client Credentials with Scopes|<li>OAuth 2 **SHOULD** be applied, **MAY** use OpenID Connect</li><li>Client_secret_post token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MAY** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li>|
-|Implicit grant ith PKCE |<li>OpenID Connect **SHOULD** be applied using an openid scope in the authentication request</li><li>Client_secret_post or client_secret_jwt or private_key_jwt token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **SHOULD** be allied to mitigate stolen authorisation codes</li><li>The response_type **SHOULD** be id_token token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>If OpenID Connect is used The nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li>|
+|Implicit grant with PKCE |<li>OpenID Connect **SHOULD** be applied using an openid scope in the authentication request</li><li>Client_secret_post or client_secret_jwt or private_key_jwt token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **SHOULD** be allied to mitigate stolen authorisation codes</li><li>The response_type **SHOULD** be id_token token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>If OpenID Connect is used the nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li>|
 | Authorisation Code grant with PKCE  |<li>OpenID Connect **MUST** be applied using an openid scope in the authentication request</li><li>private_key_jwt token endpoint authorisation **MUST** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **MUST** be applied to mitigate stolen authorisation codes</li><li>The response_type **MUST** be code id_token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>The nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li><li>Client secrets **MUST** be securely stored</li><li>id_token **SHOULD** be used as a detached signature</li><li>The flow **SHOULD** contain c_hash,at_hash and c_hash values</li><li>Encryption of the id_token **MAY** be used</li><li>Demonstration of Proof-of-Possession **SHOULD** be applied to tie an Access Token to a client</li>|
 
 ### Hash Values
@@ -66,24 +66,24 @@ In OpenID Connect, the c_hash, at_hash, and s_hash values are used to enhance th
 #### c_hash (Code Hash)
 
 - Used in the authorisation code flow when using response_type=code id_token
-- The response to the client is a code and and the first id_token
+- The response to the client is a code and the first id_token
 - The id_token signature is validates by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- parsing the id_token the c_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the code with the c_hash
+- Parsing the id_token the c_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the code with the c_hash
 
 #### at_hash (Access Token Hash)
 
 - Used in the authorisation code flow when using response_type=code id_token
 - The response to the client when the code is presented to the token endpoint is a JWT access token and and id_token
-- The id_token signature is validates by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- parsing the id_token the at_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the access token with the at_hash
-- provides Access token integrity
+- The id_token signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- Parsing the id_token the at_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the access token with the at_hash
+- Provides Access token integrity
 
 #### s_hash (State Hash)
 
 - Used in the authorisation code flow and implicit flow when using response_type=code id_token the authorisation request includes a state value created by the client
 - The response to the client is a code and and the first id_token
-- The id_token signature is validates by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- parsing the id_token the s_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the state with the s_hash
+- The id_token signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- Parsing the id_token the s_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the state with the s_hash
 
 ### State (Integrity)
 
@@ -97,7 +97,7 @@ It is also worth considering how much protection the information needs whilst at
 
 Encryption is only worthwhile implementing when data sensitivity or data protection requirements drive it, as encryption can be computationally intensive. It also makes it more difficult for protection mechanisms, such as API gateways, to validate and transform API content. When only the integrity of the content passed needs to be ensured, consider using Content Signing instead.
 
-There are many existing ways of encrypting message content, built into code libraries and development tools. It is Required that any content encryption adheres to the standard algorithms laid out in [NZISM (HMAC Algorithms)](https://nzism.gcsb.govt.nz/ism-document/#Section-15853).
+There are many existing ways of encrypting message content, built into code libraries and development tools. It is required that any content encryption adheres to the standard algorithms laid out in [NZISM (HMAC Algorithms)](https://nzism.gcsb.govt.nz/ism-document/#Section-15853).
 
 ### Content Signing (Integrity)
 
@@ -128,10 +128,10 @@ The following is a list of controls:
 - **MUST** enforce access controls at the API provider edge
   - Throttling to address DoS
   - Message analysis to block HTTP attacks; parameter attacks such as cross-site scripting, SQL injection, command injection and cross site request forgery
-- Use **MUST** use short lives Access Tokens
+- **MUST** use short lived Access Tokens
 - **SHOULD** use JWT Access and Refresh Tokens
 - The Authorisation Server **MUST** provide a Token Revocation endpoint
-- The Authorisation Server **MUST** provide a Token introspection endpoint
+- The Authorisation Server **MUST** provide a Token Introspection endpoint
 - Token Signing **MUST** use EdDSA or ECDA when protecting sensitive information
 - Token Encryption **MUST** use RSA-OAEP
 - Hashing algorithms that **MUST** be applied or SHA-256 or SHA-384
@@ -160,11 +160,11 @@ Where the resources being exposed by an API are sensitive i.e. not public data, 
 
 Below is a table of risk types and some approaches that **SHOULD** be used to help mitigate these threats:
 
-|Threat | MItigation (OWASP)|
+|Threat | Mitigation (OWASP)|
 |---|---|
 |Exposure of inappropriate API methods to access services|<li>Protect and Limit (whitelist) the HTTP Methods (GET, PUT etc) exposed</li><li>Validate Method(s) for session token / API key.</li>|
 |Denial of Service attacks|<li>Throttle access to all exposed APIs. Monitor use to indicate possible DoS attacks</li>|
-|Malicious Input, Injection attacks and Fuzzing|<li>Validate input: Secure parsing and strong typing</li><li>Validate incoming content-type application/json</li><li>Validate JSON content<br/>Validate XML (schema and format)</li><li>Scan attachments</li><li>Produce valid HTTP Return Code</li><li>Validate response</li>|
+|Malicious Input, Injection attacks and Fuzzing|<li>Validate input: Secure parsing and strong typing</li><li>Validate incoming content-type application/json</li><li>Validate JSON content</li><li>Validate XML (schema and format)</li><li>Scan attachments</li><li>Produce valid HTTP Return Code</li><li>Validate response</li>|
 |Cross-Site Request Forgery|<li>Use tokens with state and nonce parameters</li>|
 |Cross-Site Scripting Attacks|<li>Validate Input</li>|
 
