@@ -1,0 +1,37 @@
+---
+title: Partners
+---
+
+:::tip[Status]
+Ready for review
+:::
+
+## Standards
+
+| Partners | Description|
+| :---  | :--------------------------------- |
+|[HISO](https://www.tewhatuora.govt.nz/our-health-system/digital-health/data-and-digital-standards/health-information-standards-organisation-hiso/)|Health Information Standards Organisation (HISO) standards set requirements for the safe, secure, and equity-led use of health information in New Zealand.|
+|[Standards NZ](https://www.standards.govt.nz/)|Standards New Zealand: <ul><li>Is a business unit within the Ministry of Business, Innovation and Employment (MBIE).</li><li>Is New Zealand’s internationally recognised and statutorily independent national standards body.</li><li>Manages the development and publication of national and regional standards and standards-related solutions.</li><li>Adopts and modifies for adoption international standards for the New Zealand market.</li><li>Publishes and sells New Zealand, joint Australian/New Zealand, and international standards.</li></ul>|
+|[SNOMED International](https://www.snomed.org/)|SNOMED International:<ul><li>Is a not-for-profit organisation that owns, administers, and develops SNOMED CT the world’s most comprehensive clinical terminology.</li><li>Works to determine the best global standards for health terminology and to engage with the global healthcare community to improve SNOMED CT and patient safety.</li></ul>|
+|[HL7 New Zealand](https://hl7.org.nz/)| HL7NZ is:<ul><li>The New Zealand Affiliate of [Health Level Seven International](https://hl7.org.nz/) (HL7®), the global developer of standards for the interoperability of health information technology with members in over 55 countries.</li><li>A ‘Not for Profit’ incorporated society focused on current and emerging HL7® standards, with strong relationships to all other related healthcare IT standards used in New Zealand.</li></ul>|
+|[GS1 New Zealand](https://www.gs1nz.org/)|GSI New Zealand:<ul><li>Provides global data standards and solutions for identifying, capturing, and sharing vital product and location information.</li><li>Works across many industries from food and grocery to government, healthcare, hardware, logistics and transport.</li></ul>|
+|[Global Digital Health Partnership](https://gdhp.health/)|Global Digital Health Partnership (GDHP):<ul><li>Is a collaboration of country governments, territory governments, and international organizations formed to support the executive implementation of worldwide digital health services.</li><li>Engages locally with Stats NZ, Standards NZ, HL7 New Zealand and the SNOMED National Release Centre.</li></ul>|
+|[Data Iwi Leaders Group](https://tewhata.io/about/) (ILG)|Data Iwi Leaders Group:<ul><li>Was established in 2016 to better harness the potential of data to enable iwi development and to advance data and digital kaupapa with the Crown.</li><li>Aims to ensure full, free access and control over data about and for iwi, to empower iwi development.</li><li>Consists of six governance representatives from:<ul><li>Te Arawa</li><li>Ngāti Porou</li><li>Te Whānau-a-Apanui</li><li>Te Ranga Tupua</li><li>Waikato-Tainui</li><li>Ngāti Korokii-Kahukura</li><li>Ngāpuhi.</li></ul></li></ul>|
+|[Stats NZ](https://www.stats.govt.nz/)|Stats NZ Tatauranga Aotearoa:<ul><li>Is New Zealand's official data agency.</li><li>Collects information from people and organisations through censuses and surveys.</li><li>Uses this information to publish insights and data about New Zealand, and support others to use the data.</li></ul>|
+
+## Pivotal Standards
+
+| Partners | Description |
+| :---  | :--------------------------------- |
+|[Interoperability Roadmap](https://www.tewhatuora.govt.nz/our-health-system/digital-health/data-and-digital-standards/approved-standards/interoperability-standards/#:~:text=Our%20interoperability%20roadmap%20is%20about,connecting%20and%20identifying)|The interoperability roadmap:<ul><li>Is about accelerating the shift to a fully interoperable digital health ecosystem.</li><li>Outlines the need for change and set out practical steps for the collective journey.</li></ul>|
+|[CanShare data standards](https://canshare.co.nz/)|CanShare:<ul><li>Is a national health informatics platform to allow the timely sharing of relevant and accurate cancer data.</li><li>Is based on the SNOMED CT medical terminology, FHIR interoperability standard and HISO (Health Information Standards Organisation) Standards, the primary intent of CanShare is to support clinical and patient decision making at the time and point of care.</li></ul>|
+|[NZ International Patient Summary](https://consult.health.govt.nz/hiso/hiso-10099-2022-nzips/) (NZIPS)|NZIPS:<ul><li>In its first edition, specifies the makeup of a core personal health data set that covers:<ul><li>Health conditions</li><li>Immunisations</li><li>Medicines</li><li>Allergies and adverse reactions</li><li>Measurements</li><li>Test results</li><li>Care plans.</li></ul></li><li>Centres on a data set specification and outlines data exchange and data portability requirements for:<ul><li>Continuity of care</li><li>Consumer access to personal health information</li><li>Patient record transfer.</li></ul></li></ul>|
+|[Health Information Security Framework](https://www.tewhatuora.govt.nz/publications/health-information-security-framework/) (HISF)|HISF is designed to support health sector organisations and health workers manage the security of personally identifiable health information.|
+
+## Products and Tools
+
+| Products and Tools | Description |
+| :---  | :--------------------------------- |
+|[SNOMED CT NZ Edition](https://www.tewhatuora.govt.nz/our-health-system/digital-health/snomed-ct-national-release-centre/new-zealand-edition-of-snomed-ct/)|Te Whatu Ora - Health New Zealand works with health and disability agencies and their industry partners to publish a standard set of SNOMED CT content for digital health solutions in Aotearoa New Zealand. The SNOMED CT New Zealand Edition is our standard product.<br/><br/>The SNOMED CT New Zealand Edition is released every April and October and comprises the latest designated SNOMED CT International Edition release and the SNOMED CT NZ Extension.
+|[NZ FHIR Registry](https://simplifier.net/organization/nz-fhir-registry) (with HL7NZ)|The New Zealand FHIR Registry:<ul><li>Provides the HL7® FHIR® profiles and implementation guides key to operating an interoperable digital health ecosystem in Aotearoa New Zealand.</li><li>Allows software developers to share freely and reuse the FHIR profiles and implementation guides published in the registry.</li></ul>|
+|[NZ Health Terminology Service](https://www.tewhatuora.govt.nz/our-health-system/digital-health/terminology-service/) (NZHTS)|The New Zealand Health Terminology Service (NZHTS):<ul><li>Is the one-stop source of the standard terminologies and code sets for Aotearoa’s health system.</li><li>Provides resources to ensure all health data is high quality and interoperable, enabling patients and clinicians to enjoy better communication and a more joined-up experience.</li><li>Offers via application programming interfaces (APIs):<ul><li>Terminology and code set lookups</li><li>Downloads</li><li>Syndicated feeds.</li></ul></li><li>Health sector Organisations and their industry partners can use these APIs to keep their applications up to date with the distributed content.</li></ul>|
