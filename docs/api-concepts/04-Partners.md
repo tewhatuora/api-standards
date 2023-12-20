@@ -6,7 +6,6 @@ title: Partners
 Ready for review
 :::
 
-
 ## Standards
 
 | Partners | Description|
@@ -21,6 +20,7 @@ Ready for review
 |[Stats NZ](https://www.stats.govt.nz/)|Stats NZ Tatauranga Aotearoa:<ul><li>Is New Zealand's official data agency.</li><li>Collects information from people and organisations through censuses and surveys.</li><li>Uses this information to publish insights and data about New Zealand, and support others to use the data.</li></ul>|
 
 ## Pivotal Standards
+
 | Partners | Description |
 | :---  | :--------------------------------- |
 |[Interoperability Roadmap](https://www.tewhatuora.govt.nz/our-health-system/digital-health/data-and-digital-standards/approved-standards/interoperability-standards/#:~:text=Our%20interoperability%20roadmap%20is%20about,connecting%20and%20identifying)|The interoperability roadmap:<ul><li>Is about accelerating the shift to a fully interoperable digital health ecosystem.</li><li>Outlines the need for change and set out practical steps for the collective journey.</li></ul>|
@@ -29,6 +29,7 @@ Ready for review
 |[Health Information Security Framework](https://www.tewhatuora.govt.nz/publications/health-information-security-framework/) (HISF)|HISF is designed to support health sector organisations and health workers manage the security of personally identifiable health information.|
 
 ## Products and Tools
+
 | Products and Tools | Description |
 | :---  | :--------------------------------- |
 |[SNOMED CT NZ Edition](https://www.tewhatuora.govt.nz/our-health-system/digital-health/snomed-ct-national-release-centre/new-zealand-edition-of-snomed-ct/)|Te Whatu Ora - Health New Zealand works with health and disability agencies and their industry partners to publish a standard set of SNOMED CT content for digital health solutions in Aotearoa New Zealand. The SNOMED CT New Zealand Edition is our standard product.<br/><br/>The SNOMED CT New Zealand Edition is released every April and October and comprises the latest designated SNOMED CT International Edition release and the SNOMED CT NZ Extension.
