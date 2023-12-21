@@ -8,9 +8,9 @@ Ready for review
 
 ## Client Authentication Standards
 
-The role of Client Authentication in Oauth 2 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers. Basically is protects the token endpoint which issues the access, refresh and id tokens in a confidential client model.
+The role of Client Authentication in Oauth2.0 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers.
 
-All IN-CONFIDENCE and SENSITIVE APIs **MUST** to secured using Client Authentication to protect the token endpoint.
+All IN-CONFIDENCE and SENSITIVE APIs **SHOULD** be secured using Client Authentication to protect the token endpoint and tokens issued **MUST** be bound to the client.
 
 There are three authentication models that can be applied to secure the Confidential Client connection from the API Consumer to the API Provider's token endpoint.
 
@@ -20,17 +20,17 @@ There are three authentication models that can be applied to secure the Confiden
 
 ## Shared Client Secret Method
 
-When the developer for the API Consumer creates the client with API Provider they will be issued with a Client ID and a Client Secret.
+An API Consumer creates a client with an API Provider and they are issued with a Client ID and a Client Secret.
 
 ### Client ID
 
-This is used when the API Consumer interacts with the API Provider. Used on both the authorise adn token endpoint.
+This is used when the API Consumer interacts with the API Provider. Used on both the authorise and token endpoint.
 
 ### Client Secret
 
 This is used with the Client ID when exchanging a code for an access token on the token endpoint of the API Provider Server.
 
-Shared Client secrets have to stored by both the API Consumer and API Provider. There are two Share Client secret methods.
+Shared Client secrets have to stored by both the API Consumer and API Provider. There are two Share Client secret methods:
 
 ### client_secret_basic
 
@@ -46,11 +46,11 @@ This model uses the HTTP Basic authentication scheme, and the client ID and clie
 **MAY** be used for PUBLIC APIs.
 **SHOULD NOT** be used for SENSITIVE and IN-CONFIDENCE APIs.
 **SHOULD NOT** be used with Public Clients.
-Confidential clients **MUST** securly store these credentials.
+Confidential clients **MUST** securely store these credentials.
 
 ### client_secret_post
 
-This sends the client id and secret within a POST body so it is percieved as a move secure process that client_secret_basic.
+This sends the client ID and secret within a POST body so it is percieved as a more secure process than client_secret_basic.
 
 <!-- cspell:disable -->
       ```json
@@ -75,7 +75,7 @@ There are two JWT authentication methods which provide a higher level of securit
 
 This method still requires a client ID and Client secret to be managed but the client secret does not get sent during the authentication process and the body of the JWT contains an expiry time for the token.
 
-The API Consumer create the JWT and embeds the client ID in the body of the token. The client secret is then used to calculate the JWT signature.
+The API Consumer creates the JWT and embeds the client ID in the body of the token. The client secret is then used to calculate the JWT signature.
 
 <!-- cspell:disable -->
 
@@ -107,11 +107,11 @@ There are two methods:
 
 - **tls_client_auth**
 
-      A client X509 certificate is used to authenticate the client, that has been issued from a trusted certificate authority.
+      A client X509 certificate that has been issued from a trusted certificate authority is used to authenticate the client.
 
-Both add security enhancement as it uses mTLS creating a two way trust between the API Consumer and API Provider, but add complexity to the design.
+Both add security enhancement as they use mTLS creating a two way trust between the API Consumer and API Provider but add complexity to the design.
 
-self_signed_tls_client_auth **MAY** be used in Testing and Development environments they *SHOULD NOT** be used in production implementations.
+self_signed_tls_client_auth **MAY** be used in Testing and Development environments they **SHOULD NOT** be used in production implementations.
 
 tls_client_auth **COULD** be used in a production implementation and **COULD** be used in a confidential client.
 
@@ -119,7 +119,7 @@ Public clients **SHOULD NOT** use either of these authentication methods.
 
 ## Private Key JWT Method
 
-This method does not use a client secret, it utilises a shared secret between the API Consumer and the APi Provider.
+This method does not use a client secret, it utilises a shared secret between the API Consumer and the API Provider.
 
 It relies on asymmetric cryptography, where the API Consumer holds both a private key for signing and a public key for verification.
 
@@ -149,13 +149,13 @@ This **SHOULD** be used when protecting SENSITIVE and IN-CONFIDENCE APIs via a c
 
 ## Token Protection
 
-One of the big risk with OAuth 2 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
+One of the big risks with OAuth 2 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
 
-OpenID Connect provides a mechanism (Demonstrating Proof of Possession) that strengthens the client authentication and helps verifies the access token belongs to the API Consumer client. It:
+OpenID Connect provides a mechanism (Demonstrating Proof of Possession) that strengthens the client authentication and helps to verify that the access token belongs to the API Consumer client. It:
 
 - Links the access token to the client
-- The client when presenting the access token has to provide proof of possession to the Access token and the identity of the client to the resource server
-- The proof of possession is linked to a cryptographic key
+- The client presenting the access token has to provide proof of possession to the Access token and the identity of the client to the resource server
+- The proof of possession is linked to a cryptographic key.
 
 There are two DPoP methods defined by OpenID Connect.
 
@@ -163,10 +163,10 @@ There are two DPoP methods defined by OpenID Connect.
 
 - API Consumer generates a public-private key pair
 - The API Consumer registers the public key (JWK) with the API Provider
-- When the APi Consumer requests an access token from the API Provider's token endpoint it includes  a token_type parameter (pop)
+- When the API Consumer requests an access token from the API Provider's token endpoint it includes  a token_type parameter (pop)
 - The JWT access token returned includes an additional claim specifying the key used for the Proof of Possession
 - The API Consumer send the JWT access token to the API Provider resource server
-- The APIProvider acquires the JWK
+- The API Provider queries the JWK
 - The API Resource issues a challenge-response based on the client public key (e.g. message encrypted with public key)
 - The API Consumer uses it's private key to respond to the challenge
 - API Provider validates (proves the same key pairs where used) and responds
@@ -178,7 +178,7 @@ There are two DPoP methods defined by OpenID Connect.
 - The API Provider issues the access token with additional claims  (hash of the API Consumers certificate)
 - The API Provider resource server receives the access token and validates the token and the client certificate and if correct responds to the API Consumer
 
-Certificate-based proof-of-possession has a higher level of security that the JWT PoP as it inclusion mTLS.
+Certificate-based proof-of-possession has a higher level of security than the JWT PoP as it includes mTLS.
 
 When protecting IN-CONFIDENCE and SENSITIVE API a DPoP model **COULD** be used.
 
