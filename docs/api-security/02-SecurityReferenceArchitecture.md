@@ -22,7 +22,7 @@ GraphQL) that are not covered in this document.
 Identity and Access Management defines the actors (users and devices)
 who interact with system components that manage and expose APIs.
 Figure 13 shows a typical model of API components (support stack) and
-actors. The actors and components are described in Table and Table 8.
+actors.
 
 ```plantuml
 @startuml

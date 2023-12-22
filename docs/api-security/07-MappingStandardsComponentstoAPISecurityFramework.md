@@ -31,8 +31,6 @@ The fundamental components of a solution using the OAuth 2.0 framework are illus
 
 <img src="/img/content/image20.png" alt="Diagram of OAuth 2.0 framework components"/>
 
-<span id="_Toc74234876" class="anchor"></span>Figure 24: OAuth 2.0 Components
-
 ### Applicability
 
 The OAuth 2 standard defines a **foundation** for delegated authority which designers/implementers of health sector API solutions **SHOULD** build on.  It is important to note that OAuth 2 leverages external authentication and authorisation services to enable mobile / web applications to act with the *delegated authority* of a user.  OAUTH 2.0 uses security tokens (and information related to the token) to authorise access to a protected resource, without requiring the owner of the data (e.g. a patient and their records) to have to share their sensitive credentials.
@@ -78,8 +76,6 @@ OpenID Connect's fundamental security components are similar to OAuth 2, just ha
 
 <img src="/img/content/image44.png" alt="Diagram of OpenID Connect components, showing similarity to OAuth framework"/>
 
-<span id="_Toc74234876" class="anchor"></span>Figure 25: OpenID Connect
-<p class="small-text">
 |Oauth 2 Component|OpenID Connect Component| API Standards Component| Description|
 |---|---|---|---|
 |Resource Owner| End User/Customer|-   Health Sector Participant<br/>-  Health Worker |-    The person who has the right to grant a third party (e.g. a consuming application) access to a protected resource (e.g. information about themselves).<br/>- The resource owner can be the customer.<br/>-  In OIDC this human is the entity for whom identity information is being requested or provided who has the right to grant a Relying party (e.g. a consuming application) access to a protected resource (e.g. information about themselves). |
@@ -87,4 +83,3 @@ OpenID Connect's fundamental security components are similar to OAuth 2, just ha
 |OAuth 2 Server Authorisation Server|OpenID Provider Server  Authorisation Server | | Provides a Security Token Server / Infrastructure for managing tokens. It is responsible for issuing and tracking: (Token Management)<br/>- Authorisation (code) grant – approval tokens driven by Resource Owner approval<br/>- Access tokens used by the API to authorise access - prove that the resource owner authorised the client to act of their behalf over a specific resource for a limited period of time<br/>- Refresh tokens which allow new access tokens to be requested by the client and re-issued within a specified timeframe<br/>- ID Token which are digital signed JWT that contain additional information about the end user and the signing  and encrypted of the JWT can add additional security capability|
 |Authentication Server|Authentication Server | Owned by a Health Sector Organisation |This is not a component of OAuth 2.0 / OpenID Connect, or defined by OAuth 2 / OpenID Connect, but needs to be considered when defining a complete OAuth 2.0/OpenID Connect framework. This could be a simple login capability or managed by an Identity Service Provider. It is responsible for:<br/>- Login Page and capture of credentials<br/>- Consent capture and Management|
 |Resource Server/ Provider|Resource Server/ Provider|API Provider|This hosts the protected resources (APIs & backend applications) which only allow authenticated and authorised clients by:<br/>- Checking the access token in each incoming API request<br/>- Validating the access token against the Authorisation Server and the permitted access rights
-</p>
