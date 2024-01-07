@@ -56,11 +56,8 @@ It may be of interest to commercial entities, non-governmental organisations (NG
 
 ### Part B: API security and Part C: API development
 
-The target audience for parts B and C is primarily solution designers and API developers in agencies and organisations within the public service.
+The target audience for parts B and C is primarily solution designers and API developers in agencies and organisations within the public service. Additionally, compliance and assurance personnel may be interested in terms of assessing alignment with the standards and guidelines.
 
-Additionally, compliance and assurance personnel may be interested in terms of assessing alignment with the standards and guidelines.
-
-Application of the guidelines
 The main reason for these guidelines is to give agencies and vendors some common, default guidance on API implementation to help accelerate the development of government APIs.
 
 Therefore, most of the specific technical guidance is marked as ‘recommended’ rather than mandatory. Exceptions tend to be in areas of security, authorisation and referenced standards compliance.
