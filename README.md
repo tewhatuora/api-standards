@@ -54,7 +54,7 @@ To modify the website itself in a local development environment, for
 1. Install the [Node.js runtime.](https://nodejs.org/en/download)
 2. Clone the repo
    ```sh
-   git clone https://github.com/updateme.git
+   git clone https://github.com/tewhatuora/api-standards.git
    ```
 3. Install NPM packages
    ```sh
