@@ -202,10 +202,13 @@ The Userinfo endpoint can be called with an access token to obtain the same clai
 There are a number of additional scopes that OpenID Connect introduces (e.g. `profile`, `name`, `email` etc) that detail specific attributes that can be presented in an ID token.
 
 - An API Consumer **MAY** request the profile or other information scopes
-
 - the API Provider **SHOULD** detail what scopes are available to the API Consumer
-
 - The API Provider **MUST** ensure consent to share this information has been provided by the information owner, typically a health sector participant.
+- The API Provider **MUST** record any consent and it's associated parameters.
+
+### SMART on FHIR Scopes
+
+HL7 International produce a standard for [App Launch called SMART](https://hl7.org/fhir/smart-app-launch/). SMART uses [scopes to control access to resources](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html). Where API Providers are delivering FHIR APIs they **SHOULD** consider the use of SMART scopes.
 
 ## OpenID Connect Implementation Patterns
 
