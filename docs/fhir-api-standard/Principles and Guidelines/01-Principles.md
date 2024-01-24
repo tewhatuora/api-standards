@@ -11,9 +11,9 @@ Content is draft and in review – this content may change until review is compl
 For information about how to contribute please see the [collaboration guidelines](/community/introduction).
 :::
 
-This section contains **RECOMMENDED** principles (this page) and guidelines (other pages) for all designers and implementers of Aotearoa New Zealand FHIR-based APIs.
+This section contains **RECOMMENDED** principles (this page) and guidelines (other pages) for all designers and implementers of Aotearoa New Zealand HL7 FHIR-based APIs.
 
-### Design principles for FHIR APIs
+### Design principles for HL7 FHIR APIs
 
 We encourage all designers and developers to strive for these principles to create quality FHIR-based APIs.
 

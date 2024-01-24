@@ -24,7 +24,7 @@ Content is draft and in review – this content may change until review is compl
 | ECDHE   | Elliptic Curve DHE                                 |
 | FAPI    | Financial-grade API                                |
 | FIDO    | See *U2F*                                          |
-| FHIR | Fast Healthcare Interoperability Resources - a standard describing data formats and elements and *API* for digital exchange of health information |
+| FHIR | Fast Healthcare Interoperability Resources - an HL7 standard describing data formats and elements and *API* for digital exchange of health information |
 | HATEOAS | Hypermedia As The Engine Of Application State      |
 | HEART   | [Health Relationship Trust](https://openid.net/wg/heart/) |
 | HPP     | HTTP Parameter Pollution                           |
