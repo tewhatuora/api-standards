@@ -1,5 +1,5 @@
 ---
-title: "Part D: FHIR API Design and Development Standards"
+title: "Part D: HL7 FHIR API Design and Development Standards"
 sidebar_position: 5
 ---
 
@@ -7,7 +7,7 @@ sidebar_position: 5
 Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
-Welcome to our API Design and Development Standards. This section is aimed at Fast Healthcare Interoperability Resources (FHIR) API Producers and Consumers.
+Welcome to our API Design and Development Standards. This section is aimed at API Producers and Consumers of HL7 Fast Health Care Resources (FHIR) APIs.
 
 This section is relevant to you if:
 
