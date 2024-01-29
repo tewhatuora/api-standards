@@ -2,8 +2,8 @@
 title: Value of API standards
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 The full potential of the technology is reached when everyone is aligned with the standards, therefore everyone must work together on standards.

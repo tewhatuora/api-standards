@@ -2,8 +2,8 @@
 title: "Error Handling"
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 Error handling is important because API consumers see the API as a black

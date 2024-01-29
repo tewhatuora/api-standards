@@ -4,8 +4,8 @@ title: "Compatibility rules"
 
 ## Compatibility rules for NZ published FHIR APIs
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 :::info

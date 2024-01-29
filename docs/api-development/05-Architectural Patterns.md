@@ -2,8 +2,8 @@
 title: "API Architectural Patterns"
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 The table below identifies some architectural and deployment patterns

@@ -2,8 +2,8 @@
 title: Why use standards?
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 When there are standards, it means that people in the industry/sector have got together and thought about the question: “What is the best way to do this?”.

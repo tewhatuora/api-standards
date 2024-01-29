@@ -2,8 +2,8 @@
 title: "Overview"
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 :::info
@@ -35,4 +35,4 @@ There are also Guidelines which provide additional recommendations for designers
 |   ▢   |  -  | Use recognised official Urls in new definitions and terminology                                                         |
 |   ▢   |  -  | Informational content of Implementation Guides                                                                          |
 |   ▢   |  -  | Rules for resource profiling                                                                                            |
-|   ▢   |  -  | Public FHIR API compatibility rules                                                                                      |
+|   ▢   |  -  | Public FHIR API compatibility rules                                                                                     |

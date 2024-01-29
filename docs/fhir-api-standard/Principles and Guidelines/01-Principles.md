@@ -2,8 +2,8 @@
 title: "FHIR API Design Principles"
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 :::info
@@ -11,7 +11,7 @@ Ready for review
 For information about how to contribute please see the [collaboration guidelines](/community/Introduction).
 :::
 
-This section contains **recommended** principles (this page) and guidelines (other pages) for all designers and implementers of Aotearoa New Zealand FHIR-based APIs.
+This section contains **RECOMMENDED** principles (this page) and guidelines (other pages) for all designers and implementers of Aotearoa New Zealand FHIR-based APIs.
 
 ### Design principles for FHIR APIs
 

@@ -1,8 +1,8 @@
 ---
 title: Security Controls
 ---
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 Depending on the classification of the information that is presented in the APIs and the Risk Framework applied, different access controls will need to be applied. This section provides a summary of the controls that **SHOULD** be implemented when protecting Health APIs. The five areas that **MUST** be considered are:
@@ -22,18 +22,18 @@ Using the Resource Type definition detailed in FHIR, the controls above will be 
 |Resource Type|Data Type|Classification|
 |---|---|---|
 |Anonymous Read Access|<li>Does not contain any individual data, or business sensitive data</li><li>Contains important information that must be authenticated back to the source publishing them</li>**Examples:**<li>Capability Statement</li><li>Clinical User Definition</li>| PUBLIC|
-|Business Sensitive|<li>Does not contain any individual data</li><li>Contains data that describe business or service sensitive data</li><li>Contains data related to organisation, location, or other group that is not identifiable as individuals</li>**Examples:**<li>Location</li><li>Medication</li>| IN-CONFIDENCE|
-|Individual Sensitive|<li>Does NOT contain Patient data</li><li>Contains individual information about other participants i.e. Practitioners and Practitioner Role.</li> **Examples;**<li>Practitioner</li><li>Practitioner Role</li>| IN-CONFIDENCE|
-|Patient Sensitive|<li>Contain highly sensitive health information</li><li>Closely linked to highly sensitive health information</li>**Examples:**<li>Procedure</li><li>Invoices</li>| SENSITIVE|
+|Business|<li>Does not contain any individual data</li><li>Contains data that describe business or service sensitive data</li><li>Contains data related to organisation, location, or other group that is not identifiable as individuals</li>**Examples:**<li>Location</li><li>Medication</li>| IN-CONFIDENCE|
+|Individual|<li>Does NOT contain Patient data</li><li>Contains individual information about other participants i.e. Practitioners and Practitioner Role.</li> **Examples;**<li>Practitioner</li><li>Practitioner Role</li>| IN-CONFIDENCE|
+|Patient|<li>Contain highly sensitive health information</li><li>Closely linked to highly sensitive health information</li>**Examples:**<li>Procedure</li><li>Invoices</li>| SENSITIVE|
 
 The following controls are recommended by the FHIR specification and **MUST** be implemented by the API provider:
 
 |Resource Type|Control Required|
 |---|---|
 |Anonymous Read Access|<li>No access control based on the user or system requesting are required</li><li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li>|
-|Business Sensitive|<li>Client authentication is required to assure that only authorized access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
-|Individual Sensitive|<li>Apply RBAC or ABAC access polices</li>|
-Patient Sensitive|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
+|Business|<li>Client authentication is required to assure that only authorized access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
+|Individual|<li>Apply RBAC or ABAC access polices</li>|
+Patient|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
 
 ## Confidentiality and Integrity
 

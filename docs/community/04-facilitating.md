@@ -2,8 +2,8 @@
 title: Facilitating
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 A welcoming community is an investment into the future and reputation of the Hira API Standards. It is important to give contributors a positive experience, and to make it easy for them to keep coming back.
