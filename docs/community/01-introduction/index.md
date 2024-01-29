@@ -1,8 +1,8 @@
 ---
 title: Introduction
 ---
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 Welcome to the Hira API Standards project community!

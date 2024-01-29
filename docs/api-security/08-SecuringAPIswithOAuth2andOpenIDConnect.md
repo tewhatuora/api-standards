@@ -2,8 +2,8 @@
 title: Using OAuth 2 and OpenID Connect to Secure Your API
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 OAuth 2.0 and OpenID Connect are both based on a token-based authorisation framework and are defined and implemented using Grant Flow type patterns. These define the different types of interaction a client application can perform to gain an "access token” and thus access to the protected API.

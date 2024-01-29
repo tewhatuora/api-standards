@@ -1,8 +1,8 @@
 ---
 title: Alternative OAuth 2 Grant Flow Extensions and Web Application Patterns
 ---
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 ## Assertion Grant Flows

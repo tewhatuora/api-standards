@@ -2,8 +2,8 @@
 title: "API Design"
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 This section looks at API design and offers the standards required to support [health sector organisations](../api-concepts/ComponentDefinitions#health-sector-organisations) in designing, developing and governing APIs. The intended audience for this section of the document is **_technical_** for example [API developers](../api-concepts/ComponentDefinitions#api-developers), or [API designers](../api-concepts/ComponentDefinitions#api-designers).

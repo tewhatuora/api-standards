@@ -2,8 +2,8 @@
 title: "Search APIs"
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 Search capability is an important component of many REST APIs. Search is usually used to find resources within a [collection](./Content#singletons-vs-collections) that meet the API Consumers requirements.

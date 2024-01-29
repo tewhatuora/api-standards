@@ -1,8 +1,8 @@
 ---
 title: Mapping Standards Components to API Security Framework
 ---
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 API Concepts section of this standard define the following components

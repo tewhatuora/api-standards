@@ -2,8 +2,8 @@
 title: API Authentication and Authorisation Basics
 ---
 
-:::tip[Status]
-Ready for review
+:::warning[Status]
+Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
 ## API Authentication & Authorisation Basics
