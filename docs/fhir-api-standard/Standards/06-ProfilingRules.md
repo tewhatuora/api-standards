@@ -16,7 +16,7 @@ Content is draft and in review – this content may change until review is compl
 
 1. When a required terminology binding needs expanding, a FHIR API **SHOULD** [define an Extension](https://www.hl7.org/fhir/r4b/defining-extensions.html) for this purpose. (APIs **MUST NOT** use other mechanisms to extend terminology bindings).
 
-1. FHIR APIs **MUST** use [Identifiers](https://mohits.atlassian.net/wiki/spaces/HIRA/pages/3523117763/FHIR+API+Standard#1.5.4.-----Extensions) that are [standard in New Zealand](https://standards.digital.health.nz/).  
+1. [Identifiers](https://www.hl7.org/fhir/datatypes.html#Identifier) in FHIR APIs **MUST** be NZ standard identifiers where applicable.  An Identifier in a FHIR APIs can, via its `system` attribute, identify the applicable NZ identifier namespace by Uri. [List of MZ identifier namespace Uris](http://standards.digital.health.nz).
 
 :::warning
 A FHIR API that uses any of the following tricks will be viewed as violating this standard.

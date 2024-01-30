@@ -6,6 +6,10 @@ title: API Consumption Patterns
 Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
+:::info
+The patterns documented on this page reflect a small number of patterns implemented by Te Whatu Ora. The expectation is that this page will grow as more standards contributors get involved.
+:::
+
 ## Direct
 
 The API Service is hosted and published by and from the primary environment in which the Hira API Management capability is implemented.
