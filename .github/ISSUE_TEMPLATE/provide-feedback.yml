@@ -5,12 +5,25 @@ labels: [
   "feedback"
 ]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to provide feedback on these standards. To ensure that the best response is achieved please consider the following question.
+        - Are you raising an issue with the standards or are you seeking clarification or discussion on a standards item? If the later please check the [Discussions page](https://github.com/tewhatuora/api-standards/discussions)
   - type: textarea
     id: summary
     attributes:
       label: "Summary"
       description: Provide a summary of your feedback
       placeholder: Your feedback
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: "Link to standards item"
+      description: Please provide a link to the standards item this issue relates to. Note that direct anchor(#) links are most helpful - e.g. https://apistandards.digital.health.nz/api-development/Headers#accept
+      placeholder: https://apistandards.digital.health.nz/
     validations:
       required: true
   - type: checkboxes
