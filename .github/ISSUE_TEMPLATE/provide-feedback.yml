@@ -5,6 +5,11 @@ labels: [
   "feedback"
 ]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to provide feedback on these standards. To ensure that the best response is achieved please consider the following question.
+        - Are you raising an issue with the standards or are you seeking clarification or discussion on a standards item? If the later please check the [Discussions page](https://github.com/tewhatuora/api-standards/discussions)
   - type: textarea
     id: summary
     attributes:
@@ -13,6 +18,12 @@ body:
       placeholder: Your feedback
     validations:
       required: true
+  - type: textarea
+    id: link
+    attributes:
+      label: "link"
+      description: Please provide a link to the standards item this issue relates to
+      placeholder: https://apistandards.digital.health.nz/
   - type: checkboxes
     id: standards-area
     attributes:
