@@ -14,7 +14,7 @@ An `API Provider` in the context of these standards is:
 
 - A software application
 - That **produces** an HTTP API (REST or FHIR REST)
-- That can be **published** via the Hira Connector Ecosystem or equivalent sector capability
+- That can be **published** via the Te Whatu Ora API Marketplace or equivalent sector capability
 - And has completed an **approved** API Provider **onboarding and certification** process.
 
 ## API Consumer
@@ -23,12 +23,12 @@ An `API consumer` in the context of these standards is:
 
 - A **software application**
 - That **consumes** an HTTP API (REST or FHIR REST)
-- That is **published** via the Hira Connector Ecosystem or equivalent sector capability
+- That is **published** via the Te Whatu Ora API Marketplace or equivalent sector capability
 - And has completed an **approved** API Consumer **onboarding and certification** process.
 
 ## Health Sector Participants
 
-A `health sector participant` in the context of these standards is a **human** that is, via a software application, interacting with an `API consumer` that is consuming an API that is published in the Hira Connector Ecosystem or equivalent sector capability. Individual health sector participants may sometimes be referred to as `Health Consumer`.
+A `health sector participant` in the context of these standards is a **human** that is, via a software application, interacting with an `API consumer` that is consuming an API that is published in the Te Whatu Ora API Marketplace or equivalent sector capability. Individual health sector participants may sometimes be referred to as `Health Consumer`.
 
 ## Health Sector Organisations
 
