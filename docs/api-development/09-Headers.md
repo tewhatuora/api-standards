@@ -160,9 +160,9 @@ Authorization: Bearer x6TLB4JaomezC5rJ3CIl3KxxNinq
 
 **<span class="smallcaps">MUST</span>**
 
-Most API requests will be authorised. The Authorization header should be
-used for this purpose and no other. Note that the Authorization header
-is not the best place for an API Key.
+Most API requests will be authorised. The Authorization header should be used for this purpose and no other. If an [API Key Header](#api-key-header) is not used, then the Authorization token **MUST** be used to identify the API Consumer using an attribute within the token.
+
+Note that the Authorization header is not the best place for an API Key.
 
 The Authorization header is comprised of a type and a token depending on
 the authorization type.
@@ -205,8 +205,8 @@ compressed responses.
 **<span class="smallcaps">MUST</span>**
 
 An API key issued to a consuming application **MUST** be sent with every
-request made to the API. The name of the header is up to the API provider, but
-it **SHOULD** not be an `X-` prefixed header as this use is deprecated. Sometimes API keys are passed in URIs; however, this is not
+request made to the API, if the API uses this mechanism to identify the client. The name of the header is up to the API provider, but
+it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated. Sometimes API keys are passed in URIs; however, this is not
 considered best practice and **SHOULD** be avoided.
 
 **<span class="smallcaps">Example</span>**
