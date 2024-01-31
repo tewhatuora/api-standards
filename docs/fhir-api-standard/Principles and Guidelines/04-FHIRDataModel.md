@@ -104,7 +104,7 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
 
   class ":RheumaticFeverPatient" as RfPatient <<NZPATIENT>> #LightSalmon ##[bold] {
     Profiles NzPatient so it can define
-    whanau care team members as contacts 
+    whānau care team members as contacts 
     ---
     *identifier[NHI] (official): NHI
     ---
@@ -120,9 +120,9 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
     +nzCitizen: code
     .. (extensions)..
     +**patient.contact[].**
-      \t **whanauMemberCareRole**: Coding
-      \t **whanauMemberCareRelationship**: string
-      \t **whanauMemberCarePrimary**: boolean
+      \t **whānauMemberCareRole**: Coding
+      \t **whānauMemberCareRelationship**: string
+      \t **whānauMemberCarePrimary**: boolean
     +**interpreterRequired**: boolean
   }
 

@@ -129,17 +129,17 @@ skinparam {
 
 rectangle "Health Sector Participants" as HSP {
     actor "Health Consumer" as HC
-    actor "Whanau"
+    actor "Whānau"
     actor "Iwi"
     component "API Consumer" as AC
     HC .[#green,dashed,thickness=8].> AC
-    Whanau .[#green,dashed,thickness=8].> AC
+    Whānau .[#green,dashed,thickness=8].> AC
     Iwi .[#green,dashed,thickness=8].> AC
 }
 @enduml
 ```
 
-<DetailedDescription text="The diagram illustrates the relationships and flows between various participants in the health sector. The HC, Whanau, and Iwi actors represent individuals and groups who interact with the health sector. The API Consumer component represents a system that collects data from these actors." />
+<DetailedDescription text="The diagram illustrates the relationships and flows between various participants in the health sector. The Health Consumer, Whānau, and Iwi actors represent individuals and groups who interact with the health sector. The API Consumer component represents a system that collects data from these actors." />
 
 ```plantuml alt="Diagram showing Health Worker API consumption"
 @startuml
