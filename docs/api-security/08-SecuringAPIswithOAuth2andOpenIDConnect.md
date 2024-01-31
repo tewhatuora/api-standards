@@ -268,13 +268,13 @@ The table below details the eleven grant/response types.
 |Grant Type<br/>Response type | Recommendations| Client Type|
 |---|---|---|
 |Authorisation Code (OAuth 2)| **SHOULD NOT** be used| N/A|
-|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for PUBLIC APIs| **MAY** be used with Native or Single Page Applications<br/><br/>No Secure back channel - code can be intercepted by malicious users - PKCE mitigates this risk|
+|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for PUBLIC APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where the SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
 |Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with PUBLIC APIs<br/>**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)|
 |Hybrid (OpenID Connect)<br/>code id_token token|**SHOULD NOT** use | N/A|
 |Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs|**MUST** be used with a web application (confidential client)
 |Hybrid (OpenID Connect)<br/>code token| **SHOULD NOT** use| N/A|
 |Implicit (OAuth 2)| **SHOULD NOT** be used|N/A|
-|Implicit (OpenID Connect)<br/> id_token token and PKCE| **COULD** be used with PUBLIC APIs|**MAY** be used with Native or Single Page Applications<br/><br/>No Secure back channel - code can be intercepted by malicious users - PKCE mitigates this risk|
+|Implicit (OpenID Connect)<br/> id_token token and PKCE| **SHOULD NOT** be used |N/A|
 |Implicit (OpenID Connect)<br/> id_token| **SHOULD NOT** be used|N/A|
 |Resource owner Password Credential| **MUST NOT** be used|N/A|
 |Client Credentials| **SHOULD** only be used for system to system integration|N/A|
