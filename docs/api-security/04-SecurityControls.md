@@ -146,8 +146,8 @@ Availability also covers scaling to meet demand and ensuring hosting environment
 
 For cloud services, the New Zealand Government ICT website provides an [assessment capability that includes a risk assessment tool](https://www.ict.govt.nz/guidance-and-resources/information-management/requirements-for-cloud-computing/vendor-answer-sets/) which covers availability, business continuity and disaster recovery related questions.
 
-:::warning[TODO]
-As mentioned in section **xxx**, there are various types of risk which impact APIs. This includes threats to availability as well as confidentiality and integrity. Many threats can be mitigated through good secure coding practices, using OWASP guidelines, as indicated in section **xxx**.
+:::info[Risks]
+As mentioned in section [Consideration of Risks](./RiskConsideration), there are various types of risk which impact APIs. This includes threats to availability as well as confidentiality and integrity.
 :::
 
 Where the resources being exposed by an API are sensitive i.e. not public data, the following rules apply:
