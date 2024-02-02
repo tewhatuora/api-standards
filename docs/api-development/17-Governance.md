@@ -23,7 +23,7 @@ API Governance should include:
 It is important to understand the governance must be a collaborative process.
 When your API designers and developers are on the same page regarding
 APIs, the more efficient, valuable, and successful your API programs
-will be. Governance is especially beneficial for Agencies that have a
+will be. Governance is especially beneficial for organisations that have a
 large API program or microservices architectures.
 
 For more information, refer to [this concise summary of API governance.](https://nordicapis.com/api-governance-how-important-is-it-for-api-strategy/)

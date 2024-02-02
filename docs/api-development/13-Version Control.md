@@ -23,7 +23,7 @@ over which is the most "RESTful”. Below is a description of each methodology h
 ### URI (Path) Versioning (Supported)
 
 For URL-based versioning the [Uniform Resource Identifier (URI)](./URIs) **MUST** include `/v{N}` with the major version
-(N) and v as a prefix. Agencies **should not** include minor version numbers. Considering semantic version description above only the **MAJOR** version should be represented in the URI.
+(N) and v as a prefix. API Providers **should not** include minor version numbers. Considering semantic version description above only the **MAJOR** version should be represented in the URI.
 
 **<span class="smallcaps">Example</span>**
 

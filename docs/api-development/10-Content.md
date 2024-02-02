@@ -228,8 +228,7 @@ data) is difficult, and adds friction for clients.
 
 ### JSON Property Names
 
-Within content, property names should conform to the following
-guidelines:
+Within content, property names should conform to the following guidelines:
 
 - Property names should be meaningful names with defined semantics
 
