@@ -3,7 +3,7 @@ title: "Part B: API Security"
 sidebar_position: 3
 ---
 
-Welcome to our API Design and Development Standards. This section is aimed at API Providers and consumers
+Welcome to our API Design and Development Standards. This section is aimed at API Providers and Consumers.
 
 This section is relevant to you if:
 
