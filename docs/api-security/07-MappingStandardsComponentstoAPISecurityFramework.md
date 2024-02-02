@@ -15,7 +15,7 @@ API Concepts section of this standard define the following components
 - API Designers
 - API Developers
 
-The two standards that Health NZ SHOULD use to protect and secure API resources are **OAuth 2** and **OpenID Connect**.
+The two standards that Te Whatu Ora SHOULD use to protect and secure API resources are **OAuth 2** and **OpenID Connect**.
 
 OpenID Connect adds Identity to the mix and is built on OAuth 2 but uses a different naming standard to define similar capabilities.
 

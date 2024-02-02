@@ -34,7 +34,7 @@ FHIR APIs **MUST** derive profiles from the [New Zealand Base Implementation Gui
 
 #### Examples
 
-The following examples taken from the *rheumatic fever* support in the Health NZ Shared Care FHIR API demonstrate how a FHIR API can build on NZ Base definitions:
+The following examples taken from the *rheumatic fever* support in the Te Whatu Ora Shared Care FHIR API demonstrate how a FHIR API can build on NZ Base definitions:
 
 - Profile of [NzCondition](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition-nz-sharedcare-rheumaticfever-condition.html) -- lets a FHIR `Condition` support special extra RF diagnostic attributes.
 - Profile of [NzMedicationRequest](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition-nz-sharedcare-rheumaticfever-medicationrequest.html) -- extends a `FHIR MedicationRequest` with an extension to capture frequency of medication appointments.

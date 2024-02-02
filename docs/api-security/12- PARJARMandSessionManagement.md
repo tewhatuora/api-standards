@@ -184,7 +184,7 @@ JARM **MAY** be used for Highly SENSITIVE APIs
 
 ## Session Management
 
-Health NZ **SHOULD** implement Session Management as defined in the OpenID Connect standards defined below.
+Te Whatu Ora **SHOULD** implement Session Management as defined in the OpenID Connect standards defined below.
 
 There are four OpenID Connect Standards that try to address session management, these are:
 

@@ -362,7 +362,7 @@ In an OpenID Connect Authorisation Code Grant Flow there is a common model where
     - An ID Token to provide additional security
     - A Userinfo endpoint to provide additional Identity Information to the Relying Party
 
-3. The API Consumer provides a service to the End User (health sector participant) which requires them to authorise access to the API COnsumer to the API provider's protected resources (e.g. Health NZ Patient record)
+3. The API Consumer provides a service to the End User (health sector participant) which requires them to authorise access to the API COnsumer to the API provider's protected resources (e.g. Te Whatu Ora Patient record)
 
 The flow below details this model where the health sector participant wants to use the services provided by the API Consumer.
 
