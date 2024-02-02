@@ -134,14 +134,14 @@ There are multiple endpoints that are exposed and secured in the OAuth 2 / OpenI
 
 | Endpoint| Location | Tokens | Description |
 |---|---|---|---|
-| Authorisation End Point<br/>`/authorize`| API Provider | Code_Token<br/>Access_Token<br/>ID_Token | Responsible for redirecting the Resource Owner/Participant to the API Provider Authentication Server so they can login to provide their consent for the client to access a protected resource.<li>**MUST** be protected with TLS</li><li>The API Consumer **MUST** have registered with the API Provider and been allocated a client ID</li><li>PKCE **MUST** be used for any Authorisation code flows</li><li>PAR **MAY** be used</li><li>JARM **MAY** be used</li>|
+| Authorisation End Point<br/>`/authorize`| API Provider | Code_Token<br/>Access_Token<br/>ID_Token | Responsible for redirecting the Resource Owner/Participant to the API Provider Authentication Server so they can login to provide their consent for the client to access a protected resource.<li>**MUST** be protected with TLS</li><li>The API Consumer **MUST** have registered with the API Provider and been allocated a client ID</li><li>PKCE **MUST** be used for any Authorisation code flows</li><li>[PAR](./PARJARMandSessionManagement) **MAY** be used</li><li>[JARM](./PARJARMandSessionManagement) **MAY** be used</li>|
 | Token<br/>`/token` | API Provider | Access_Token<br/>Refresh_Token<br/>ID_Token| This authenticates the API Consumer and  based on validation rules and the configuration of the client<li>**SHOULD** be protected with mTLS</li><li>Proof of Possession **SHOULD** be used</li><li>Client_secret_post or client_secret_jwt or private_key_jwt or tls_client_auth **SHOULD** be applied</li>|
 |Redirect endpoint| API Consumer | Code_Token<br/>Access_Token<br/>ID_Token | The response from the authorisation endpoint is sent here. This is via HTTP-redirect (302). The API Consumer is responsible for validating tokens from this endpoint.<li>**MUST** be protected with TLS</li><li>PKCE **MUST** be used for any Authorisation code flows</li><li>Redirect Validation **MUST** be carried out</li><li>State and Nonce parameters **MUST** be included</li>|
 |Revoke<br/>`/revoke`|API Provider| Access_Token<br/>Refresh_Token| This allows the API Consumer to revoke tokens if required<li>The API Provider **MUST** provide a Revoke endpoint</li><li>MUST be protected with TLS</li><li>Client_secret_post or client_secret_jwt or private_key_jwt<br/> **SHOULD** be used to secure the revoke endpoint</li>|
 |Introspect<br/>`/introspect`|API Provider| Access_Token<br/>Refresh_Token | This allows the Resource Server or Client to find out if the token has expired and other details about the token.<li>The API Provider **SHOULD** provide an introspection endpoint</li><li>MUST be protected with TLS</li><li>Client_secret_post or client_secret_jwt or private_key_jwt<br/> **SHOULD** be used to secure the revoke endpoint</li>|
 |User Info<br/>`/userinfo`| API Provider| Access Token| Use an access token to get information about the authenticated health participant<li>The API Provider **SHOULD** provide a userinfo endpoint</li><li>**MUST** be protected with TLS</li><li>The Access Token used to authenticate to the endpoint **MUST** be validated for validity (time), Issuer and Signature</li>|
 |JSON Web Key URI<br/>`/jwks`|API Provider / API Consumer | |<li>Retrieve the API provider’s public keys to verify issued token signatures</li><li>Encrypt ID Tokens with the `API Consumers` public key(s)</li><li>Check signature of private_key_jwt authentication JWTs</li><li>**MUST** be implemented by API Provider</li><li>Is a public endpoint and **MUST** be protected with TLS</li>|
-| pushed Authorisation Request (PAR)<br/>`/par` | API Provider| | Push Authorisation Request (PAR) endpoint used when the authorisation request object is large and adds a a level of security as the request is signed<li>**MAY** be used</li>|
+| [pushed Authorisation Request (PAR)(./PARJARMandSessionManagement)]<br/>`/par` | API Provider| | Push Authorisation Request (PAR) endpoint used when the authorisation request object is large and adds a a level of security as the request is signed<li>**MAY** be used</li>|
 |Backchannel Authorise<br/>`/bc-authorize`| | | Client-Initiated Backchannel Authentication (CIBA). This is a decoupled authentication process and uses a authentication device<li>**MAY** be used</li>|
 
 ### Discovery and Client Endpoints (API Provider)
@@ -268,13 +268,13 @@ The table below details the eleven grant/response types.
 |Grant Type<br/>Response type | Recommendations| Client Type|
 |---|---|---|
 |Authorisation Code (OAuth 2)| **SHOULD NOT** be used| N/A|
-|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for PUBLIC APIs| **MAY** be used with Native or Single Page Applications<br/><br/>No Secure back channel - code can be intercepted by malicious users - PKCE mitigates this risk|
-|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with PUBLIC APIs<br/>**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)|
+|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for PUBLIC APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
+|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with PUBLIC APIs<br/>**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code|
 |Hybrid (OpenID Connect)<br/>code id_token token|**SHOULD NOT** use | N/A|
 |Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs|**MUST** be used with a web application (confidential client)
 |Hybrid (OpenID Connect)<br/>code token| **SHOULD NOT** use| N/A|
 |Implicit (OAuth 2)| **SHOULD NOT** be used|N/A|
-|Implicit (OpenID Connect)<br/> id_token token and PKCE| **COULD** be used with PUBLIC APIs|**MAY** be used with Native or Single Page Applications<br/><br/>No Secure back channel - code can be intercepted by malicious users - PKCE mitigates this risk|
+|Implicit (OpenID Connect)<br/> id_token token and PKCE| **SHOULD NOT** be used |N/A|
 |Implicit (OpenID Connect)<br/> id_token| **SHOULD NOT** be used|N/A|
 |Resource owner Password Credential| **MUST NOT** be used|N/A|
 |Client Credentials| **SHOULD** only be used for system to system integration|N/A|
@@ -496,3 +496,152 @@ end
 ```
 
 <DetailedDescription text="This diagram depicts the OAuth 2.0 Client Credentials Grant flow for accessing a Resource Server. Here's a breakdown of the key elements and interactions: Actors: Resource Owner/End User: Not directly involved in this flow, as the API Consumer authenticates using its own credentials. API Consumer: Represents the application requiring access to the protected resources on the Resource Server. Authentication Server: (Optional) May be present if the flow includes user login and consent for additional scopes. OAuth 2 Server: Issues and validates tokens for accessing protected resources. Resource Server: Hosts the protected resources and validates access tokens provided by the API Consumer. Diagram Flow: Token Request: The API Consumer directly sends a POST request to the OAuth Server's /token endpoint. Grant Type: The request specifies the client_credentials grant type, indicating it's authenticating using its own pre-configured credentials. Client Credentials Validation: The OAuth Server validates the provided client ID and client secret. Access Token Response: If the credentials are valid, the OAuth Server grants an access token to the API Consumer. API Access: The API Consumer uses the access token to make API calls to the Resource Server. Token Validation: Each API call includes the access token, which the Resource Server validates with the OAuth Server before responding. Repeated Access: This loop continues as long as the API Consumer needs to access protected resources and until the access token expires. Key Aspects: Client Credentials Grant: This flow is suitable for applications acting on their own behalf without involving human users. Direct Token Request: Unlike other flows, the API Consumer directly interacts with the OAuth Server without user intervention. Resource Server Access Control: The Resource Server independently confirms the validity of the access token for each API call."/>
+
+## Client Initiated Backchannel Authentication (CIBA) Flow
+
+The OpenID Connect [Client Initiated Backchannel Authentication](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html) flow
+is important because it adds three "decoupled” authorisation flows. Instead of using redirects through the browser, this model allows a user’s authentication device (e.g. mobile) to be decoupled from the flow, and the client application, and act as an authentication device on which the user authentication and the consent confirmations are performed.
+
+The important point here is the client application and authorisation
+application/service do not have to run on the same device (e.g.
+smartphone) or be linked.
+
+In the CIBA flow the initial authorisation call is made to the new
+(OAuth2) backchannel authentication endpoint and the authorisation server then delegates the authentication and
+consent approval tasks to the authentication device (smartphone) of
+the user, who will accept or deny the request.
+
+The access token being sent to the client is managed by one of three
+flows:
+
+- Poll – The client polls the Authorisation Server until the
+   authorisation server has received the approval from the
+   authentication device.
+
+- Ping – The client waits until it is notified by the Authorisation
+   Server and then it requests the token
+
+- Push – The Authorisation server, when it receives approval from the
+   authentication device pushes the Access ID Token and Refresh token
+   to the client
+
+```plantuml
+@startuml HighLevelFlowCiba
+
+skinparam {
+    defaultFontColor #4080a9
+    defaultBackgroundColor #d7f8ff
+    defaultComponentColour #61d9de
+    defaultActorColour #61d9de
+    defaultFontSize 16
+    defaultArrowThickness 6
+    actorStyle awesome
+    linetype polyline
+    RoundCorner 5
+    scale max 200 width
+}
+
+scale 700 width
+scale 1768 height
+
+Actor "Health Sector Participant\" as customer
+Entity "API Consumer" as tp
+Entity "Edge Network Components" as edge
+Entity "API Provider IDP" as apipa
+Entity "API Provider Service" as apips
+Entity "Consent \nAuthorisation UI" as consentapp
+
+autonumber "[00]"
+
+tp<->customer : obtain CIBA login hint details
+note right of customer
+At some point prior to initiating the CIBA flow, the 
+API Consumer must have obtained information to use as a 
+login hint for the customer (e.g. participants phone number, 
+email address, etc.) 
+end note
+
+note over edge
+All external message flows that
+cross the Edge Network Component
+lifeline will need edge security
+policies applied.
+end note
+
+tp<-[#blue]>edge : Establish MTLS
+
+tp-[#blue]> apipa : POST /bc-authorize  
+activate apipa
+apipa->apipa : authenticate third Party
+apipa->apipa : validate request
+apipa->apipa : validate consent status
+
+alt login_hint_token
+apipa->apipa : verify login_hint
+apipa->apips : resolve login hint
+activate apips
+apips->apips : find customer for hint
+apips->apips : verify customer is eligible
+apips-->apipa : response - resolved identifier
+deactivate apips
+
+apipa-[#blue]>tp : response with auth request
+deactivate apipa
+tp->customer : please use your mobile app to authorise consent
+
+tp-[#blue]> apipa : POST /token
+activate apipa
+apipa->apipa : detects consent has not been authorised yet
+apipa--[#blue]>tp : response with authorization pending error
+deactivate apipa
+
+note right of tp
+The third party continues to poll the token endpoint
+as long as authorization pending is returned
+end note
+
+|||
+=== Consent Interaction with the Health Sector Participant ==
+|||
+
+note right of customer  
+For the Decoupled Flow, this interaction is out of band and occurs at the Health Sector Participant's leisure so may not happen immediately.
+end note
+
+consentapp -> apipa : get consents awaiting authorisation from this customer
+customer <-> consentapp : select consent parameters
+customer <-> consentapp: obtain consent authorisation response from health sector participant
+
+|||
+=== Consent Interaction with the API Provider ==
+|||
+
+consentapp->apipa : authorise consent
+alt Happy Path
+activate apipa
+apipa->apipa : authorise consent
+apipa-->consentapp : ok response
+deactivate apipa
+
+else Declined to authorise consent
+consentapp->apipa : reject consent
+    activate apipa
+    alt if first consent authorisation
+        apipa->apipa : reject consent
+    else if consent re-authorisation
+        apipa->apipa : revoke consent
+    end alt
+
+    apipa-->consentapp : ok response
+    deactivate apipa
+
+end alt
+
+@enduml
+```
+
+<DetailedDescription text="High-Level Flow of CIBA for Health Sector. This diagram depicts the high-level flow of Client-Initiated Backchannel Authentication (CIBA) for the Health Sector. It involves several actors and components, and follows a specific sequence of interactions. Actors: Health Sector Participant (Customer): The individual requesting access to health data or services. API Consumer (Third Party): A service or application seeking access to the customer's data on behalf of the customer. Components: Edge Network Components: Infrastructure components responsible for securing communication between the API Consumer and the API Provider. API Provider IDP (API Provider Identity Provider): Verifies the identity of the API Consumer. API Provider Service (API Provider Service): Handles the CIBA flow and interacts with the Consent Authorisation UI and the API Consumer. Consent Authorisation UI: Provides the customer with a user interface to grant or deny consent for data access. Flow Steps: Obtain Login Hint Details: The API Consumer gathers login hint information (e.g., phone number, email) about the customer. Establish MTLS: Secure communication is established between the API Consumer and the API Provider IDP. POST /bc-authorize (API Consumer to API Provider): The API Consumer initiates the CIBA flow by requesting a login hint token. Authenticate Third Party and Validate Request: The API Provider IDP verifies the API Consumer's identity and validates the request. Verify Login Hint (Optional): If a login hint token is provided, the API Provider IDP verifies its authenticity and resolves it to identify the customer. Find Customer and Verify Eligibility: The API Provider Service retrieves the customer's information and confirms their eligibility for the requested service. Response with Auth Request (API Provider to API Consumer): The API Provider sends a response containing an authorization request to the API Consumer. Consent Interaction with the Health Sector Participant: The API Consumer prompts the customer to use their mobile app to authorize consent for data access. The customer interacts with the Consent Authorisation UI to review and approve/deny the consent request. Consent Interaction with the API Provider: The Consent Authorisation UI sends the customer's consent decision to the API Provider. If consent is granted, the API Provider issues an access token to the API Consumer. If consent is denied, the API Provider sends an error response to the API Consumer."/>
+
+:::info
+The CIBA flow is not widely used and is included here as guidance for API designers and developers. It is likely that the CIBA flow will become more common, particularly as it is used in the Payments New Zealand API Centre Standards and therefore being adopted by financial services API providers.
+:::

@@ -49,15 +49,15 @@ The following table details the data classification application for API Security
 
 |Data Classification | API Security Control (Grant Flows)|
 |---|---|
-|Public|<li>Client Credentials with Scopes **MAY** be applied</li><li>Implicit Grant flow with PKCE **MAY** be applied</li><li>Authorisation Code grant with PKCE **MAY** be applied</li>|
+|Public|<li>Client Credentials with Scopes **MAY** be applied</li><li>Implicit Grant flow with PKCE **SHOULD NOT** be applied</li><li>Authorisation Code grant with PKCE **MAY** be applied</li>|
 |In-confidence|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **SHOULD** be applied</li>|
 |Sensitive|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **MUST** be applied</li> |
 
-|Grant Type| Control Required|
-|---|---|
-|Client Credentials with Scopes|<li>OAuth 2 **SHOULD** be applied, **MAY** use OpenID Connect</li><li>Client_secret_post token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MAY** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li>|
-|Implicit grant with PKCE |<li>OpenID Connect **SHOULD** be applied using an openid scope in the authentication request</li><li>Client_secret_post or client_secret_jwt or private_key_jwt token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **SHOULD** be allied to mitigate stolen authorisation codes</li><li>The response_type **SHOULD** be id_token token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>If OpenID Connect is used the nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li>|
-| Authorisation Code grant with PKCE  |<li>OpenID Connect **MUST** be applied using an openid scope in the authentication request</li><li>private_key_jwt token endpoint authorisation **MUST** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **MUST** be applied to mitigate stolen authorisation codes</li><li>The response_type **MUST** be code id_token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>The nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li><li>Client secrets **MUST** be securely stored</li><li>id_token **SHOULD** be used as a detached signature</li><li>The flow **SHOULD** contain c_hash,at_hash and c_hash values</li><li>Encryption of the id_token **MAY** be used</li><li>Demonstration of Proof-of-Possession **SHOULD** be applied to tie an Access Token to a client</li>|
+|Grant Type| Control Required| Status |
+|---|---|---|
+|Client Credentials with Scopes|<li>OAuth 2 **SHOULD** be applied, **MAY** use OpenID Connect</li><li>Client_secret_post token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MAY** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li>| Supported :white_check_mark: |
+|Implicit grant with PKCE |<li>OpenID Connect **SHOULD** be applied using an openid scope in the authentication request</li><li>Client_secret_post or client_secret_jwt or private_key_jwt token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **SHOULD** be allied to mitigate stolen authorisation codes</li><li>The response_type **SHOULD** be id_token token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>If OpenID Connect is used the nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li>| Deprecated :warning: |
+| Authorisation Code grant with PKCE  |<li>OpenID Connect **MUST** be applied using an openid scope in the authentication request</li><li>private_key_jwt token endpoint authorisation **MUST** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **MUST** be applied to mitigate stolen authorisation codes</li><li>The response_type **MUST** be code id_token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>The nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li><li>Client secrets **MUST** be securely stored</li><li>id_token **SHOULD** be used as a detached signature</li><li>The flow **SHOULD** contain c_hash,at_hash and c_hash values</li><li>Encryption of the id_token **MAY** be used</li><li>Demonstration of Proof-of-Possession **SHOULD** be applied to tie an Access Token to a client</li>| Supported :white_check_mark: |
 
 ### Hash Values
 
@@ -146,8 +146,8 @@ Availability also covers scaling to meet demand and ensuring hosting environment
 
 For cloud services, the New Zealand Government ICT website provides an [assessment capability that includes a risk assessment tool](https://www.ict.govt.nz/guidance-and-resources/information-management/requirements-for-cloud-computing/vendor-answer-sets/) which covers availability, business continuity and disaster recovery related questions.
 
-:::warning[TODO]
-As mentioned in section **xxx**, there are various types of risk which impact APIs. This includes threats to availability as well as confidentiality and integrity. Many threats can be mitigated through good secure coding practices, using OWASP guidelines, as indicated in section **xxx**.
+:::info[Risks]
+As mentioned in section [Consideration of Risks](./RiskConsideration), there are various types of risk which impact APIs. This includes threats to availability as well as confidentiality and integrity.
 :::
 
 Where the resources being exposed by an API are sensitive i.e. not public data, the following rules apply:

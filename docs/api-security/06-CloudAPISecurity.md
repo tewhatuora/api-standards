@@ -62,4 +62,4 @@ The following are resources are recommended references for those designing and i
 
 [^1]: [**HISO 10029:2022 Health Information Security Framework**](https://consult.health.govt.nz/hiso/health-information-security-framework-update)
 
-[^2]: Amazon Web Services, Microsoft Azure or Google Cloud Platform, etc.
+[^2]: e.g. Amazon Web Services, Google Cloud Platform, Microsoft Azure etc.

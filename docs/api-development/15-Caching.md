@@ -22,7 +22,7 @@ on a unique resource. The response should be cached as close to the
 consumer as possible while remaining inside the security and control boundaries of
 the agency. Response caches are usually fast, in-memory caches. Many off
 the shelf API gateway/management solutions provide a built-in response
-cache. When using a response cache, agencies should ensure that they
+cache. When using a response cache, API Providers should ensure that they
 understand and monitor their cache to ensure that stale objects are kept
 to a minimum and that they have sufficient system memory to service
 caching loads. This means ensuring that the cache is refreshed once a
