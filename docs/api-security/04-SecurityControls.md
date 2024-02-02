@@ -90,16 +90,16 @@ The following table details the data classification application for API Security
 
 ### Hash Values
 
-In OpenID Connect, the c_hash, at_hash, and s_hash values are used to enhance the security and integrity of the authorisation process.
+In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enhance the security and integrity of the authorisation process.
 
-#### c_hash (Code Hash)
+#### `c_hash` (Code Hash)
 
-- Used in the authorisation code flow when using response_type=code id_token
-- The response to the client is a code and the first id_token
-- The id_token signature is validates by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- Parsing the id_token the c_hash is found and using SHA-256 (defined in the header of the id_token "alg") compares the code with the c_hash
+- Used in the authorisation code flow when using `response_type=code id_token`
+- The response to the client is a `code` and the first `id_token`
+- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- Parsing the `id_token` the `c_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the code with the `c_hash`
 
-#### at_hash (Access Token Hash)
+#### `at_hash` (Access Token Hash)
 
 - Used in the authorisation code flow when using response_type=code id_token
 - The response to the client when the code is presented to the token endpoint is a JWT access token and and id_token
