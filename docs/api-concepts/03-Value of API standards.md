@@ -58,10 +58,10 @@ The interoperability roadmap:
 - Explains the shift to a fully interoperable digital health ecosystem, and how the shift can be accelerated.
 - Outlines the need for change and set out a series of practical steps to be implemented over the next two years.
 - Has four interwoven themes:
-    - Connecting and identifying
-    - Using the same languages
-    - Unblocking access to data
-    - Enabling joined-up services.
+  - Connecting and identifying
+  - Using the same languages
+  - Unblocking access to data
+  - Enabling joined-up services.
 - Describes the leading role that HISO plays in determining the standards needed and charting their adoption.
 
 For the full details, see the [HISO 10083:2020 Interoperability Roadmap](https://www.tewhatuora.govt.nz/assets/Our-health-system/Digital-health/Health-information-standards/hiso-10083-2020-interoperability-roadmap-11sept2020.pdf).

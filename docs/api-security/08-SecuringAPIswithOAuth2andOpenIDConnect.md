@@ -28,10 +28,9 @@ There are three token formats that are used in OAuth 2 and OpenID Connect they a
 
 |Token Format| Where used |Description | Recommendation / Classification|
 |---|---|---|---|
-|Opaque Tokens| Authorisation Code<br/>Access Token<br/>Refresh Token | They do not contain any user information, they are a random, unique string of characters that act as a reference for the OAuth 2 server to map it to stored information.| **MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE.<br/>**MAY** be used with SENSITIVE<br/>If the API provider supports opaque `access tokens` they **MUST** do this in conjunction with the token issuers `/tokeninfo` endpoint.| 
+|Opaque Tokens| Authorisation Code<br/>Access Token<br/>Refresh Token | They do not contain any user information, they are a random, unique string of characters that act as a reference for the OAuth 2 server to map it to stored information.| **MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE.<br/>**MAY** be used with SENSITIVE<br/>If the API provider supports opaque `access tokens` they **MUST** do this in conjunction with the token issuers `/tokeninfo` endpoint.|
 |JWT| Access Token<br/>Refresh Token<br/>ID Token |JSON Web Tokens are self contained token and store user identity and access information (claims)|**MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE<br/>**MAY** be used with SENSITIVE|
 |JWE| Access Token<br/>Refresh Token<br/>ID Token |This is a JWT that has been encrypted using the [JWE standard](https://datatracker.ietf.org/doc/html/rfc7516)|**MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE<br/>**MAY** be used with SENSITIVE<br/>**MUST** be used where the token itself contains sensitive information or PHI/PII.|
-
 
 ### Opaque Token
 
