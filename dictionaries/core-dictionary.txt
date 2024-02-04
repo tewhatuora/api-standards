@@ -4,6 +4,7 @@ apistandards
 Arawa
 FHIR
 Hauora
+HIPC
 Hira
 HISO
 Kahu

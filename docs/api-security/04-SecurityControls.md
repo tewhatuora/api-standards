@@ -132,7 +132,7 @@ The following is a list of controls:
 - **SHOULD** use JWT Access and Refresh Tokens
 - The Authorisation Server **MUST** provide a Token Revocation endpoint
 - The Authorisation Server **MUST** provide a Token Introspection endpoint
-- Token Signing **MUST** use EdDSA or ECDA when protecting sensitive information
+- Token Signing **MUST** use EdDSA or ECDSA when protecting sensitive information
 - Token Encryption **MUST** use RSA-OAEP
 - Hashing algorithms that **MUST** be applied or SHA-256 or SHA-384
 - All communications to or from an API **MUST** be over TLS 1.3 or higher. Other versions of TLS and SSL should be disabled. This provides a recognised level of confidentiality that covers all communications between all components.

@@ -17,9 +17,9 @@ With more information, you can:
 - and much more.
 
 There are two sources of metrics for the Standards: the website and the GitHub repository.
-
-There are analytics ... todo.
-
+<!---
+Todo: Insert details on how to view website metrics via Google Analytics
+--->
 For information on how to obtain metrics from GitHub, refer to [viewing activity and data for your repository](https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository).
 
 The following metrics should be gathered from both:

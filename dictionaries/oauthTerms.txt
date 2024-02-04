@@ -16,5 +16,6 @@ PKIX
 ROPC
 RSASSA
 subname
+tokeninfo
 UserInfo
 webfinger

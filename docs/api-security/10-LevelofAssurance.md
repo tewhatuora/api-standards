@@ -72,6 +72,6 @@ The API Consumer uses these claims to confirm the level of trust that the user i
 
 |Claim| Description| How Applied|
 |---|---|---|
-|Acr|Authentication Context Class Reference| LoA based on a pre-defined set of values, higher the value the stronger the LoA<br/>-  0 = no authentication performed **COULD** be applied to PUBLIC information<br/>-   2 = credential and password and OTP<br/>-   3 = Password, OTP and Multi factor Authentication required **SHOULD** be applied to IN-CONFIDENCE and SENSITIVE information|
-|amr|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> The API PROVIDER can define the requirements (acr) based on this information which are enforced by the API Consumer  |
-|azp| Authorised party| Client id of the API Consumer, used where there can be multiple API Consumer services|
+|`acr`|Authentication Context Class Reference| LoA based on a pre-defined set of values, higher the value the stronger the LoA<br/>-  0 = no authentication performed **COULD** be applied to PUBLIC information<br/>-   2 = credential and password and OTP<br/>-   3 = Password, OTP and Multi factor Authentication required **SHOULD** be applied to IN-CONFIDENCE and SENSITIVE information|
+|`amr`|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> The API PROVIDER can define the requirements (acr) based on this information which are enforced by the API Consumer  |
+|`azp`| Authorised party| Client id of the API Consumer, used where there can be multiple API Consumer services|
