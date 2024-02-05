@@ -257,7 +257,7 @@ and accepted standards e.g.
 - OAuth
 - OIDC
 
-Refer to the [API Development Industry Standards](./DevelopmentIndustryStandards) for detailed
+Refer to the [API Development Industry Standards](/api-development/DevelopmentIndustryStandards) for detailed
 information about relevant standards.
 
 ## Designing an API

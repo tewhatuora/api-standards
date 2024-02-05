@@ -7,7 +7,7 @@ Content is draft and in review – this content may change until review is compl
 :::
 
 :::info
-We encourage the Aotearoa health sector to contribute to the development of these standards to ensure the needs of applications producing and / or consuming these FHIR APIs are met.  For more information about how to contribute please see the [collaboration guidelines](/community/Introduction)
+We encourage the Aotearoa health sector to contribute to the development of these standards to ensure the needs of applications producing and / or consuming these FHIR APIs are met.  For more information about how to contribute please see the [collaboration guidelines](/community/introduction)
 
 :::
 
@@ -15,7 +15,7 @@ We encourage the Aotearoa health sector to contribute to the development of thes
 
 **Te Whatu Ora is adopting **FHIR**[^1] ([Fast Health Interoperability Resources](http://hl7.org/fhir/index.html)) as a primary data standard for exchanging healthcare information** to build an interoperable health information ecosystem for the NZ health sector.
 
-FHIR APIs [provide](/api-concepts/ComponentDefinitions#api-producer) convenient persistence and searching of health data representations for [consuming](/api-concepts/ComponentDefinitions#api-consumer) health software applications.
+FHIR APIs [provide](/api-concepts/ComponentDefinitions#api-provider) convenient persistence and searching of health data representations for [consuming](/api-concepts/ComponentDefinitions#api-consumer) health software applications.
 
 As FHIR leaves open many choices to implementers, some control is needed in pursuit of interoperability that is beneficial to all parties.  
 
