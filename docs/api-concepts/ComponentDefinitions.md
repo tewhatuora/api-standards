@@ -40,7 +40,7 @@ A health worker in the context of these standards is any person who provides or 
 
 ## API Designers
 
-An `API Designer` in the context of these standards is a software developer or architect who specializes in designing application programming interfaces (APIs). API designers work to create APIs that are easy to use, efficient, and secure.
+An `API Designer` in the context of these standards is a software developer or architect who specialises in designing application programming interfaces (APIs). API designers work to create APIs that are easy to use, efficient, and secure.
 API designers typically have a strong understanding of software development principles and best practices. They also have a deep knowledge of the specific technologies and platforms that their APIs will be used with. They should also have a comprehensive understanding of the health sector.
 API designers play a vital role in the development of modern software applications. By designing well-crafted APIs, they can make it easier for developers to integrate different applications and build new products and services.
 
@@ -50,13 +50,13 @@ An `API developer` in the context of these standards is a software engineer who 
 
 ## Application Developers
 
-An `Application Developer` in the context of these standards is a software engineer who designs, develops, tests, and deploys software applications. Application developers typically specialize in a particular type of application development, such as mobile app development, web app development, or enterprise software development.
+An `Application Developer` in the context of these standards is a software engineer who designs, develops, tests, and deploys software applications. Application developers typically specialise in a particular type of application development, such as mobile app development, web app development, or enterprise software development.
 
 | Characteristic    | API Developer                                                                            | Application Developer                                                                                                                                                 |
 | :---------------- | :--------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Primary focus** | Developing APIs                                                                          | Developing software applications                                                                                                                                      |
 | **Audience**      | Other developers                                                                         | Health sector participants                                                                                                                                            |
-| **Example tasks** | Design and develop new APIs, maintain and update existing APIs, create API documentation | Gather and analyze user requirements, design and develop software applications, write and test code, debug and fix software defects, deploy and maintain applications |
+| **Example tasks** | Design and develop new APIs, maintain and update existing APIs, create API documentation | Gather and analyse user requirements, design and develop software applications, write and test code, debug and fix software defects, deploy and maintain applications |
 
 ```plantuml alt="Diagram showing API interactions within Health Sector organisations"
 @startuml

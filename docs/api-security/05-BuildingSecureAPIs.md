@@ -12,7 +12,7 @@ API designers/developers **MUST** consider the [OWASP Security By Design Princip
 
 | Check | OWASP Security By Design Principle | Summary statement              |
 | :---  | :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-|   ▢   | Minimize attack surface area       | Every feature that is added to an application adds a certain amount of risk to the overall application. The aim for secure development is to reduce the overall risk by reducing the attack surface area. |
+|   ▢   | Minimise attack surface area       | Every feature that is added to an application adds a certain amount of risk to the overall application. The aim for secure development is to reduce the overall risk by reducing the attack surface area. |
 |   ▢   | Establish secure defaults          | However, by default, the experience should be secure, and it should be up to the user to reduce their security – if they are allowed. |
 |   ▢   | Principle of Least privilege       | Accounts shall have the minimum privileges required to perform their business processes |
 |   ▢   | Principle of Defense in depth      | Where one control would be reasonable, more controls that approach risks in different fashions are better. |
@@ -33,12 +33,12 @@ API designers/developers **MUST** ensure the API implementation adheres to all o
 |   ▢   | Validate all incoming data         | *All* content of *all* incoming messages **MUST** be validated by the API implementation and/or its supporting infrastructure |
 |   ▢   | Forbidden OAuth grant types        | APIs **MUST NOT** allow use of OAuth *Implicit* or *Password* Grant Types. |
 |   ▢   | Validate REDIRECTs                 | OAuth 2.0-protected API servers **MUST** check the `redirect_uri` of received authorisation requests is identical to the redirection URI registered for the client (consumer), to mitigate redirection to unauthorised URIs. |
-|   ▢   | Validate OAuth ID tokens           | Consumers of OAuth-secured[^1] APIs **MUST** validate OAuth ID tokens they obtain from an OAuth authorization server. |
+|   ▢   | Validate OAuth ID tokens           | Consumers of OAuth-secured[^1] APIs **MUST** validate OAuth ID tokens they obtain from an OAuth authorisation server. |
 |   ▢   | Validate OAuth Access tokens       | Consumers of OAuth-secured APIs **MUST** validate Issuer, Signature, Claims and Scopes in an OAuth Access token before use. |
 |   ▢   | OAuth tokens to be short-lived     | APIs which require OAuth 2.0/2.1 tokens **MUST** ensure each token is issued with a short[^2] lifetime / expiry, to minimise risks from use of stolen tokens.  When long access periods are required, the API **MUST** require the use of **Refresh Tokens** |
 |   ▢   | Request minimal OAuth scopes       | In line with the *least privilege* design principle, OAuth 2.0/2.1 API consumers **SHOULD** request only scopes needed for a particular solution domain and context of usage |
 |   ▢   | Tokens stored encrypted            | If an OAuth-protected API Consumer needs to store a token, this **MUST** only be done in **encrypted local storage** |
-|   ▢   | Proof Key for Code Exchange (PKCE) | OAuth 2.0/2.1 API consumers **SHOULD** use PKCE (pronounced "pixie") to prevent cross site request forgery and authorization code injection attacks |
+|   ▢   | Proof Key for Code Exchange (PKCE) | OAuth 2.0/2.1 API consumers **SHOULD** use PKCE (pronounced "pixie") to prevent cross site request forgery (XSRF) and `authorization code` injection attacks |
 
 [^1]: In this standard, means an API protected by OAuth 2.0 or 2.1 security
 [^2]: 'short' here means something like 30 minutes
@@ -81,6 +81,6 @@ your API accepts input values as parameters:
   Sheet</u>](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
   – ensuring database queries are built internally
 
-- [<u>OWASP Query Parameterization Cheat
+- [<u>OWASP Query Parameterisation Cheat
   Sheet</u>](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html)
   – examples of SQL injection and stored procedure vulnerabilities

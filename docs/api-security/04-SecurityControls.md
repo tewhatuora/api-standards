@@ -31,7 +31,7 @@ The following controls are recommended by the FHIR specification and **MUST** be
 |Resource Type|Control Required|
 |---|---|
 |Anonymous Read Access|<li>No access control based on the user or system requesting are required</li><li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li>|
-|Business|<li>Client authentication is required to assure that only authorized access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
+|Business|<li>Client authentication is required to assure that only authorised access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
 |Individual|<li>Apply RBAC or ABAC access polices</li>|
 Patient|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
 
@@ -197,7 +197,7 @@ Appropriate controls:
 
 - The use and issuance of Access Tokens **MUST** be monitored
 
-- Monitoring the Oauth flow **SHOULD** be performed for suspicious activity and regularly auditing logs can help detect and prevent potential security breaches. This includes monitoring for anomalous requests, access attempts to unauthorized resources, and unusual client behavior.
+- Monitoring the Oauth flow **SHOULD** be performed for suspicious activity and regularly auditing logs can help detect and prevent potential security breaches. This includes monitoring for anomalous requests, access attempts to unauthorised resources, and unusual client behavior.
 
 - Traditional logging, alerting and incident management practices also apply to APIs, along with additional considerations that **SHOULD** be applied:
 
