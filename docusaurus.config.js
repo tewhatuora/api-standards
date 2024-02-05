@@ -23,8 +23,8 @@ module.exports = async function createConfig() {
     organizationName: 'tewhatuora', // Usually your GitHub org/user name.
     projectName: 'api-standards', // Usually your repo name.
 
-    onBrokenLinks: 'warn', // update to 'throw' when all content is migrated
-    onBrokenMarkdownLinks: 'warn', // update to 'throw' when all content is migrated
+    onBrokenLinks: 'throw',
+    onBrokenMarkdownLinks: 'throw',
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
