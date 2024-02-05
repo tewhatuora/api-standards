@@ -35,6 +35,23 @@ The following controls are recommended by the FHIR specification and **MUST** be
 |Individual|<li>Apply RBAC or ABAC access polices</li>|
 Patient|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
 
+## API Provider controls for all APIs
+
+The following is a list of controls and their applicability for all API Providers:
+
+- **MUST** enforce [access controls](./APIAuthentcationandAuthorisationBasics#authorisation) at the API provider edge
+  - [Throttling](#availability-and-threat-protection) to address Distributed Denial of Service (DDoS)attacks
+  - [Message analysis](#availability-and-threat-protection) to block HTTP attacks; parameter attacks such as cross-site scripting (XSS), SQL injection, command injection and cross site request forgery (XSRF)
+- **MUST** use [short lived Access Tokens](#token-threat-mitigation)
+- **SHOULD** use [JWT](./SecuringAPIswithOAuth2andOpenIDConnect#json-web-token-jwt) Access and Refresh Tokens
+- The Authorisation Server **MUST** provide a [Token Revocation endpoint](./SecuringAPIswithOAuth2andOpenIDConnect#oauth-2-and-openid-connect-endpoints-api-provider)
+- The Authorisation Server **MUST** provide a [Token Introspection endpoint](./SecuringAPIswithOAuth2andOpenIDConnect#oauth-2-and-openid-connect-endpoints-api-provider)
+- Token Signing **MUST** use [EdDSA or ECDA](https://datatracker.ietf.org/doc/html/rfc8422#section-2.1) when protecting sensitive information
+- Token Encryption **MUST** use RSA-OAEP
+- Hashing algorithms that **MUST** be applied or SHA-256 or SHA-384
+- All communications to or from an API **MUST** be over TLS 1.3 or higher. Other versions of TLS and SSL should be disabled. This provides a recognised level of confidentiality that covers all communications between all components.
+- API consumer applications **MUST** validate TLS certificate chains when making requests to protected resources, including checking the Certificate Revocation List (CRL).
+
 ## Confidentiality and Integrity
 
 Confidentiality and integrity cover the handling of request and response data, both in transit and at rest. The aim is to protect the payload content from unauthorised access (eavesdropping), manipulation or faking of content. An API request needs to be received intact by the API, with validation as to the source of the request. Untampered API responses need to be received by the consuming application, with confirmation that they are legitimately from the API.
@@ -120,23 +137,6 @@ Where Bearer Tokens are used, they **MUST** be JSON Web Tokens (JWT) signed usin
 Non-repudiation covers the means to ensure that a consumer cannot deny making a request and, similarly, a provider cannot claim they did not send a response. To aid non-repudiation for APIs, it is important to ensure credentials are not shared between consumers and to perform comprehensive logging of API request/responses.
 
 Digital signatures are useful for not just guaranteeing authenticity and integrity, but also supporting non-repudiation.
-
-### Organisation controls for all APIs
-
-The following is a list of controls:
-
-- **MUST** enforce access controls at the API provider edge
-  - Throttling to address DoS
-  - Message analysis to block HTTP attacks; parameter attacks such as cross-site scripting, SQL injection, command injection and cross site request forgery
-- **MUST** use short lived Access Tokens
-- **SHOULD** use JWT Access and Refresh Tokens
-- The Authorisation Server **MUST** provide a Token Revocation endpoint
-- The Authorisation Server **MUST** provide a Token Introspection endpoint
-- Token Signing **MUST** use EdDSA or ECDA when protecting sensitive information
-- Token Encryption **MUST** use RSA-OAEP
-- Hashing algorithms that **MUST** be applied or SHA-256 or SHA-384
-- All communications to or from an API **MUST** be over TLS 1.3 or higher. Other versions of TLS and SSL should be disabled. This provides a recognised level of confidentiality that covers all communications between all components.
-- API consumer applications **MUST** validate TLS certificate chains when making requests to protected resources, including checking the Certificate Revocation List (CRL).
 
 ## Availability and Threat Protection
 
