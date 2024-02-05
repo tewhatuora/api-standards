@@ -46,11 +46,11 @@ The following is a list of controls and their applicability for all API Provider
 - **SHOULD** use [JWT](./SecuringAPIswithOAuth2andOpenIDConnect#json-web-token-jwt) Access and Refresh Tokens
 - The Authorisation Server **MUST** provide a [Token Revocation endpoint](./SecuringAPIswithOAuth2andOpenIDConnect#oauth-2-and-openid-connect-endpoints-api-provider)
 - The Authorisation Server **MUST** provide a [Token Introspection endpoint](./SecuringAPIswithOAuth2andOpenIDConnect#oauth-2-and-openid-connect-endpoints-api-provider)
-- Token Signing **MUST** use [EdDSA or ECDA](https://datatracker.ietf.org/doc/html/rfc8422#section-2.1) when protecting sensitive information
-- Token Encryption **MUST** use RSA-OAEP
-- Hashing algorithms that **MUST** be applied or SHA-256 or SHA-384
-- All communications to or from an API **MUST** be over TLS 1.3 or higher. Other versions of TLS and SSL should be disabled. This provides a recognised level of confidentiality that covers all communications between all components.
-- API consumer applications **MUST** validate TLS certificate chains when making requests to protected resources, including checking the Certificate Revocation List (CRL).
+- Token Signing **MUST** use [EdDSA or ECDSA](https://datatracker.ietf.org/doc/html/rfc8422#section-2.1) when protecting sensitive information
+- Token Encryption **MUST** use [RSA-OAEP](https://datatracker.ietf.org/doc/html/rfc8017#section-7.1)
+- Supported hashing algorithms **MUST** be applied as per the [NZISM](https://nzism.gcsb.govt.nz/ism-document/#Chapter-15745)
+- All communications to or from an API **MUST** utilise [Transport Layer Security (TLS) 1.3](https://datatracker.ietf.org/doc/html/rfc8446) or higher. Other versions of TLS and SSL should be disabled. This provides a recognised level of confidentiality that covers all communications between all components. [Also see NZISM](https://nzism.gcsb.govt.nz/ism-document/#Section-15940)
+- API consumer applications **MUST** [validate TLS certificate chains](https://datatracker.ietf.org/doc/html/rfc5280) when making requests to protected resources, including checking the Certificate Revocation List (CRL).
 
 ## Confidentiality and Integrity
 

@@ -45,6 +45,8 @@ Content is draft and in review – this content may change until review is compl
 | OIDF    | OpenID Foundation                                  |
 | OWASP   | Open Web Application Security Project              |
 | PBD     | Primary Business Data                              |
+| PHI     | Protected Health Information                       |
+| PII     | Personally Identifiable Information                |
 | RAML    | Rest API Modelling Language                        |
 | REST    | Representative State Transfer                      |
 | RFC     | Request for Comments (IETF)                        |
