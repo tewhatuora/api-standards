@@ -31,7 +31,7 @@ The following controls are recommended by the FHIR specification and **MUST** be
 |Resource Type|Control Required|
 |---|---|
 |Anonymous Read Access|<li>No access control based on the user or system requesting are required</li><li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li>|
-|Business|<li>Client authentication is required to assure that only authorised access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
+|Business|<li>Client authentication is required to assure that only authorised access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth 2.0 client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
 |Individual|<li>Apply RBAC or ABAC access polices</li>|
 Patient|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
 
@@ -62,7 +62,7 @@ Confidentiality and integrity cover the handling of request and response data, b
 |In-Confidence|<li>TLS 1.3 **MUST** be applied, MTLS **MAY** be applied, between client, authorisation server and resource server</li><li>Encryption of the payload **SHOULD** be considered</li><li>Strong Authentication **SHOULD** be applied</li><li>Fine grained Authorisation **SHOULD** be applied using ABAC or RBAC</li>|
 |Sensitive|<li>TLS 1.3 MTLS **MUST** applied between client, authorisation server and resource server</li><li>The Payload **MUST** be encrypted</li><li>Security Tags (labels) **MUST** be used for FHIR APIs to apply the masking or removal sensitive data in the response</li><li>Strong Authentication **MUST** be applied</li><li>Coarse grained Authorisation **MUST** be applied</li><li>Fine grained Authorisation **MUST** be applied</li>|
 
-The following table details the data classification application for API Security using OAuth 2 and OpenID Connect:
+The following table details the data classification application for API Security using OAuth 2.0 and OpenID Connect:
 
 |Data Classification | API Security Control (Grant Flows)|
 |---|---|
@@ -72,7 +72,7 @@ The following table details the data classification application for API Security
 
 |Grant Type| Control Required| Status |
 |---|---|---|
-|Client Credentials with Scopes|<li>OAuth 2 **SHOULD** be applied, **MAY** use OpenID Connect</li><li>Client_secret_post token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MAY** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li>| Supported :white_check_mark: |
+|Client Credentials with Scopes|<li>OAuth 2.0 **SHOULD** be applied, **MAY** use OpenID Connect</li><li>Client_secret_post token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MAY** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li>| Supported :white_check_mark: |
 |Implicit grant with PKCE |<li>OpenID Connect **SHOULD** be applied using an openid scope in the authentication request</li><li>Client_secret_post or client_secret_jwt or private_key_jwt token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **SHOULD** be allied to mitigate stolen authorisation codes</li><li>The response_type **SHOULD** be id_token token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>If OpenID Connect is used the nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li>| Deprecated :warning: |
 | Authorisation Code grant with PKCE  |<li>OpenID Connect **MUST** be applied using an openid scope in the authentication request</li><li>private_key_jwt token endpoint authorisation **MUST** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **MUST** be applied to mitigate stolen authorisation codes</li><li>The response_type **MUST** be code id_token</li><li>The state parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>The nonce parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the id_token</li><li>Client secrets **MUST** be securely stored</li><li>id_token **SHOULD** be used as a detached signature</li><li>The flow **SHOULD** contain c_hash,at_hash and c_hash values</li><li>Encryption of the id_token **MAY** be used</li><li>Demonstration of Proof-of-Possession **SHOULD** be applied to tie an Access Token to a client</li>| Supported :white_check_mark: |
 
@@ -170,7 +170,7 @@ Below is a table of risk types and some approaches that **SHOULD** be used to he
 
 ### Token Threat Mitigation
 
-Securing OAuth flows relies on the exchange of tokens between consuming applications and API provider servers. There is always the threat of these tokens being obtained illicitly, losing confidentiality and integrity of message content or the integrity of the sender of the token. This risk also applies to the transferring of API keys.
+Securing OAuth 2.0 flows relies on the exchange of tokens between consuming applications and API provider servers. There is always the threat of these tokens being obtained illicitly, losing confidentiality and integrity of message content or the integrity of the sender of the token. This risk also applies to the transferring of API keys.
 
 The table below captures the main Token threats and  mitigation strategies that **SHOULD** be applied:
 
@@ -197,7 +197,7 @@ Appropriate controls:
 
 - The use and issuance of Access Tokens **MUST** be monitored
 
-- Monitoring the Oauth flow **SHOULD** be performed for suspicious activity and regularly auditing logs can help detect and prevent potential security breaches. This includes monitoring for anomalous requests, access attempts to unauthorised resources, and unusual client behavior.
+- Monitoring the OAuth 2.0 flow **SHOULD** be performed for suspicious activity and regularly auditing logs can help detect and prevent potential security breaches. This includes monitoring for anomalous requests, access attempts to unauthorised resources, and unusual client behavior.
 
 - Traditional logging, alerting and incident management practices also apply to APIs, along with additional considerations that **SHOULD** be applied:
 

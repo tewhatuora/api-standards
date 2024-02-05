@@ -242,7 +242,7 @@ APIC -[#blue,dotted]l-> Consumer
 Web standards have rapidly become powerful agreements, which span not
 just local regions but are internationally accepted and enable
 commonality and consistency. Using standard HTTP and URLs, the core
-technologies of the web, along with standards such as JSON and OAuth
+technologies of the web, along with standards such as JSON and OAuth 2.0
 ensures that organisations are not creating bespoke or proprietary
 technologies.
 
@@ -254,7 +254,7 @@ and accepted standards e.g.
 - AsyncAPI
 - REST
 - JSON
-- OAuth
+- OAuth 2.0
 - OIDC
 
 Refer to the [API Development Industry Standards](/api-development/DevelopmentIndustryStandards) for detailed

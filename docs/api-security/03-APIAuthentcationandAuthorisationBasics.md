@@ -76,8 +76,8 @@ package "Authentication Mechanisms" as mech {
     rectangle "Username \n& Password" as UAP
     rectangle "API Key" as AK
     rectangle "Mutual Certificates (mTLS)" as MTLS
-    rectangle OAUTH {
-        rectangle "OAuth2" as OAuth2
+    rectangle "OAuth 2.0" as OAUTH {
+        rectangle "OAuth 2.0" as OAuth2
         rectangle "Open ID Connect (OIDC)" as OIDC
     }
 }
@@ -142,10 +142,10 @@ of access control is a provider granting or denying a consuming
 application and/or consumer access to a resource to a certain level of
 granularity.
 
-In the Authentication section the concepts of OAuth were introduced,
+In the Authentication section the concepts of OAuth 2.0 were introduced,
 and a number of Authentication patterns were defined. This section
 focuses on Authorisation and provides additional patterns that work
-with OAuth or provides an alternative.
+with OAuth 2.0 or provides an alternative.
 
 Authentication on its own does not necessarily provide permissions to
 access an API or application. It merely validates that you are who you
@@ -179,7 +179,7 @@ controls can be applied using scopes. For example, a data service
 might provide `read` and `write` scopes which could be granted to a
 user based on the directory groups they were in.
 
-[OAuth2 Scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) can be used to limit the authorisation granted to the
+[OAuth 2.0 Scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) can be used to limit the authorisation granted to the
 API consumer by the resource owner. The developer
 has to ensure that the minimum privileges are granted to API consumers to carry out the API requests that the user wishes the API consumer to complete.
 
@@ -223,7 +223,7 @@ and with whom their clinical data is shared.
 
 It also defines the interoperable process for systems to exchange
 patient-authorised healthcare data consistent with open standards,
-specifically FHIR (Fast Healthcare Interoperability Resources), OAuth,
+specifically FHIR (Fast Healthcare Interoperability Resources), OAuth 2.0,
 OpenID Connect, and UMA (User-Managed Access).
 
 Two pertinent specifications are:
@@ -666,12 +666,12 @@ The API Portal should provide registration services for the client application t
 
 - API keys for basic authentication services and API monitoring
 
-- OAuth services and the management of Client ID and a Client Secrets
+- OAuth 2.0 services and the management of Client ID and a Client Secrets
    (for applications)
 
 - Additional production authentication and authorisation service e.g.
    basic, certificate etc.
 
 :::info
-For details on OAuth authentication mechanisms see
-[Securing APIs with Oauth2 and OpenID Connect](./SecuringAPIswithOAuth2andOpenIDConnect)
+For details on OAuth 2.0 authentication mechanisms see
+[Securing APIs with OAuth 2.0 and OpenID Connect](./SecuringAPIswithOAuth2andOpenIDConnect)

@@ -114,7 +114,7 @@ needs to be seen from a holistic perspective. It needs to incorporate
 existing enterprise security frameworks where the management and
 understanding of user identities is core. For example, securing an API
 that is targeted for a mobile application is not just about applying an
-OAuth profile, it should take into consideration how mobile devices and
+OAuth 2.0 profile, it should take into consideration how mobile devices and
 applications are managed and secured and how the enterprise security
 framework (e.g. authentication) can be leveraged.
 
