@@ -310,9 +310,9 @@ A detailed example of the Authorisation Code flow is covered here:
 
 **MUST** be used for all access to IN-CONFIDENCE and SENSITIVE APIs
 
-The PKCE-enhanced Authorisation Code Flow was introduced to help mitigate "man in the middle" attacks.
+The PKCE-enhanced Authorisation Code Flow was introduced to help mitigate "man-in-the-middle" attacks.
 
-The API consumer creates a secret that the authorisation server can verify before returning the access token to the client, i.e. the Authorisation Server can confirm that the code came from the from the Client Application and not a Malicious "in the middle" Application.
+The API consumer creates a secret that the authorisation server can verify before returning the access token to the client, i.e. the Authorisation Server can confirm that the code came from the from the Client Application and not a Malicious "in-the-middle" Application.
 
 ### Implementation
 

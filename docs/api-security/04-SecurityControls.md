@@ -49,7 +49,7 @@ The following is a list of controls and their applicability for all API Provider
 - Token Signing **MUST** use [EdDSA or ECDSA](https://datatracker.ietf.org/doc/html/rfc8422#section-2.1) when protecting sensitive information
 - Token Encryption **MUST** use [RSA-OAEP](https://datatracker.ietf.org/doc/html/rfc8017#section-7.1)
 - Supported hashing algorithms **MUST** be applied as per the [NZISM](https://nzism.gcsb.govt.nz/ism-document/#Chapter-15745)
-- All communications to or from an API **MUST** utilise [Transport Layer Security (TLS) 1.3](https://datatracker.ietf.org/doc/html/rfc8446) or higher. Other versions of TLS and SSL should be disabled. This provides a recognised level of confidentiality that covers all communications between all components. [Also see NZISM](https://nzism.gcsb.govt.nz/ism-document/#Section-15940)
+- All communications to or from an API **MUST** utilise [Transport Layer Security (TLS) 1.3](https://datatracker.ietf.org/doc/html/rfc8446) or higher. Other versions of TLS and SSL **SHOULD** be disabled. This provides a recognised level of confidentiality that covers all communications between all components. [Also see NZISM](https://nzism.gcsb.govt.nz/ism-document/#Section-15940)
 - API consumer applications **MUST** [validate TLS certificate chains](https://datatracker.ietf.org/doc/html/rfc5280) when making requests to protected resources, including checking the Certificate Revocation List (CRL).
 
 ## Confidentiality and Integrity
@@ -110,7 +110,7 @@ State is also a parameter that **MUST** be used during the authorisation grant s
 
 If content needs only to be visible to specific consumer endpoints, use encryption. However, if content only needs to be guaranteed untampered and/or from a specific source (e.g. provider) then use content signing. Content encryption enables all or part of an API payload to be readable only by the target consumer(s). This is useful where the content being carried by the API is sensitive, and the API request or response transits multiple stopping points. Whilst TLS protects the payload in transit, it only applies to each point to point connection between components (e.g. mobile app to API gateway). If transit components are not totally under the provider’s control, it can be worthwhile performing payload encryption. E.g. it may be sensible to encrypt credit card details passed between consumer and provider backend systems.
 
-It is also worth considering how much protection the information needs whilst at rest. Data at rest encryption is generally considered good practice and may cloud service providers offer this as standard. See [NZISM](https://nzism.gcsb.govt.nz/ism-document/#Section-15746) for details.
+It is also worth considering how much protection the information needs whilst at rest. Data at rest encryption is generally considered good practice and many cloud service providers offer this as standard. See [NZISM](https://nzism.gcsb.govt.nz/ism-document/#Section-15746) for details.
 
 Encryption is only worthwhile implementing when data sensitivity or data protection requirements drive it, as encryption can be computationally intensive. It also makes it more difficult for protection mechanisms, such as API gateways, to validate and transform API content. When only the integrity of the content passed needs to be ensured, consider using Content Signing instead.
 
@@ -176,8 +176,8 @@ The table below captures the main Token threats and  mitigation strategies that 
 
 |Threat|Mitigation|
 |---|---|
-|Token Manufacture or modification (fake tokens and man in the middle attacks)|<li>Digital signing of tokens (e.g. JWS with JWT) or attaching a Message Authentication Code (MAC)</li>|
-|Token disclosure – man in the middle attack.<br/>The Access Token is passed in clear text with no hashing, signing or encryption.|Communication Security:<li>Use TLS 1.3 with a cipher suite that includes DHE or ECDHE</li>The client application must validate:<li>The TLS certificate chain</li><li>Check the certificate revocation list</li><li>Stored locally in a file or LDAP server</li>|
+|Token Manufacture or modification (fake tokens and man-in-the-middle attacks)|<li>Digital signing of tokens (e.g. JWS with JWT) or attaching a Message Authentication Code (MAC)</li>|
+|Token disclosure – man-in-the-middle attack.<br/>The Access Token is passed in clear text with no hashing, signing or encryption.|Communication Security:<li>Use TLS 1.3 with a cipher suite that includes DHE or ECDHE</li>The client application must validate:<li>The TLS certificate chain</li><li>Check the certificate revocation list</li><li>Stored locally in a file or LDAP server</li>|
 |Token Redirects.<br/>Ensure the Authentication and Resource Servers are "paired”, and the access token can only be used in this between the specified servers|<li>Using the "audience” header (defined currently in a draft RFC) the client application, resource server and authorisation server can help *ensure that the token can only be used on the resource servers requested by the client and recognised by the authorisation server* </li><li>Also addressed with "state” parameter in the header</li><li>Signing of tokens is also applicable to address token redirects</li>|
 |Token replay – where the threat actor copies an existing token (e.g. refresh token or authorisation code) and reuses it on their own request|<li>Limit lifetime of the token (e.g. 10 minutes) – turning it into a short-lived issue</li><li>Use signed requests along with nonce and timestamps</li><li>Validate TLS certificate chain when accessing Resource</li>|
 
