@@ -8,7 +8,7 @@ Content is draft and in review – this content may change until review is compl
 
 ## Standards for Developing APIs
 
-In addition to the standards captured in [API Design](./API%20Design#standards-based) and [API Security Standards](../api-security/StandardsforSecuringRESTful%20APIs) the table below
+In addition to the standards captured in [API Design](./API%20Design#standards-based) and [API Security Standards](../api-security/BuildingSecureAPIs) the table below
 captures (current) API and web standards that should be considered as part of any API Strategy.
 
 | Standard or Standards Organisation | Description |
