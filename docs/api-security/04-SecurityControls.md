@@ -191,24 +191,23 @@ Appropriate controls:
 
 - PII information **MUST NOT** be logged
 
-- Sensitive information in headers **MUST NOT** be logged (e.g. tokens, API Keys etc.)
+- Sensitive information in headers **MUST NOT** be logged (e.g. tokens, API Keys)
 
-- Full Content logging **MUST NOT** be applied
+- Full content logging **MUST NOT** be applied
 
 - The use and issuance of Access Tokens **MUST** be monitored
 
 - Monitoring the OAuth 2.0 flow **SHOULD** be performed for suspicious activity and regularly auditing logs can help detect and prevent potential security breaches. This includes monitoring for anomalous requests, access attempts to unauthorised resources, and unusual client behavior.
 
-- Traditional logging, alerting and incident management practices also apply to APIs, along with additional considerations that **SHOULD** be applied:
+- Traditional logging, alerting and incident management practices also apply to APIs. The following **MUST** be applied:
+  - Logs **MUST** be stored in a tamper-proof and secure location
+  - Detecting events that may indicate a malicious attempt to access an API **MUST** be logged and monitored.
 
-  - Correlating API requests with specific back-end system activity and the resulting API responses to support end-to-end tracing - capture timestamps, user/consumer information and actions performed
+  The following **SHOULD**  be applied
+  - Correlating API requests with specific back-end system activity and the resulting API responses to support end-to-end tracing - capture timestamps, user/consumer information and actions performed **SHOULD** be logged
 
   - Logging of user actions (login, logout) **SHOULD** be monitored
 
-  - Identifying specific API requests from consumers to help resolve API consumer problems
-
-  - Detecting events that may indicate a malicious attempt to access an API
-
-  - Logs **MUST** be stored in a tamper-proof and secure location
+  - Identifying specific API requests from consumers to help resolve API consumer problems **SHOULD** be monitored.
 
 - Regular security audits and vulnerability scanning **MUST** be planned and actioned to help identify and address potential security vulnerabilities in APIs.
