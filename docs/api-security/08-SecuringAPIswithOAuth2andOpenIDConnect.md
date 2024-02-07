@@ -6,7 +6,7 @@ title: Using OAuth 2 and OpenID Connect to Secure Your API
 Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
-OAuth 2.0 and OpenID Connect are both based on a token-based authorisation framework and are defined and implemented using Grant Flow type patterns. These define the different types of interaction a client application can perform to gain an "access token” and thus access to the protected API.
+OAuth 2.0 and OpenID Connect are both based on a token-based authorisation framework and are defined and implemented using Grant Flow type patterns. These define the different types of interaction a client application can perform to gain an `access token` and thus access to the protected API.
 
 The grant types define the flow of the different token between the different end points exposed by the API Consumer and API Provider.
 
@@ -16,11 +16,11 @@ Both OAuth 2 and OpenID Connect utilise tokens however there are a number of mec
 
 |Token Type | Description |Grant Flow Used|
 |---|---|---|
-|Authorisation Code|Created by the API Provider and sent to the API Consumer after the resource owner has authenticated and provided consent for the required action (e.g. Read) against the data being accessed.<br/><br/>Sent to the API Provider to obtain an Access Token<br/><br/>**MUST** be protected with TLS and encrypted when stored and **MUST NOT** be stored once it has been used.|[<u>Authorisation Code</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)|
+|Authorisation Code|Created by the API Provider and sent to the API Consumer after the resource owner has authenticated and provided consent for the required action (e.g. Read) against the data being accessed.<br/><br/>Sent to the API Provider to obtain an Access Token.<br/><br/>**MUST** be protected with TLS and encrypted when stored and **MUST NOT** be stored once it has been used.|[<u>Authorisation Code</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)|
 | Access Token |Returned to the API Consumer from the API Provider, and then sent to the API Providers resource server when requesting access to a protected resource.<br/><br/>Also called a Bearer token<br/><br/>**MUST** be protected with TLS and encrypted when stored<br/><br/>**SHOULD** have a lifetime less than 60 mins| [<u>Client Credentials</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-9)<br/><br/>[<u>Implicit</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)<br/><br/>[<u>Authorisation Code</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)|
 | Refresh Token | Used to obtain a new Access token (and possibly a new Refresh Token) from the API Provider when the time limit on an issued Access Token has expired.<br/><br/>**MUST** be protected with TLS and encrypted when stored<br/><br/>**MUST** be used when access is granted for a long period of time<br/><br/>**SHOULD** have a lifetime less than 24 hours|[<u>Implicit</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)<br/><br/>[<u>Authorisation Code</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)|
 | ID Token | Used in all OpenID Connect flows. It is a JWT that is signed and contains meta data that can be used to enhance the level of security during the token exchange(s)<br/><br/>**MUST** be used as a detached signature<br/><br/>**MUST** be signed with an approved algorithm|[<u>Implicit</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)<br/><br/>[<u>Authorisation Code</u>](https://datatracker.ietf.org/doc/html/rfc6749#page-8)|
-|API Key|A 40+ random character string used in some scenarios to authenticate the client application to the API.| N/A |
+|API Key|A string used in some scenarios to authenticate the client application to the API.<br/><br/>**SHOULD** be 40+ character  random string<br/><br/>**SHOULD** have an associated rotation policy e.g. 6 - 12 month lifecycle| N/A |
 
 ## Token Formats
 
