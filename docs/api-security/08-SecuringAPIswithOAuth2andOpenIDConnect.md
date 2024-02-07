@@ -1,5 +1,5 @@
 ---
-title: Using OAuth 2 and OpenID Connect to Secure Your API
+title: Using OAuth 2.0 and OpenID Connect to Secure Your API
 ---
 
 :::warning[Status]
@@ -12,7 +12,7 @@ The grant types define the flow of the different token between the different end
 
 ## Token Types
 
-Both OAuth 2 and OpenID Connect utilise tokens however there are a number of mechanisms used to obtain them. These are sometimes referred to as `grant flows`. Different tokens can be used for different purposes.
+Both OAuth 2.0 and OpenID Connect utilise tokens however there are a number of mechanisms used to obtain them. These are sometimes referred to as `grant flows`. Different tokens can be used for different purposes.
 
 |Token Type | Description |Grant Flow Used|
 |---|---|---|
@@ -24,17 +24,17 @@ Both OAuth 2 and OpenID Connect utilise tokens however there are a number of mec
 
 ## Token Formats
 
-There are three token formats that are used in OAuth 2 and OpenID Connect they are detailed in the table below.
+There are three token formats that are used in OAuth 2.0 and OpenID Connect they are detailed in the table below.
 
 |Token Format| Where used |Description | Recommendation / Classification|
 |---|---|---|---|
-|Opaque Tokens| Authorisation Code<br/>Access Token<br/>Refresh Token | They do not contain any user information, they are a random, unique string of characters that act as a reference for the OAuth 2 server to map it to stored information.| **MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE.<br/>**MAY** be used with SENSITIVE<br/>If the API provider supports opaque `access tokens` they **MUST** do this in conjunction with the token issuers `/tokeninfo` endpoint.|
+|Opaque Tokens| Authorisation Code<br/>Access Token<br/>Refresh Token | They do not contain any user information, they are a random, unique string of characters that act as a reference for the OAuth 2.0 server to map it to stored information.| **MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE.<br/>**MAY** be used with SENSITIVE<br/>If the API provider supports opaque `access tokens` they **MUST** do this in conjunction with the token issuers `/tokeninfo` endpoint.|
 |JWT| Access Token<br/>Refresh Token<br/>ID Token |JSON Web Tokens are self contained token and store user identity and access information (claims)|**MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE<br/>**MAY** be used with SENSITIVE|
 |JWE| Access Token<br/>Refresh Token<br/>ID Token |This is a JWT that has been encrypted using the [JWE standard](https://datatracker.ietf.org/doc/html/rfc7516)|**MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE<br/>**MAY** be used with SENSITIVE<br/>**MUST** be used where the token itself contains sensitive information or PHI/PII.|
 
 ### Opaque Token
 
-Below is a JSON payload of a response from an OAuth 2 Server when they issue an [Opaque] Access Token. As you can see the Access Token itself is a string of characters.
+Below is a JSON payload of a response from an OAuth 2.0 Server when they issue an [Opaque] Access Token. As you can see the Access Token itself is a string of characters.
 
 <!-- cspell:disable -->
 
@@ -127,9 +127,9 @@ The following is a list of why a JWT **SHOULD** be used:
 |Claims Enhancement|A JWT can be enhanced with other claims or metadata and can include claims related to security tags|
 |Encryption|The JWT can be encrypted if PII information is included|
 
-## OAuth 2 and OpenID Connect Endpoints (API Provider)
+## OAuth 2.0 and OpenID Connect Endpoints (API Provider)
 
-There are multiple endpoints that are exposed and secured in the OAuth 2 / OpenID Connect architecture. Depending on the grant flow types (covered next) some or all of these end points will be required.
+There are multiple endpoints that are exposed and secured in the OAuth 2.0 / OpenID Connect architecture. Depending on the grant flow types (covered next) some or all of these end points will be required.
 
 | Endpoint| Location | Tokens | Description |
 |---|---|---|---|
@@ -156,7 +156,7 @@ For completeness the following endpoints are used by the Discovery and registrat
 | Endpoint| Location | Description |
 |---|---|---|
 |`/register`| API Provider| Relying parties can create (register) a client on the Authorisation Server using different security methods|
-|`/.well-known/openid-configuration` | API Provider| This is called by the API Consumer and returns the API providers OAuth/OIDC configuration and capabilities including endpoints, algorithms and grant types|
+|`/.well-known/openid-configuration` | API Provider| This is called by the API Consumer and returns the API providers OAuth 2.0/OIDC configuration and capabilities including endpoints, algorithms and grant types|
 
 ## OpenID Connect
 
@@ -221,7 +221,7 @@ Implementation patterns **MAY** contain one or more of the options below:
 
 - All three components are managed by separate API Providers or Identity Service Providers
 
-## OAuth 2 and OpenID Connect Grant Types
+## OAuth 2.0 and OpenID Connect Grant Types
 
 OAuth 2.0 and OpenID Connect supports two types of API Consumer, confidential and public, and eleven grant flows (how Client Applications can gain Access Tokens). Each is appropriate to different situations and solution requirements.
 
@@ -245,7 +245,7 @@ API provider and consumer developers **MUST** read the RFC [<u>OAuth 2.0 for Bro
 
 These are:
 
-- Websites and services that make secure connections to OAuth 2 server.
+- Websites and services that make secure connections to OAuth 2.0 server.
 - Client secret or JSON Web Token (JWT) can be stored and protected
 
 **MUST** be used to secure IN-CONFIDENCE and SENSITIVE APIs
@@ -266,13 +266,13 @@ The table below details the eleven grant/response types.
 
 |Grant Type<br/>Response type | Recommendations| Client Type|
 |---|---|---|
-|Authorisation Code (OAuth 2)| **SHOULD NOT** be used| N/A|
+|Authorisation Code (OAuth 2.0)| **SHOULD NOT** be used| N/A|
 |Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for PUBLIC APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
 |Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with PUBLIC APIs<br/>**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code|
 |Hybrid (OpenID Connect)<br/>code id_token token|**SHOULD NOT** use | N/A|
 |Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs|**MUST** be used with a web application (confidential client)
 |Hybrid (OpenID Connect)<br/>code token| **SHOULD NOT** use| N/A|
-|Implicit (OAuth 2)| **SHOULD NOT** be used|N/A|
+|Implicit (OAuth 2.0)| **SHOULD NOT** be used|N/A|
 |Implicit (OpenID Connect)<br/> id_token token and PKCE| **SHOULD NOT** be used |N/A|
 |Implicit (OpenID Connect)<br/> id_token| **SHOULD NOT** be used|N/A|
 |Resource owner Password Credential| **MUST NOT** be used|N/A|
@@ -292,7 +292,7 @@ This **MUST** be used when supporting confidential clients
 
 ### Flow Details
 
-- Used By OAuth 2 and OpenID Connect
+- Used by OAuth 2.0 and OpenID Connect
 - Provides support for a confidential client (Where the client id and client secret can be securely stored)
 - The resource Owner provides authorisation for the API Consumer to access the protected resource.
 - Exchanges an authorisation code token for a access (and refresh) token over a secure back channel
@@ -310,9 +310,9 @@ A detailed example of the Authorisation Code flow is covered here:
 
 **MUST** be used for all access to IN-CONFIDENCE and SENSITIVE APIs
 
-The PKCE-enhanced Authorisation Code Flow was introduced to help mitigate "man in the middle" attacks.
+The PKCE-enhanced Authorisation Code Flow was introduced to help mitigate "man-in-the-middle" attacks.
 
-The API consumer creates a secret that the authorisation server can verify before returning the access token to the client, i.e. the Authorisation Server can confirm that the code came from the from the Client Application and not a Malicious "in the middle" Application.
+The API consumer creates a secret that the authorisation server can verify before returning the access token to the client, i.e. the Authorisation Server can confirm that the code came from the from the Client Application and not a Malicious "in-the-middle" Application.
 
 ### Implementation
 
@@ -334,9 +334,9 @@ Both the API Consumer and API Provider have to configured to support and enforce
 
 6. The Access Token is returned to the API Consumer Application (it does not respond if it fails)
 
-### OAuth 2 and OpenID Connect flow
+### OAuth 2.0 and OpenID Connect flow
 
-PKCE is applied in the same way for both OAuth 2 and OpenID connect
+PKCE is applied in the same way for both OAuth 2.0 and OpenID Connect
 
 ### Refresh Tokens
 
@@ -436,7 +436,7 @@ end
 @enduml
 ```
 
-<DetailedDescription text="This diagram describes the OAuth 2.0 Authorization Code Flow with OpenID Connect for a Health Sector API scenario. Here's a breakdown of the key elements and interactions: Actors: Health Sector Participant: Represents the user in the health sector seeking access to the API. API Consumer: Represents the application/client requesting access to the API on behalf of the user. API Provider: The FHIR server hosting the protected resources. Authentication Service: Handles the initial user login and consent process. OpenID Connect Server: Issues tokens and verifies their validity. Resource Server: Validates access tokens and provides access to protected resources. Diagram Flow: Code Verifier and Challenge: The client generates a random code verifier and applies a hash function to create a code challenge. Authorization Request: The client sends an authorization request to the OpenID Connect Server (OAuth Server) with details like client ID, scope (including openid), and code challenge. Login and Consent: The OAuth Server redirects the user to the Authentication Service for login and consent to access the requested resources. Authorization Code: After user approval, the Authentication Service redirects the user back to the client with an authorization code. Access Token Request: The client sends an access token request to the OAuth Server with the authorization code, client ID, and code verifier for validation. Token Response: The OAuth Server validates the request and returns an access token, refresh token, and an ID token containing user claims. API Access: The client uses the access token to make API calls to the Resource Server. The server validates the token with the OAuth Server before responding. Optional ID Token Validation: The client can validate the ID token to retrieve additional user claims about the health sector participant. Key Aspects: OpenID Connect Integration: The diagram showcases how OpenID Connect is used to add user authentication and identity information to the OAuth 2.0 flow. Security Measures: The use of code challenge and token validation ensures secure token exchange and protects against authorization code attacks. Resource Server Access: The diagram highlights the separate validation of access tokens for API access through the Resource Server."/>
+<DetailedDescription text="This diagram describes the OAuth 2.0 Authorization Code Flow with OpenID Connect for a Health Sector API scenario. Here's a breakdown of the key elements and interactions: Actors: Health Sector Participant: Represents the user in the health sector seeking access to the API. API Consumer: Represents the application/client requesting access to the API on behalf of the user. API Provider: The FHIR server hosting the protected resources. Authentication Service: Handles the initial user login and consent process. OpenID Connect Server: Issues tokens and verifies their validity. Resource Server: Validates access tokens and provides access to protected resources. Diagram Flow: Code Verifier and Challenge: The client generates a random code verifier and applies a hash function to create a code challenge. Authorization Request: The client sends an authorization request to the OpenID Connect Server (OAuth 2.0 Server) with details like client ID, scope (including openid), and code challenge. Login and Consent: The OAuth 2.0 Server redirects the user to the Authentication Service for login and consent to access the requested resources. Authorization Code: After user approval, the Authentication Service redirects the user back to the client with an authorization code. Access Token Request: The client sends an access token request to the OAuth 2.0 Server with the authorization code, client ID, and code verifier for validation. Token Response: The OAuth 2.0 Server validates the request and returns an access token, refresh token, and an ID token containing user claims. API Access: The client uses the access token to make API calls to the Resource Server. The server validates the token with the OAuth 2.0 Server before responding. Optional ID Token Validation: The client can validate the ID token to retrieve additional user claims about the health sector participant. Key Aspects: OpenID Connect Integration: The diagram showcases how OpenID Connect is used to add user authentication and identity information to the OAuth 2.0 flow. Security Measures: The use of code challenge and token validation ensures secure token exchange and protects against authorization code attacks. Resource Server Access: The diagram highlights the separate validation of access tokens for API access through the Resource Server."/>
 
 ## Client Credentials
 
@@ -468,7 +468,7 @@ skinparam actorStyle awesome
 participant "API Consumer" as CL
 participant "Authentication\nServer" as AnS
 box "Authorisation Server" #LightBlue
-participant "OAuth 2\nServer" as AzS
+participant "OAuth 2.0\nServer" as AzS
 end box
 participant "Resource\nServer" as RS
 
@@ -494,7 +494,7 @@ end
 @enduml
 ```
 
-<DetailedDescription text="This diagram depicts the OAuth 2.0 Client Credentials Grant flow for accessing a Resource Server. Here's a breakdown of the key elements and interactions: Actors: Resource Owner/End User: Not directly involved in this flow, as the API Consumer authenticates using its own credentials. API Consumer: Represents the application requiring access to the protected resources on the Resource Server. Authentication Server: (Optional) May be present if the flow includes user login and consent for additional scopes. OAuth 2 Server: Issues and validates tokens for accessing protected resources. Resource Server: Hosts the protected resources and validates access tokens provided by the API Consumer. Diagram Flow: Token Request: The API Consumer directly sends a POST request to the OAuth Server's /token endpoint. Grant Type: The request specifies the client_credentials grant type, indicating it's authenticating using its own pre-configured credentials. Client Credentials Validation: The OAuth Server validates the provided client ID and client secret. Access Token Response: If the credentials are valid, the OAuth Server grants an access token to the API Consumer. API Access: The API Consumer uses the access token to make API calls to the Resource Server. Token Validation: Each API call includes the access token, which the Resource Server validates with the OAuth Server before responding. Repeated Access: This loop continues as long as the API Consumer needs to access protected resources and until the access token expires. Key Aspects: Client Credentials Grant: This flow is suitable for applications acting on their own behalf without involving human users. Direct Token Request: Unlike other flows, the API Consumer directly interacts with the OAuth Server without user intervention. Resource Server Access Control: The Resource Server independently confirms the validity of the access token for each API call."/>
+<DetailedDescription text="This diagram depicts the OAuth 2.0 Client Credentials Grant flow for accessing a Resource Server. Here's a breakdown of the key elements and interactions: Actors: Resource Owner/End User: Not directly involved in this flow, as the API Consumer authenticates using its own credentials. API Consumer: Represents the application requiring access to the protected resources on the Resource Server. Authentication Server: (Optional) May be present if the flow includes user login and consent for additional scopes. OAuth 2.0 Server: Issues and validates tokens for accessing protected resources. Resource Server: Hosts the protected resources and validates access tokens provided by the API Consumer. Diagram Flow: Token Request: The API Consumer directly sends a POST request to the OAuth 2.0 Server's /token endpoint. Grant Type: The request specifies the client_credentials grant type, indicating it's authenticating using its own pre-configured credentials. Client Credentials Validation: The OAuth 2.0 Server validates the provided client ID and client secret. Access Token Response: If the credentials are valid, the OAuth 2.0 Server grants an access token to the API Consumer. API Access: The API Consumer uses the access token to make API calls to the Resource Server. Token Validation: Each API call includes the access token, which the Resource Server validates with the OAuth 2.0 Server before responding. Repeated Access: This loop continues as long as the API Consumer needs to access protected resources and until the access token expires. Key Aspects: Client Credentials Grant: This flow is suitable for applications acting on their own behalf without involving human users. Direct Token Request: Unlike other flows, the API Consumer directly interacts with the OAuth 2.0 Server without user intervention. Resource Server Access Control: The Resource Server independently confirms the validity of the access token for each API call."/>
 
 ## Client Initiated Backchannel Authentication (CIBA) Flow
 
@@ -506,7 +506,7 @@ application/service do not have to run on the same device (e.g.
 smartphone) or be linked.
 
 In the CIBA flow the initial authorisation call is made to the new
-(OAuth2) backchannel authentication endpoint and the authorisation server then delegates the authentication and
+(OAuth 2.0) backchannel authentication endpoint and the authorisation server then delegates the authentication and
 consent approval tasks to the authentication device (smartphone) of
 the user, who will accept or deny the request.
 

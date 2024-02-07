@@ -33,7 +33,7 @@ Cloud API designers/developers **MUST** ensure the implementation achieves all o
 
 | Check | Requirement                                         | Interpretation                            |
 | :---  | :-------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
-|   ▢   | Require robust authentication and authorisation     | OAuth2, SSO with OpenId Connect, request-level authorisation. |
+|   ▢   | Require robust authentication and authorisation     | OAuth 2.0, SSO with OpenId Connect, request-level authorisation. |
 |   ▢   | Validate all incoming requests                      | *All* content of *all* incoming messages **MUST** be validated by the API implementation and/or its supporting infrastructure |
 |   ▢   | Throttle API requests and establish quotas          | Limit request rates to all endpoints that have the potential to consume or commit substantial human, compute or data resources |
 |   ▢   | Log API activity                                    |  |

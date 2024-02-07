@@ -174,10 +174,10 @@ Note that `Bearer` tokens can be opaque (understood only by the server) or clien
 <!--- cspell:disable -->
 
 ```bash
-# OAuth Access Token (Opaque)
+# OAuth 2.0 Access Token (Opaque)
 Authorization: Bearer x6TLB4JaomezC5rJ3CIl3KxxNinq
 
-# OAuth Access Token (Client Based)
+# OAuth 2.0 Access Token (Client Based)
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL2lkcC5leGFtcGxlLmNvbSIsImlhdCI6MTcwMDE2NzAxMCwiZXhwIjozODE0NDYxNDIwLCJhdWQiOiJodHRwczovL2V4YW1wbGUtYXBpLWNvbnN1bWVyLnNlY3Rvci5jb20iLCJzdWIiOiIwMDlhYTFkOC1kZjA1LTRlZjgtYjRiNi04MzQwMjY0Y2VlOTAiLCJHaXZlbk5hbWUiOiJKb2hubnkiLCJTdXJuYW1lIjoiRG9lIiwiRW1haWwiOiJqZG9lQGV4YW1wbGUuY29tIiwic2NvcGVzIjpbIlBhdGllbnQuciIsIkNhcmVQbGFuLnIiXX0.X4NQziHnQ68ygniCWoKFDcKHdy7DfrAYDUaJfKUB4cRZ7FPTq-64DxxhjcQz8GuJRkuEj9aYgMNCdY0m0BUqow
 
 # HTTP Basic

@@ -77,7 +77,7 @@ If you don’t want to accept a contribution:
 - Link to relevant documentation, if you have it.
 - Close the item
 
-Sometimes, a contributor may get upset or criticize your decision. If their behavior becomes inappropriate refer to [Don't tolerate bad actors](#dont-tolerate-bad-actors)
+Sometimes, a contributor may get upset or criticise your decision. If their behavior becomes inappropriate refer to [Don't tolerate bad actors](#dont-tolerate-bad-actors)
 
 ### Be proactive
 

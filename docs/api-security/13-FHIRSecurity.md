@@ -9,7 +9,7 @@ Content is draft and in review – this content may change until review is compl
 This page should be reviewed alongside the [Part D: FHIR API Design and Development Standards](../fhir-api-standard/index.md)
 :::
 
-The FHIR specification itself is not a security protocol nor does it define any security related functionality - it suggests the use of a security sub-system such as an API Gateway that performs user authentication and authorization, which is the guidance of this section of the standards.
+The FHIR specification itself is not a security protocol nor does it define any security related functionality - it suggests the use of a security sub-system such as an API Gateway that performs user authentication and authorisation, which is the guidance of this section of the standards.
 
 There are a few items in the FHIR specification related to security which should be used where appropriate which are detailed below.
 
@@ -69,7 +69,7 @@ For further reading, see [FHIR Security Labels](https://build.fhir.org/security-
 
 ## AuditEvent
 
-FHIR provides an [AuditEvent](https://build.fhir.org/auditevent.html) resource suitable for use by FHIR API Providers to record when a security or privacy relevant event has occurred. This form of audit logging as a FHIR resource allows other correctly authorized systems to access audit events such as audit reporting or alerting systems.
+FHIR provides an [AuditEvent](https://build.fhir.org/auditevent.html) resource suitable for use by FHIR API Providers to record when a security or privacy relevant event has occurred. This form of audit logging as a FHIR resource allows other correctly authorised systems to access audit events such as audit reporting or alerting systems.
 
 ## Access control considerations
 
