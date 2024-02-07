@@ -25,6 +25,7 @@ NZST
 NZULM
 omnichannel
 Ora
+Parameterisation
 Porou
 productionised
 pseudonymized

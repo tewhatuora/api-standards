@@ -1,5 +1,5 @@
 ---
-title: Alternative OAuth 2 Grant Flow Extensions and Web Application Patterns
+title: Alternative OAuth 2.0 Grant Flow Extensions and Web Application Patterns
 ---
 :::warning[Status]
 Content is draft and in review – this content may change until review is complete and formally published.
@@ -7,15 +7,15 @@ Content is draft and in review – this content may change until review is compl
 
 ## Assertion Grant Flows
 
-The OAuth 2 framework has been extended to define an additional method of securing a call to an API exposed by an API Provider by using an assertion. An assertion is a signed package that contains identity and security information that can be used across security domains to:
+The OAuth 2.0 framework has been extended to define an additional method of securing a call to an API exposed by an API Provider by using an assertion. An assertion is a signed package that contains identity and security information that can be used across security domains to:
 
 - Authentication the API Consumer to the API Provider's token endpoint
 - Obtain an Access Token
 
-There are two addition assertion grant flows that have been defined under the OAuth 2 standard.
+There are two addition assertion grant flows that have been defined under the OAuth 2.0 standard.
 
-- OAuth 2 JWT Bearer Assertion Grant Flow
-- OAuth 2 SAML Bearer Assertion Grant Flow
+- OAuth 2.0 JWT Bearer Assertion Grant Flow
+- OAuth 2.0 SAML Bearer Assertion Grant Flow
 
 ### JWT Assertion Grant Flow
 
@@ -129,13 +129,13 @@ grant_type=authorization_code
 
 ## Web Application (Browser Based) Patterns
 
-There is a draft document that defines the models for OAuth 2 for Browser Based applications that has a focus on Single Page Applications (SPAs). It covers the concept of running a JavaScript application in a web or mobile device that uses a backend OAuth 2 component to manage / proxy all OAuth 2 calls and resource calls. It covers the following three models:
+There is a draft document that defines the models for OAuth 2.0 for Browser Based applications that has a focus on Single Page Applications (SPAs). It covers the concept of running a JavaScript application in a web or mobile device that uses a backend OAuth 2.0 component to manage / proxy all OAuth 2.0 calls and resource calls. It covers the following three models:
 
 - Backend For Frontend (Calls to API Provider token end point and Resource Server go through a Proxy backend service)
 
-- Token-mediation Backend (Only OAuth 2 calls go through the proxy)
+- Token-mediation Backend (Only OAuth 2.0 calls go through the proxy)
 
-- Browser based OAuth 2 client (Provides advise on a frontend only model e.g. not using Implicit but using PKCE with authorisation code flow)
+- Browser based OAuth 2.0 client (Provides advise on a frontend only model e.g. not using Implicit but using PKCE with authorisation code flow)
 
 This section only covers the Backend for Frontend concepts.
 

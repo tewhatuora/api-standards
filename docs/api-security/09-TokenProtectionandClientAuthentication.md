@@ -8,7 +8,7 @@ Content is draft and in review – this content may change until review is compl
 
 ## Client Authentication Standards
 
-The role of Client Authentication in Oauth2.0 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers.
+The role of Client Authentication in OAuth 2.0 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers.
 
 All IN-CONFIDENCE and SENSITIVE APIs **SHOULD** be secured using Client Authentication to protect the token endpoint and tokens issued **MUST** be bound to the client.
 
@@ -149,7 +149,7 @@ This **SHOULD** be used when protecting SENSITIVE and IN-CONFIDENCE APIs via a c
 
 ## Token Protection
 
-One of the big risks with OAuth 2 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
+One of the big risks with OAuth 2.0 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
 
 OpenID Connect provides a mechanism (Demonstrating Proof of Possession) that strengthens the client authentication and helps to verify that the access token belongs to the API Consumer client. It:
 
