@@ -28,9 +28,9 @@ There are three token formats that are used in OAuth 2.0 and OpenID Connect they
 
 |Token Format| Where used |Description | Recommendation / Classification|
 |---|---|---|---|
-|Opaque Tokens| Authorisation Code<br/>Access Token<br/>Refresh Token | They do not contain any user information, they are a random, unique string of characters that act as a reference for the OAuth 2.0 server to map it to stored information.| **MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE.<br/>**MAY** be used with SENSITIVE<br/>If the API provider supports opaque `access tokens` they **MUST** do this in conjunction with the token issuers `/tokeninfo` endpoint.|
-|JWT| Access Token<br/>Refresh Token<br/>ID Token |JSON Web Tokens are self contained token and store user identity and access information (claims)|**MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE<br/>**MAY** be used with SENSITIVE|
-|JWE| Access Token<br/>Refresh Token<br/>ID Token |This is a JWT that has been encrypted using the [JWE standard](https://datatracker.ietf.org/doc/html/rfc7516)|**MAY** use with PUBLIC<br/>**MAY** be used with IN-CONFIDENCE<br/>**MAY** be used with SENSITIVE<br/>**MUST** be used where the token itself contains sensitive information or PHI/PII.|
+|Opaque Tokens| Authorisation Code<br/>Access Token<br/>Refresh Token | They do not contain any user information, they are a random, unique string of characters that act as a reference for the OAuth 2.0 server to map it to stored information.| **MAY** use with UNCLASSIFIED<br/>**MAY** be used with MEDICAL IN-CONFIDENCE.<br/>If the API provider supports opaque `access tokens` they **MUST** do this in conjunction with the token issuers `/tokeninfo` endpoint.|
+|JWT| Access Token<br/>Refresh Token<br/>ID Token |JSON Web Tokens are self contained token and store user identity and access information (claims)|**MAY** use with UNCLASSIFIED<br/>**MAY** be used with MEDICAL IN-CONFIDENCE|
+|JWE| Access Token<br/>Refresh Token<br/>ID Token |This is a JWT that has been encrypted using the [JWE standard](https://datatracker.ietf.org/doc/html/rfc7516)|**MAY** use with UNCLASSIFIED<br/>**MAY** be used with MEDICAL IN-CONFIDENCE<br/>**MUST** be used where the token itself contains sensitive information or PHI/PII.|
 
 ### Opaque Token
 
@@ -166,13 +166,13 @@ OpenIDConnect adds the following additional capabilities to provide access to a 
 
 - A Userinfo endpoint
 
-API Providers **MUST** use use OpenID Connect architecture models with all IN-CONFIDENCE and SENSITIVE APIs
+API Providers **MUST** use use OpenID Connect architecture models with all MEDICAL IN-CONFIDENCE APIs
 
 OpenID Connect uses all the flows, grant types and endpoint exposed by OAuth 2.0. Once implemented it is enacted using a specific request scope `openid` in the initial authorisation call that the client makes to the OpenID Connect service.
 
 ### ID Token
 
-**MUST** be used with all IN-CONFIDENCE and SENSITIVE APIs
+**MUST** be used with all MEDICAL IN-CONFIDENCE APIs
 
 The ID Token is a JSON Web Token (JWT) that contains authenticated user information (and attributes) that the authorisation API Provider (OpenID Connect Server) provides to the API Consumer.
 
@@ -248,7 +248,7 @@ These are:
 - Websites and services that make secure connections to OAuth 2.0 server.
 - Client secret or JSON Web Token (JWT) can be stored and protected
 
-**MUST** be used to secure IN-CONFIDENCE and SENSITIVE APIs
+**MUST** be used to secure MEDICAL IN-CONFIDENCE APIs
 
 ### Public clients
 
@@ -258,7 +258,7 @@ These are:
 - Applications running on devices
 - Applications that cannot protect secrets.
 
-**MAY** be used for PUBLIC APIs
+**MAY** be used for UNCLASSIFIED APIs
 
 ### Grant Types
 
@@ -267,10 +267,10 @@ The table below details the eleven grant/response types.
 |Grant Type<br/>Response type | Recommendations| Client Type|
 |---|---|---|
 |Authorisation Code (OAuth 2.0)| **SHOULD NOT** be used| N/A|
-|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for PUBLIC APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
-|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with PUBLIC APIs<br/>**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code|
+|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for UNCLASSIFIED APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
+|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with UNCLASSIFIED APIs<br/>**MUST** be used with MEDICAL IN_CONFIDENCE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code|
 |Hybrid (OpenID Connect)<br/>code id_token token|**SHOULD NOT** use | N/A|
-|Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with IN_CONFIDENCE and SENSITIVE APIs|**MUST** be used with a web application (confidential client)
+|Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with MEDICAL IN_CONFIDENCE APIs|**MUST** be used with a web application (confidential client)
 |Hybrid (OpenID Connect)<br/>code token| **SHOULD NOT** use| N/A|
 |Implicit (OAuth 2.0)| **SHOULD NOT** be used|N/A|
 |Implicit (OpenID Connect)<br/> id_token token and PKCE| **SHOULD NOT** be used |N/A|
@@ -280,7 +280,7 @@ The table below details the eleven grant/response types.
 
 ## OIDC Authorisation Code Flow with PKCE
 
-**MUST** be used when securing IN-CONFIDENCE and SENSITIVE APIs
+**MUST** be used when securing MEDICAL IN-CONFIDENCE APIs
 
 The `Authorisation Code` flow is the most frequently used model and as it is regarded as the most secure model for securing public facing APIs for consumer applications.It can also be used for internal APIs. The following security enhancements **MUST** be applied to the base code flow:
 
@@ -308,7 +308,7 @@ A detailed example of the Authorisation Code flow is covered here:
 
 ## PKCE
 
-**MUST** be used for all access to IN-CONFIDENCE and SENSITIVE APIs
+**MUST** be used for all access to MEDICAL IN-CONFIDENCE APIs
 
 The PKCE-enhanced Authorisation Code Flow was introduced to help mitigate "man-in-the-middle" attacks.
 

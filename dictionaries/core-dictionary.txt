@@ -7,6 +7,7 @@ Hauora
 HIPC
 Hira
 HISO
+HSIF
 Kahu
 Kahukura
 kaitiaki

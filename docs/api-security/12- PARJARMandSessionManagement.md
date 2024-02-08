@@ -15,7 +15,7 @@ The initial authorisation request from the client sends all parameters in the UR
 
 PAR was introduced to address these concerns and basically introduces a new PAR endpoint for the API Provider to expose which is a secured back-channel against which the API Consumer can send the authorisation request.
 
-PAR **MAY** be applied for SENSITIVE APIs or solutions that require complex authorisation requests.
+PAR **MAY** be applied for MEDICAL IN-CONFIDENCE APIs or solutions that require complex authorisation requests.
 
 ### The PAR Sequence Flow
 
@@ -180,7 +180,7 @@ The decoded content of the JWT contains the code token:
 ```
 
 <!-- cspell:enable -->
-JARM **MAY** be used for Highly SENSITIVE APIs
+JARM **MAY** be used for MEDICAL IN-CONFIDENCE APIs
 
 ## Session Management
 

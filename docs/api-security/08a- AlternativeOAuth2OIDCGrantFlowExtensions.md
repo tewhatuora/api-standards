@@ -25,8 +25,8 @@ How the JWT is created is captured in the table below.
 
 | JWT creation |Issues| Recommendation|
 |----|----|----|
-|API Consumer created JWT| <li>Compromise of the private key</li><li> Management of tokens and key rotation</li>| **MAY** be used for:<li>Server to Server flow</li><li>**PUBLIC** APIs</li>|
-|IDP created JWT| A Trust relationship is required to be setup| **MAY** be used for:<li>**PUBLIC** APIs</li><li>Consent is not required</li>|
+|API Consumer created JWT| <li>Compromise of the private key</li><li> Management of tokens and key rotation</li>| **MAY** be used for:<li>Server to Server flow</li><li>**UNCLASSIFIED** APIs</li>|
+|IDP created JWT| A Trust relationship is required to be setup| **MAY** be used for:<li>**UNCLASSIFIED** APIs</li><li>Consent is not required</li>|
 
 The Sequence flow below details the steps for the JWT Assertion Profile Flow.
 
@@ -111,8 +111,8 @@ For the SAML Assertion Grant Flow, Te Whatu Ora:
 
 - **SHOULD NOT** use it for Server to Server flows
 - **SHOULD NOT** use a client created assertion model
-- **MAY** use it for **PUBLIC** APIs
-- **MAY** use it with Authorisation Code flows for **IN-CONFIDENCE** and **SENSITIVE** APIs when a SAML token endpoint authorisation model is required. (See code below)
+- **MAY** use it for **UNCLASSIFIED** APIs
+- **MAY** use it with Authorisation Code flows for **MEDICAL IN-CONFIDENCE** APIs when a SAML token endpoint authorisation model is required. (See code below)
 
 <!-- cspell:disable -->
 
@@ -141,7 +141,7 @@ This section only covers the Backend for Frontend concepts.
 
 ## Backend for Frontend (BFF)
 
-As the document defining the BFF is still in draft, Te Whatu Ora **MAY** use this for SPAs where there is a requirement to support **IN-CONFIDENCE** and **SENSITIVE** APIs.
+As the document defining the BFF is still in draft, Te Whatu Ora **MAY** use this for SPAs where there is a requirement to support **MEDICAL IN-CONFIDENCE** APIs.
 
 The sequence diagram indicates where the Backend for Frontend Service resides.
 
