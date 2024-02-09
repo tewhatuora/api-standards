@@ -13,6 +13,12 @@ For clarity the primary definition resource for classification in these standard
 Where there is NOT an appropriate representation in HSIF regarding classification the New Zealand Government [Protective Security Requirements (PSR)](https://protectivesecurity.govt.nz/classification-system/overview/) guidance is used
 :::
 
+### Endorsements
+
+PSR classification guidelines include the use of [Endorsements](https://protectivesecurity.govt.nz/classification-system/overview/endorsements/). As per HSIF the primary classification for information covered by these API standards is **IN-CONFIDENCE** with the endorsement **MEDICAL**.
+
+API providers **MUST** use the correct endorsement, following the guidelines in PSR, when undertaking classification analysis.
+
 Depending on the classification of the information that is presented in the APIs and the Risk Framework applied, different access controls will need to be applied. This section provides a summary of the controls that **SHOULD** be implemented when protecting Health APIs. The five areas that **MUST** be considered are:
 
 - Confidentiality
