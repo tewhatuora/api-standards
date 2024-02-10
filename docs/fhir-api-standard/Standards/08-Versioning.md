@@ -7,7 +7,7 @@ Content is draft and in review – this content may change until review is compl
 :::
 
 :::info
-FHIR distinguishes [three different types of versioning](https://build.fhir.org/resource.html#versions) summarized here as follows.
+FHIR distinguishes [three different types of versioning](https://build.fhir.org/resource.html#versions) summarised here as follows.
 
 | Version kind | Version describes..                      | How represented in the FHIR resource..  |
 | :----------- | :--------------------------------------- | :-------------------------------------- |

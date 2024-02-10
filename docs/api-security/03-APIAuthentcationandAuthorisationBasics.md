@@ -76,8 +76,8 @@ package "Authentication Mechanisms" as mech {
     rectangle "Username \n& Password" as UAP
     rectangle "API Key" as AK
     rectangle "Mutual Certificates (mTLS)" as MTLS
-    rectangle OAUTH {
-        rectangle "OAuth2" as OAuth2
+    rectangle "OAuth 2.0" as OAUTH {
+        rectangle "OAuth 2.0" as OAuth2
         rectangle "Open ID Connect (OIDC)" as OIDC
     }
 }
@@ -114,7 +114,7 @@ OIDC -r-> ROIDC
 @enduml
 ```
 
-<DetailedDescription text="This diagram presents a classification of various authentication mechanisms with recommendations for their usage. It is organized in two main sections: 1. Usage: Not Recommended: This section includes two boxes: Not Recommended: This indicates mechanisms not recommended for general use. Not recommended for public facing APIs: This specifies mechanisms unsuitable for APIs accessible to the public. Recommended: This section includes four boxes, each with specific contexts and strengths: Recommended for all APIs: This highlights mechanisms suitable for most APIs. Usually B2B although common in the Health Sector: This identifies mechanisms typically used in B2B environments, but also prevalent in healthcare. Recommended for internal and external APIs: This suggests mechanisms suitable for both internal and external APIs. Recommended where an OpenID Connect Provider is available: This proposes mechanisms that leverage OpenID Connect when available. 2. Authentication Mechanisms: Anonymous: This mechanism allows users access without providing any credentials. Username and Password: This traditional method relies on users providing a username and password. API Key: This method uses unique API keys assigned to authorized users. Certificates (mTLS): This approach uses digital certificates for mutual authentication between the client and server. OAUTH: This section further details OAuth mechanisms: OAuth2: This is a widely used authorization framework granting access tokens based on user consent. Open ID Connect (OIDC): This protocol builds upon OAuth2, providing user identity information along with access tokens. Right-pointing arrows: These arrows indicate recommended transitions between usage categories. Overall Interpretation: The diagram recommends using strong authentication mechanisms like OAuth2 and OIDC for most APIs, especially public-facing ones. For internal APIs or those not requiring high security, username and passwords or API keys might be acceptable. Anonymous access and mTLS certificates are considered less common scenarios."/>
+<DetailedDescription text="This diagram presents a classification of various authentication mechanisms with recommendations for their usage. It is organised in two main sections: 1. Usage: Not Recommended: This section includes two boxes: Not Recommended: This indicates mechanisms not recommended for general use. Not recommended for public facing APIs: This specifies mechanisms unsuitable for APIs accessible to the public. Recommended: This section includes four boxes, each with specific contexts and strengths: Recommended for all APIs: This highlights mechanisms suitable for most APIs. Usually B2B although common in the Health Sector: This identifies mechanisms typically used in B2B environments, but also prevalent in healthcare. Recommended for internal and external APIs: This suggests mechanisms suitable for both internal and external APIs. Recommended where an OpenID Connect Provider is available: This proposes mechanisms that leverage OpenID Connect when available. 2. Authentication Mechanisms: Anonymous: This mechanism allows users access without providing any credentials. Username and Password: This traditional method relies on users providing a username and password. API Key: This method uses unique API keys assigned to authorised users. Certificates (mTLS): This approach uses digital certificates for mutual authentication between the client and server. OAUTH: This section further details OAuth mechanisms: OAuth2: This is a widely used authorisation framework granting access tokens based on user consent. Open ID Connect (OIDC): This protocol builds upon OAuth2, providing user identity information along with access tokens. Right-pointing arrows: These arrows indicate recommended transitions between usage categories. Overall Interpretation: The diagram recommends using strong authentication mechanisms like OAuth2 and OIDC for most APIs, especially public-facing ones. For internal APIs or those not requiring high security, username and passwords or API keys might be acceptable. Anonymous access and mTLS certificates are considered less common scenarios."/>
 
 <!-- <img src="/img/content/image19.png" /> -->
 
@@ -142,10 +142,10 @@ of access control is a provider granting or denying a consuming
 application and/or consumer access to a resource to a certain level of
 granularity.
 
-In the Authentication section the concepts of OAuth were introduced,
+In the Authentication section the concepts of OAuth 2.0 were introduced,
 and a number of Authentication patterns were defined. This section
 focuses on Authorisation and provides additional patterns that work
-with OAuth or provides an alternative.
+with OAuth 2.0 or provides an alternative.
 
 Authentication on its own does not necessarily provide permissions to
 access an API or application. It merely validates that you are who you
@@ -163,6 +163,8 @@ Gateway request point, and fine-grained control at the API Provider service impl
 
 ### Role Based Access Controls (RBAC)
 
+**<span class="smallcaps">RBAC SHOULD be used</span>**
+
 In many organisations a Directory service provides authentication
 for users. Directory groups are then used to provide
 authorisation. This is classed as Discretionary Access Control (DAC):
@@ -174,12 +176,14 @@ used to provide coarse-grained authorisation for APIs.
 
 ### Scopes (Limited Fine Grain Access)
 
+**<span class="smallcaps">Appropriate scopes MUST be present in access tokens when accessing APIs</span>**
+
 Based on the services (APIs) that are exposed, additional access
 controls can be applied using scopes. For example, a data service
 might provide `read` and `write` scopes which could be granted to a
 user based on the directory groups they were in.
 
-[OAuth2 Scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) can be used to limit the authorisation granted to the
+[OAuth 2.0 Scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) can be used to limit the authorisation granted to the
 API consumer by the resource owner. The developer
 has to ensure that the minimum privileges are granted to API consumers to carry out the API requests that the user wishes the API consumer to complete.
 
@@ -202,7 +206,7 @@ of its validation period.
 
 An API consumer may invite a user to authorise the application to
 act on behalf of the health sector participant. In order for this to occur the
-API consumer **MUST** provide the authorization server with the `intent` of it's
+API consumer **MUST** provide the authorisation server with the `intent` of it's
 request.
 
 :::note[My Health Record Screenshot]
@@ -222,8 +226,8 @@ defines a set of profiles that enable patients to control how, when,
 and with whom their clinical data is shared.
 
 It also defines the interoperable process for systems to exchange
-patient-authorized healthcare data consistent with open standards,
-specifically FHIR (Fast Healthcare Interoperability Resources), OAuth,
+patient-authorised healthcare data consistent with open standards,
+specifically FHIR (Fast Healthcare Interoperability Resources), OAuth 2.0,
 OpenID Connect, and UMA (User-Managed Access).
 
 Two pertinent specifications are:
@@ -232,7 +236,9 @@ Two pertinent specifications are:
 
 [**Health Relationship Trust Profile for Fast Healthcare Interoperability Resources (FHIR) UMA 2 Resources**](https://openid.net/specs/openid-heart-fhir-uma2-1_0.html)
 
-## Attribute Based Access Controls
+## Attribute Based Access Controls (ABAC)
+
+API Providers **MAY** utilise ABAC
 
 Attribute-based access control (ABAC) defines an access control
 process whereby access is granted based on policies that are built
@@ -328,7 +334,7 @@ PIP -down-> DB
 
 ```
 
-<DetailedDescription text="This diagram depicts a system with a focus on access control for health sector participants accessing resources through an API. A breakdown of its interactions: Health Sector Participants (HSPs) access resources through an API. API Provider controls access by enforcing policies. Policies are stored and retrieved from a central Policy Information Point (PIP). Decisions to grant or deny access are made by the Admin/Decision (PAP/PDP) based on policies and user attributes. External databases store user and resource attributes used for authorization. The system ensures secure access control for health sector resources."/>
+<DetailedDescription text="This diagram depicts a system with a focus on access control for health sector participants accessing resources through an API. A breakdown of its interactions: Health Sector Participants (HSPs) access resources through an API. API Provider controls access by enforcing policies. Policies are stored and retrieved from a central Policy Information Point (PIP). Decisions to grant or deny access are made by the Admin/Decision (PAP/PDP) based on policies and user attributes. External databases store user and resource attributes used for authorisation. The system ensures secure access control for health sector resources."/>
 
 XACML is generally perceived as being difficult to write policies in,
 but this is being addressed in two ways:
@@ -340,6 +346,8 @@ but this is being addressed in two ways:
    Authorization) which can be used to build XACML policies
 
 ## API Gateway
+
+API Providers **MAY** implement API Gateway technology
 
 API Gateways have been mentioned previously in the context of API
 protection. Most API Gateways on the market provide support for OAuth
@@ -382,7 +390,7 @@ API -right-> PS : TLS
 @enduml
 ```
 
-<DetailedDescription text="This diagram depicts a simplified system for health sector participants accessing resources through an API. Here's a breakdown: Health sector participants access resources through an API using a secure client app. The API Gateway handles initial requests and communicates securely with an Identity & Policy Server. The server verifies identities, enforces policies, and forwards authorized requests to the Provider Service. The Service then fulfills the request and returns the desired resource (if allowed). Secure TLS connections ensure secure communication throughout the process."/>
+<DetailedDescription text="This diagram depicts a simplified system for health sector participants accessing resources through an API. Here's a breakdown: Health sector participants access resources through an API using a secure client app. The API Gateway handles initial requests and communicates securely with an Identity & Policy Server. The server verifies identities, enforces policies, and forwards authorised requests to the Provider Service. The Service then fulfills the request and returns the desired resource (if allowed). Secure TLS connections ensure secure communication throughout the process."/>
 
 ## Anonymous Authentication
 
@@ -483,7 +491,7 @@ AG -up-> IIS
 
 ```
 
-<DetailedDescription text="This diagram depicts a system for managing access to health sector resources through two separate APIs, one for Health Sector Participants (HSPs) and another for Health Workers (HWs). Both access methods involve user authentication and authorization checks. Here's a breakdown: Two separate APIs cater to Health Sector Participants and Health Workers. Both groups authenticate with their respective API clients, via API Gateway, using username and password. The API Gateway verifies credentials against separate identity stores. Requests are forwarded to the Provider Service for resource access."/>
+<DetailedDescription text="This diagram depicts a system for managing access to health sector resources through two separate APIs, one for Health Sector Participants (HSPs) and another for Health Workers (HWs). Both access methods involve user authentication and authorisation checks. Here's a breakdown: Two separate APIs cater to Health Sector Participants and Health Workers. Both groups authenticate with their respective API clients, via API Gateway, using username and password. The API Gateway verifies credentials against separate identity stores. Requests are forwarded to the Provider Service for resource access."/>
 
 This model can be easy to implement but has many limitations:
 
@@ -515,7 +523,6 @@ usual practice is for an application developer to obtain a key for their
 API consumer from the API provider and utilise the key within their
 API consumer. To obtain an API key, the developer must undergo an
 onboarding process with the API Provider.
-TODO - Add onboarding links...
 
 ```plantuml
 @startuml
@@ -551,7 +558,7 @@ IAC -down-> AG : TLS + APIKey
 
 ```
 
-<DetailedDescription text="This diagram depicts a system for managing access to health sector resources through separate APIs for Health Sector Participants and Health Workers, with a focus on secure authentication using API keys. Here's a breakdown: Separate APIs for Health Participants and Health Workers. Both groups use secure TLS connections and API keys for authentication. The API Gateway verifies API keys against a secure internal Key Store. Only authorized requests are forwarded to the Provider Service for resource access. This system prioritizes security and simplifies authentication through API key management."/>
+<DetailedDescription text="This diagram depicts a system for managing access to health sector resources through separate APIs for Health Sector Participants and Health Workers, with a focus on secure authentication using API keys. Here's a breakdown: Separate APIs for Health Participants and Health Workers. Both groups use secure TLS connections and API keys for authentication. The API Gateway verifies API keys against a secure internal Key Store. Only authorised requests are forwarded to the Provider Service for resource access. This system prioritises security and simplifies authentication through API key management."/>
 
 At run time, the API consumer automatically passes the API Key
 to the API every time it requests an API resource. The API Gateway
@@ -641,20 +648,18 @@ API -[#blue]> AC : Application data (encrypted with session key)
 
 ```
 
-<DetailedDescription text="This diagram depicts a mutual TLS authentication sequence. Key Actors: Health Worker (HW): Represents the healthcare professional accessing the API. API Consumer (AC): The client application initiating the secure communication. API Provider (AP): The server hosting the protected API resources. Certificate Authority (CA): The trusted entity that issues and validates certificates. Mutual TLS Authentication Process: Certificate Loading: The Health Worker loads their certificate into the API Consumer. ClientHello: The AC initiates the TLS handshake by sending a ClientHello message to the AP. ServerHello, Certificate, CertificateRequest: The AP responds with its certificate, requesting the AC's certificate for mutual authentication. Server Certificate Verification: The AC validates the AP's certificate with the CA. Client Certificate and Signed Assertion: The AC sends its certificate and a signed assertion (likely containing authenticated user information) to the AP. Signed Assertion Handling: The AP decrypts the signed assertion for verification. Client Certificate Verification: The AP validates the AC's certificate with the CA. Session Key Generation: The AP creates symmetric session keys for secure communication. Key Exchange: The AP sends the session keys to the AC. Secure Data Exchange: The AC and AP exchange encrypted application data using the established session keys. Key Highlights: Mutual Authentication: Both the client and server authenticate each other using certificates, ensuring trust. Signed Assertions: Provide additional user information for authorization and access control. Secure Communication: Session keys protect confidentiality and integrity of exchanged data. Certificate Authority Role: Crucial for establishing trust and verifying identities. Overall, the diagram effectively illustrates the steps involved in establishing a secure communication channel using Mutual TLS authentication, ensuring confidentiality, integrity, and mutual trust between the client and server."/>
+<DetailedDescription text="This diagram depicts a mutual TLS authentication sequence. Key Actors: Health Worker (HW): Represents the healthcare professional accessing the API. API Consumer (AC): The client application initiating the secure communication. API Provider (AP): The server hosting the protected API resources. Certificate Authority (CA): The trusted entity that issues and validates certificates. Mutual TLS Authentication Process: Certificate Loading: The Health Worker loads their certificate into the API Consumer. ClientHello: The AC initiates the TLS handshake by sending a ClientHello message to the AP. ServerHello, Certificate, CertificateRequest: The AP responds with its certificate, requesting the AC's certificate for mutual authentication. Server Certificate Verification: The AC validates the AP's certificate with the CA. Client Certificate and Signed Assertion: The AC sends its certificate and a signed assertion (likely containing authenticated user information) to the AP. Signed Assertion Handling: The AP decrypts the signed assertion for verification. Client Certificate Verification: The AP validates the AC's certificate with the CA. Session Key Generation: The AP creates symmetric session keys for secure communication. Key Exchange: The AP sends the session keys to the AC. Secure Data Exchange: The AC and AP exchange encrypted application data using the established session keys. Key Highlights: Mutual Authentication: Both the client and server authenticate each other using certificates, ensuring trust. Signed Assertions: Provide additional user information for authorisation and access control. Secure Communication: Session keys protect confidentiality and integrity of exchanged data. Certificate Authority Role: Crucial for establishing trust and verifying identities. Overall, the diagram effectively illustrates the steps involved in establishing a secure communication channel using Mutual TLS authentication, ensuring confidentiality, integrity, and mutual trust between the client and server."/>
 
 ## Developer Authentication
 
-Developer authentication will take place at the API Portal.
+API Providers **MUST** implement Developer Authentication
 
-The API Portal will offer an authentication solution for developers to
+Developer authentication should take place at an API Portal.
+
+An API Portal will offer an authentication solution for developers to
 provide a username and password login process.
 
-:::warning[TODO]
-Details on Hira Portal
-:::
-
-Once the developer has logged into the API Portal they can browse and
+Once the developer has logged into an API Portal they should be able to browse and
 discover the APIs available. API Portals normally require the
 consuming application developer to:
 
@@ -666,12 +671,12 @@ The API Portal should provide registration services for the client application t
 
 - API keys for basic authentication services and API monitoring
 
-- OAuth services and the management of Client ID and a Client Secrets
+- OAuth 2.0 services and the management of Client ID and a Client Secrets
    (for applications)
 
 - Additional production authentication and authorisation service e.g.
    basic, certificate etc.
 
 :::info
-For details on OAuth authentication mechanisms see
-[Securing APIs with Oauth2 and OpenID Connect](./SecuringAPIswithOAuth2andOpenIDConnect)
+For details on OAuth 2.0 authentication mechanisms see
+[Securing APIs with OAuth 2.0 and OpenID Connect](./SecuringAPIswithOAuth2andOpenIDConnect)

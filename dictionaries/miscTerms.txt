@@ -4,12 +4,15 @@
 Bloggs
 cachekey
 crowsfoot
+CLINTRCH
+ETREAT
 fnref
 fnref1
 GDHP
 GEAG
 HATEOS
 healthabc
+HTEST
 MBIE
 noteref
 NZHTS
@@ -19,6 +22,8 @@ Peppol
 propertyid
 publically
 pX680LyiKasUBWLuZJ8AVBHVQK03Ghtr
+revinclude
+searchset
 smallcaps
 termsandconditions
 TTOP

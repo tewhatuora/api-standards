@@ -8,9 +8,9 @@ Content is draft and in review – this content may change until review is compl
 
 ## Client Authentication Standards
 
-The role of Client Authentication in Oauth2.0 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers.
+The role of Client Authentication in OAuth 2.0 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers.
 
-All IN-CONFIDENCE and SENSITIVE APIs **SHOULD** be secured using Client Authentication to protect the token endpoint and tokens issued **MUST** be bound to the client.
+All MEDICAL IN-CONFIDENCE APIs **SHOULD** be secured using Client Authentication to protect the token endpoint and tokens issued **MUST** be bound to the client.
 
 There are three authentication models that can be applied to secure the Confidential Client connection from the API Consumer to the API Provider's token endpoint.
 
@@ -43,8 +43,8 @@ This model uses the HTTP Basic authentication scheme, and the client ID and clie
       Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
       Content_Type: application/x-www-form-urlenclosed
       ```
-**MAY** be used for PUBLIC APIs.
-**SHOULD NOT** be used for SENSITIVE and IN-CONFIDENCE APIs.
+**MAY** be used for UNCLASSIFIED APIs.
+**SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
 **SHOULD NOT** be used with Public Clients.
 Confidential clients **MUST** securely store these credentials.
 
@@ -62,8 +62,8 @@ This sends the client ID and secret within a POST body so it is percieved as a m
 
 <!-- cspell:enable -->
 
-**COULD** be used for PUBLIC APIs.
-**SHOULD NOT** be used for SENSITIVE and IN-CONFIDENCE APIs.
+**COULD** be used for UNCLASSIFIED APIs.
+**SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
 **SHOULD NOT** be used with Public Clients.
 Confidential clients **MUST** securely store these credentials.
 
@@ -92,8 +92,8 @@ The API Consumer creates the JWT and embeds the client ID in the body of the tok
       ```
 <!-- cspell:enable -->
 
-**COULD** be used for PUBLIC APIs.
-**SHOULD NOT** be used for SENSITIVE and IN-CONFIDENCE APIs.
+**COULD** be used for UNCLASSIFIED APIs.
+**SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
 **SHOULD NOT** be used with Public Clients.
 **SHOULD** be used with Confidential Clients.
 
@@ -143,13 +143,13 @@ Private Key JWT
       ```
 <!-- cspell:enable -->
 
-This **SHOULD** be used when protecting SENSITIVE and IN-CONFIDENCE APIs via a confidential client
+This **SHOULD** be used when protecting MEDICAL IN-CONFIDENCE APIs via a confidential client
 
 **SHOULD NOT** be used with Public Clients
 
 ## Token Protection
 
-One of the big risks with OAuth 2 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
+One of the big risks with OAuth 2.0 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
 
 OpenID Connect provides a mechanism (Demonstrating Proof of Possession) that strengthens the client authentication and helps to verify that the access token belongs to the API Consumer client. It:
 
@@ -180,6 +180,6 @@ There are two DPoP methods defined by OpenID Connect.
 
 Certificate-based proof-of-possession has a higher level of security than the JWT PoP as it includes mTLS.
 
-When protecting IN-CONFIDENCE and SENSITIVE API a DPoP model **COULD** be used.
+When protecting MEDICAL IN-CONFIDENCE APIs a DPoP model **COULD** be used.
 
 Selection of the certificate or the JWT PoP **SHOULD** be based on a risk assessment taking into account the sensitivity of the information being exposed by the API.

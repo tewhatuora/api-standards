@@ -7,12 +7,12 @@ sidebar_position: 5
 Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
-Welcome to our API Design and Development Standards. This section is aimed at Fast Healthcare Interoperability Resources (FHIR) API producers and consumers
+Welcome to our API Design and Development Standards. This section is aimed at Fast Healthcare Interoperability Resources (FHIR) API Producers and Consumers.
 
 This section is relevant to you if:
 
 - You are:
-  - an [API Producer](/api-concepts/ComponentDefinitions#api-producer)
+  - an [API Producer](/api-concepts/ComponentDefinitions#api-provider)
   - an [API Consumer](/api-concepts/ComponentDefinitions#api-consumer)
   - an [API Developer](/api-concepts/ComponentDefinitions#api-developers)
   - an [Application Developer](/api-concepts/ComponentDefinitions#application-developers)

@@ -1,5 +1,5 @@
 ---
-title: Alternative OAuth 2 Grant Flow Extensions and Web Application Patterns
+title: Alternative OAuth 2.0 Grant Flow Extensions and Web Application Patterns
 ---
 :::warning[Status]
 Content is draft and in review – this content may change until review is complete and formally published.
@@ -7,15 +7,15 @@ Content is draft and in review – this content may change until review is compl
 
 ## Assertion Grant Flows
 
-The OAuth 2 framework has been extended to define an additional method of securing a call to an API exposed by an API Provider by using an assertion. An assertion is a signed package that contains identity and security information that can be used across security domains to:
+The OAuth 2.0 framework has been extended to define an additional method of securing a call to an API exposed by an API Provider by using an assertion. An assertion is a signed package that contains identity and security information that can be used across security domains to:
 
 - Authentication the API Consumer to the API Provider's token endpoint
 - Obtain an Access Token
 
-There are two addition assertion grant flows that have been defined under the OAuth 2 standard.
+There are two addition assertion grant flows that have been defined under the OAuth 2.0 standard.
 
-- OAuth 2 JWT Bearer Assertion Grant Flow
-- OAuth 2 SAML Bearer Assertion Grant Flow
+- OAuth 2.0 JWT Bearer Assertion Grant Flow
+- OAuth 2.0 SAML Bearer Assertion Grant Flow
 
 ### JWT Assertion Grant Flow
 
@@ -25,8 +25,8 @@ How the JWT is created is captured in the table below.
 
 | JWT creation |Issues| Recommendation|
 |----|----|----|
-|API Consumer created JWT| <li>Compromise of the private key</li><li> Management of tokens and key rotation</li>| **MAY** be used for:<li>Server to Server flow</li><li>**PUBLIC** APIs</li>|
-|IDP created JWT| A Trust relationship is required to be setup| **MAY** be used for:<li>**PUBLIC** APIs</li><li>Consent is not required</li>|
+|API Consumer created JWT| <li>Compromise of the private key</li><li> Management of tokens and key rotation</li>| **MAY** be used for:<li>Server to Server flow</li><li>**UNCLASSIFIED** APIs</li>|
+|IDP created JWT| A Trust relationship is required to be setup| **MAY** be used for:<li>**UNCLASSIFIED** APIs</li><li>Consent is not required</li>|
 
 The Sequence flow below details the steps for the JWT Assertion Profile Flow.
 
@@ -107,12 +107,12 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer
 ```
 <!-- cspell:enable -->
 
-For the SAML Assertion Grant Flow, Health NZ:
+For the SAML Assertion Grant Flow, Te Whatu Ora:
 
 - **SHOULD NOT** use it for Server to Server flows
 - **SHOULD NOT** use a client created assertion model
-- **MAY** use it for **PUBLIC** APIs
-- **MAY** use it with Authorisation Code flows for **IN-CONFIDENCE** and **SENSITIVE** APIs when a SAML token endpoint authorisation model is required. (See code below)
+- **MAY** use it for **UNCLASSIFIED** APIs
+- **MAY** use it with Authorisation Code flows for **MEDICAL IN-CONFIDENCE** APIs when a SAML token endpoint authorisation model is required. (See code below)
 
 <!-- cspell:disable -->
 
@@ -129,19 +129,19 @@ grant_type=authorization_code
 
 ## Web Application (Browser Based) Patterns
 
-There is a draft document that defines the models for OAuth 2 for Browser Based applications that has a focus on Single Page Applications (SPAs). It covers the concept of running a JavaScript application in a web or mobile device that uses a backend OAuth 2 component to manage / proxy all OAuth 2 calls and resource calls. It covers the following three models:
+There is a draft document that defines the models for OAuth 2.0 for Browser Based applications that has a focus on Single Page Applications (SPAs). It covers the concept of running a JavaScript application in a web or mobile device that uses a backend OAuth 2.0 component to manage / proxy all OAuth 2.0 calls and resource calls. It covers the following three models:
 
 - Backend For Frontend (Calls to API Provider token end point and Resource Server go through a Proxy backend service)
 
-- Token-mediation Backend (Only OAuth 2 calls go through the proxy)
+- Token-mediation Backend (Only OAuth 2.0 calls go through the proxy)
 
-- Browser based OAuth 2 client (Provides advise on a frontend only model e.g. not using Implicit but using PKCE with authorisation code flow)
+- Browser based OAuth 2.0 client (Provides advise on a frontend only model e.g. not using Implicit but using PKCE with authorisation code flow)
 
 This section only covers the Backend for Frontend concepts.
 
 ## Backend for Frontend (BFF)
 
-As the document defining the BFF is still in draft, Health NZ **MAY** use this for SPAs where there is a requirement to support **IN-CONFIDENCE** and **SENSITIVE** APIs.
+As the document defining the BFF is still in draft, Te Whatu Ora **MAY** use this for SPAs where there is a requirement to support **MEDICAL IN-CONFIDENCE** APIs.
 
 The sequence diagram indicates where the Backend for Frontend Service resides.
 

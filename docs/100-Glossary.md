@@ -38,6 +38,19 @@ title: Glossary of Terms
   not been modified by a third party, also providing non-repudiation
   services;
 
+- **Personally Identifiable Information** is defined in section 7(1) of the Privacy Act 2020 as:<br/>
+ (a) information about an identifiable individual; and<br/>
+ (b) includes information relating to a death that is maintained by the Registrar-General under the Births, Death, Marriages, and Relationships Registration Act 2021 or any former Act (as defined in Schedule 1 of that Act).<br/><br/>
+ Individual means a natural person, other than a deceased natural person.
+
+- **Protected Health Information**  refers to Health Information defined in clauses 3(1) and 4(1) of the [Health Information Privacy Code 2020 (HIPC)](https://www.privacy.org.nz/assets/New-order/Privacy-Act-2020/Codes-of-practice/Health-information-privacy-code-2020/HIPC-Amendment-No-1/Consolidated-Code-incorporating-Amendment-No-1.pdf). The code applies to the following information or classes of information about an identifiable individual:<br/>
+(a) about the health of that individual, including their medical history; or<br/>
+(b) information about any disabilities that individual has, or has had; or<br/>
+(c) information about any health services or disability support services that are being provided, or have been provided, to that individual; or<br/>
+(d) information provided by that individual in connection with the donation, by that individual, of any body part or any bodily substance of that individual or derived from the testing or examination of any body part, or any bodily substance of that individual; or<br/>
+(e) information about that individual which is collected before or in the course of, and incidental to, the provision of any health service or disability support service to that individual.<br/><br/>
+ Note that for health information, information about deceased individuals is included in the coverage of the Health Information Privacy Code whereas for personal information, information about deceased individuals is not covered by the Information Privacy Principles in the Privacy Act.
+
 - **Provisioning** is the automated or manual service for aggregating
   and correlating identity data resulting in the creation of health consumer (IT)
   accounts and the delivery of health consumer meta data used by systems to

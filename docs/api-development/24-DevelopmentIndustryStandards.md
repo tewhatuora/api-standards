@@ -8,7 +8,7 @@ Content is draft and in review – this content may change until review is compl
 
 ## Standards for Developing APIs
 
-In addition to the standards captured in [API Design](./API%20Design#standards-based) and [API Security Standards](../api-security/StandardsforSecuringRESTful%20APIs) the table below
+In addition to the standards captured in [API Design](./API%20Design#standards-based) and [API Security Standards](../api-security) the table below
 captures (current) API and web standards that should be considered as part of any API Strategy.
 
 | Standard or Standards Organisation | Description |
@@ -16,7 +16,7 @@ captures (current) API and web standards that should be considered as part of an
 | **OpenAPI** | The OpenAPI Specification defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. |
 | **AsyncAPI** | AsyncAPI is an open source initiative that seeks to improve the current state of Event-Driven Architectures (EDA). Their long-term goal is to make working with EDAs as easy as it is to work with REST APIs. |
 | **HTTP** | HTTP stands for Hyper Text Transfer Protocol. Communication between client computers and web servers is done by sending HTTP Requests and receiving HTTP Responses. In practice, most RESTful APIs use HTTP as a transport layer and rely on the use of HTTP verbs, like POST, GET, PUT and DELETE. |
-| **OAuth2/OIDC** | The OAuth 2.0 Authorization Framework (OAuth2) is an industry standard framework that enables third parties limited access to protected resources and is commonly used authorisation approach for APIs. Open ID Connect (OIDC) is an identity layer on top of OAuth2 that allows consuming applications to request information about authenticated sessions and end users. |
+| **OAuth 2.0/OIDC** | The OAuth 2.0 Authorization Framework (OAuth 2.0) is an industry standard framework that enables third parties limited access to protected resources and is commonly used authorisation approach for APIs. Open ID Connect (OIDC) is an identity layer on top of OAuth 2.0 that allows consuming applications to request information about authenticated sessions and end users. |
 | **JSON/JSON Schema** | JavaScript Object Notation (JSON) is an open standard for a lightweight format for storing and transporting data. It is a "self-describing" notation and is easy for both humans and computers to understand. |
 | **JWT/JWS/JWE/JWK/JWA** | These are a set of open standards for securely transmitting information between systems using JSON. They include the data structure a web token (JWT), how to sign a JWT (JWS), how to encrypt a JWT (JWE), and some JSON cryptography practices (JWK and JWA) |
 | **Fast Healthcare Interoperability Resources (FHIR)** | FHIR is a an industry standard for exchanging healthcare information electronically. It was developed by the HL-7 standards organisation. |

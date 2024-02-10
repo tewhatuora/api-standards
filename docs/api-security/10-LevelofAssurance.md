@@ -18,7 +18,7 @@ Level of Assurance (LoA) has been defined to support the OpenID Connect API secu
 
 - Ensure the API consumer has the appropriate authorisation to act on behalf of the end user
 
-API providers **SHOULD** adopt a Level of Assurance model which can be applied when API consumers are accessing health records that are classed as IN-CONFIDENCE or SENSITIVE.
+API providers **SHOULD** adopt a Level of Assurance model which can be applied when API consumers are accessing health records that are classed as MEDICAL IN-CONFIDENCE.
 
 API providers **MUST** indicate the LoA associated with a health sector participants authentication and authorisation process in any issued access tokens.
 
@@ -72,6 +72,6 @@ The API Consumer uses these claims to confirm the level of trust that the user i
 
 |Claim| Description| How Applied|
 |---|---|---|
-|Acr|Authentication Context Class Reference| LoA based on a pre-defined set of values, higher the value the stronger the LoA<br/>-  0 = no authentication performed **COULD** be applied to PUBLIC information<br/>-   2 = credential and password and OTP<br/>-   3 = Password, OTP and Multi factor Authentication required **SHOULD** be applied to IN-CONFIDENCE and SENSITIVE information|
-|amr|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> The API PROVIDER can define the requirements (acr) based on this information which are enforced by the API Consumer  |
-|azp| Authorised party| Client id of the API Consumer, used where there can be multiple API Consumer services|
+|`acr`|Authentication Context Class Reference| LoA based on a pre-defined set of values, higher the value the stronger the LoA<br/>-  0 = no authentication performed **COULD** be applied to UNCLASSIFIED information<br/>-   2 = credential and password and OTP<br/>-   3 = Password, OTP and Multi factor Authentication required **SHOULD** be applied to MEDICAL IN-CONFIDENCE information|
+|`amr`|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> The API PROVIDER can define the requirements (acr) based on this information which are enforced by the API Consumer  |
+|`azp`| Authorised party| Client id of the API Consumer, used where there can be multiple API Consumer services|

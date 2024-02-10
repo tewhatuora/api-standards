@@ -107,7 +107,7 @@ URIs in code.
 
 **<span class="smallcaps">Example</span>**
 
-`<https://api.example.govt.nz/v2/caontracts/laboratories/33245/locations/P100782>`
+`<https://api.example.govt.nz/v2/contracts/laboratories/33245/locations/P100782>`
 
 `<https://api.example.govt.nz/v2/vaccinators/43265/certifications/7281>`
 

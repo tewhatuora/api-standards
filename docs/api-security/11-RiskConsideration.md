@@ -71,7 +71,7 @@ APIs may increase information security risks, when compared to a web channel, as
 
 - System information leakage through API error messages revealing details about an API’s construction or underlying system makeup
 
-- Broken Session IDs, Keys and authentication create exposure to unauthorized access through authentication factors that are not functioning because of poor security design or technology bugs.
+- Broken Session IDs, Keys and authentication create exposure to unauthorised access through authentication factors that are not functioning because of poor security design or technology bugs.
 
 - Other broken resource identifiers, authentication and authorisation mechanisms, allowing attackers to exploit flaws to obtain access, either temporarily or permanently.
 

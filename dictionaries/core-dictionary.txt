@@ -4,8 +4,10 @@ apistandards
 Arawa
 FHIR
 Hauora
+HIPC
 Hira
 HISO
+HSIF
 Kahu
 Kahukura
 kaitiaki
@@ -24,6 +26,7 @@ NZST
 NZULM
 omnichannel
 Ora
+Parameterisation
 Porou
 productionised
 pseudonymized

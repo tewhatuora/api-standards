@@ -8,7 +8,7 @@ Content is draft and in review – this content may change until review is compl
 
 :::info
 **Contribute to this section**  
-For information about how to contribute please see the [collaboration guidelines](/community/Introduction).
+For information about how to contribute please see the [collaboration guidelines](/community/introduction).
 :::
 
 This section contains **RECOMMENDED** principles (this page) and guidelines (other pages) for all designers and implementers of Aotearoa New Zealand FHIR-based APIs.

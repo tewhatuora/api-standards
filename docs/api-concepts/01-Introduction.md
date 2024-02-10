@@ -16,7 +16,7 @@ This section contains the business context for API standards and their use withi
 
 This section is aimed at technical and non-technical people who are developing, or planning to develop, software for the health sector including:
 
-- [API Providers](/api-concepts/ComponentDefinitions#api-producer)
+- [API Providers](/api-concepts/ComponentDefinitions#api-provider)
 - [API Consumers](/api-concepts/ComponentDefinitions#api-consumer)
 - [API Developers](/api-concepts/ComponentDefinitions#api-developers)
 - [Application Developers](/api-concepts/ComponentDefinitions#application-developers)
