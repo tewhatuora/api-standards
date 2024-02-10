@@ -5,6 +5,20 @@ title: Security Controls
 Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
+## Classification
+
+:::info[Classification]
+For clarity the primary definition resource for classification in these standards is [HISO 10029:2022 Health Information Security Framework (HISF)](https://www.tewhatuora.govt.nz/publications/health-information-security-framework/). In HSIF the scope is defined as follows: "This framework covers the security of all health information that is collected and used within New Zealand; and wherever it is stored. All personal health information is treated as **MEDICAL IN CONFIDENCE** and given an equal level of protection unless otherwise classified."
+
+Where there is NOT an appropriate representation in HSIF regarding classification the New Zealand Government [Protective Security Requirements (PSR)](https://protectivesecurity.govt.nz/classification-system/overview/) guidance is used
+:::
+
+### Endorsements
+
+PSR classification guidelines include the use of [Endorsements](https://protectivesecurity.govt.nz/classification-system/overview/endorsements/). As per HSIF the primary classification for information covered by these API standards is **IN-CONFIDENCE** with the endorsement **MEDICAL**.
+
+API providers **MUST** use the correct endorsement, following the guidelines in PSR, when undertaking classification analysis.
+
 Depending on the classification of the information that is presented in the APIs and the Risk Framework applied, different access controls will need to be applied. This section provides a summary of the controls that **SHOULD** be implemented when protecting Health APIs. The five areas that **MUST** be considered are:
 
 - Confidentiality
@@ -21,19 +35,19 @@ Using the Resource Type definition detailed in FHIR, the controls above will be 
 
 |Resource Type|Data Type|Classification|
 |---|---|---|
-|Anonymous Read Access|<li>Does not contain any individual data, or business sensitive data</li><li>Contains important information that must be authenticated back to the source publishing them</li>**Examples:**<li>Capability Statement</li><li>Clinical User Definition</li>| PUBLIC|
-|Business|<li>Does not contain any individual data</li><li>Contains data that describe business or service sensitive data</li><li>Contains data related to organisation, location, or other group that is not identifiable as individuals</li>**Examples:**<li>Location</li><li>Medication</li>| IN-CONFIDENCE|
-|Individual|<li>Does NOT contain Patient data</li><li>Contains individual information about other participants i.e. Practitioners and Practitioner Role.</li> **Examples;**<li>Practitioner</li><li>Practitioner Role</li>| IN-CONFIDENCE|
-|Patient|<li>Contain highly sensitive health information</li><li>Closely linked to highly sensitive health information</li>**Examples:**<li>Procedure</li><li>Invoices</li>| SENSITIVE|
+|Anonymous Read Access|<li>Does not contain any individual data, or business sensitive data</li><li>Contains important information that must be authenticated back to the source publishing them</li>**Examples:**<li>Capability Statement</li><li>Clinical User Definition</li>| UNCLASSIFIED |
+|Business|<li>Does not contain any individual data</li><li>Contains data that describe business or service sensitive data</li><li>Contains data related to organisation, location, or other group that is not identifiable as individuals</li>**Examples:**<li>Location</li><li>Medication</li>| MEDICAL IN-CONFIDENCE |
+|Individual|<li>Does NOT contain Patient data</li><li>Contains individual information about other participants i.e. Practitioners and Practitioner Role.</li> **Examples;**<li>Practitioner</li><li>Practitioner Role</li>| MEDICAL IN-CONFIDENCE |
+|Patient|<li>Contain highly sensitive health information</li><li>Closely linked to highly sensitive health information</li>**Examples:**<li>Procedure</li><li>Invoices</li>| MEDICAL IN-CONFIDENCE |
 
 The following controls are recommended by the FHIR specification and **MUST** be implemented by the API provider:
 
 |Resource Type|Control Required|
 |---|---|
 |Anonymous Read Access|<li>No access control based on the user or system requesting are required</li><li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li>|
-|Business|<li>Client authentication is required to assure that only authorised access is given</li><li>The Client can be a person or a System</li>Client authentication methods **SHOULD** use at least one of:<li>mutual-authenticated-TLS</li><li>APIKey</li><li>App signed JWT</li><li>App OAuth 2.0 client-id JWT</li><li>Business protected Provider Directory can be used to provide information that can be used for ABAC / RBAC controls</li>|
-|Individual|<li>Apply RBAC or ABAC access polices</li>|
-Patient|<li>Often requires a declared Purpose Of Use</li><li>Controlled by a Privacy Consent</li><li>Security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
+|Business|<li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li><li>Client (API Consumer) authentication **MUST** be implemented.</li><li>Client authentication methods **SHOULD** use at least one of:</li>&nbsp;&nbsp;&nbsp;&nbsp;(i)  Mutual-authenticated-TLS<br/>&nbsp;&nbsp;&nbsp;&nbsp;(ii)  APIKey<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iii)  App signed JWT<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iv)  App OAuth 2.0 client-id JWT |
+|Individual|<li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li><li>Client (API Consumer) authentication **MUST** be implemented.</li><li>Client authentication methods **SHOULD** use at least one of:</li>&nbsp;&nbsp;&nbsp;&nbsp;(i)  Mutual-authenticated-TLS<br/>&nbsp;&nbsp;&nbsp;&nbsp;(ii)  APIKey<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iii)  App signed JWT<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iv)  App OAuth 2.0 client-id JWT<li>The health sector participant **MUST** be authenticated</li><li>Appropriate RBAC or ABAC access polices **MUST** be used</li><li>Any access to individual data **MUST** be controlled by a privacy consent</li>|
+Patient|<li>**MUST** use TLS (HTTPS) to provide authentication of the server and integrity protection in transit</li><li>Client (API Consumer) authentication **MUST** be implemented.</li><li>Client authentication methods **SHOULD** use at least one of:</li>&nbsp;&nbsp;&nbsp;&nbsp;(i)  Mutual-authenticated-TLS<br/>&nbsp;&nbsp;&nbsp;&nbsp;(ii)  APIKey<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iii)  App signed JWT<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iv)  App OAuth 2.0 client-id JWT<li>The health sector participant **MUST** be authenticated</li><li>Appropriate RBAC or ABAC access polices **MUST** be used</li><li>Any access to individual data **MUST** be controlled by a privacy consent</li><li>Often requires a declared Purpose Of Use</li><li>Security labels **SHOULD** be used to differentiate various confidentiality levels within this broad group of Patient Sensitive data</li>|
 
 ## API Provider controls for all APIs
 
@@ -58,17 +72,15 @@ Confidentiality and integrity cover the handling of request and response data, b
 
 |Data Classification | Control|
 |---|---|
-|Public|<li>TLS 1.3 **MUST** be applied between client, authorisation server and resource server</li><li>**MAY** encrypt the payload</li><li>Authentication **MAY** be applied</li><li>Coarse grained Authorisation **MAY** be applied</li>|
-|In-Confidence|<li>TLS 1.3 **MUST** be applied, MTLS **MAY** be applied, between client, authorisation server and resource server</li><li>Encryption of the payload **SHOULD** be considered</li><li>Strong Authentication **SHOULD** be applied</li><li>Fine grained Authorisation **SHOULD** be applied using ABAC or RBAC</li>|
-|Sensitive|<li>TLS 1.3 MTLS **MUST** applied between client, authorisation server and resource server</li><li>The Payload **MUST** be encrypted</li><li>Security Tags (labels) **MUST** be used for FHIR APIs to apply the masking or removal sensitive data in the response</li><li>Strong Authentication **MUST** be applied</li><li>Coarse grained Authorisation **MUST** be applied</li><li>Fine grained Authorisation **MUST** be applied</li>|
+|UNCLASSIFIED|<li>TLS 1.3 **MUST** be applied between client, authorisation server and resource server</li><li>**MAY** encrypt the payload</li><li>Authentication **MAY** be applied</li><li>Coarse grained Authorisation **MAY** be applied</li>|
+|MEDICAL IN-CONFIDENCE|<li>TLS 1.3 MTLS **MUST** applied between client, authorisation server and resource server</li><li>The Payload **MUST** be encrypted</li><li>Security Tags (labels) **MUST** be used for FHIR APIs to apply the masking or removal sensitive data in the response</li><li>Strong Authentication **MUST** be applied</li><li>Coarse grained Authorisation **MUST** be applied</li><li>Fine grained Authorisation **MUST** be applied</li>|
 
 The following table details the data classification application for API Security using OAuth 2.0 and OpenID Connect:
 
 |Data Classification | API Security Control (Grant Flows)|
 |---|---|
-|Public|<li>Client Credentials with Scopes **MAY** be applied</li><li>Implicit Grant flow with PKCE **SHOULD NOT** be applied</li><li>Authorisation Code grant with PKCE **MAY** be applied</li>|
-|In-confidence|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **SHOULD** be applied</li>|
-|Sensitive|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **MUST** be applied</li> |
+|UNCLASSIFIED|<li>Client Credentials with Scopes **MAY** be applied</li><li>Implicit Grant flow with PKCE **SHOULD NOT** be applied</li><li>Authorisation Code grant with PKCE **MAY** be applied</li>|
+|MEDICAL IN-CONFIDENCE|<li>Client Credentials with Scopes **MUST NOT** be applied</li><li>Implicit Grant flow **MUST NOT** be applied</li><li>Authorisation Code grant with PKCE **SHOULD** be applied</li>|
 
 |Grant Type| Control Required| Status |
 |---|---|---|
@@ -178,7 +190,7 @@ The table below captures the main Token threats and  mitigation strategies that 
 |---|---|
 |Token Manufacture or modification (fake tokens and man-in-the-middle attacks)|<li>Digital signing of tokens (e.g. JWS with JWT) or attaching a Message Authentication Code (MAC)</li>|
 |Token disclosure – man-in-the-middle attack.<br/>The Access Token is passed in clear text with no hashing, signing or encryption.|Communication Security:<li>Use TLS 1.3 with a cipher suite that includes DHE or ECDHE</li>The client application must validate:<li>The TLS certificate chain</li><li>Check the certificate revocation list</li><li>Stored locally in a file or LDAP server</li>|
-|Token Redirects.<br/>Ensure the Authentication and Resource Servers are "paired”, and the access token can only be used in this between the specified servers|<li>Using the "audience” header (defined currently in a draft RFC) the client application, resource server and authorisation server can help *ensure that the token can only be used on the resource servers requested by the client and recognised by the authorisation server* </li><li>Also addressed with "state” parameter in the header</li><li>Signing of tokens is also applicable to address token redirects</li>|
+|Token Redirects.<br/>Ensure the Authentication and Resource Servers are "paired”, and the access token can only be used in the correct context|<li>Using the ["audience” claim](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.3) the client application, resource server and authorisation server can help *ensure that the token can only be used on the resource servers requested by the client and recognised by the authorisation server* </li><li>Also addressed with "state” parameter in the header</li><li>Signing of tokens is also applicable to address token redirects</li>|
 |Token replay – where the threat actor copies an existing token (e.g. refresh token or authorisation code) and reuses it on their own request|<li>Limit lifetime of the token (e.g. 10 minutes) – turning it into a short-lived issue</li><li>Use signed requests along with nonce and timestamps</li><li>Validate TLS certificate chain when accessing Resource</li>|
 
 ## Monitoring, Logging and Alerting

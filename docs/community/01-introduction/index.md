@@ -5,7 +5,7 @@ title: Introduction
 Content is draft and in review – this content may change until review is complete and formally published.
 :::
 
-Welcome to the Hira API Standards project community!
+Welcome to the Te Whatu Ora API Standards project community!
 
 This community maintains and evolves the Standards using a collaborative framework that includes:
 

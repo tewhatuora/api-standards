@@ -29,7 +29,7 @@ API designers/developers **MUST** ensure the API implementation adheres to all o
 
 | Check | Requirement | Description                    |
 | :---  | :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-|   ▢   | Encryption of data in transit      | All communication between client application and the OAuth 2.0 / OpenID Connect server **MUST** be over TLS to help address eavesdropping and man-in-the-middle attacks. |
+|   ▢   | Encryption of data in transit      | All communication between api consumers and api providers **MUST** be over TLS to help address eavesdropping and man-in-the-middle attacks. |
 |   ▢   | Validate all incoming data         | *All* content of *all* incoming messages **MUST** be validated by the API implementation and/or its supporting infrastructure |
 |   ▢   | Forbidden OAuth 2.0 grant types        | APIs **MUST NOT** allow use of OAuth 2.0 *Implicit* or *Password* Grant Types. |
 |   ▢   | Validate REDIRECTs                 | OAuth 2.0-protected API servers **MUST** check the `redirect_uri` of received authorisation requests is identical to the redirection URI registered for the client (consumer), to mitigate redirection to unauthorised URIs. |

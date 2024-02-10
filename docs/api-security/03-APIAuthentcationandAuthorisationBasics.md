@@ -163,6 +163,8 @@ Gateway request point, and fine-grained control at the API Provider service impl
 
 ### Role Based Access Controls (RBAC)
 
+**<span class="smallcaps">RBAC SHOULD be used</span>**
+
 In many organisations a Directory service provides authentication
 for users. Directory groups are then used to provide
 authorisation. This is classed as Discretionary Access Control (DAC):
@@ -173,6 +175,8 @@ Directory (or LDAP) Groups are synonymous with roles and can be
 used to provide coarse-grained authorisation for APIs.
 
 ### Scopes (Limited Fine Grain Access)
+
+**<span class="smallcaps">Appropriate scopes MUST be present in access tokens when accessing APIs</span>**
 
 Based on the services (APIs) that are exposed, additional access
 controls can be applied using scopes. For example, a data service
@@ -232,7 +236,9 @@ Two pertinent specifications are:
 
 [**Health Relationship Trust Profile for Fast Healthcare Interoperability Resources (FHIR) UMA 2 Resources**](https://openid.net/specs/openid-heart-fhir-uma2-1_0.html)
 
-## Attribute Based Access Controls
+## Attribute Based Access Controls (ABAC)
+
+API Providers **MAY** utilise ABAC
 
 Attribute-based access control (ABAC) defines an access control
 process whereby access is granted based on policies that are built
@@ -340,6 +346,8 @@ but this is being addressed in two ways:
    Authorization) which can be used to build XACML policies
 
 ## API Gateway
+
+API Providers **MAY** implement API Gateway technology
 
 API Gateways have been mentioned previously in the context of API
 protection. Most API Gateways on the market provide support for OAuth
@@ -515,7 +523,6 @@ usual practice is for an application developer to obtain a key for their
 API consumer from the API provider and utilise the key within their
 API consumer. To obtain an API key, the developer must undergo an
 onboarding process with the API Provider.
-TODO - Add onboarding links...
 
 ```plantuml
 @startuml
@@ -645,16 +652,14 @@ API -[#blue]> AC : Application data (encrypted with session key)
 
 ## Developer Authentication
 
-Developer authentication will take place at the API Portal.
+API Providers **MUST** implement Developer Authentication
 
-The API Portal will offer an authentication solution for developers to
+Developer authentication should take place at an API Portal.
+
+An API Portal will offer an authentication solution for developers to
 provide a username and password login process.
 
-:::warning[TODO]
-Details on Hira Portal
-:::
-
-Once the developer has logged into the API Portal they can browse and
+Once the developer has logged into an API Portal they should be able to browse and
 discover the APIs available. API Portals normally require the
 consuming application developer to:
 
