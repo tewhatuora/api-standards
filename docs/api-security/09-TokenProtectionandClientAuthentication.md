@@ -154,7 +154,7 @@ One of the big risks with OAuth 2.0 and OpenID Connect is token theft, where an 
 OpenID Connect provides a mechanism (Demonstrating Proof of Possession) that strengthens the client authentication and helps to verify that the access token belongs to the API Consumer client. It:
 
 - Links the access token to the client
-- The client presenting the access token has to provide proof of possession to the Access token and the identity of the client to the resource server
+- The client presenting the access token has to provide proof of possession of the Access token and the identity of the client to the resource server
 - The proof of possession is linked to a cryptographic key.
 
 There are two DPoP methods defined by OpenID Connect.
