@@ -268,7 +268,6 @@ The table below details the eleven grant/response types.
 |---|---|---|
 |Authorisation Code (OAuth 2.0)| **SHOULD NOT** be used| N/A|
 |Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for UNCLASSIFIED APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
-|Authorisation Code (OpenID Connect) with PKCE| **MAY** be used with UNCLASSIFIED APIs<br/>**MUST** be used with MEDICAL IN_CONFIDENCE APIs| **SHOULD NOT** be used with Native or Single Page Applications<br/><br/> **SHOULD** be used with web application (confidential clients)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code|
 |Hybrid (OpenID Connect)<br/>code id_token token|**SHOULD NOT** use | N/A|
 |Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with MEDICAL IN_CONFIDENCE APIs|**MUST** be used with a web application (confidential client)
 |Hybrid (OpenID Connect)<br/>code token| **SHOULD NOT** use| N/A|
