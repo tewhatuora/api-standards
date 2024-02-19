@@ -151,7 +151,7 @@ This **SHOULD** be used when protecting MEDICAL IN-CONFIDENCE APIs via a confide
 
 One of the big risks with OAuth 2.0 and OpenID Connect is token theft, where an access token is captured and used to obtain information from an API Provider's protected resource.
 
-OpenID Connect provides a mechanism (Demonstrating Proof of Possession) that strengthens the client authentication and helps to verify that the access token belongs to the API Consumer client. It:
+OpenID Connect provides a mechanism of demonstrating Proof of Possession (DPoP) that strengthens the client authentication and helps to verify that the access token belongs to the API Consumer client. It:
 
 - Links the access token to the client
 - The client presenting the access token has to provide proof of possession of the Access token and the identity of the client to the resource server
@@ -163,7 +163,7 @@ There are two DPoP methods defined by OpenID Connect.
 
 - API Consumer generates a public-private key pair
 - The API Consumer registers the public key (JWK) with the API Provider
-- When the API Consumer requests an access token from the API Provider's token endpoint it includes  a token_type parameter (pop)
+- When the API Consumer requests an access token from the API Provider's token endpoint it includes a `token_type` parameter `pop`
 - The JWT access token returned includes an additional claim specifying the key used for the Proof of Possession
 - The API Consumer send the JWT access token to the API Provider resource server
 - The API Provider queries the JWK
@@ -171,14 +171,14 @@ There are two DPoP methods defined by OpenID Connect.
 - The API Consumer uses it's private key to respond to the challenge
 - API Provider validates (proves the same key pairs where used) and responds
 
-### Certificate-based proof-of-possession
+### Certificate-based Proof of Possession
 
 - The API Consumer initiates and established mTLS with the API Provider when it requests the access token
 - The API Provider validates the API Consumers certificate
 - The API Provider issues the access token with additional claims  (hash of the API Consumers certificate)
 - The API Provider resource server receives the access token and validates the token and the client certificate and if correct responds to the API Consumer
 
-Certificate-based proof-of-possession has a higher level of security than the JWT PoP as it includes mTLS.
+Certificate-based proof of possession has a higher level of security than the JWT PoP as it includes mTLS.
 
 When protecting MEDICAL IN-CONFIDENCE APIs a DPoP model **COULD** be used.
 
