@@ -140,7 +140,7 @@ There are multiple endpoints that are exposed and secured in the OAuth 2.0 / Ope
 |Introspect<br/>`/introspect`|API Provider| Access_Token<br/>Refresh_Token | This allows the Resource Server or Client to find out if the token has expired and other details about the token.<li>The API Provider **SHOULD** provide an introspection endpoint</li><li>MUST be protected with TLS</li><li>Client_secret_post or client_secret_jwt or private_key_jwt<br/> **SHOULD** be used to secure the revoke endpoint</li>|
 |User Info<br/>`/userinfo`| API Provider| Access Token| Use an access token to get information about the authenticated health participant<li>The API Provider **SHOULD** provide a userinfo endpoint</li><li>**MUST** be protected with TLS</li><li>The Access Token used to authenticate to the endpoint **MUST** be validated for validity (time), Issuer and Signature</li>|
 |JSON Web Key URI<br/>`/jwks`|API Provider / API Consumer | |<li>Retrieve the API provider’s public keys to verify issued token signatures</li><li>Encrypt ID Tokens with the `API Consumers` public key(s)</li><li>Check signature of private_key_jwt authentication JWTs</li><li>**MUST** be implemented by API Provider</li><li>Is a public endpoint and **MUST** be protected with TLS</li>|
-| [pushed Authorisation Request (PAR)(./PARJARMandSessionManagement)]<br/>`/par` | API Provider| | Push Authorisation Request (PAR) endpoint used when the authorisation request object is large and adds a a level of security as the request is signed<li>**MAY** be used</li>|
+| [Pushed Authorisation Request (PAR)](./PARJARMandSessionManagement)<br/>`/par` | API Provider| | Push Authorisation Request (PAR) endpoint used when the authorisation request object is large and adds a a level of security as the request is signed<li>**MAY** be used</li>|
 |Backchannel Authorise<br/>`/bc-authorize`| | | Client-Initiated Backchannel Authentication (CIBA). This is a decoupled authentication process and uses a authentication device<li>**MAY** be used</li>|
 
 ### Discovery and Client Endpoints (API Provider)
@@ -266,7 +266,7 @@ The table below details the eleven grant/response types.
 
 |Grant Type<br/>Response type | Recommendations| Client Type|
 |---|---|---|
-|Authorisation Code (OAuth 2.0)| **SHOULD NOT** be used| N/A|
+|Authorisation Code (OAuth 2.0)| **MAY** be used for Confidential Clients<br/>**MUST NOT** be used for Public Clients| N/A|
 |Authorisation Code (OpenID Connect) with PKCE| **MAY** be used for UNCLASSIFIED APIs| **MAY** be used with Native or Single Page Applications (SPA)<br/><br/>Where a SPA or mobile application does not have a secure backend for frontend (BFF) the use of PKCE prevents malicious interception of the authorisation code |
 |Hybrid (OpenID Connect)<br/>code id_token token|**SHOULD NOT** use | N/A|
 |Hybrid (OpenID Connect)<br/>code id_token|**MUST** be used with MEDICAL IN_CONFIDENCE APIs|**MUST** be used with a web application (confidential client)
@@ -281,7 +281,7 @@ The table below details the eleven grant/response types.
 
 **MUST** be used when securing MEDICAL IN-CONFIDENCE APIs
 
-The `Authorisation Code` flow is the most frequently used model and as it is regarded as the most secure model for securing public facing APIs for consumer applications.It can also be used for internal APIs. The following security enhancements **MUST** be applied to the base code flow:
+The `Authorisation Code` flow is the most frequently used model and as it is regarded as the most secure model for securing public facing APIs for consumer applications. It can also be used for internal APIs. The following security enhancements **MUST** be applied to the base code flow:
 
 - OpenID Connect `code id_token` flow
 - **JWT** Access and Refresh Tokens

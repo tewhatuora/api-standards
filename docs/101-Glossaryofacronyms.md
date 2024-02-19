@@ -21,6 +21,7 @@ Content is draft and in review – this content may change until review is compl
 | DMZ     | Demilitarized Zone                                 |
 | DoS     | Denial of Service - an attack where the goal is to bring down service by flooding with it malformed, illegitimate requests |
 | DDoS    | Distributed Denial of Service - an DoS attack launched simultaneously from a multitude of locations, to amplify the attack |
+|DPoP     | Demonstrated Proof of Possession                   |
 | ECDHE   | Elliptic Curve DHE                                 |
 | FAPI    | Financial-grade API                                |
 | FIDO    | See *U2F*                                          |

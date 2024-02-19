@@ -86,38 +86,45 @@ The following table details the data classification application for API Security
 |---|---|---|
 |Client Credentials with Scopes|<li>OAuth 2.0 **SHOULD** be applied, **MAY** use OpenID Connect</li><li>`client_secret_post` token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MAY** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li>| Supported :white_check_mark: |
 |Implicit grant |<li>OpenID Connect **SHOULD** be applied using an `openid` scope in the authentication request</li><li>`client_secret_post` or `client_secret_jwt` or `private_key_jwt` token endpoint authorisation **SHOULD** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>The `response_type` **SHOULD** be `id_token` token</li><li>The `state` parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>If OpenID Connect is used the `nonce` parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the `id_token`</li>| Deprecated :warning: |
-| Authorisation Code grant with PKCE  |<li>OpenID Connect **MUST** be applied using an `openid` scope in the authentication request</li><li>`private_key_jwt` token endpoint authorisation **MUST** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **MUST** be applied to mitigate stolen authorisation codes</li><li>The `response_type` **MUST** be `code id_token`</li><li>The `state` parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>The `nonce` parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the `id_token`</li><li>Client secrets **MUST** be securely stored</li><li>`id_token` **SHOULD** be used as a detached signature</li><li>The flow **SHOULD** contain `c_hash`, `at_hash` and `s_hash` values</li><li>Encryption of the `id_token` **MAY** be used</li><li>Demonstration of Proof-of-Possession **SHOULD** be applied to tie an Access Token to a client</li>| Supported :white_check_mark: |
+| Authorisation Code grant with PKCE  |<li>OpenID Connect **MUST** be applied using an `openid` scope in the authentication request</li><li>`private_key_jwt` token endpoint authorisation **MUST** be applied</li><li>Access Tokens **MUST** be signed to validate integrity</li><li>The authorisation server **MUST** validate the scopes</li><li>PKCE **MUST** be applied to mitigate stolen authorisation codes</li><li>The `response_type` **MUST** be `code id_token`</li><li>The `state` parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the response</li><li>The `nonce` parameter **MUST** be used in the authorisation request and the API consumer **MUST** validate it in the `id_token`</li><li>Client secrets **MUST** be securely stored</li><li>`id_token` **SHOULD** be used as a detached signature</li><li>The flow **SHOULD** contain `c_hash`, `at_hash` and `s_hash` values</li><li>Encryption of the `id_token` **MAY** be used</li><li>Demonstration of Proof of Possession **SHOULD** be applied to tie an Access Token to a client</li>| Supported :white_check_mark: |
 
 ### Hash Values
 
 In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enhance the security and integrity of the authorisation process.
+In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enhance the security and integrity of the authorisation process.
 
 #### `c_hash` (Code Hash)
+#### `c_hash` (Code Hash)
 
-- Used in the authorisation code flow when using `response_type=code id_token`
-- The response to the client is a `code` and the first `id_token`
+- Used in the authorisation code flow when using `response_type=code id_token` and `response_type=code id_token token`
+- The response to the client is a `code` and the first `id_token` (and `access_token` if requested)
 - The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- Parsing the `id_token` the `c_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the code with the `c_hash`
+- Parsing the `id_token`, the `c_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the code with the `c_hash`
 - Provides authorisation code integrity.
 
 #### `at_hash` (Access Token Hash)
+#### `at_hash` (Access Token Hash)
 
-- Used in the authorisation code flow when using `response_type=code id_token token`
+- Used in the authorisation code flow when using `response_type=id_token token` and `response_type=code id_token token` [^1]
 - The response to the client when the code is presented to the token endpoint is a JWT access token and and `id_token`
 - The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- Parsing the `id_token` the at_hash is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the access token with the `at_hash`
+- Parsing the `id_token`, the `at_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the access token with the `at_hash`
 - Provides Access token integrity.
 
+[^1]: `at_hash` is typically supplied when the access token is returned from the authorisation endpoint. As noted in [Grant Types](08-SecuringAPIswithOAuth2andOpenIDConnect.md#grant-types), these **SHOULD NOT** be used and is only listed here for completeness.
+
+#### `s_hash` (State Hash)
 #### `s_hash` (State Hash)
 
 - Used in the authorisation code flow and implicit flow when using `response_type=code id_token` the authorisation request includes a `state` value created by the client
 - The response to the client is a code and and the first `id_token`
 - The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
-- Parsing the `id_token` the `s_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the `state` with the `s_hash`.
+- Parsing the `id_token`, the `s_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the `state` with the `s_hash`.
 - Provides [state integrity](./SecurityControls#state-integrity).
 
 ### State (Integrity)
 
+`state` is also a parameter that **MUST** be used during the authorisation grant stage to provide a level of security to address possible XSRF attacks. The `state` parameter is a string that is sent to the Authorisation Server by the client when requesting an authorisation code. It is sent back to the client with the Authorisation Code and **MUST** be verified by the API consumer application to confirm the authenticity of the response i.e. it came from the Authorisation Server to which the request was sent.
 `state` is also a parameter that **MUST** be used during the authorisation grant stage to provide a level of security to address possible XSRF attacks. The `state` parameter is a string that is sent to the Authorisation Server by the client when requesting an authorisation code. It is sent back to the client with the Authorisation Code and **MUST** be verified by the API consumer application to confirm the authenticity of the response i.e. it came from the Authorisation Server to which the request was sent.
 
 ### Content Encryption (Confidentiality)
@@ -180,6 +187,7 @@ Below is a table of risk types and some approaches that **SHOULD** be used to he
 |Denial of Service attacks|<li>Throttle access to all exposed APIs. Monitor use to indicate possible DoS attacks</li>|
 |Malicious Input, Injection attacks and Fuzzing|<li>Validate input: Secure parsing and strong typing</li><li>Validate incoming content-type application/json</li><li>Validate JSON content</li><li>Validate XML (schema and format)</li><li>Scan attachments</li><li>Produce valid HTTP Return Code</li><li>Validate response</li>|
 |Cross-Site Request Forgery|<li>Use tokens with `state` and `nonce` parameters</li>|
+|Cross-Site Request Forgery|<li>Use tokens with `state` and `nonce` parameters</li>|
 |Cross-Site Scripting Attacks|<li>Validate Input</li>|
 
 ### Token Threat Mitigation
@@ -192,6 +200,7 @@ The table below captures the main Token threats and  mitigation strategies that 
 |---|---|
 |Token Manufacture or modification (fake tokens and man-in-the-middle attacks)|<li>Digital signing of tokens (e.g. JWS with JWT) or attaching a Message Authentication Code (MAC)</li>|
 |Token disclosure – man-in-the-middle attack.<br/>The Access Token is passed in clear text with no hashing, signing or encryption.|Communication Security:<li>Use TLS 1.3 with a cipher suite that includes DHE or ECDHE</li>The client application must validate:<li>The TLS certificate chain</li><li>Check the certificate revocation list</li><li>Stored locally in a file or LDAP server</li>|
+|Token Redirects.<br/>Ensure the Authentication and Resource Servers are "paired", and the access token can only be used in the correct context|<li>Using the ["audience" claim](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.3) the client application, resource server and authorisation server can help *ensure that the token can only be used on the resource servers requested by the client and recognised by the authorisation server* </li><li>Also addressed with `state` parameter in the header</li><li>Signing of tokens is also applicable to address token redirects</li>|
 |Token Redirects.<br/>Ensure the Authentication and Resource Servers are "paired", and the access token can only be used in the correct context|<li>Using the ["audience" claim](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.3) the client application, resource server and authorisation server can help *ensure that the token can only be used on the resource servers requested by the client and recognised by the authorisation server* </li><li>Also addressed with `state` parameter in the header</li><li>Signing of tokens is also applicable to address token redirects</li>|
 |Token replay – where the threat actor copies an existing token (e.g. refresh token or authorisation code) and reuses it on their own request|<li>Limit lifetime of the token (e.g. 10 minutes) – turning it into a short-lived issue</li><li>Use signed requests along with nonce and timestamps</li><li>Validate TLS certificate chain when accessing Resource</li>|
 

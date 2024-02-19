@@ -91,7 +91,7 @@ Excerpt from [NIST definition](https://www.nist.gov/publications/zero-trust-arch
 
 The uptake of cloud services has brought this security model to the fore -- all actors (employees, partners etc) require access controls no matter where they are located or what devices they are using.
 
-Organisations planning to implementation a Zero Trust architecture **SHOULD** consider the following:
+Organisations planning to implement a Zero Trust architecture **SHOULD** consider the following:
 
 - Apply Strong Identification and Authentication
 
