@@ -162,14 +162,11 @@ There are two DPoP methods defined by OpenID Connect.
 ### JWK-based Proof of Possession
 
 - API Consumer generates a public-private key pair
-- The API Consumer registers the public key (JWK) with the API Provider
-- When the API Consumer requests an access token from the API Provider's token endpoint it includes a `token_type` parameter `pop`
-- The JWT access token returned includes an additional claim specifying the key used for the Proof of Possession
-- The API Consumer send the JWT access token to the API Provider resource server
-- The API Provider queries the JWK
-- The API Resource issues a challenge-response based on the client public key (e.g. message encrypted with public key)
-- The API Consumer uses it's private key to respond to the challenge
-- API Provider validates (proves the same key pairs where used) and responds
+- The API Consumer generates a `DPoP` JWT which contains the public key and signed with the private key
+- When the API Consumer requests an access token from the API Provider's token endpoint it includes the `DPoP` jwt in the request header
+- The JWT access token returned includes `token_type = DPoP` to signify the access token is not a bearer token and is bound to the API Consumer's key by embedding 
+- The API Consumer sends the JWT access token to the API Provider resource server with another `DPoP` header and `Authorization` header
+- The API provider validates the `DPoP` header and `DPoP`-bound access token in the `Authorization`.
 
 ### Certificate-based Proof of Possession
 
