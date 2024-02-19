@@ -102,7 +102,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 #### `at_hash` (Access Token Hash)
 
-- Used in the authorisation code flow when using `respone_type=id_token token` and `response_type=code id_token token` [^1]
+- Used in the authorisation code flow when using `response_type=id_token token` and `response_type=code id_token token` [^1]
 - The response to the client when the code is presented to the token endpoint is a JWT access token and and `id_token`
 - The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `at_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the access token with the `at_hash`
