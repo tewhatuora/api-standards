@@ -67,8 +67,11 @@ This sends the client ID and secret within a POST body so it is percieved as a m
 <!-- cspell:enable -->
 
 **COULD** be used for UNCLASSIFIED APIs.
+
 **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
+
 **SHOULD NOT** be used with Public Clients.
+
 Confidential clients **MUST** securely store these credentials.
 
 ## JWT based Authentication Methods
