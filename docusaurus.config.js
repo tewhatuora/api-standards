@@ -116,11 +116,11 @@ module.exports = async function createConfig() {
                 },
                 {
                   label: 'Contact',
-                  href: 'https://marketplace.hira.health.nz',
+                  href: '/contact',
                 },
                 {
                   label: 'Terms of use',
-                  href: 'https://marketplace.hira.health.nz',
+                  href: '/terms-of-use',
                 },
                 {
                   label: 'Legal and copyright',
