@@ -67,8 +67,11 @@ This sends the client ID and secret within a POST body so it is percieved as a m
 <!-- cspell:enable -->
 
 **COULD** be used for UNCLASSIFIED APIs.
+
 **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
+
 **SHOULD NOT** be used with Public Clients.
+
 Confidential clients **MUST** securely store these credentials.
 
 ## JWT based Authentication Methods
@@ -97,9 +100,12 @@ The API Consumer creates the JWT and embeds the client ID in the body of the tok
 <!-- cspell:enable -->
 
 **COULD** be used for UNCLASSIFIED APIs.
-**SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
+
+**MAY** be used for MEDICAL IN-CONFIDENCE APIs.
+
 **SHOULD NOT** be used with Public Clients.
-**SHOULD** be used with Confidential Clients.
+
+**MAY** be used with Confidential Clients.
 
 ### `private_key_jwt`
 
@@ -131,11 +137,11 @@ This **SHOULD** be used when protecting MEDICAL IN-CONFIDENCE APIs via a confide
 
 There are two methods:
 
-- **self_signed_tls_client_auth**
+- **`self_signed_tls_client_auth`**
 
       A self-signed client X509 certificate is used to authenticate the client.
 
-- **tls_client_auth**
+- **`tls_client_auth`**
 
       A client X509 certificate that has been issued from a trusted certificate authority is used to authenticate the client.
 
