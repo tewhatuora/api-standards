@@ -10,7 +10,7 @@ Content is draft and in review – this content may change until review is compl
 
 | Check | Required API Item             |  Published form              | Description                                                                                                                                    |
 | :---  | :---------------------------- |  :-------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-|   ▢   | Implementation Guid           |  FHIR IG                     | The Implementation Guide **SHOULD** contain all of the information developers need to consume your FHIR API.                                   |
+|   ▢   | Implementation Guide           |  FHIR IG                     | The Implementation Guide **SHOULD** contain all of the information developers need to consume your FHIR API.                                   |
 |   ▢   | Capability Statement          |  FHIR IG                     | Declares the **FHIR resource types** (data types in the bounded context[^1]) and **FHIR Operations** (functions) the FHIR API supports.        |
 |   ▢   | Resource Profiles             |  FHIR IG                     | Describes element requirements and constraints applied to FHIR resources to make suitable for the health solution domain.                      |
 |   ▢   | Extension Definitions         |  FHIR IG                     | Defines optional or required extensions to resources for additional data capture suitable for the health solution domain.                      |
