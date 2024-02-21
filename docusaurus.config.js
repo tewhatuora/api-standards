@@ -107,12 +107,12 @@ module.exports = async function createConfig() {
               title: 'About',
               items: [
                 {
-                  label: 'About this site',
-                  href: 'https://marketplace.hira.health.nz',
+                  label: 'Accessibility',
+                  href: 'https://www.tewhatuora.govt.nz/about-our-site/accessibility/',
                 },
                 {
-                  label: 'Privacy',
-                  href: 'https://marketplace.hira.health.nz',
+                  label: 'Privacy & security',
+                  href: 'https://www.tewhatuora.govt.nz/about-our-site/privacy-and-security/',
                 },
                 {
                   label: 'Contact',
@@ -123,8 +123,8 @@ module.exports = async function createConfig() {
                   href: 'https://marketplace.hira.health.nz',
                 },
                 {
-                  label: 'Legal and Copyright',
-                  href: 'https://marketplace.hira.health.nz',
+                  label: 'Legal and copyright',
+                  href: 'https://www.tewhatuora.govt.nz/about-our-site/legal-and-copyright/',
                 },
               ],
             },
