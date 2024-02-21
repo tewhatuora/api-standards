@@ -69,6 +69,10 @@ module.exports = async function createConfig() {
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
           },
+          gtag: {
+            trackingID: 'G-KPWKEMHLL1',
+            anonymizeIP: true,
+          },
         }),
       ],
     ],
