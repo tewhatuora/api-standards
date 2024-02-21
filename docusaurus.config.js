@@ -143,6 +143,10 @@ module.exports = async function createConfig() {
                   label: 'Te Whatu Ora',
                   href: 'https://www.tewhatuora.govt.nz',
                 },
+                {
+                  label: 'Contributors',
+                  href: '/community/contributors'
+                }
               ],
             },
           ],
