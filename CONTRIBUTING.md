@@ -43,6 +43,4 @@ If you’re not sure why it wasn’t accepted, it’s perfectly reasonable to as
 
 ### Your contribution gets accepted
 
-todo: update links below
-
-When the SOF accepts your PR, they will merge it and your changes will shortly be reflected in the [working draft version](http://localhost:3000/). All going well, your change will also be incorporated into the next [published version](http://localhost:3000/) of the Standards.
+When the SOF accepts your PR, they will merge it and your changes will shortly be reflected in the [working draft version](https://apistandards.digital.health.nz/). All going well, your change will also be incorporated into the next todo[published version](https://apistandards.digital.health.nz/) of the Standards.

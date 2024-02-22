@@ -17,7 +17,7 @@ title: "API Deliverables"
 |   ▢   | Interface Specification       |  OpenAPI 3.\*                | A machine-readable API specification document. See [FHIR Example](/api-specifications/example-agency-specification).                           |
 |   ▢   | API Policies                  |  HealthNZ HIRA programme     | A set of policies that are applied to ALL APIs published in the Hira ecosystem.                                                                |
 |   ▢   | Tests                         |  Dependent on implementation | A full set of unit, integration and functional tests for the API. These tests **MUST** be automated and a test report available.               |
-|   ▢   | Service Level Agreement (SLA) |  TODO                        | Defines API availability, throughput/capacity and performance service levels API consumers can expect to obtain.                               |
+|   ▢   | Service Level Agreement (SLA) |                          | Defines API availability, throughput/capacity and performance service levels API consumers can expect to obtain.                               |
 
 [^1]: *bounded context*: a term from Domain Driven Design, defined [here by Martin Fowler](https://martinfowler.com/bliki/BoundedContext.html)
 
