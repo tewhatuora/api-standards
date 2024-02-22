@@ -2,9 +2,7 @@
 title: Consideration of Risks
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 An API offers a direct channel into some part of an organisation’s resources and information.  

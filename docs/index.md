@@ -4,9 +4,7 @@ sidebar_position: 1
 slug: /
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Learn about how Te Whatu Ora are implementing APIs to their systems and what the benefits are of doing this.
 

@@ -2,9 +2,7 @@
 title: API Artefacts
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 > All of the artefacts listed below **MUST** be maintained in a system that is able to support change tracking.
 

@@ -2,9 +2,7 @@
 title: API Consumption Patterns
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 The patterns documented on this page reflect a small number of patterns implemented by Te Whatu Ora. The expectation is that this page will grow as more standards contributors get involved.

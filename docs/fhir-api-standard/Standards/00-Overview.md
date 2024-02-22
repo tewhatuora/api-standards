@@ -2,9 +2,7 @@
 title: "Overview"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 We encourage the Aotearoa health sector to contribute to the development of these standards to ensure the needs of applications producing and / or consuming these FHIR APIs are met.  For more information about how to contribute please see the [collaboration guidelines](/community/introduction)

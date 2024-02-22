@@ -2,9 +2,7 @@
 title: Introduction
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Welcome to our API Design and Development Standards. The intent of this section is to provide you with the high level introductory concepts that will be used throughout these standards.
 

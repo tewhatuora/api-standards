@@ -4,9 +4,7 @@ title: "Compatibility rules"
 
 ## Compatibility rules for NZ published FHIR APIs
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 All serious designers/developers of APIs need to recognise the substantial time and effort other parties may invest to develop an application that consumes their API -- this consideration applies equally to RESTful FHIR APIs.

@@ -2,9 +2,7 @@
 title: "Caching"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Caching enables faster responses from APIs and reduces server load. It
 is good for information which is frequently requested but does not

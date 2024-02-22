@@ -4,9 +4,7 @@ title: "Agree Data Mapping"
 
 ## Agree data mapping with business stakeholders before committing FHIR API design
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 ### Recommendations
 

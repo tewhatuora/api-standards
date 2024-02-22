@@ -2,9 +2,7 @@
 title: Security Reference Architecture
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 This section describes an API Security Reference Architecture and its
 component parts to inform the construction of an API security

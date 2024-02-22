@@ -1,9 +1,7 @@
 ---
 title: PAR, JARM and Session Management
 ---
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 ## Pushed Authorised Request (PAR)
 

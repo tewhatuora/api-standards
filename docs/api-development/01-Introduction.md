@@ -2,9 +2,7 @@
 title: Introduction
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Digital health can transform the outcomes and experience of health consumers if information is shared seamlessly. When digital products, services and information systems work together in this way, we call it being interoperable.
 

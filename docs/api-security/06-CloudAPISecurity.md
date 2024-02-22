@@ -2,9 +2,7 @@
 title: Cloud API security
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 In general, '*cloud API* ' here means **any API** which is intended to handle NZ health information and provides or exposes cloud-deployed data or functions.

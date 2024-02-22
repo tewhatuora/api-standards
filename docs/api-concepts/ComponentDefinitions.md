@@ -2,9 +2,7 @@
 title: Standards Component Definitions
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 This section provides a list of common API standards components and their associated definitions.
 

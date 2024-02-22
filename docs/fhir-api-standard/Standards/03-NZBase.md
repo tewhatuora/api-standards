@@ -4,9 +4,7 @@ title: "Use NZ Base"
 
 ## Use NZ Base IG resource profiles and definitions
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 The [**New Zealand Base Implementation Guide**](https://fhir.org.nz/ig/base/index.html), or 'NZ Base', contains common extensions that most NZ FHIR implementations will need, along with any terminology artifacts referenced by them (ie coded elements).

@@ -2,9 +2,7 @@
 title: "HTTP Verbs"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Access to REST APIs **MUST** be via the standard HTTP verbs: GET, PUT, POST, DELETE in line with the [<u>W3C Standard</u>](https://www.w3.org/2001/tag/doc/whenToUseGet.html) namely:
 

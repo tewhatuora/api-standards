@@ -2,9 +2,7 @@
 title: "API Governance"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 API governance helps save time and money because it ensures that APIs
 are built proactively to achieve specific goals and bring value to API providers and consumers. API governance also helps organisations make intelligent decisions

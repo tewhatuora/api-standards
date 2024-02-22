@@ -2,9 +2,7 @@
 title: "Canonical URLs"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 'Canonical' here means well-known (among consumers of a FHIR API).

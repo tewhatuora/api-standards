@@ -2,9 +2,7 @@
 title: Level of Assurance
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Level of Assurance (LoA) has been defined to support the OpenID Connect API security framework. OpenID Connect introduces the concept of identity claims about the end user. The Level of Assurance claim is required to:
 

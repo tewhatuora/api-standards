@@ -4,9 +4,7 @@ title: "Develop a FHIR data model"
 
 ## Develop a FHIR data model to communicate the data design
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Data models help people understand what information is being collected and managed and how it relates to other data in existing systems/applications.
 

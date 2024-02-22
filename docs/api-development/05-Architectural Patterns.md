@@ -2,9 +2,7 @@
 title: "API Architectural Patterns"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 The table below identifies some architectural and deployment patterns
 that bear further investigation. There are a number of vendor specific
