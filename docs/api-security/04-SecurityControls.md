@@ -160,7 +160,7 @@ Availability in this context covers threat protection to minimise API downtime, 
 
 Availability also covers scaling to meet demand and ensuring hosting environments are stable etc. These levels of availability are addressed across hardware and software stacks that support the delivery of APIs. There are no specific standards for availability, but availability is normally addressed under business continuity and disaster recovery standards. These standards recommend a risk assessment approach to define API availability requirements. Further information on business continuity and risks can be found at [Standards New Zealand website](https://www.standards.govt.nz)
 
-For cloud services, the New Zealand Government ICT website provides an [assessment capability that includes a risk assessment tool](https://www.ict.govt.nz/guidance-and-resources/information-management/requirements-for-cloud-computing/vendor-answer-sets/) which covers availability, business continuity and disaster recovery related questions.
+For cloud services, the New Zealand Government ICT website provides an [assessment capability that includes a risk assessment tool](https://www.digital.govt.nz/standards-and-guidance/technology-and-architecture/cloud-services/assess-the-risks/risk-discovery-tool/) which covers availability, business continuity and disaster recovery related questions.
 
 :::info[Risks]
 As mentioned in section [Consideration of Risks](./RiskConsideration), there are various types of risk which impact APIs. This includes threats to availability as well as confidentiality and integrity.
