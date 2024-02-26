@@ -29,16 +29,16 @@ This standard defines the requirements for all cloud APIs which:
 
 Cloud API designers/developers **MUST** ensure the implementation achieves all of the following requirements:
 
-| Check | Requirement                                         | Interpretation                            |
-| :---  | :-------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
-|   ▢   | Require robust authentication and authorisation     | OAuth 2.0, SSO with OpenId Connect, request-level authorisation. |
-|   ▢   | Validate all incoming requests                      | *All* content of *all* incoming messages **MUST** be validated by the API implementation and/or its supporting infrastructure |
-|   ▢   | Throttle API requests and establish quotas          | Limit request rates to all endpoints that have the potential to consume or commit substantial human, compute or data resources |
-|   ▢   | Log API activity                                    |  |Log all sensitive security operations, which includes but not limited to: failed authentication/authorisation attempts, data validation errors, and sensitive business operations.
-|   ▢   | Depend only on trusted code libraries / packages    |  |Ensure third-party dependencies are regularly checked for known vulnerabilities, ideally in an automated manner within the CI/CD pipeline.  
-|   ▢   | Implement a zero-trust model                        | Do not allow session-based authentication eg. cookies           |
-|   ▢   | Filter traffic traversing public networks           | WAFs and API gateways to control requests arriving on Internet routes   |
-|   ▢   | Specific identity and access management             | Set specific policies / permissions that control access to sensitive resources like credentials, keys, configuration etc. |
+| Requirement                                         | Interpretation                            |
+| :-------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| Require robust authentication and authorisation     | OAuth 2.0, SSO with OpenId Connect, request-level authorisation. |
+| Validate all incoming requests                      | *All* content of *all* incoming messages **MUST** be validated by the API implementation and/or its supporting infrastructure |
+| Throttle API requests and establish quotas          | Limit request rates to all endpoints that have the potential to consume or commit substantial human, compute or data resources |
+| Log API activity                                    |  |Log all sensitive security operations, which includes but not limited to: failed authentication/authorisation attempts, data validation errors, and sensitive business operations.
+| Depend only on trusted code libraries / packages    |  |Ensure third-party dependencies are regularly checked for known vulnerabilities, ideally in an automated manner within the CI/CD pipeline.  
+| Implement a zero-trust model                        | Do not allow session-based authentication eg. cookies           |
+| Filter traffic traversing public networks           | WAFs and API gateways to control requests arriving on Internet routes   |
+| Specific identity and access management             | Set specific policies / permissions that control access to sensitive resources like credentials, keys, configuration etc. |
 
 ***
 

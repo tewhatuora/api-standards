@@ -299,9 +299,7 @@ This **MUST** be used when supporting confidential clients
 - The API Provider validates the authorisation code and exchanges it for an access token.
 - The API Provider delivers the access token directly to the API Consumer
 
-A detailed example of the Authorisation Code flow is covered here:
-
-[https://www.digital.govt.nz/dmsdocument/231~api-guidelines-part-b-api-security-2022/html#appendix-d--oauth--and-openid-connect-tokens-and-credentials]
+A detailed [example of the Authorisation Code flow is covered here](https://www.digital.govt.nz/dmsdocument/231~api-guidelines-part-b-api-security-2022/html#appendix-d--oauth--and-openid-connect-tokens-and-credentials)
 
 ## PKCE
 

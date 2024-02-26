@@ -6,7 +6,7 @@ slug: /terms-of-use
 By viewing and using this site, you agree to the terms of use.
 
 ## Agreement to terms
-API Standards is a website owned and operated by Te Whatu Ora | Health New Zealand.
+API Standards is a website owned and operated by Health New Zealand | Te Whatu Ora.
 
 These terms apply to the entire contents of the site, to any web feeds produced by the site, and to any feedback or submissions provided through the site. By viewing and using the site, you will be deemed to have agreed to these terms of use.
 
