@@ -474,8 +474,7 @@ General guidelines are:
   full lifecycle will be potential API resources. There is typically
   one API operation for each entity lifecycle state transition.
 
-- There should be only one API function for one business outcome (e.g.
-  change an address)
+- There should be only one API operation for one business outcome (e.g. change an address)
 
 - Consider using query parameters in URLs for different granularity of
   resources. For example, /appointments could return a list of
