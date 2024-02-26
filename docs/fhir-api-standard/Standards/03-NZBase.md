@@ -4,9 +4,7 @@ title: "Use NZ Base"
 
 ## Use NZ Base IG resource profiles and definitions
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 The [**New Zealand Base Implementation Guide**](https://fhir.org.nz/ig/base/index.html), or 'NZ Base', contains common extensions that most NZ FHIR implementations will need, along with any terminology artifacts referenced by them (ie coded elements).
@@ -34,7 +32,7 @@ FHIR APIs **MUST** derive profiles from the [New Zealand Base Implementation Gui
 
 #### Examples
 
-The following examples taken from the *rheumatic fever* support in the Te Whatu Ora Shared Care FHIR API demonstrate how a FHIR API can build on NZ Base definitions:
+The following examples taken from the *rheumatic fever* support in the Health NZ Shared Care FHIR API demonstrate how a FHIR API can build on NZ Base definitions:
 
 - Profile of [NzCondition](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition-nz-sharedcare-rheumaticfever-condition.html) -- lets a FHIR `Condition` support special extra RF diagnostic attributes.
 - Profile of [NzMedicationRequest](https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/StructureDefinition-nz-sharedcare-rheumaticfever-medicationrequest.html) -- extends a `FHIR MedicationRequest` with an extension to capture frequency of medication appointments.

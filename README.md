@@ -4,13 +4,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/tewhatuora/api-standards">
-    <img src="./static/img/two-logo.png" alt="Te Whatu Ora logo">
+    <img src="./static/img/two-logo.png" alt="Health NZ logo">
   </a>
 
-  <h3 align="center">Te Whatu Ora API Development and Security Standards</h3>
+  <h3 align="center">Health New Zealand | Te Whatu Ora API Development and Security Standards</h3>
 
   <p align="center">
-    This GitHub project is the source repository for the Te Whatu Ora API Development and Security Standards project, which are officially published at [updateme].
+    This GitHub project is the source repository for the Health NZ API Development and Security Standards project, which are officially published at <a href="https://apistandards.digital.health.nz">https://apistandards.digital.health.nz</a>
     <br />
     <br />
     <a href="https://dhzf2wyhwgplf.cloudfront.net/">View standards website</a>

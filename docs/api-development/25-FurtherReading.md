@@ -2,9 +2,7 @@
 title: "Further Reading"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 - [OWASP API Security Project](https://www.owasp.org/index.php/OWASP_API_Security_Project)
 - [OWASP Top Ten Project](https://owasp.org/www-project-top-ten/)
@@ -13,7 +11,7 @@ Content is draft and in review – this content may change until review is compl
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
 - [Reserved JavaScript Keywords](http://www.w3schools.com/js/js_reserved.asp)
 - [REST API Resource Modelling](https://www.thoughtworks.com/insights/blog/rest-api-design-resource-modeling)
-- [Government ICT Strategy](https://www.ict.govt.nz/strategy-and-action-plan/strategy/)
+- [Government ICT Strategy](https://www.digital.govt.nz/digital-government/strategy/digital-strategy-for-aotearoa-and-action-plan/)
 - [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification)
 - HTTP 1.1 Standards RFCs
   - [rfc7231](https://tools.ietf.org/html/rfc7231)

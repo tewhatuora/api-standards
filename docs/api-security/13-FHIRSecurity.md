@@ -1,9 +1,7 @@
 ---
 title: FHIR Security
 ---
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 This page should be reviewed alongside the [Part D: FHIR API Design and Development Standards](../fhir-api-standard/index.md)

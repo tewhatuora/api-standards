@@ -2,9 +2,7 @@
 title: Introduction
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Digital health can transform the outcomes and experience of health consumers if information is shared seamlessly. When digital products, services and information systems work together in this way, we call it being interoperable.
 
@@ -20,7 +18,7 @@ This document set aims to provide a set of high-level standards with design and 
 
 [**Part A: API Concepts and Management**](/api-concepts)
 
-Part A contains the business context for APIs and their use within Te Whatu Ora. It describes the principles and considerations when producing or consuming APIs, some of the benefits and pitfalls of doing so as well as their value when fostering innovation in the health sector.
+Part A contains the business context for APIs and their use within Health NZ. It describes the principles and considerations when producing or consuming APIs, some of the benefits and pitfalls of doing so as well as their value when fostering innovation in the health sector.
 
 [**Part B: API Security**](/api-security)
 
@@ -43,7 +41,7 @@ The decision has been taken to split FHIR API standards into a standalone sectio
 These standards and guidelines:
 
 - are intended to apply for all API standards and protocols, however much of the guidance is oriented to REST (Representative State Transfer) or FHIR APIs
-- use hypothetical or actual use cases with a health context to illustrate practical application of the concepts described. Examples do not represent recommended API design and / or data content requirements for Te Whatu Ora.
+- use hypothetical or actual use cases with a health context to illustrate practical application of the concepts described. Examples do not represent recommended API design and / or data content requirements for Health NZ.
   
 Applicable technical standards are referenced throughout the document set and are intended to provide detailed guidance for developers of API standards.
 

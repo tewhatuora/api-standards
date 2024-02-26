@@ -2,9 +2,7 @@
 title: Using OAuth 2.0 and OpenID Connect to Secure Your API
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 OAuth 2.0 and OpenID Connect are both based on a token-based authorisation framework and are defined and implemented using Grant Flow type patterns. These define the different types of interaction a client application can perform to gain an `access token` and thus access to the protected API.
 
@@ -301,9 +299,7 @@ This **MUST** be used when supporting confidential clients
 - The API Provider validates the authorisation code and exchanges it for an access token.
 - The API Provider delivers the access token directly to the API Consumer
 
-A detailed example of the Authorisation Code flow is covered here:
-
-[https://www.digital.govt.nz/dmsdocument/231~api-guidelines-part-b-api-security-2022/html#appendix-d--oauth--and-openid-connect-tokens-and-credentials]
+A detailed [example of the Authorisation Code flow is covered here](https://www.digital.govt.nz/dmsdocument/231~api-guidelines-part-b-api-security-2022/html#appendix-d--oauth--and-openid-connect-tokens-and-credentials)
 
 ## PKCE
 
@@ -356,11 +352,11 @@ In an OpenID Connect Authorisation Code Grant Flow there is a common model where
     - The Resource Server (APIs)
     - The Authentication Server
 
-2. The Organisation (e.g. Te Whatu Ora) also provides Identity information in two formats:
+2. The Organisation (e.g. Health NZ) also provides Identity information in two formats:
     - An ID Token to provide additional security
     - A Userinfo endpoint to provide additional Identity Information to the Relying Party
 
-3. The API Consumer provides a service to the End User (health sector participant) which requires them to authorise access to the API COnsumer to the API provider's protected resources (e.g. Te Whatu Ora Patient record)
+3. The API Consumer provides a service to the End User (health sector participant) which requires them to authorise access to the API COnsumer to the API provider's protected resources (e.g. Health NZ Patient record)
 
 The flow below details this model where the health sector participant wants to use the services provided by the API Consumer.
 

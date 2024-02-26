@@ -2,9 +2,7 @@
 title: "Versioning"
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 :::info
 FHIR distinguishes [three different types of versioning](https://build.fhir.org/resource.html#versions) summarised here as follows.

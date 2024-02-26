@@ -2,13 +2,11 @@
 title: Value of API standards
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 The full potential of the technology is reached when everyone is aligned with the standards, therefore everyone must work together on standards.
 
-The [World Health Organisation](https://www.who.int/) (WHO) has agreed that standards are needed and has established the global minimum health data standards. These have been adopted and applied at national level at Te Whatu Ora.
+The [World Health Organisation](https://www.who.int/) (WHO) has agreed that standards are needed and has established the global minimum health data standards. These have been adopted and applied at national level at Health NZ.
 
 The safe, accurate and effective exchange of health data and information is a fundamental foundation to improving healthcare in New Zealand and around the world.
 
@@ -16,8 +14,8 @@ The safe, accurate and effective exchange of health data and information is a fu
 
 HISO:
 
-- Is Te Whatu Ora’s longstanding kaitiaki (steward) for data and digital standards in the health and disability system.
-- Is a committee operated by Te Whatu Ora and accountable to the Chief of Data and Digital.
+- Is Health NZ’s longstanding kaitiaki (steward) for data and digital standards in the health and disability system.
+- Is a committee operated by Health NZ and accountable to the Chief of Data and Digital.
 - Is responsible for determining the standards that have national effect and monitoring the adoption of these standards.
 - Oversees the selection, development and adoption of data and digital standards for the health sector.
 

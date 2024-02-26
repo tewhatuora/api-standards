@@ -2,9 +2,7 @@
 title: API Development Industry Standards
 ---
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 ## Standards for Developing APIs
 

@@ -4,7 +4,7 @@ Welcome and thank you! We appreciate your interest in contributing. We strongly 
 
 Please note we have code of conduct, and we ask you to follow these guidelines in all your interactions with the project.
 
-If you have a suggestion that you think would make the Standards better, please fork the repo and create a pull request. You can also simply open an issue using one of the templates provided. Refer to [participating](http://localhost:3000/community/get-involved/03.2-contributing) for other ways to get involved.
+If you have a suggestion that you think would make the Standards better, please fork the repo and create a pull request. You can also simply open an issue using one of the templates provided. Refer to [participating](/community/get-involved/03.1-participating) for other ways to get involved.
 
 ## Creating a pull request (PR)
 
@@ -43,6 +43,4 @@ If you’re not sure why it wasn’t accepted, it’s perfectly reasonable to as
 
 ### Your contribution gets accepted
 
-todo: update links below
-
-When the SOF accepts your PR, they will merge it and your changes will shortly be reflected in the [working draft version](http://localhost:3000/). All going well, your change will also be incorporated into the next [published version](http://localhost:3000/) of the Standards.
+When the SOF accepts your PR, they will merge it and your changes will shortly be reflected in the [working draft version](https://apistandards.digital.health.nz/). All going well, your change will also be incorporated into the next [published version](https://apistandards.digital.health.nz/latest) of the Standards.

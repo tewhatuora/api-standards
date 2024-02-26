@@ -4,9 +4,7 @@ title: "Develop a FHIR data model"
 
 ## Develop a FHIR data model to communicate the data design
 
-:::warning[Status]
-Content is draft and in review – this content may change until review is complete and formally published.
-:::
+
 
 Data models help people understand what information is being collected and managed and how it relates to other data in existing systems/applications.
 
@@ -26,7 +24,7 @@ The following diagram is suggested to API designers/developers as an example of 
 
 It is intended to be a one-page entity-relationship diagram and uses UML 2.0 class diagram notation.
 
-Te Whatu Ora has found that these kinds of diagrams can easily be created and managed using [**plantuml**](https://plantuml.com) which is a free language for diagram creation.  This enables the plantuml diagram source code to be version-controlled and shared, and diagrams can easily be generated on-demand for [incorporation into Implementation Guides](https://build.fhir.org/ig/FHIR/ig-guidance/diagrams.html), websites or Confluence pages.
+Health NZ has found that these kinds of diagrams can easily be created and managed using [**plantuml**](https://plantuml.com) which is a free language for diagram creation.  This enables the plantuml diagram source code to be version-controlled and shared, and diagrams can easily be generated on-demand for [incorporation into Implementation Guides](https://build.fhir.org/ig/FHIR/ig-guidance/diagrams.html), websites or Confluence pages.
 
 <!--- cspell:disable -->
 ```plantuml
@@ -201,7 +199,7 @@ frame "Rheumatic fever bounded context - FHIR resource types" as HNZMain {
 
 }
 
-frame "Te Whatu Ora national systems" as National {
+frame "Health NZ national systems" as National {
 
   class "RFCCS (Salesforce)" as RFCCS <<external data>> #SkyBlue {
     Salesforce logical resource
@@ -217,7 +215,7 @@ frame "Te Whatu Ora national systems" as National {
 
 }
 
-frame "Te Whatu Ora NHI/HPI" as NationalIdentifier {
+frame "Health NZ NHI/HPI" as NationalIdentifier {
 
   class "Patient (NHI)" as Patient <<logical resource>> #SkyBlue {
     * logical id: NHI
@@ -320,7 +318,7 @@ footer "Generated from PlantUml source in git repo"
 ```
 <!--- cspell:enable -->
 
-<DetailedDescription text="The diagram in this guideline is an example of how to represent a FHIR data model.  It is an entity-relationship diagram using UML 2.0 class diagram notation.  The example data model shows the main FHIR resource types as entities, with key FHIR references between instances of these types are depicted as relationships.  Te Whatu Ora recommends that creating these kinds of diagrams using plantuml code (the plantuml code for this example is also on this page) which enables the diagram source to be version-controlled and shared, and diagrams easily incorporated into Implementation Guides, websites or Confluence pages.  Here is an overview of three key features of the diagram notation.
+<DetailedDescription text="The diagram in this guideline is an example of how to represent a FHIR data model.  It is an entity-relationship diagram using UML 2.0 class diagram notation.  The example data model shows the main FHIR resource types as entities, with key FHIR references between instances of these types are depicted as relationships.  Health NZ recommends that creating these kinds of diagrams using plantuml code (the plantuml code for this example is also on this page) which enables the diagram source to be version-controlled and shared, and diagrams easily incorporated into Implementation Guides, websites or Confluence pages.  Here is an overview of three key features of the diagram notation.
 Firstly frames: Frames on the diagram show *bounded contexts* or logical domains of data management.  
 Secondly entities: Entities show the key data types of the model.  Entities are named by their **FHIR resource type** or name of a profile if this applies.  Each entity has a UML stereotype which is the base FHIR resource type of that entity.  Entities are colour-coded to distinguish standard FHIR resources from profiled resources.
 And finally relations: Relations in the model represent FHIR resource references.  Cardinality of each relationship is shown using crowsfoot notation.  Solid lines are used for FHIR relative literal references between resources within a bounded context, whereas dotted blue lines are used for FHIR logical identifier references to a resource in another system context, for example an NHI reference.  If an arrow is present this indicates the direction of the FHIR reference from source to target.
