@@ -2,10 +2,6 @@
 title: API Authentication and Authorisation Basics
 ---
 
-
-
-## API Authentication & Authorisation Basics
-
 Before looking at the technical solutions to API authentication and
 authorisation, this section will provide an introduction that
 illustrates some of the situations where authentication and authorisation are
