@@ -11,7 +11,7 @@ title: "Further Reading"
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
 - [Reserved JavaScript Keywords](http://www.w3schools.com/js/js_reserved.asp)
 - [REST API Resource Modelling](https://www.thoughtworks.com/insights/blog/rest-api-design-resource-modeling)
-- [Government ICT Strategy](https://www.ict.govt.nz/strategy-and-action-plan/strategy/)
+- [Government ICT Strategy](https://www.digital.govt.nz/digital-government/strategy/digital-strategy-for-aotearoa-and-action-plan/)
 - [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification)
 - HTTP 1.1 Standards RFCs
   - [rfc7231](https://tools.ietf.org/html/rfc7231)
