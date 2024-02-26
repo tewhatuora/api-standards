@@ -36,7 +36,7 @@ Examples of unacceptable behavior include:
 
 General discussion within the community will address minor issues of language or raising of issues that are outside the scope of the Standards. More serious issues can be raised outside of the community discussion pages if discretion or confidentiality is required.
 
-If you have an issue that needs to be addressed such as abusive language, harassment or any other behaviour that breaches the Code of Conduct then you can email todoXXXXXXXXX or todoYYYYYYYY directly and they will review the issue and take appropriate action.
+If you have an issue that needs to be addressed such as abusive language, harassment or any other behaviour that breaches the Code of Conduct then you can email digitalserviceshub@tewhatuora.govt.nz directly and they will review the issue and take appropriate action.
 
 ## Enforcement Responsibilities
 

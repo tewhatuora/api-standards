@@ -2,8 +2,6 @@
 title: Measuring
 ---
 
-
-
 Data, when used wisely, can help the Standards Oversight Forum (SOF) and moderators make better decisions.
 
 With more information, you can:
@@ -15,9 +13,9 @@ With more information, you can:
 - and much more.
 
 There are two sources of metrics for the Standards: the website and the GitHub repository.
-<!---
-Todo: Insert details on how to view website metrics via Google Analytics
---->
+
+Google Analytics is enabled for the website using the account `Health NZ API Standards`. 
+
 For information on how to obtain metrics from GitHub, refer to [viewing activity and data for your repository](https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository).
 
 The following metrics should be gathered from both:
