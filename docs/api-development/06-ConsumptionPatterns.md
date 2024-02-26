@@ -5,7 +5,7 @@ title: API Consumption Patterns
 
 
 :::info
-The patterns documented on this page reflect a small number of patterns implemented by Te Whatu Ora. The expectation is that this page will grow as more standards contributors get involved.
+The patterns documented on this page reflect a small number of patterns implemented by Health NZ. The expectation is that this page will grow as more standards contributors get involved.
 :::
 
 ## Direct
@@ -26,13 +26,13 @@ skinparam {
 }
 
 actor "Health Sector Participant" as EC #Green
-rectangle "Te Whatu Ora" #fdfff6{
+rectangle "Health NZ" #fdfff6{
     component "API Gateway"  as AG
     component "API Management" as AM
     component "Developer Portal" as DP
     component "API Service Implementation" as ASI
-    actor "Te Whatu Ora\n   Operations" as HNZO #Blue
-    actor "Te Whatu Ora\nAPI Developer" AS HNZD #Blue
+    actor "Health NZ\n   Operations" as HNZO #Blue
+    actor "Health NZ\nAPI Developer" AS HNZD #Blue
 }
 
 EC .[#green,dashed,thickness=8].> AG
@@ -56,7 +56,7 @@ Legend
 end legend
 ```
 
-<DetailedDescription text="The diagram illustrates direct consumption pattern. The Health Sector Participant interacts with the API Gateway to initiate API interactions. The Te Whatu Ora Operations team manages the API Management and Developer Portal components. The API Gateway communicates with the API Service Implementation component to process API requests. The Te Whatu Ora API Developer interacts with the Developer Portal to access API documentation and tools." />
+<DetailedDescription text="The diagram illustrates direct consumption pattern. The Health Sector Participant interacts with the API Gateway to initiate API interactions. The Health NZ Operations team manages the API Management and Developer Portal components. The API Gateway communicates with the API Service Implementation component to process API requests. The Health NZ API Developer interacts with the Developer Portal to access API documentation and tools." />
 
 ## Proxy
 
@@ -76,7 +76,7 @@ skinparam {
 }
 
 actor "Health Sector Participant" as EC #Green
-rectangle "Te Whatu Ora" #fdfff6{
+rectangle "Health NZ" #fdfff6{
     component "API Gateway"  as AG
     component "API Management" as AM
     component "Developer Portal" as DP
@@ -117,4 +117,4 @@ end legend
 
 ```
 
-<DetailedDescription text="The diagram depicts the proxy consumption pattern, where a health sector participant, such as a hospital or clinic, connects to Te Whatu Ora's API Gateway to access healthcare services. Te Whatu Ora's API Management component manages the APIs and Developer Portal, which provides documentation and support for developers. Health NZ Operations and developers can also access the API Gateway directly. Sector partners, such as private healthcare providers, connect to their own API Gateways, which in turn connect to their API Service Implementations. Sector partner application developers can access their own API Gateways, and sector partner operations staff can access their API Service Implementations. The diagram also shows the flow of data between the different components and actors. For example, the Health Sector Participant sends API requests to Te Whatu Ora's API Gateway, which then routes the requests to the appropriate API Service Implementations. Te Whatu Ora's API Management component monitors and manages the API traffic, and the Developer Portal provides documentation and support for developers." />
+<DetailedDescription text="The diagram depicts the proxy consumption pattern, where a health sector participant, such as a hospital or clinic, connects to Health NZ's API Gateway to access healthcare services. Health NZ's API Management component manages the APIs and Developer Portal, which provides documentation and support for developers. Health NZ Operations and developers can also access the API Gateway directly. Sector partners, such as private healthcare providers, connect to their own API Gateways, which in turn connect to their API Service Implementations. Sector partner application developers can access their own API Gateways, and sector partner operations staff can access their API Service Implementations. The diagram also shows the flow of data between the different components and actors. For example, the Health Sector Participant sends API requests to Health NZ's API Gateway, which then routes the requests to the appropriate API Service Implementations. Health NZ's API Management component monitors and manages the API traffic, and the Developer Portal provides documentation and support for developers." />

@@ -182,7 +182,7 @@ JARM **MAY** be used for MEDICAL IN-CONFIDENCE APIs
 
 ## Session Management
 
-Te Whatu Ora **SHOULD** implement Session Management as defined in the OpenID Connect standards defined below.
+Health NZ **SHOULD** implement Session Management as defined in the OpenID Connect standards defined below.
 
 There are four OpenID Connect Standards that try to address session management, these are:
 

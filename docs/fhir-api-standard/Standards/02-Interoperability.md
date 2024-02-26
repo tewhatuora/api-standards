@@ -7,7 +7,7 @@ title: "Interoperability"
 
 
 :::info
-Interoperability here means that ability of two or more independently-developed health applications to exchange information successfully using FHIR APIs backed by a FHIR repository such as the Te Whatu Ora FHIR server.
+Interoperability here means that ability of two or more independently-developed health applications to exchange information successfully using FHIR APIs backed by a FHIR repository such as the Health NZ FHIR server.
 :::
 
 ### Requirements

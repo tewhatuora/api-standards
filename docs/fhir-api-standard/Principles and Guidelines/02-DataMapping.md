@@ -48,9 +48,9 @@ As Data Mappings benefit from involvement of stakeholders from the health applic
 
 The following tools are recommended for collaborative development of a DataMapping assuming that appropriate access can be arranged for all participants:
 
-- Te Whatu Ora Confluence  
-- Te Whatu Ora GitHub repository
-- Te Whatu Ora Microsoft Sharepoint  
+- Health NZ Confluence  
+- Health NZ GitHub repository
+- Health NZ Microsoft Sharepoint  
 
 ---
 

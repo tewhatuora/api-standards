@@ -105,7 +105,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer
 ```
 <!-- cspell:enable -->
 
-For the SAML Assertion Grant Flow, Te Whatu Ora:
+For the SAML Assertion Grant Flow, Health NZ:
 
 - **SHOULD NOT** use it for Server to Server flows
 - **SHOULD NOT** use a client created assertion model
@@ -139,7 +139,7 @@ This section only covers the Backend for Frontend concepts.
 
 ## Backend for Frontend (BFF)
 
-As the document defining the BFF is still in draft, Te Whatu Ora **MAY** use this for SPAs where there is a requirement to support **MEDICAL IN-CONFIDENCE** APIs.
+As the document defining the BFF is still in draft, Health NZ **MAY** use this for SPAs where there is a requirement to support **MEDICAL IN-CONFIDENCE** APIs.
 
 The sequence diagram indicates where the Backend for Frontend Service resides.
 

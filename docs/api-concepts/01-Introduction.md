@@ -8,7 +8,7 @@ Welcome to our API Design and Development Standards. The intent of this section 
 
 ## Scope
 
-This section contains the business context for API standards and their use within Te Whatu Ora. It describes the value of API standards when promoting innovation in the health sector.
+This section contains the business context for API standards and their use within Health NZ. It describes the value of API standards when promoting innovation in the health sector.
 
 ## Target audience
 
@@ -35,7 +35,7 @@ An API should not be confused with a service. Whilst web services are APIs, not 
 ### Interoperability
 
 Digital health can transform the outcomes and experience of health consumers if information is shared seamlessly. When digital products, services and information systems work together in this way, it is called being interoperable.
-Interoperability is a key enabler of the digital health ecosystem Te Whatu Ora is building. Interoperability will ensure that health information can be accessed by health consumers, health workers, and whānau:
+Interoperability is a key enabler of the digital health ecosystem Health NZ is building. Interoperability will ensure that health information can be accessed by health consumers, health workers, and whānau:
 
 - Anywhere
 - Anytime

@@ -3,7 +3,7 @@ title: Introduction
 ---
 
 
-Welcome to the Te Whatu Ora API Standards project community!
+Welcome to the Health NZ API Standards project community!
 
 This community maintains and evolves the Standards using a collaborative framework that includes:
 

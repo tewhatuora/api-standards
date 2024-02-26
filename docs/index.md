@@ -1,12 +1,12 @@
 ---
-title: "Te Whatu Ora API Standards"
+title: "Health New Zealand | Te Whatu Ora API Standards"
 sidebar_position: 1
 slug: /
 ---
 
 
 
-Learn about how Te Whatu Ora are implementing APIs to their systems and what the benefits are of doing this.
+Learn about how Health NZ are implementing APIs to their systems and what the benefits are of doing this.
 
 These standards provide both API Providers and API consumers with context for focused design and implementation as well as API best practices. This is intended to help both producers and consumers achieve a consistent and common approach to developing and delivering APIs.
 
@@ -16,7 +16,7 @@ The standards and guidelines are split into the following 3 parts:
 
 [**Part A: API Concepts and Management**](/api-concepts)
 
-Part A contains the business context for APIs and their use within Te Whatu Ora. It describes the principles and considerations when producing or consuming APIs, some of the benefits and pitfalls of doing so as well as their value when fostering innovation in the health sector.
+Part A contains the business context for APIs and their use within Health NZ. It describes the principles and considerations when producing or consuming APIs, some of the benefits and pitfalls of doing so as well as their value when fostering innovation in the health sector.
 
 [**Part B: API Security**](/api-security)
 
@@ -39,7 +39,7 @@ The decision has been taken to split FHIR API standards into a standalone sectio
 These standards and guidelines:
 
 - are intended to apply for all API standards and protocols, however much of the guidance is oriented to REST (Representative State Transfer) or FHIR APIs
-- use hypothetical or actual use cases with a health context to illustrate practical application of the concepts described. Examples do not represent recommended API design and / or data content requirements for Te Whatu Ora.
+- use hypothetical or actual use cases with a health context to illustrate practical application of the concepts described. Examples do not represent recommended API design and / or data content requirements for Health NZ.
   :::
 
 ## Target audience

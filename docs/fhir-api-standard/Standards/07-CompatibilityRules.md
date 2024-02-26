@@ -14,7 +14,7 @@ It is reasonable that parties who develop applications consuming a FHIR API shal
 
 ### Requirements
 
-Designers / developers proposing **breaking change**[^1] to an *existing, published FHIR API* **MUST** adhere to the following compatibility rules for Te Whatu Ora public APIs:
+Designers / developers proposing **breaking change**[^1] to an *existing, published FHIR API* **MUST** adhere to the following compatibility rules for Health NZ public APIs:
 
 - Ensure that all applications using the existing published API version can continue to depend on it without change for a **period of at least three years from introduction of the new API version**, and  
 - Ensure all affected API-consuming parties are given opportunity to provide feedback on the proposed changes, and  

@@ -11,7 +11,7 @@ This section provides a list of common API standards components and their associ
 An `API Provider` in the context of these standards is a **software application**:
 
 - That **produces** an HTTP API (REST or FHIR REST)
-- That can be **published** via the Te Whatu Ora API Marketplace or equivalent sector capability
+- That can be **published** via the Health NZ API Marketplace or equivalent sector capability
 - And has completed an **approved** API Provider **onboarding and certification** process.
 
 ## API Consumer
@@ -19,12 +19,12 @@ An `API Provider` in the context of these standards is a **software application*
 An `API consumer` in the context of these standards is a **software application**:
 
 - That **consumes** an HTTP API (REST or FHIR REST)
-- That is **published** via the Te Whatu Ora API Marketplace or equivalent sector capability
+- That is **published** via the Health NZ API Marketplace or equivalent sector capability
 - And has completed an **approved** API Consumer **onboarding and certification** process.
 
 ## Health Sector Participants
 
-A `health sector participant` in the context of these standards is a **human** that is, via a **software application**, interacting with an `API consumer` that is consuming an API that is published in the Te Whatu Ora API Marketplace or equivalent sector capability. Individual health sector participants may sometimes be referred to as `Health Consumer`.
+A `health sector participant` in the context of these standards is a **human** that is, via a **software application**, interacting with an `API consumer` that is consuming an API that is published in the Health NZ API Marketplace or equivalent sector capability. Individual health sector participants may sometimes be referred to as `Health Consumer`.
 
 ## Health Sector Organisations
 
@@ -152,7 +152,7 @@ skinparam {
 }
 
 rectangle "Health Workers"  as HWF {
-    actor "Te Whatu Ora\nWorkforce" as TWOWF
+    actor "Health NZ\nWorkforce" as TWOWF
     actor "Private Workforce" as PW
     component "API Consumer" as AC
     TWOWF .[#green,dashed,thickness=8].> AC
@@ -161,4 +161,4 @@ rectangle "Health Workers"  as HWF {
 @enduml
 ```
 
-<DetailedDescription text="The Health Worker API Consumption diagram illustrates the relationships and flows between the Te Whatu Ora Workforce and Private Workforce actors, who both interact with the API Consumer." />
+<DetailedDescription text="The Health Worker API Consumption diagram illustrates the relationships and flows between the Health NZ Workforce and Private Workforce actors, who both interact with the API Consumer." />

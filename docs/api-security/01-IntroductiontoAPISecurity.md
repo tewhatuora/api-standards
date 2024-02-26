@@ -133,7 +133,7 @@ four API types.
 For a glossary of terms used in this standard see [Glossary](../Glossary)
 
 :::info
-A health consumer/user can be internal or external to Te Whatu Ora - Health New Zealand.
+A health consumer/user can be internal or external to Health NZ.
 :::
 
 [^1]: Identity relates to how a person (or thing) is represented and how this is used to access services or information. See  [What is Digital Identity](https://www.digital.govt.nz/digital-government/programmes-and-projects/digital-identity-programme/what-is-digital-identity/)

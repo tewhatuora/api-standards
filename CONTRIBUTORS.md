@@ -6,7 +6,7 @@ The contents of this page is displayed on the deployed website at /community/con
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
     <img src="/img/mwnz.svg" alt="Middleware New Zealand" style={{ width: '15%' }} />
     <br />
-    <p>The API Standards were initially created by <a href="https://www.middleware.co.nz/">Middleware New Zealand,</a> for Te Whatu Ora.</p>
+    <p>The API Standards were initially created by <a href="https://www.middleware.co.nz/">Middleware New Zealand,</a> for Health NZ.</p>
   </div>
 </div>
 

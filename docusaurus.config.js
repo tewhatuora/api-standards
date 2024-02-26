@@ -9,7 +9,7 @@ const darkTheme = themes.dracula;
 module.exports = async function createConfig() {
   const { remarkKroki } = await import('remark-kroki');
   return {
-    title: 'Te Whatu Ora API Standards',
+    title: 'Health New Zealand | Te Whatu Ora API Standards',
     favicon: 'img/favicon-32x32.png',
 
     // Set the production url of your site here
@@ -88,7 +88,7 @@ module.exports = async function createConfig() {
         navbar: {
           title: 'API Standards',
           logo: {
-            alt: 'Te Whatu Ora logo',
+            alt: 'Health New Zealand | Te Whatu Ora logo',
             src: 'img/two.svg',
           },
           items: [
@@ -140,7 +140,7 @@ module.exports = async function createConfig() {
                   href: 'https://marketplace.hira.health.nz',
                 },
                 {
-                  label: 'Te Whatu Ora',
+                  label: 'Health New Zealand | Te Whatu Ora',
                   href: 'https://www.tewhatuora.govt.nz',
                 },
                 {

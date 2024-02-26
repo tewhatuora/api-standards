@@ -103,7 +103,7 @@ note right of SPS
     This call is to enable the API Consumer
     to register their notification endpoint. Note
     that this is illustrative only. In reality most API
-    consumers will register with Te Whatu Ora using a
+    consumers will register with Health NZ using a
     developer portal or equivalent and create client
     application credentials with registered notification
     endpoint(s).
@@ -558,6 +558,6 @@ Some examples of health sector specific SDKs include:
 | [Amazon Web Services (AWS) Health API SDK](https://docs.aws.amazon.com/health/latest/ug/health-api.html) | The AWS Health API SDK is a collection of tools and libraries that help you build healthcare applications on Amazon Web Services (AWS). The SDK includes APIs for managing patient data, scheduling appointments, and billing. |
 
 Once an API is in sufficient state to be offered to API consumers, the
-API definition should be published to the Te Whatu Ora API Marketplace or equivalent health sector capability. The primary API
+API definition should be published to the Health NZ API Marketplace or equivalent health sector capability. The primary API
 discoverer is the developer, so an external API must be well documented,
 and provide accurate and up-to-date guidance via the catalogue.
