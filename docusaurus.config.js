@@ -145,7 +145,7 @@ module.exports = async function createConfig() {
                 },
                 {
                   label: 'Contributors',
-                  href: '/community/contributors'
+                  href: '/contributors'
                 }
               ],
             },
