@@ -27,7 +27,7 @@ On top of these, additional standards have been defined that focus on additional
 
 The fundamental components of a solution using the OAuth 2.0 framework are illustrated below.
 
-<img src="/img/content/image20.png" alt="Diagram of OAuth 2.0 framework components"/>
+<img src="/img/content/oidc-no-id-token.png" alt="Diagram of OAuth 2.0 framework components"/>
 
 <DetailedDescription text="The diagram depicts a typical OpenID Connect authentication and authorization flow, where a user grants approval to an oidc provider, which then redirects to an authentication server. After successful authentication, tokens are issued and used by a client application to access protected resources."/>
 
@@ -74,7 +74,7 @@ OpenID Connect is the recommended security profile for the use of OAuth 2.0 auth
 
 OpenID Connect's fundamental security components are similar to OAuth 2.0, just having different names.  The only significant difference from OAuth 2.0 is the ID token as highlighted in the diagram below.
 
-<img src="/img/content/image44.png" alt="Diagram of OpenID Connect components, showing similarity to OAuth 2.0 framework"/>
+<img src="/img/content/oidc-id-token.png" alt="Diagram of OpenID Connect components, showing similarity to OAuth 2.0 framework"/>
 
 <DetailedDescription text="The diagram depicts a typical OpenID Connect authentication and authorization flow, where a user grants approval to an oidc provider, which then redirects to an authentication server. After successful authentication, tokens are issued and used by a client application to access protected resources. The diagram is similar to the previous diagram with the addition of an id token"/>
 
