@@ -67,7 +67,7 @@ module.exports = async function createConfig() {
             ],
             versions: {
               current: {
-                label: 'unpublished draft',
+                label: 'Draft',
                 path: 'draft',
               },
             },
