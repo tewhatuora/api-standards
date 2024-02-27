@@ -67,7 +67,7 @@ module.exports = async function createConfig() {
             ],
             versions: {
               current: {
-                label: 'Draft',
+                label: 'unpublished draft',
                 path: 'draft',
               },
             },
@@ -89,13 +89,15 @@ module.exports = async function createConfig() {
         colorMode: {
           defaultMode: 'light',
           disableSwitch: true,
-          respectPrefersColorScheme: false,
+          respectPrefersColorScheme: true,
         },
         navbar: {
           title: 'API Standards',
+          hideOnScroll: true,
           logo: {
             alt: 'Health New Zealand | Te Whatu Ora logo',
             src: 'img/two.svg',
+            srcDark: 'img/two-dark-theme-logo.svg',
           },
           items: [
             {
