@@ -33,7 +33,6 @@ module.exports = async function createConfig() {
       defaultLocale: 'en-nz',
       locales: ['en-nz'],
     },
-    plugins: [require.resolve('docusaurus-lunr-search')],
     presets: [
       [
         'redocusaurus',
@@ -76,7 +75,6 @@ module.exports = async function createConfig() {
         }),
       ],
     ],
-
     themeConfig:
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
@@ -163,5 +161,16 @@ module.exports = async function createConfig() {
           additionalLanguages: ['bash', 'diff', 'json'],
         },
       }),
+      themes: [
+        [
+          require.resolve('@easyops-cn/docusaurus-search-local'),
+          /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+          ({
+            hashed: true,
+            indexBlog: false,
+            docsRouteBasePath: '/',
+          }),
+        ],
+      ],
   };
 }
