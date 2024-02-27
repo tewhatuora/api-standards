@@ -25,12 +25,12 @@ skinparam {
 
 actor "Health Sector\nConsumer" as HSC
 
-FA5_SERVER(oidc,OpenId Connect\nProvider)
+FA5_SERVER(oidc,OpenID Connect\nProvider)
 FA5_SERVER(auth,Authentication\nServer)
 FA5_SERVER(resource,Resource Provider\nWeb APIs)
 FA5_MOBILE_ALT(mobile,"Relying Party\nCloud/Web App\nMobile App")
 rectangle tokens {
-    'FA5_CODE(idt,"id_token") #Yellow
+    FA5_CODE(idt,"id_token") #Yellow
     FA5_CODE(at,"access_token")
     FA5_CODE(rt,"refresh_token")
     FA5_CODE(ac,"auth_code")
@@ -40,7 +40,7 @@ HSC -left-> oidc : Approval
 auth <-right-> oidc : Redirect
 resource <-[dashed]up-> oidc : Validation
 resource <---right---> mobile : Using access_token
-mobile <-up-> tokens : produces
-tokens <-up-> oidc
+mobile <-up-> tokens : consumes
+tokens <-up-> oidc: produces
 
 @enduml
