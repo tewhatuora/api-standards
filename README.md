@@ -4,7 +4,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/tewhatuora/api-standards">
-    <img src="./static/img/two-logo.png" alt="Health NZ logo">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/two-dark-theme-logo.svg">
+      <img alt="Health New Zealand Te Whatu Ora Logo" src="./static/img/two.svg">
+    </picture>
   </a>
 
   <h3 align="center">Health New Zealand | Te Whatu Ora API Development and Security Standards</h3>
