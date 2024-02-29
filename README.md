@@ -6,7 +6,7 @@
   <a href="https://github.com/tewhatuora/api-standards">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./static/img/two-dark-theme-logo.svg">
-      <img alt="Health New Zealand Te Whatu Ora Logo" src="./static/img/two.svg">
+      <img alt="Health New Zealand Te Whatu Ora Logo" src="./static/img/two.svg" width="50%">
     </picture>
   </a>
 
