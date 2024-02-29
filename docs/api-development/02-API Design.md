@@ -446,15 +446,14 @@ It is important to aim for a granularity that will prevent business
 logic from leaking into the API e.g. requiring API calls to be made in a
 certain sequence to meet with internal business processes. With the
 imaging example, consider the impact of a fine-grained API being
-offered for posting an initial encounter, with separate calls for adding subsequent images or metadata. If metadata is mandatory, then the API application
-developer needs to ensure that every blog post call is followed by a
+offered for posting an initial encounter, with separate calls for adding subsequent images or metadata. If metadata is mandatory, then the application
+developer (API consumer) needs to ensure that every new post call to the API to create an image is followed by a
 metadata call. This puts the onus on the application developer to get
 the sequence of calls correct and could lead to inconsistent data if
 they do not adhere to the rules. It also leads to close coupling between
 the consuming application and the API, and if the business logic changes
 in the future there is a downstream impact on all application
 developers, requiring them to modify their applications.
-
 General guidelines are:
 
 - Don't aim for the finest granularity - an API should be built around
@@ -473,8 +472,7 @@ General guidelines are:
   full lifecycle will be potential API resources. There is typically
   one API operation for each entity lifecycle state transition.
 
-- There should be only one API function for one business outcome (e.g.
-  change an address)
+- There should be only one API operation for one business outcome (e.g. change an address)
 
 - Consider using query parameters in URLs for different granularity of
   resources. For example, /appointments could return a list of
