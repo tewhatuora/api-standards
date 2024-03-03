@@ -13,7 +13,7 @@ module.exports = async function createConfig() {
     favicon: 'img/favicon-32x32.png',
 
     // Set the production url of your site here
-    url: 'https://example.com',
+    url: 'https://apistandards.digital.health.nz',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
@@ -42,6 +42,10 @@ module.exports = async function createConfig() {
               spec: 'docs/api-development/api-specifications/example-agency-spec.yaml',
               route: '/api-specifications/example-agency-specification',
             },
+            {
+              spec: 'docs/api-development/api-specifications/example-agency-spec.yaml',
+              route: 'draft/api-specifications/example-agency-specification',
+            }
           ],
           theme: {
             primaryColor: '#1890ff',
@@ -64,6 +68,12 @@ module.exports = async function createConfig() {
                 }
               ]
             ],
+            versions: {
+              current: {
+                label: 'Draft',
+                path: 'draft',
+              },
+            },
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
@@ -81,23 +91,29 @@ module.exports = async function createConfig() {
         colorMode: {
           defaultMode: 'light',
           disableSwitch: true,
-          respectPrefersColorScheme: false,
+          respectPrefersColorScheme: true,
         },
         navbar: {
           title: 'API Standards',
+          hideOnScroll: true,
           logo: {
             alt: 'Health New Zealand | Te Whatu Ora logo',
             src: 'img/two.svg',
+            srcDark: 'img/two-dark-theme-logo.svg',
           },
           items: [
+            {
+              type: 'docsVersionDropdown',
+              position: 'right',
+            },
             {
               href: 'https://github.com/tewhatuora/api-standards/issues',
               label: 'Raise issue',
               position: 'right',
               target: '_blank',
               style: {'font-size': '0.9125rem'}
-            },
-          ],
+            }
+          ]
         },
         footer: {
           links: [

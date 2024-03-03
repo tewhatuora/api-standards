@@ -4,16 +4,19 @@
 <br />
 <div align="center">
   <a href="https://github.com/tewhatuora/api-standards">
-    <img src="./static/img/two-logo.png" alt="Health NZ logo">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/img/two-dark-theme-logo.svg">
+      <img alt="Health New Zealand Te Whatu Ora Logo" src="./static/img/two.svg" width="50%">
+    </picture>
   </a>
 
   <h3 align="center">Health New Zealand | Te Whatu Ora API Development and Security Standards</h3>
 
   <p align="center">
-    This GitHub project is the source repository for the Health NZ API Development and Security Standards project, which are officially published at <a href="https://apistandards.digital.health.nz">https://apistandards.digital.health.nz</a>
+    This GitHub project is the source repository for the Health NZ API Development and Security Standards project, which are officially published at <a href="https://apistandards.digital.health.nz">https://apistandards.digital.health.nz</a>.
     <br />
     <br />
-    <a href="https://dhzf2wyhwgplf.cloudfront.net/">View standards website</a>
+    <a href="https://apistandards.digital.health.nz">View standards website</a>
     ·
     <a href="https://github.com/tewhatuora/api-standards/issues">Submit feedback</a>
   </p>
@@ -29,10 +32,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 

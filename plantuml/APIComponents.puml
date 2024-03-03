@@ -1,17 +1,20 @@
 @startuml
 
-skinparam defaultFontColor #4080a9
-skinparam defaultBackgroundColor #d7f8ff
-skinparam defaultComponentColour #61d9de
-skinparam defaultActorColour #61d9de
-skinparam defaultFontSize 16
-skinparam defaultArrowThickness 6
-skinparam Linetype polyline
+skinparam {
+    defaultFontColor #4080a9
+    defaultBackgroundColor #d7f8ff
+    defaultComponentColour #61d9de
+    defaultActorColour #61d9de
+    defaultFontSize 16
+    defaultArrowThickness 6
+    actorStyle awesome
+    linetype polyline
+}
 
 rectangle Organisations {
     component "API Provider"  as AG
     component "API Consumer" as AC
-    actor "Applicaiton Developer" as APPD
+    actor "Application Developer" as APPD
     actor "API Developer" as APID
 }
 rectangle Hira {
