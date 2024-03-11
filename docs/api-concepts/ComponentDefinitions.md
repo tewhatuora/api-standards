@@ -10,7 +10,7 @@ This section provides a list of common API standards components and their associ
 
 An `API Provider` in the context of these standards is a **software application**:
 
-- That **produces** an HTTP API (REST, FHIR REST or Asynchronous)
+- That **produces** an HTTP API (REST or FHIR REST) or Asynchronous
 - That can be **published** via the Health NZ API Marketplace or equivalent sector capability
 - And has completed an **approved** API Provider **onboarding and certification** process.
 
@@ -18,7 +18,7 @@ An `API Provider` in the context of these standards is a **software application*
 
 An `API consumer` in the context of these standards is a **software application**:
 
-- That **consumes** an HTTP API (REST, FHIR REST or Asynchronous)
+- That **consumes** an HTTP API (REST or FHIR REST) or Asynchronous
 - That is **published** via the Health NZ API Marketplace or equivalent sector capability
 - And has completed an **approved** API Consumer **onboarding and certification** process.
 
