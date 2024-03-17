@@ -105,6 +105,6 @@ API Providers **MAY** choose to offer an event catalog or schema registry for th
 
 ## FHIR Implementation Guides
 
-When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation guide to detail the Subscription implementation detail.
+When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation guide to detail the implementation detail.
 
 For more information on FHIR Implementation Guide standards, review [FHIR Implementation Guides.](../../fhir-api-standard/Standards/05-IGInformation.md)

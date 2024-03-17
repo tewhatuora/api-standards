@@ -6,13 +6,13 @@ There are a number of transport protocols which are commonly used for transporti
 
 ### MQTT (Message Queuing Telemetry Transport)
 
-MQTT is a lightweight and efficient protocol designed for low bandwidth, high latency networks, which supports all [Async Patterns](../Asynchronous%20APIs/Async%20Patterns/01-Intro.md).
+MQTT is a lightweight and efficient protocol designed for low bandwidth, high latency networks, which supports all [Async Patterns](../Asynchronous%20APIs/Async%20Patterns/01-Intro.md). This protocol is often used with IoT devices.
 
 API Providers **SHOULD** support the use of this protocol.
 
 ### AMQP (Advanced Message Queuing Protocol)
 
-AMQP (Advanced Message Queuing Protocol) is an open-standard messaging protocol that enables reliable, interoperable communication between applications or components, using message brokers to route and manage the flow of messages in a distributed system.
+AMQP (Advanced Message Queuing Protocol) is an open-standard messaging protocol that enables reliable, high performance and interoperable communication between applications or components, using message brokers to route and manage the flow of messages in a distributed system.
 
 API Providers **SHOULD** support the use of this protocol.
 
@@ -28,4 +28,4 @@ HTTP has limited scalability for handling a large number of connections and is n
 
 ## Data serialization
 
-While there are a number of data serialization formats used within Async APIs such as [JSON](https://datatracker.ietf.org/doc/html/rfc7159), [Protocol Buffers (protobuf)](https://protobuf.dev) and [FlatBuffers](https://flatbuffers.dev), it is **RECOMMENDED** to publish messages using JSON due to a lower barrier to entry for bother API Providers and Consumers, as the data is human readable, as very easy to use in programming languages that natively support JSON.
+While there are a number of data serialization formats used within Async APIs such as [JSON](https://datatracker.ietf.org/doc/html/rfc7159), [Protocol Buffers (protobuf)](https://protobuf.dev) and [FlatBuffers](https://flatbuffers.dev), it is **RECOMMENDED** to publish messages using JSON due to a lower barrier to entry for both API Providers and Consumers, as the data is human readable, and easy to use in programming languages that natively support JSON.

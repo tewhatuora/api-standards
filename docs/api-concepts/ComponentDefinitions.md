@@ -54,6 +54,10 @@ An `Application Developer` in the context of these standards is a software engin
 | **Audience**      | Other developers                                                                         | Health sector participants                                                                                                                                            |
 | **Example tasks** | Design and develop new APIs, maintain and update existing APIs, create API documentation | Gather and analyse user requirements, design and develop software applications, write and test code, debug and fix software defects, deploy and maintain applications |
 
+## Message Producer
+
+A `Message Producer` in the context of these standards is a software application which publishes data to API Consumers using Asynchronous APIs.
+
 ```plantuml alt="Diagram showing API interactions within Health Sector organisations"
 @startuml
 
@@ -162,3 +166,29 @@ rectangle "Health Workers"  as HWF {
 ```
 
 <DetailedDescription text="The Health Worker API Consumption diagram illustrates the relationships and flows between the Health NZ Workforce and Private Workforce actors, who both interact with the API Consumer." />
+
+```plantuml alt="Diagram showing Message Producers publishing messages"
+@startuml
+
+skinparam {
+    defaultFontColor #4080a9
+    defaultBackgroundColor #d7f8ff
+    defaultComponentColour #61d9de
+    defaultActorColour #61d9de
+    defaultFontSize 16
+    defaultArrowThickness 6
+    actorStyle awesome
+    linetype polyline
+}
+
+rectangle "Health Sector Organisations" {
+    component "API Consumer" as AC
+    component "Message Producer"  as MP
+    component "Message Broker"  as MB
+    MP .[#green,dashed,thickness=8].> MB
+    MB <.[#green,dashed,thickness=8]. AC
+}
+@enduml
+```
+
+<DetailedDescription text="This shows the relationships between actors in health sector organisations. A Message Producer at a Health Sector Organisation publishes data to the Message Broker, to be consumed by an API Consumer." />

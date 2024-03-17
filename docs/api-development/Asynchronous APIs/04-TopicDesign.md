@@ -1,0 +1,73 @@
+---
+title: "Topics and Subscriptions"
+---
+
+In Asynchronous messaging APIs, a `Message Producer` uses topics as a means to route messages to interested API Consumers. An 
+`API Consumer` uses topics within their subscriptions to filter the messages they wish to receive.
+
+A well architected and consistent topic design is crucial to the success and re-usability of an event-driven API.
+
+## Topic design
+
+### Recommendations
+
+The event topic design **MUST** be consistently applied once agreed upon, and levels of the topic **MUST NOT** change meaning. For example, if the third level in a topic is an HPI Facility ID in one event it **MUST NOT** be a Patient identifier in a similar event, as this can lead to inconsistent routing and filtering. The correct Topic design is important for ease of use for both Message Producers and API Consumers.
+
+When a topic is defined, multiple "levels" may be defined, which are separated by a topic level separator, for example `{level1}/{level2}`. Different topic items **MUST** be separated by a `/` as opposed to any form of concatenation such as `{domain}-{action}` to support subscription filtering across different consumption protocols. Topics are case-sensitive in most message broker technologies, so using lower case is **RECOMMENDED**. It is **RECOMMENDED** to avoid using any special characters as these often have a reserved use in some messaging protocols and message broker implementations, which are often not defined in protocol specifications (e.g. `#`).
+
+In general, the below topic design can be used, or expanded for each use case - for example, to add a sub-identifier:
+
+`{domain}/{action}/{identifier}`
+
+| Topic level | Description | Example |
+| - | - | - |
+|Domain|The domain of the event.|`immunisation`, `patient`, `practicing_certificate` |
+|Action|The action that occurred within the domain. This should be a past tense verb, where HTTP verbs should be avoided.|`administered`, `created`, `issued`, `expired`, `address_updated`, `revoked`|
+|Identifier|An identifier for the subject of an event|`NHI123`, `HPI123`|
+
+A topic level **MAY** be used to indicate different versions of an event, where API Consumers may have a different consuming application between versions, or to manage migrations without breaking changes. In these cases the event version can be appended as a topic level, however the version **MUST** also be indicated in the message body.
+
+### Examples
+
+Topic design must consider the foreseen use cases of the event.
+
+As an example, we can use the publication of an Immunisation administered event. When an Immunisation is administered, it is likely that there are a few parties who are interested in this event. These may be
+
+- the Aotearoa Immunisation Register (AIR)
+- the Health Consumer's GP Practice
+
+An ideal topic hierarchy will allow both API Consumers to filter their subscription to only allow relevant events.
+
+An example of a topic that does not meet these requirements:
+
+`immunisation/administered`
+
+The above topic would work for AIR as an API Consumer, as they are likely to be interested in all immunisation events. However, this topic design does not allow the GP practice to filter for immunisation events related to their practice. A topic design which uses wildcard segments provides the API Consumers with much greater control and flexibility. An improved topic design to meet this use case:
+
+`immunisation/administered/{patientFacilityId}/{nhi}`
+
+Where a facility such as a the Health Consumer's GP Practice could subscribe to all immunisation administered events using a wildcard filter such as `immunisation/administered/F1X017-K/*`, which would receive only events for their practice. An API Consumer interested in all immunisation administered events can subscribe to `immunisation/administered/>`
+
+When this topic hierarchy is shared amongst more events, this allows consistency and efficiency for both API Producers and Consumers.
+
+## Subscription handling
+
+A subscription is the mechanism where API Consumers define which events they would like to receive. A message producer **MUST** provide mechanisms for API Consumers to use to subscribe or unsubscribe from available message channels. For systems implementing the FHIR Standard, the FHIR Subscriptions Model **SHOULD** be the preferred mechanism to manage this subscription.
+
+An API Provider **MUST** support the ability for an API Consumer to subscribe to topics using wildcards. Different messaging protocols will support different wildcard characters, for example, MQTT uses `+` for a single level wildcard and `#` for a multi-level wildcard, however other implementations use `*` and `>`. The wildcard characters supported by the API Provider **MUST** be documented alongside the API.
+
+```mermaid
+---
+title: Example API Consumer Subscription
+---
+sequenceDiagram
+    autonumber
+    accTitle: Example API Consumer Subscription
+    accDescr: Sequence diagram showing an API Consumer Subscription
+    participant MessageProducer as Message Producer
+    participant MessageBroker as Message Broker
+    participant Client as API Consumer
+    Client->>MessageBroker: Create subscription `immunisation/administered/+`
+    MessageProducer->>MessageBroker: Publish event to topic `immunisation/administered/hpi123/nhi123`
+    MessageBroker->>Client: Events received `immunisation/administered/hpi123/nhi123` {data}
+```

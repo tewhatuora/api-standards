@@ -12,7 +12,7 @@ servers:
         scheme: bearer
 channels:
   birthEvent:
-    address: 'births'
+    address: 'births/recorded/{facilityId}'
     messages:
       birthEventMessage:
         name: BirthEvent
