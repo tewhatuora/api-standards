@@ -39,7 +39,7 @@ Once an Asynchronous API has been selected as the desired API type, there are ce
 
 - Choose a [Async Pattern](./Async%20Patterns/01-Intro.md) that is suited to the desired API interactions
 - Defining the event payload
-- [Documenting the API and it's event data](./04-APIDesignandDocumentation.md)
+- [Documenting the API and it's event data](./05-APIDesignandDocumentation.md)
 
 ### Evolution
 
@@ -47,6 +47,6 @@ Once an Asynchronous API has been selected as the desired API type, there are ce
 
 ### Data consistency
 
-- Understanding the consistency level requirements for the different use-cases of the data, such as [eventual vs strong consistency](05-DataConsistencyModels.md)
+- Understanding the consistency level requirements for the different use-cases of the data, such as [eventual vs strong consistency](06-DataConsistencyModels.md)
 
 An overview of these decisions and the preferred options are detailed throughout these standards.

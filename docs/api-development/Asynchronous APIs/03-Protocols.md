@@ -26,6 +26,10 @@ API Providers **MAY** support the use of this protocol.
 
 HTTP has limited scalability for handling a large number of connections and is not designed for asynchronous communication. When HTTP is used for Async communication, it moves the API Consumer's long polling behaviour away from polling the API Provider, to instead polling the event broker. Due to this, HTTP is not recommended as a primary protocol for Async messaging APIs as it cannot deliver the full value of Async APIs, however API Providers **MAY** support the use of this protocol if required to integration legacy systems, or for environments where making required networking updates is challenging.
 
+### Proprietary protocols
+
+There are a number of message broker technologies which implement their own protocols such as Solace Message Format (SMF) or the [Kafka protocol](https://kafka.apache.org/0100/protocol.html). These proprietary protocols **MAY** be used, but **MUST NOT** be the only protocol offered by the API. This is to ensure that API Consumers or Message Producers who may have existing implementations using open protocols do not need to undertake more work to integrate, or become reliant on a particular broker technology.
+ 
 ## Data serialization
 
 While there are a number of data serialization formats used within Async APIs such as [JSON](https://datatracker.ietf.org/doc/html/rfc7159), [Protocol Buffers (protobuf)](https://protobuf.dev) and [FlatBuffers](https://flatbuffers.dev), it is **RECOMMENDED** to publish messages using JSON due to a lower barrier to entry for both API Providers and Consumers, as the data is human readable, and easy to use in programming languages that natively support JSON.

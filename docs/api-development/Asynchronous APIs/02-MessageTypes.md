@@ -10,7 +10,7 @@ When publishing integration events there is a balance to be achieved between pub
 
 ## Event notification (Thin events)
 
-This message type is often referred to as a `thin` message - as usually it will only contain the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information(this may be using a REST API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the consumer may not need to know all the details right away.
+This message type is often referred to as a `thin` message - as usually it will only contain the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
 
 Example event notification:
 
