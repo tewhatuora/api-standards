@@ -8,7 +8,11 @@ Event-driven architectures will typically publish domain events or integration e
 
 When publishing integration events there is a balance to be achieved between publishing too much, or too little information in them. It can be easy too accidentally expose too much information, or information that contains private implementation details.
 
-## Event notification (Thin events)
+## Message body
+
+The message body contains the detail of the event we want to publish.
+
+### Event notification (Thin events)
 
 This message type is often referred to as a `thin` message - as usually it will only contain the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
 
@@ -39,7 +43,7 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 
 This message type **SHOULD** be used if the API Provider does not have full control or knowledge of the event data being sent.
 
-## Event-Carried State Transfer (Fat/Thick events)
+### Event-Carried State Transfer (Fat/Thick events)
 
 This message type is used when you want consumers to have information about the event that has occurred, without them needing to contact the source system for more information. These event types typically contain ALL the current event/domain data, hence the colloquial name "fat events".
 
@@ -76,7 +80,7 @@ Example event carried state transfer message:
 - API Consumers are fully decoupled from the API Provider, as they do not need to interact with the Provider directly (they already have all of the data)
 - Data is eventually consistent, meaning data may not be perfectly synchronised, but will ultimately become consistent
 
-## Delta events
+### Delta events
 
 This message type sends both the current state of the event subject, as well as the prior state.
 
@@ -110,11 +114,11 @@ Example delta event message:
 - Stores the difference between prior and current states
 - Can reduce complexity in API Consumers needing to find out what state change has occurred, if they do not have knowledge of the prior state themselves
 
-## FHIR Subscriptions
+### FHIR Subscriptions
 
 The Subscriptions Framework in FHIR is a mechanism used to send event notifications from a FHIR API Provider to API Consumers based on activity occurring on resources in the server.
 
-### FHIR R4B Subscriptions
+#### FHIR R4B Subscriptions
 
 When using FHIR R4B Subscriptions, there are two possible message types sent in the notification payload, which is selected when creating the `Subscription`:
 
@@ -156,7 +160,7 @@ When using FHIR R4B Subscriptions, there are two possible message types sent in 
 }
 ```
 
-### FHIR R5 Subscriptions
+#### FHIR R5 Subscriptions
 
 When using **FHIR R5 Subscriptions**, the message contains a FHIR Bundle resource of type `subscription-notification`. There are three options for what is contained within the Bundle which is selected when creating the `Subscription`:
 
@@ -237,7 +241,7 @@ In this message type, the notification contains the resource type and id `Encoun
 }
 ```
 
-#### Full resource
+##### Full resource
 
 In this message type, the full FHIR resource targeted by the notification is sent in the payload.
 
@@ -295,6 +299,18 @@ In this message type, the full FHIR resource targeted by the notification is sen
 When deciding which payload type to request, systems **SHOULD** consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems **SHOULD** use the minimum level of detail consistent with the use case. In practice, id-only provides a good balance between security and performance for many real-world scenarios.
 
 Note that this is not an exhaustive list of all possible message types, but these are considered most relevant to the use cases in the New Zealand Health Sector.
+
+## Message headers
+
+Message headers, referred to as message metadata in some implementations, is used to store information about the message.
+
+### Suggested headers
+
+| Header name   | Value example | Description |
+| ----------- | ----------- | --- |
+| Content-Type      | `application/json`   | Indicates the content type of the message |
+| Correlation-Id   | `63841126-0aba-4e21-adbe-fa21279e83b2`  | Unique identifier for the interaction |
+| Event-Id | `54e7587e-5a38-4c85-94cb-96cc9570a19f` | Unique identifier for this event, used for idempotency |
 
 For further reading, please refer to:
 
