@@ -15,17 +15,10 @@ atomicity of transactions and aids recoverability in event of errors.
 
 When handling transactions, it is important to consider the
 troubleshooting and recovery aspects of error handling. This includes
-visibility of transaction progress and the ability to perform root cause
-analysis. To achieve this, it is advisable that logging is performed on
-all transactions coming through an API, with accurate timestamping, so
-that monitoring tools can visualise transaction progress. It also
-requires transaction identifiers (See [Request
+visibility of transaction progress and the ability to perform root cause analysis. To achieve this, it is advisable that logging is performed on all transactions coming through an API, with accurate timestamping, so that monitoring tools can visualise transaction progress. It also requires transaction identifiers (See [Request
 Headers](./Headers#request-header-detail)) to be built into transactional API calls to ensure the transactions are traceable end-to-end.
 
-In some cases, it may be deemed appropriate to provide an asynchronous
-batch type capability using an API. This would usually be implemented in
-a scenario where legacy system impact is a concern. An example of this
-could be a bulk creation of person records in a database based on a
+In some cases, it may be deemed appropriate to provide an asynchronous batch type capability using an API. This would usually be implemented in a scenario where legacy system impact is a concern. An example of this could be a bulk creation of person records in a database based on a
 batch event in a consuming legacy application. In such a scenario it
 would be preferable for the consuming application to treat each person
 as a unique event and to POST to a person API for each new unique
@@ -40,7 +33,7 @@ cases require client/server timeout control.
 
 ## Bulk vs Batch Import
 
-There are some key differences between bulk and batch import APIs however the key difference is that a batch import API will either succeed or fail in it's entirety however a bulk import API can be fully or partially successful.
+There are some key differences between bulk and batch import APIs however the key difference is that a `bulk` import API will either succeed or fail in it's entirety however a `batch` import API can be fully or partially successful.
 
 ### Examples
 
@@ -136,7 +129,7 @@ Note that the requests look very similar however the response for the API is the
 **<span class="smallcaps">Bulk API Response</span>**
 
 ```json
-HTTP/1.1 207 Multi-Status
+HTTP/1.1 400 BadRequest
 Content-Type: application/json
 
 {
@@ -154,7 +147,7 @@ Content-Type: application/json
 **<span class="smallcaps">Batch API Response</span>**
 
 ```json
-HTTP/1.1 400 BadRequest
+HTTP/1.1 207 Multi-Status
 Content-Type: application/json
 
 {
@@ -168,9 +161,9 @@ Content-Type: application/json
 }
 ```
 
-As can be seen above the `batch` API transaction returns a `400 - BadRequest` if **any** of the records in the batch fail. In this scenario it is the API Providers responsibility to manage the integrity of the resources. The API Provider returns information indicating that the entire batch has failed as well as enough data to allow the API Consumer to find and fix the erroneous components of the payload. The API Consumer is required to resubmit the entire batch once the erroneous record(s) are fixed.
+As can be seen above the `bulk` API transaction returns a `400 - BadRequest` if **any** of the records in the request fail. In this scenario it is the API Providers responsibility to manage the integrity of the resources. The API Provider returns information indicating that the entire bulk job has failed as well as enough data to allow the API Consumer to find and fix the erroneous components of the payload. The API Consumer is required to resubmit the entire request once the erroneous record(s) are fixed.
 
-In the `bulk` scenario some resources in the payload were processed successfully and some were not. In this scenario it is the API Consumers responsibility to maintain the integrity of the resources. In this hypothetical example the API Consumer would be required to resubmit `"batchId":2` as this was not processed however the other transaction was.
+In the `batch` scenario some resources in the payload were processed successfully and some were not. In this scenario it is the API Consumers responsibility to maintain the integrity of the resources. In this hypothetical example the API Consumer would be required to resubmit `"batchId":2` as this was not processed however the other transaction was.
 
 ## Asynchronous Transactions
 
