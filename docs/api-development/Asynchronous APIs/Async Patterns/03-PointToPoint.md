@@ -24,6 +24,8 @@ flowchart LR
     D -.-> G[AIR Broker three]
 ```
 
+<DetailedDescription text="In the diagram, there is an API Provider, a message broker, and an API Consumer. The API Provider publishes an immunization_administered event to the message broker, and the message broker then routes the event to the API Consumer."/>
+
 In this example, one consuming system, AIR, is consuming `immunization_administered` events from multiple brokers. The immunization_administered event is only processed by one broker(one consumer).
 
 ### When to use this pattern

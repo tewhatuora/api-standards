@@ -26,6 +26,9 @@ flowchart LR
     D -->|birth| G[Other sector system]
 ```
 
+<DetailedDescription text="The diagram shows a Pub/Sub pattern. In this pattern, an API Provider publishes events or messages to be delivered to none, one, or many consumers. This pattern de-couples the message producer and consumers by publishing the message to an event broker rather than communicating directly with consumers. The message broker broadcasts the messages to API Consumers, which means that the API Consumers are not directly coupled to the API Provider, and the API Provider has no concern whether or not a message has been received. Each consumer gets pushed a copy of of the message, unlike Point to Point where messages are pulled from the queue.
+In the example, the API Provider publishes a birth event to a message broker. The message broker then routes the message to three different channels: the birth channel, the Patient's GP Practice, the National Health Index, and Other sector system. Each of these channels receives a copy of the birth event."/>
+
 In this example, multiple consuming systems, National Health Index, Patient's auto enrolled GP and other sector systems are all delivered a copy of the `birth` event. This allows all API Consumers to use the information contained within the event.
 
 ### When to use this pattern

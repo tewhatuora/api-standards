@@ -241,7 +241,7 @@ In this message type, the notification contains the resource type and id `Encoun
 }
 ```
 
-##### Full resource
+#### Full resource
 
 In this message type, the full FHIR resource targeted by the notification is sent in the payload.
 

@@ -71,3 +71,9 @@ sequenceDiagram
     MessageProducer->>MessageBroker: Publish event to topic `immunisation/administered/hpi123/nhi123`
     MessageBroker->>Client: Events received `immunisation/administered/hpi123/nhi123` {data}
 ```
+
+<DetailedDescription text="The diagram shows an example of an API Consumer subscribing to a topic using a wildcard.
+The API Consumer sends a message to the message broker to create a subscription to the topic immunisation/administered/+. The + wildcard character matches any single level of the topic.
+The message producer publishes an event to the topic immunisation/administered/hpi123/nhi123.
+The message broker forwards the event to the API Consumer because the event matches the subscription filter.
+The API Consumer will receive all events published to the immunisation/administered topic, regardless of the value of the third level of the topic."/>
