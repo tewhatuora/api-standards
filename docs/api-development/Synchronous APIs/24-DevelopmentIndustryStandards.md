@@ -6,7 +6,7 @@ title: API Development Industry Standards
 
 ## Standards for Developing APIs
 
-In addition to the standards captured in [API Design](./API%20Design#standards-based) and [API Security Standards](../api-security) the table below
+In addition to the standards captured in [API Design](./API%20Design#standards-based) and [API Security Standards](../../api-security) the table below
 captures (current) API and web standards that should be considered as part of any API Strategy.
 
 | Standard or Standards Organisation | Description |

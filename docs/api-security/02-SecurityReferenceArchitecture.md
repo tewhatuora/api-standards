@@ -91,7 +91,7 @@ APID -up-> ADP
 The components defined remain valid no matter what API architecture
 (internal, cloud, hybrid) is implemented.
 
-See [Standards Component Definitions](../api-concepts/ComponentDefinitions) for details of the various components illustrated above.
+See [Standards Component Definitions](../../api-concepts/ComponentDefinitions) for details of the various components illustrated above.
 
 The core components of an API Security Framework (the developer
 portal, manager and gateway) provide a grouping of functionality.

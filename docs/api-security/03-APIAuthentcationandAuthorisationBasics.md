@@ -19,9 +19,9 @@ securing modern APIs this section provides a high level introduction to OAuth 2.
 
 **<span class="smallcaps">Appropriate authentication MUST be achieved when accessing APIs</span>**
 
-When securing APIs, authentication is required to identify the [health sector participants](../api-concepts/ComponentDefinitions#health-sector-participants)
-and/or [API Consumers](../api-concepts/ComponentDefinitions#api-consumer) that want to access or use an API.
-Authentication enables the [API Provider](../api-concepts/ComponentDefinitions#api-provider) to identify all consumers of an
+When securing APIs, authentication is required to identify the [health sector participants](../../api-concepts/ComponentDefinitions#health-sector-participants)
+and/or [API Consumers](../../api-concepts/ComponentDefinitions#api-consumer) that want to access or use an API.
+Authentication enables the [API Provider](../../api-concepts/ComponentDefinitions#api-provider) to identify all consumers of an
 API and to confirm that the consumer requesting access is who they say
 they are. This doesn’t automatically authorise them to access the APIs
 or the underlying resources.

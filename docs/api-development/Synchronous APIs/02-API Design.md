@@ -4,7 +4,7 @@ title: "API Design"
 
 
 
-This section looks at API design and offers the standards required to support [health sector organisations](../api-concepts/ComponentDefinitions#health-sector-organisations) in designing, developing and governing APIs. The intended audience for this section of the document is **_technical_** for example [API developers](../api-concepts/ComponentDefinitions#api-developers), or [API designers](../api-concepts/ComponentDefinitions#api-designers).
+This section looks at API design and offers the standards required to support [health sector organisations](../../api-concepts/ComponentDefinitions#health-sector-organisations) in designing, developing and governing APIs. The intended audience for this section of the document is **_technical_** for example [API developers](../../api-concepts/ComponentDefinitions#api-developers), or [API designers](../../api-concepts/ComponentDefinitions#api-designers).
 
 When reading this section consider the implications for your organisation. Fundamentally, APIs should make interoperability with your
 organisation simple, but more importantly consistent.
@@ -152,7 +152,7 @@ The example above has two associated API specifications. The first is an
 OpenAPI specification that describes the "Create Claim” and "Get Claim”
 RESTful interactions and the second is an AsyncAPI specification that
 describes the "Receive Updates” interaction. These example
-specifications are available for reference [here](../api-specifications/example-agency-specification)
+specifications are available for reference [here](../../api-specifications/example-agency-specification)
 
 ## API Design Principles
 
@@ -183,7 +183,7 @@ API, it also includes threat protection (DDoS, SQL Injection, Cross site
 scripting etc.) as well as availability and quality of service (QoS).
 When designing and developing APIs it is often cost effective to create
 a common framework that handles security for all APIs. See the
-associated document, [Part B: API Security](../api-security), for more details.
+associated document, [Part B: API Security](../../api-security), for more details.
 
 #### Caching
 
@@ -272,8 +272,8 @@ potential partners to involve in the co-design, consider:
 
 - processes that require a capability an API could expose
 
-Some actors in the design process will be human such as [application developers](../api-concepts/ComponentDefinitions#application-developers) or [health sector participants](../api-concepts/ComponentDefinitions#health-sector-participants) whilst some
-actors will be [systems or organisations](../api-concepts/ComponentDefinitions#health-sector-organisations) that will interact with, or depend on, the
+Some actors in the design process will be human such as [application developers](../../api-concepts/ComponentDefinitions#application-developers) or [health sector participants](../../api-concepts/ComponentDefinitions#health-sector-participants) whilst some
+actors will be [systems or organisations](../../api-concepts/ComponentDefinitions#health-sector-organisations) that will interact with, or depend on, the
 API.
 
 When representatives for the potential actors are identified, start
@@ -339,7 +339,7 @@ health sector:
   interoperability use cases. It is also important to note here that
   if there is an appropriate resource in the Fast Health
   Interoperability Resource (FHIR) standard then a FHIR approach
-  should be considered. See this documents [FHIR API Guidance](../fhir-api-standard)
+  should be considered. See this documents [FHIR API Guidance](../../fhir-api-standard)
 
 - The information supplied via an API may still be dependent on
   overnight batch processes for update. It is worth making the
@@ -509,7 +509,7 @@ etc.). It offers a standard, programming language-agnostic (JSON/YAML)
 interface to REST APIs which allows both humans and computers to
 discover and understand the capabilities of the service. For an example
 of a Swagger interface specification see [Example Interface
-Specification](/api-specifications/example-agency-specification).
+Specification](../../api-specifications/example-agency-specification).
 
 It is important to use a modelling language to define the API interface
 specification as essentially it is text or code and can be maintained

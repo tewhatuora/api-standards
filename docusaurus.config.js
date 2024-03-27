@@ -76,7 +76,7 @@ module.exports = async function createConfig() {
             },
           },
           theme: {
-            customCss: require.resolve('./src/css/custom.css'),
+            customCss: [require.resolve('./src/css/custom.css'), require.resolve('@asyncapi/react-component/styles/default.min.css')],
           },
           gtag: {
             trackingID: 'G-KPWKEMHLL1',
@@ -177,7 +177,11 @@ module.exports = async function createConfig() {
           additionalLanguages: ['bash', 'diff', 'json'],
         },
       }),
+      markdown: {
+        mermaid: true,
+      },
       themes: [
+        '@docusaurus/theme-mermaid',
         [
           require.resolve('@easyops-cn/docusaurus-search-local'),
           /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */

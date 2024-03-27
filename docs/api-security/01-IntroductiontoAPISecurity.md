@@ -126,7 +126,7 @@ These intersect in the middle representing identity, which is central to an API 
 This version of the API Standard has the main focus on REST but GraphQL and AsyncAPI specifications are included
 under the banner of APIs.
 
-These additional types of API are covered in [API Design](../api-development/API%20Design)
+These additional types of API are covered in [API Design](../../api-development/API%20Design)
 but from a high-level perspective the definitions below apply to all
 four API types.
 

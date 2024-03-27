@@ -1,0 +1,86 @@
+asyncapi: 3.0.0
+info:
+  title: Birth Event API
+  version: '1.0.0'
+  description: Notification API for Birth Events
+servers:
+  hira-event-broker:
+    host: broker.example.com
+    protocol: mqtt
+    security:
+      - type: http
+        scheme: bearer
+channels:
+  birthEvent:
+    address: 'births/recorded/{facilityId}'
+    messages:
+      birthEventMessage:
+        name: BirthEvent
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '25d20016-aff2-11ee-a506-0242ac120002'
+            source:
+              type: string
+              example: 'wlghostpitalpms'
+            specversion:
+              type: string
+              example: '1.0'
+            type:
+              type: string
+              example: 'birth_event'
+            dataschema:
+              type: string
+              example: 'https://catalog.example.com/birth-event-v2.0.1.json'
+            data:
+              type: object
+              properties:
+                patient:
+                  type: object
+                  properties:
+                    family:
+                      type: string
+                      example: Doe
+                    id:
+                      type: string
+                      example: NHI123
+                details:
+                  type: object
+                  properties:
+                    admissionDatetime:
+                      type: string
+                      format: date-time
+                      example: 2024-01-05T19:39:00Z
+                    reason:
+                      type: string
+                      example: Trouble breathing while at home
+                    facility:
+                      type: string
+                      example: citywgtn
+          required:
+            - id
+            - source
+            - specversion
+            - type
+            - dataschema
+            - data
+operations:
+  onBirthEvent:
+    action: 'receive'
+    summary: Event-Carried State Transfer event to notify that a birth has occurred in New Zealand.
+    channel:
+      $ref: '#/channels/birthEvent'
+
+components:
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://example.com/api/oauth/token
+          availableScopes:
+            read:birthEvent: Read birthEvent messages
+      scopes:
+        - 'read:birthEvent'
