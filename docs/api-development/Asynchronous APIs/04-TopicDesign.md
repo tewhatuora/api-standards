@@ -29,9 +29,9 @@ A topic level **MAY** be used to indicate different versions of an event, where 
 
 ### Examples
 
-Topic design must consider the foreseen use cases of the event.
+Topic design **MUST** consider the foreseen use cases of the event.
 
-As an example, we can use the publication of an Immunisation administered event. When an Immunisation is administered, it is likely that there are a few parties who are interested in this event. These may be
+As an example, consider the publication of an Immunisation administered event. When an Immunisation is administered, it is likely that there are many parties who are interested in this event. These may be:
 
 - the Aotearoa Immunisation Register (AIR)
 - the Health Consumer's GP Practice

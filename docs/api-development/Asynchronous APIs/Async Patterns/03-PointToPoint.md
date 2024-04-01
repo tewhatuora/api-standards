@@ -19,9 +19,9 @@ flowchart LR
     accDescr: Flow diagram showing Point to point pattern
     A[API Provider] -->|Publish immunization_administered event| C{Message broker}
     C --> |Route message| D[immunization channel]
-    D -->|immunization_administered| E[AIR Broker one]
-    D -.-> F[AIR Broker two]
-    D -.-> G[AIR Broker three]
+    D -->|immunization_administered| E[AIR Consumer Instance 1]
+    D -.-> F[AIR Consumer Instance 2]
+    D -.-> G[AIR Consumer Instance 3]
 ```
 
 <DetailedDescription text="In the diagram, there is an API Provider, a message broker, and an API Consumer. The API Provider publishes an immunization_administered event to the message broker, and the message broker then routes the event to the API Consumer."/>

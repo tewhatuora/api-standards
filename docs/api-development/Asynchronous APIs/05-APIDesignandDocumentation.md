@@ -102,7 +102,7 @@ A schema registry is a location where API Provider teams can publish and maintai
 Both of these pieces of software may be offered by a message broker, however can be implemented regardless of the underlying messaging technology. Often, they will be accessible via an API so they can be used programmatically.
 
 API Providers **MAY** choose to offer an event catalog or schema registry for their API.
-
+Health New Zealand will use the Digital Services Hub to publish its Event Catalog.
 ## FHIR Implementation Guides
 
 When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation guide to detail the implementation detail.

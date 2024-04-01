@@ -28,7 +28,7 @@ HTTP has limited scalability for handling a large number of connections and is n
 
 ### Proprietary protocols
 
-There are a number of message broker technologies which implement their own protocols such as Solace Message Format (SMF) or the [Kafka protocol](https://kafka.apache.org/0100/protocol.html). These proprietary protocols **MAY** be used, but **MUST NOT** be the only protocol offered by the API provider. This is to ensure that API Consumers or Message Producers who may have existing implementations using open protocols do not need to undertake more work to integrate, or become reliant on a particular broker technology.
+There are a number of message broker technologies which implement their own protocols such as [Solace Message Format (SMF)](https://docs.solace.com/Messaging/SMF-Topics.htm) or the [Kafka protocol](https://kafka.apache.org/0100/protocol.html). These proprietary protocols **MAY** be used, but **MUST NOT** be the only protocol offered by the API provider. This is to ensure that API Consumers or Message Producers who may have existing implementations using open protocols do not need to undertake more work to integrate, or become reliant on a particular broker technology.
  
 ## Data serialization
 

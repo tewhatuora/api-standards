@@ -16,7 +16,7 @@ At the point of care, in realtime, this data consistency should be considered [s
 
 ## Eventual consistency
 
-Eventual consistency is a model that guarantees that updates will propagate through all integrated systems and become consistent with each other, given enough time. This model isn't suited to systems or data that require strict data consistency. An example of where this data consistency model may not be appropriate would be data that requires precise timing, such as a patient receiving critical care's vital signs. Data and events where this model may be appropriate(dependent on the use case are) are:
+Eventual consistency is a model that guarantees that updates will propagate through all integrated systems and become consistent with each other, given enough time. This model isn't suited to systems or data that require strict data consistency. An example of where this data consistency model may not be appropriate would be data that requires precise timing, such as a patient's vital signs when receiving critical care. Data and events where this model may be appropriate (dependent on the use case are) are:
 
 - a Patient's preferred name was updated
 - a Patient was born
@@ -24,7 +24,7 @@ Eventual consistency is a model that guarantees that updates will propagate thro
 
 ## Strong consistency
 
-Strong consistency aims to provide a higher level of consistency. Strong consistency ensure that all API Consumers maintain an accurate copy of the data without any temporary inconsistency. Data and events where this model may be appropriate(dependent on the use case are) are:
+Strong consistency aims to provide a higher level of consistency. Strong consistency ensure that all API Consumers maintain an accurate copy of the data without any temporary inconsistency. Data and events where this model may be appropriate (dependent on the use case are) are:
 
 - a Patient was provided 5mg of Morphine intravenously
 - a Patient had an adverse reaction

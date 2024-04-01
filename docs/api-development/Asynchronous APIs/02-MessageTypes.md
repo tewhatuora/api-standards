@@ -15,7 +15,7 @@ The message body contains the detail of the event we want to publish.
 ### Event notification (Thin events)
 
 This message type is often referred to as a `thin` message - as usually it will only contain the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
-
+Thin events may include a pointer (URL or similar identifier) back to the specific resource that initiated the notification. If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time} `.
 Example event notification:
 
 ```json
@@ -27,7 +27,7 @@ Example event notification:
   "id": "5a5c049a-adbc-11ee-a506-0242ac120002",
   "time": "2023-11-05T17:31:00Z",
   "data": {
-    "url": "https://example.com/fhir/Encouter/5a5c049a-adbc-11ee-a506-0242ac120002"
+    "url": "https://example.com/fhir/Encounter/5a5c049a-adbc-11ee-a506-0242ac120002"
   }
 }
 ```
@@ -36,16 +36,16 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 
 **Characteristics:**
 
-- Minimal information is being transferred which can reduce risk
+- Minimal information is being transferred which can reduce risk of unauthorised information disclosure
 - Less risk of data being out of sync, as the API Consumer fetches the latest data if it is required
 - API Consumers may need to fetch the data outside of the Async API if they need to know more about the event
 - Smaller contracts and data schemas allow for easier future changes
 
 This message type **SHOULD** be used if the API Provider does not have full control or knowledge of the event data being sent.
 
-### Event-Carried State Transfer (Fat/Thick events)
+### Event-Carried State Transfer (Thick events)
 
-This message type is used when you want consumers to have information about the event that has occurred, without them needing to contact the source system for more information. These event types typically contain ALL the current event/domain data, hence the colloquial name "fat events".
+This message type is used when you want consumers to have information about the event that has occurred, without them needing to contact the source system for more information. These event types typically contain ALL the current event/domain data, hence the colloquial name "thick events".
 
 Example event carried state transfer message:
 
@@ -170,7 +170,7 @@ When using **FHIR R5 Subscriptions**, the message contains a FHIR Bundle resourc
 
 #### Empty
 
-In this message type, the FHIR API Consumer receives an empty notification, where they will now query the FHIR server (generally using search parameters such as `_lastUpdatedAt`) to retrieve the new resources. This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic.
+In this message type, the FHIR API Consumer receives an empty notification, where they will now query the FHIR server (generally using search parameters such as `_lastUpdatedAt`) to retrieve the new resources. This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorisation and authentication logic.
 
 ```json
 {

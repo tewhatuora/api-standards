@@ -22,9 +22,9 @@ Asynchronous APIs have many uses, such as realtime chat applications, software d
 
 Asynchronous APIs are appropriate to use when designing an API to meet any of the below criteria:
 
-- When there is a requirement to notify one or many consumers of a change in resource state
+- When there is a preference to notify one or many consumers of a change in resource state, rather than having the consumer query the resource state
 - When performing a request that may take a long period of time, such as large data exports, human task interrupted workflows or analytic workloads
-- When data must be sent or received in realtime, such as from IoT devices
+- When timeliness of state changes are critical for the use case, such as near-real-time updates from IoT devices
 - When designing a decoupled system, such as in a microservices environment
 - When there is a requirement to use/display the most up to date copy of data
 
