@@ -32,14 +32,14 @@ Once an Asynchronous API has been selected as the desired API type, there are ce
 
 ### Identify and design
 
-- Choose a [message type](./02-MessageTypes.md) - how the event payload will be structured
-- Choose the supported [message protocols](./03-Protocols.md) - which protocol/s the API Consumer will use to receive the event
+- Choose a [message type](./03-MessageTypes.md) - how the event payload will be structured
+- Choose the supported [message protocols](./04-Protocols.md) - which protocol/s the API Consumer will use to receive the event
 
 ### Design and documentation
 
 - Choose an [Async Pattern](./Async%20Patterns/01-Intro.md) that is suited to the desired API interactions
 - Defining the event payload
-- [Documenting the API and it's event data](./05-APIDesignandDocumentation.md)
+- [Documenting the API and it's event data](./06-APIDesignandDocumentation.md)
 
 ### Evolution
 
@@ -47,6 +47,6 @@ Once an Asynchronous API has been selected as the desired API type, there are ce
 
 ### Data consistency
 
-- Understanding the consistency level requirements for the different use-cases of the data, such as [eventual vs strong consistency](06-DataConsistencyModels.md)
+- Understanding the consistency level requirements for the different use-cases of the data, such as [eventual vs strong consistency](07-DataConsistencyModels.md)
 
 An overview of these decisions and the preferred options are detailed throughout these standards.

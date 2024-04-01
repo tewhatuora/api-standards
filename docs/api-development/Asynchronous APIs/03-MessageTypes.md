@@ -15,7 +15,8 @@ The message body contains the detail of the event we want to publish.
 ### Event notification (Thin events)
 
 This message type is often referred to as a `thin` message - as usually it will only contain the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
-Thin events may include a pointer (URL or similar identifier) back to the specific resource that initiated the notification. If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time} `.
+Thin events may include a pointer (URL or similar identifier) back to the specific resource that initiated the notification. If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time}`.
+
 Example event notification:
 
 ```json
@@ -40,6 +41,10 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 - Less risk of data being out of sync, as the API Consumer fetches the latest data if it is required
 - API Consumers may need to fetch the data outside of the Async API if they need to know more about the event
 - Smaller contracts and data schemas allow for easier future changes
+
+:::info
+A key design consideration for thin events is the potential for traffic to data sources to become volatile as the ecosystem scales. This volatility arises from the likelihood that all subscribers will simultaneously trigger automated workflows to access the data. Ensure that the data source has the correct scale and API gateway policies like Spike Control to take this into account.
+:::
 
 This message type **SHOULD** be used if the API Provider does not have full control or knowledge of the event data being sent.
 
@@ -120,11 +125,10 @@ The Subscriptions Framework in FHIR is a mechanism used to send event notificati
 
 #### FHIR R4B Subscriptions
 
-When using FHIR R4B Subscriptions, there are two possible message types sent in the notification payload, which is selected when creating the `Subscription`:
+When using FHIR R4B Subscriptions, there are two possible message types sent in the notification payload, which is selected when creating the `Subscription` resource:
 
-- No payload - an empty body, where API Consumers must query the FHIR Server to retrieve the actual updates from the FHIR Server using search parameters such as `_lastUpdatedAt`
-
-- a FHIR Resource - the full FHIR resource is sent, similar to an update operation
+- No payload - an empty body, where API Consumers must query the FHIR Server to retrieve the updates from the FHIR Server using search parameters `&_since=:last` (where `:last` is replaced by the time at which the API Consumer last checked). This message type is configured when the Subscriber omits the `Subscription.channel.payload` [attribute](https://www.hl7.org/fhir/r4b/subscription-definitions.html#Subscription.channel.payload). This is a [thin event](#event-notification-thin-events).
+- a FHIR Resource - the full FHIR resource is sent, similar to an update operation. This is when the subscriber sets the `Subscription.channel.payload` attribute to MIME types of `application/fhir+json` or `application/fhir+xml`. This is a [thick event](#event-carried-state-transfer-thick-events).
 
 **Example using the full FHIR Resource:**
 

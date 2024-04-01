@@ -17,18 +17,19 @@ title: Point to Point pattern
 flowchart LR
     accTitle: Point to point diagram
     accDescr: Flow diagram showing Point to point pattern
-    A[API Provider] -->|Publish immunization_administered event| C{Message broker}
-    C --> |Route message| D[immunization channel]
-    D -->|immunization_administered| E[AIR Consumer Instance 1]
+    A[API Provider] -->|Publish immunisation_administered event| C{Message broker}
+    C --> |Route message| D[(immunisation channel)]
+    D -->|immunisation_administered| E[AIR Consumer Instance 1]
     D -.-> F[AIR Consumer Instance 2]
     D -.-> G[AIR Consumer Instance 3]
 ```
 
-<DetailedDescription text="In the diagram, there is an API Provider, a message broker, and an API Consumer. The API Provider publishes an immunization_administered event to the message broker, and the message broker then routes the event to the API Consumer."/>
+<DetailedDescription text="In the diagram, there is an API Provider, a message broker, and an API Consumer. The API Provider publishes an immunisation_administered event to the message broker, and the message broker then routes the event to the API Consumer."/>
 
-In this example, one consuming system, AIR, is consuming `immunization_administered` events from multiple brokers. The immunization_administered event is only processed by one broker(one consumer).
+In this example, one consuming system, AIR, is consuming `immunisation_administered` events from multiple brokers. The immunisation_administered event is only processed by one broker (one consumer).
 
 ### When to use this pattern
 
 - When there is a requirement for high concurrency of messaging processing, as the processing workload can be scaled
 - When there is only going to be a single consumer of a message
+  - If more than one consumer is required, multiple queues can be added

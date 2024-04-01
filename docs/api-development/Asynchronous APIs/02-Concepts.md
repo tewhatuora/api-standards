@@ -10,7 +10,7 @@ There are a number of terminologies used in the Async and Event driven architect
 | Event | A message containing information about something that has occurred, such as an immunisation being administered, or a patient updating their address |
 | Unbounded event | An event containing unbounded data, that is, data that is continuous, such as a heart rate reading sent from an IoT device |
 | Discrete event | An event containing discrete data - facts that have happened, such as an immunisation being administered |
-| Message broker | Software which allows API Consumers and Provider to communicate. The message broker is responsible for distributing messages to the correct channels(routing), applying authorization, managing subscriptions and applying transformations |
+| Message broker | Software which allows API Consumers and Provider to communicate. The message broker is responsible for distributing messages to the correct channels (routing), applying authorisation, managing subscriptions and applying transformations |
 | Topic | A destination where messages are published to by an API Provider |
 | Queue | A queue acts as both a destination that API Producers can publish messages to and as an endpoint that API Consumers can bind to and consume messages from |
 | Event schema | A specification defining the data structure contained in a message |

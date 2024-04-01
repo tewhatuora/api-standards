@@ -2,15 +2,13 @@
 title: Standards Component Definitions
 ---
 
-
-
 This section provides a list of common API standards components and their associated definitions.
 
 ## API Provider
 
 An `API Provider` in the context of these standards is a **software application**:
 
-- That **produces** an HTTP API (REST or FHIR REST) or Asynchronous
+- That **produces** a REST, FHIR, or Asynchronous API
 - That can be **published** via the Health NZ API Marketplace or equivalent sector capability
 - And has completed an **approved** API Provider **onboarding and certification** process.
 
@@ -18,7 +16,7 @@ An `API Provider` in the context of these standards is a **software application*
 
 An `API consumer` in the context of these standards is a **software application**:
 
-- That **consumes** an HTTP API (REST or FHIR REST) or Asynchronous
+- That **consumes** a REST, FHIR, or Asynchronous API
 - That is **published** via the Health NZ API Marketplace or equivalent sector capability
 - And has completed an **approved** API Consumer **onboarding and certification** process.
 
@@ -57,6 +55,8 @@ An `Application Developer` in the context of these standards is a software engin
 ## Message Producer
 
 A `Message Producer` in the context of these standards is a software application which publishes data to API Consumers using Asynchronous APIs.
+
+## Relationship Diagrams
 
 ```plantuml alt="Diagram showing API interactions within Health Sector organisations"
 @startuml
