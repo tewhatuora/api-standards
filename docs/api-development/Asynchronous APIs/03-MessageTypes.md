@@ -80,7 +80,7 @@ Example event carried state transfer message:
 **Characteristics:**
 
 - Stateful events - all of the event data is contained in the message
-- Higher risk of data getting out of sync between systems
+- When multiple events for the same subject are processed in order, the consuming application must consider that it may not be using the most up to date data, due to processing delay
 - Greater care is required with event versioning and schema changes
 - API Consumers are fully decoupled from the API Provider, as they do not need to interact with the Provider directly (they already have all of the data)
 - Data is eventually consistent, meaning data may not be perfectly synchronised, but will ultimately become consistent
