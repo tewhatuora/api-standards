@@ -11,7 +11,9 @@ A well architected and consistent topic design is crucial to the success and re-
 
 ### Recommendations
 
-The event topic design **MUST** be consistently applied once agreed upon, and levels of the topic **MUST NOT** change meaning. For example, if the third level in a topic is an HPI Facility ID in one event it **MUST NOT** be a Patient identifier in a similar event, as this can lead to inconsistent routing and filtering. The correct Topic design is important for ease of use for both Message Producers and API Consumers.
+The event topic design **MUST** be consistently applied once agreed upon, and root levels of the topic **MUST NOT** change meaning.
+
+For example, if the event topic root of an event is formed using the structure `{domain}/{action}`, such as `immunisation/administered`, then this **MUST** be followed for subsequent topics, for example `practicing_certificate/issued`, as opposed to `issued/practicing_certificate`. Individual events **MAY** utilise their own topic hierarchy below the root level however these **SHOULD** aim to be as consistent as possible with existing topics, where appropriate.
 
 When a topic is defined, multiple "levels" may be defined, which are separated by a topic level separator, for example `{level1}/{level2}`. Different topic items **MUST** be separated by a `/` as opposed to any form of concatenation such as `{domain}-{action}` to support subscription filtering across different consumption protocols. Topics are case-sensitive in most message broker technologies, so using lower case is **RECOMMENDED**. It is **RECOMMENDED** to avoid using any special characters as these often have a reserved use in some messaging protocols and message broker implementations, which are often not defined in protocol specifications (e.g. `$SYS/monitor/+` as a system monitoring topic).
 
