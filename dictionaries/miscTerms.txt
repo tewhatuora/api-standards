@@ -29,3 +29,13 @@ termsandconditions
 TTOP
 vread
 x6TLB4JaomezC5rJ3CIl3KxxNinq
+Descr
+x6TLB4JaomezC5rJ3CIl3KxxNinq
+Kaia
+citywgtn
+nextofkin
+specversion
+CQRS
+protobuf
+birthevent
+asyncapi
