@@ -26,7 +26,7 @@ Asynchronous APIs are appropriate to use when designing an API to meet any of th
 - When performing a request that may take a long period of time, such as large data exports, human task interrupted workflows or analytic workloads
 - When timeliness of state changes are critical for the use case, such as near-real-time updates from IoT devices
 - When designing a decoupled system, such as in a microservices environment
-- When it is important for the API Consumer to use the most up to date version of a resource, as they can be notified of a change, as opposed to querying the source system each time it is used
+- When it is important for the API Consumer to use the most up to date version of a resource, as they can be notified of a change, rather than querying the source system each time it is used
 
 Once an Asynchronous API has been selected as the desired API type, there are certain architectural decisions which need to be made in order to publish the API, which these Standards offer guidance on.
 
