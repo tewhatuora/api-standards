@@ -18,15 +18,15 @@ The standards and guidelines are split into the following 3 parts:
 
 Part A contains the business context for APIs and their use within Health NZ. It describes the principles and considerations when producing or consuming APIs, some of the benefits and pitfalls of doing so as well as their value when fostering innovation in the health sector.
 
-[**Part B: API Security**](/api-security)
+[**Part B: API Security - HISO 10107**](/api-security)
 
 Part B contains the API security reference architecture and technical details for implementing API security. This section of the standard lays out the minimum security requirements for both API Providers and consumers and gives guidance to organisations on security best practice in relation to APIs
 
-[**Part C: API Development**](/api-development)
+[**Part C: API Development - HISO 10105**](/api-development)
 
 Part C contains technical details for API development, including general API implementation standards for API developers and consuming application developers.
 
-[**Part D: HL7 FHIR API Standards**](/fhir-api-standard)
+[**Part D: HL7 FHIR API Standards - HISO 10106**](/fhir-api-standard)
 
 Part D contains standards information and guidance for HL7 FHIR APIs
 
