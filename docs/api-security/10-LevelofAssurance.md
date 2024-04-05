@@ -10,7 +10,7 @@ Level of Assurance (LoA) has been defined to support the OpenID Connect API secu
 
 LoA in OIDC refers to the certainty an API provider can have about the identity of the health sector participant accessing their service. It's determined by how strong the authentication was and the verification methods used by the identity provider. Higher LoA means stronger verification. OIDC uses the Authentication Context Class Reference `acr` token claim to communicate LOA levels to API providers.
 
-Think of it as a confidence score for user identity: low LOA for basic tasks like commenting on a forum, high LOA for financial transactions.
+Think of it as a confidence score for user identity: low LoA for basic tasks like commenting on a forum, high LoA for financial transactions.
 
 The Level of Assurance or `acr` claim is required to:
 
