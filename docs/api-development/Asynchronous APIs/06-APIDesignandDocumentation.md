@@ -16,7 +16,7 @@ API Providers of an Asynchronous API **MUST** document the API using a combinati
 
 ## AsyncAPI
 
-[AsyncAPI](https://www.asyncapi.com) is the preferred documentation standard for Asynchronous APIs published within the New Zealand Health Sector. Version 3 and above of the AsyncAPI specification **SHOULD** be used when using this standard.
+[AsyncAPI](https://www.asyncapi.com) is the preferred documentation standard for Asynchronous APIs published within the New Zealand Health Sector. [Version 2.5](https://v2.asyncapi.com/docs/reference/specification/v2.5.0) and above of the AsyncAPI specification **SHOULD** be used when using this standard.
 
 An example AsyncAPI spec is displayed below, which demonstrates an Event-Carried State Message using a Pub/Sub pattern. It defines the event by extending the CloudEvents specification, which specifies the custom data contained in the `birthEventMessage` message.
 
