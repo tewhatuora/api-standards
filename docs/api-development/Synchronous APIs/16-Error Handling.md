@@ -104,7 +104,7 @@ production.
 
 ## Error Schema
 
-API Providers **MUST** document their errors in a machine readable schema. This **MUST** be published to API Consumers in the form of an [OpenAPI specification](./API%20Artefacts). See the [example API specification default error](../api-specifications/example-agency-specification#tag/get-customer-details/paths/~1customers~1%7BcustomerId%7D/get) for an example.
+API Providers **MUST** document their errors in a machine readable schema. This **MUST** be published to API Consumers in the form of an [OpenAPI specification](./API%20Artefacts). See the [example API specification default error](../../api-specifications/example-agency-specification#tag/get-customer-details/paths/~1customers~1%7BcustomerId%7D/get) for an example.
 
 **<span class="smallcaps">Examples</span>**
 

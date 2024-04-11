@@ -274,7 +274,7 @@ When using a resource response cache, any PUT to a resource should
 invalidate that cache or re-populate the cache with the updated
 resource.
 
-[API Providers](../api-concepts/ComponentDefinitions#api-provider) and [API Consumers](../api-concepts/ComponentDefinitions#api-consumer) **MUST** design APIs that are PUT tolerant. What this means is that both producers and consumers should be aware that the resource that is `PUT` to the server becomes the most up to date representation of that resource. This exposes the `PUT` method to a commonly found race condition. This condition is explained in the simple sequence below.
+[API Providers](../../api-concepts/ComponentDefinitions#api-provider) and [API Consumers](../../api-concepts/ComponentDefinitions#api-consumer) **MUST** design APIs that are PUT tolerant. What this means is that both producers and consumers should be aware that the resource that is `PUT` to the server becomes the most up to date representation of that resource. This exposes the `PUT` method to a commonly found race condition. This condition is explained in the simple sequence below.
 
 ```plantuml
 @startuml
