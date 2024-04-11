@@ -6,7 +6,7 @@ title: "Point To Point Pattern"
 
 The point-to-point message exchange pattern is used to deliver messages to a **single** API Consumer in what’s called a "one-to-one" exchange, typically using a message queue.
 
-In this pattern messages are published by a Message Producer to a queue. The API Consumer processes the messages from the queue, before acknowledging them as consumed. Unlike the [PubSub](./02-PubSub.md) pattern, a single message is received **at most once**.
+In this pattern, messages are published by a Message Producer to a queue. The API Consumer processes the messages from the queue, before acknowledging them as consumed. Unlike the [PubSub](./02-PubSub.md) pattern, a single message is received **at most once** by the API Consumer.
 
 The below is a fictional example of a Point to Point channel.
 
@@ -30,7 +30,7 @@ In example above, the **single** API Consumer, AIR, is consuming `immunisation_a
 
 - When there is only going to be a single consumer of a message. If more than one consumer is required the [Publish-Subscribe](./02-PubSub.md) pattern may be better suited
 - When fault tolerance is required, as messages are only removed from a queue after a single consumer has processed the message
-- When there is a requirement for high concurrency of messaging processing, as the processing workload can be horizontally scaled
+- When there is a requirement for high concurrency of messaging processing, as the processing workload can be [horizontally scaled](#advanced-use-cases)
 
 ### Advanced use cases
 
