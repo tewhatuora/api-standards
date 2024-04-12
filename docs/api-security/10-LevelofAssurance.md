@@ -34,7 +34,7 @@ Issued tokens can include the following claims that relate to the Level of Assur
 
 The LoA captures the strength of the authentication method used and provides an indication of the trust that the user's identity is correct.
 
-The API Consumer uses these claims to confirm the level of trust that the user is who they say they are and based on this what level of grant.
+The API Provider uses these claims to confirm the level of trust that the user is who they say they are, and based on this, what level of access should be granted.
 
 |Claim| Description| How They Are Applied|
 |---|---|---|
