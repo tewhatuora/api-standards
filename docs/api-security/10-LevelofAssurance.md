@@ -26,7 +26,7 @@ The Level of Assurance or `acr` claim is required to:
 
 API Providers **MUST** adopt a Level of Assurance model which can be applied when API Consumers are accessing health records that are classed as MEDICAL IN-CONFIDENCE.
 
-API providers **MUST** indicate the LoA associated with a health sector participants authentication and authorisation process in any issued tokens.
+API Providers **MUST** indicate the LoA associated with a Health Sector Participant's authentication and authorisation process in any issued tokens.
 
 ### Level of Assurance
 
