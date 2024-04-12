@@ -39,7 +39,7 @@ The API Provider uses these claims to confirm the level of trust that the user i
 |Claim| Description| How They Are Applied|
 |---|---|---|
 |`acr`|Authentication Context Class Reference| LoA based on a pre-defined set of values, the higher the value the stronger the LoA<br/>&nbsp;&nbsp;&nbsp;&nbsp;(i) `0` = no authentication performed **MAY** be applied to UNCLASSIFIED information. **MUST NOT** be applied to MEDICAL IN-CONFIDENCE information<br/>&nbsp;&nbsp;&nbsp;&nbsp;(ii) `1` = credential only. **MAY** be applied to UNCLASSIFIED information. **MUST NOT** be applied to MEDICAL IN-CONFIDENCE information<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iii) `2` = credential and password and OTP. **MAY** be applied to UNCLASSIFIED information. **MUST NOT** be applied to MEDICAL IN-CONFIDENCE information<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iv) `3` = Password, OTP and Multi factor Authentication required. **MUST** be applied to MEDICAL IN-CONFIDENCE information|
-|`amr`|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> API providers can define the requirements (acr) based on this information which are enforced by the API consumers  |
+|`amr`|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> API Providers can define the requirements (acr) based on this information which are enforced by the API Consumers  |
 |`azp`| Authorised party| Client id of the API Consumer, used where there can be multiple API Consumer services|
 
 ## Aotearoa New Zealand LoA Standards
