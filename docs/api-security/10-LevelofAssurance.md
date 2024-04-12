@@ -22,7 +22,7 @@ The Level of Assurance or `acr` claim is required to:
 
 - Provides a model for granting granular access to sensitive data, basically higher levels of assurance are required for highly sensitive data
 
-- Ensure the API consumer has the appropriate authorisation to act on behalf of the end user
+- Ensure the API Consumer has the appropriate authorisation to act on behalf of the end user
 
 API providers **MUST** adopt a Level of Assurance model which can be applied when API consumers are accessing health records that are classed as MEDICAL IN-CONFIDENCE.
 
