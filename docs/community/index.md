@@ -1,6 +1,6 @@
 ---
 title: Community
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 These Standards play a vital role in improving health outcomes for all New Zealanders by enabling interoperability within the Health sector.
