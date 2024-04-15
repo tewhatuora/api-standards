@@ -1,5 +1,5 @@
 ---
-title: "Protocols"
+title: "Protocols and APIs"
 ---
 
 There are a number of transport protocols which are commonly used for transporting messages in asynchronous APIs. API Providers **SHOULD** aim to support as many protocols as reasonably possible, to allow API Consumers the freedom to consume messages using the protocol that best suits their own systems infrastructure and use cases. When selecting a message broker technology, the protocols in which clients can connect to the system should be assessed.
@@ -29,6 +29,11 @@ HTTP has limited scalability for handling a large number of connections and is n
 ### Proprietary protocols
 
 There are a number of message broker technologies which implement their own protocols such as [Solace Message Format (SMF)](https://docs.solace.com/Messaging/SMF-Topics.htm) or the [Kafka protocol](https://kafka.apache.org/0100/protocol.html). These proprietary protocols **MAY** be used, but **MUST NOT** be the only protocol offered by the API provider. This is to ensure that API Consumers or Message Producers who may have existing implementations using open protocols do not need to undertake more work to integrate, or become reliant on a particular broker technology.
+
+## APIs
+
+### JMS (Java Message Service)
+JMS provides a common way for Java applications to create, send, receive, and read an enterprise messaging system's messages. For detailed information on JMS, refer to the [JMS specification](https://jcp.org/en/jsr/detail?id=343). API Consumers and Providers **MAY** choose to publish and consumer messages using the standard JMS interface.
  
 ## Data serialization
 

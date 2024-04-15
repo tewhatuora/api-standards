@@ -27,7 +27,7 @@ In general, the below topic design can be used, or expanded for each use case - 
 |Action|The action that occurred within the domain. This should be a past tense verb, where HTTP verbs should be avoided.|`administered`, `created`, `issued`, `expired`, `address_updated`, `revoked`|
 |Identifier|An identifier for the subject of an event|`NHI123`, `HPI123`|
 
-A topic level **MAY** be used to indicate different versions of an event, where API Consumers may have a different consuming application between versions, or to manage migrations without breaking changes. In these cases the event version can be appended as a topic level, however the version **MUST** also be indicated in the message body.
+A topic level **MAY** be used to indicate different versions of an event, where API Consumers may have a different consuming application between versions, or to manage migrations without breaking changes. In these cases the event version can be appended as a topic level, however the version **MUST** also be indicated in the message body or header.
 
 ### Examples
 
