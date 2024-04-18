@@ -1,0 +1,384 @@
+openapi: 3.0.2
+info:
+  title: Health NZ | Te Whatu Ora FHIR Observation API
+  description: A FHIR API for recording and consuming FHIR `Observation` data</br>
+    Use cases include but are not limited to:</br>
+    - Wearable input - e.g. smart watch recordings</br>
+    - Vital signs measurements</br>
+  license:
+    name: Creative Commons Zero v1.0 Universal
+    url: http://spdx.org/licenses/CC0-1.0.html
+  version: 0.3.9
+  contact:
+    name: Health NZ | Te Whatu Ora
+    url: https://www.tewhatuora.govt.nz/
+servers:
+  - url: https://fhir.ap1.digital.health.nz/R4
+    description: The Care In The Community Manaaki Nga Tahi FHIR API
+externalDocs:
+  url: >-
+    https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/CapabilityStatement/CareInTheCommunityCapabilityStatement
+  description: FHIR CapabilityStatement
+paths:
+  /Observation:
+    summary: Manager for resources of type Observation
+    description: >-
+      The Manager for resources of type Observation: provides services to manage
+      the collection of all the Observation instances
+    get:
+      summary: Search all resources of type Observation based on a set of criteria
+      operationId: searchObservation
+      responses:
+        '200':
+          description: the resource being returned
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Bundle
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+      parameters:
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/elements'
+        - name: code
+          in: query
+          description: "Multiple Resources: \r\n\r\n* [AllergyIntolerance](allergyintolerance.html): Code that identifies the allergy or intolerance\r\n* [Condition](condition.html): Code for the condition\r\n* [DeviceRequest](devicerequest.html): Code for what is being requested/ordered\r\n* [DiagnosticReport](diagnosticreport.html): The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result\r\n* [FamilyMemberHistory](familymemberhistory.html): A search by a condition code\r\n* [List](list.html): What the purpose of this list is\r\n* [Medication](medication.html): Returns medications for a specific code\r\n* [MedicationAdministration](medicationadministration.html): Return administrations of this medication code\r\n* [MedicationDispense](medicationdispense.html): Returns dispenses of this medicine code\r\n* [MedicationRequest](medicationrequest.html): Return prescriptions of this medication code\r\n* [MedicationStatement](medicationstatement.html): Return statements of this medication code\r\n* [Observation](observation.html): The code of the observation type\r\n* [Procedure](procedure.html): A code to identify a  procedure\r\n* [ServiceRequest](servicerequest.html): What is being requested/ordered\r\n"
+          schema:
+            type: string
+        - name: date
+          in: query
+          description: "Multiple Resources: \r\n\r\n* [AllergyIntolerance](allergyintolerance.html): Date first version of the resource instance was recorded\r\n* [CarePlan](careplan.html): Time period plan covers\r\n* [CareTeam](careteam.html): Time period team covers\r\n* [ClinicalImpression](clinicalimpression.html): When the assessment was documented\r\n* [Composition](composition.html): Composition editing time\r\n* [Consent](consent.html): When this Consent was created or indexed\r\n* [DiagnosticReport](diagnosticreport.html): The clinically relevant time of the report\r\n* [Encounter](encounter.html): A date within the period the Encounter lasted\r\n* [EpisodeOfCare](episodeofcare.html): The provided date search value falls within the episode of care's period\r\n* [FamilyMemberHistory](familymemberhistory.html): When history was recorded or last updated\r\n* [Flag](flag.html): Time period when flag is active\r\n* [Immunization](immunization.html): Vaccination  (non)-Administration Date\r\n* [List](list.html): When the list was prepared\r\n* [Observation](observation.html): Obtained date/time. If the obtained element is a period, a date that falls in the period\r\n* [Procedure](procedure.html): When the procedure was performed\r\n* [RiskAssessment](riskassessment.html): When was assessment made?\r\n* [SupplyRequest](supplyrequest.html): When the request was made\r\n"
+          schema:
+            type: string
+            pattern: >-
+              ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+        - name: identifier
+          in: query
+          description: "Multiple Resources: \r\n\r\n* [AllergyIntolerance](allergyintolerance.html): External ids for this item\r\n* [CarePlan](careplan.html): External Ids for this plan\r\n* [CareTeam](careteam.html): External Ids for this team\r\n* [Composition](composition.html): Version-independent identifier for the Composition\r\n* [Condition](condition.html): A unique identifier of the condition record\r\n* [Consent](consent.html): Identifier for this record (external references)\r\n* [DetectedIssue](detectedissue.html): Unique id for the detected issue\r\n* [DeviceRequest](devicerequest.html): Business identifier for request/order\r\n* [DiagnosticReport](diagnosticreport.html): An identifier for the report\r\n* [DocumentManifest](documentmanifest.html): Unique Identifier for the set of documents\r\n* [DocumentReference](documentreference.html): Master Version Specific Identifier\r\n* [Encounter](encounter.html): Identifier(s) by which this encounter is known\r\n* [EpisodeOfCare](episodeofcare.html): Business Identifier(s) relevant for this EpisodeOfCare\r\n* [FamilyMemberHistory](familymemberhistory.html): A search by a record identifier\r\n* [Goal](goal.html): External Ids for this goal\r\n* [ImagingStudy](imagingstudy.html): Identifiers for the Study, such as DICOM Study Instance UID and Accession number\r\n* [Immunization](immunization.html): Business identifier\r\n* [List](list.html): Business identifier\r\n* [MedicationAdministration](medicationadministration.html): Return administrations with this external identifier\r\n* [MedicationDispense](medicationdispense.html): Returns dispenses with this external identifier\r\n* [MedicationRequest](medicationrequest.html): Return prescriptions with this external identifier\r\n* [MedicationStatement](medicationstatement.html): Return statements with this external identifier\r\n* [NutritionOrder](nutritionorder.html): Return nutrition orders with this external identifier\r\n* [Observation](observation.html): The unique id for a particular observation\r\n* [Procedure](procedure.html): A unique identifier for a procedure\r\n* [RiskAssessment](riskassessment.html): Unique identifier for the assessment\r\n* [ServiceRequest](servicerequest.html): Identifiers assigned to this order\r\n* [SupplyDelivery](supplydelivery.html): External identifier\r\n* [SupplyRequest](supplyrequest.html): Business Identifier for SupplyRequest\r\n* [VisionPrescription](visionprescription.html): Return prescriptions with this external identifier\r\n"
+          schema:
+            type: string
+        - name: patient
+          in: query
+          description: "Multiple Resources: \r\n\r\n* [AllergyIntolerance](allergyintolerance.html): Who the sensitivity is for\r\n* [CarePlan](careplan.html): Who the care plan is for\r\n* [CareTeam](careteam.html): Who care team is for\r\n* [ClinicalImpression](clinicalimpression.html): Patient or group assessed\r\n* [Composition](composition.html): Who and/or what the composition is about\r\n* [Condition](condition.html): Who has the condition?\r\n* [Consent](consent.html): Who the consent applies to\r\n* [DetectedIssue](detectedissue.html): Associated patient\r\n* [DeviceRequest](devicerequest.html): Individual the service is ordered for\r\n* [DeviceUseStatement](deviceusestatement.html): Search by subject - a patient\r\n* [DiagnosticReport](diagnosticreport.html): The subject of the report if a patient\r\n* [DocumentManifest](documentmanifest.html): The subject of the set of documents\r\n* [DocumentReference](documentreference.html): Who/what is the subject of the document\r\n* [Encounter](encounter.html): The patient or group present at the encounter\r\n* [EpisodeOfCare](episodeofcare.html): The patient who is the focus of this episode of care\r\n* [FamilyMemberHistory](familymemberhistory.html): The identity of a subject to list family member history items for\r\n* [Flag](flag.html): The identity of a subject to list flags for\r\n* [Goal](goal.html): Who this goal is intended for\r\n* [ImagingStudy](imagingstudy.html): Who the study is about\r\n* [Immunization](immunization.html): The patient for the vaccination record\r\n* [List](list.html): If all resources have the same subject\r\n* [MedicationAdministration](medicationadministration.html): The identity of a patient to list administrations  for\r\n* [MedicationDispense](medicationdispense.html): The identity of a patient to list dispenses  for\r\n* [MedicationRequest](medicationrequest.html): Returns prescriptions for a specific patient\r\n* [MedicationStatement](medicationstatement.html): Returns statements for a specific patient.\r\n* [NutritionOrder](nutritionorder.html): The identity of the person who requires the diet, formula or nutritional supplement\r\n* [Observation](observation.html): The subject that the observation is about (if patient)\r\n* [Procedure](procedure.html): Search by subject - a patient\r\n* [RiskAssessment](riskassessment.html): Who/what does assessment apply to?\r\n* [ServiceRequest](servicerequest.html): Search by subject - a patient\r\n* [SupplyDelivery](supplydelivery.html): Patient for whom the item is supplied\r\n* [VisionPrescription](visionprescription.html): The identity of a patient to list dispenses for\r\n"
+          schema:
+            type: string
+        - name: based-on
+          in: query
+          description: Reference to the service request.
+          schema:
+            type: string
+        - name: encounter
+          in: query
+          description: "Multiple Resources: \r\n\r\n* [Composition](composition.html): Context of the Composition\r\n* [DeviceRequest](devicerequest.html): Encounter during which request was created\r\n* [DiagnosticReport](diagnosticreport.html): The Encounter when the order was made\r\n* [DocumentReference](documentreference.html): Context of the document  content\r\n* [Flag](flag.html): Alert relevant during encounter\r\n* [List](list.html): Context in which list created\r\n* [NutritionOrder](nutritionorder.html): Return nutrition orders with this encounter identifier\r\n* [Observation](observation.html): Encounter related to the observation\r\n* [Procedure](procedure.html): Encounter created as part of\r\n* [RiskAssessment](riskassessment.html): Where was assessment performed?\r\n* [ServiceRequest](servicerequest.html): An encounter in which this request is made\r\n* [VisionPrescription](visionprescription.html): Return prescriptions with this encounter identifier\r\n"
+          schema:
+            type: string
+        - name: category
+          in: query
+          description: The classification of the type of observation
+          schema:
+            type: string
+        - name: derived-from
+          in: query
+          description: Related measurements the observation is made from
+          schema:
+            type: string
+        - name: performer
+          in: query
+          description: Who performed the observation
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: The status of the observation
+          schema:
+            type: string
+        - name: subject
+          in: query
+          description: The subject that the observation is about
+          schema:
+            type: string
+        - name: value-concept
+          in: query
+          description: The value of the observation, if the value is a CodeableConcept
+          schema:
+            type: string
+        - name: value-date
+          in: query
+          description: >-
+            The value of the observation, if the value is a date or period of
+            time
+          schema:
+            type: string
+            pattern: >-
+              ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+        - name: value-quantity
+          in: query
+          description: >-
+            The value of the observation, if the value is a Quantity, or a
+            SampledData (just search on the bounds of the values in sampled
+            data)
+          schema:
+            type: string
+        - name: value-string
+          in: query
+          description: >-
+            The value of the observation, if the value is a string, and also
+            searches in CodeableConcept.text
+          schema:
+            type: string
+        - name: _id
+          in: query
+          description: Logical id of this artifact
+          schema:
+            type: string
+        - name: _lastUpdated
+          in: query
+          description: When the resource version last changed
+          schema:
+            type: string
+            pattern: >-
+              ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+    post:
+      summary: Create a new resource
+      operationId: createObservation
+      requestBody:
+        description: The new state of the resource
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: >-
+                https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Observation
+      responses:
+        '200':
+          description: the resource being returned after being updated
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Observation
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+      parameters:
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/elements'
+  /Observation/{rid}:
+    summary: Read/Write/etc resource instance of type Observation
+    description: >-
+      Access to services to manage the state of a single resource of type
+      Observation
+    get:
+      summary: Read the current state of the resource
+      operationId: readObservation
+      responses:
+        '200':
+          description: the resource being returned
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Observation
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+      parameters:
+        - $ref: '#/components/parameters/rid'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/elements'
+    put:
+      summary: Update the current state of the resource
+      operationId: updateObservation
+      requestBody:
+        description: The new state of the resource
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: >-
+                https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Observation
+      responses:
+        '200':
+          description: the resource being returned after being updated
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Observation
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+      parameters:
+        - $ref: '#/components/parameters/rid'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/elements'
+    delete:
+      summary: Delete the resource so that it no exists (no read, search etc)
+      operationId: deleteObservation
+      responses:
+        '204':
+          description: If the resource is deleted - no content is returned
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+      parameters:
+        - $ref: '#/components/parameters/rid'
+  /Observation/{rid}/_history/{hid}:
+    summary: Read a past version of resource instance of type Observation
+    description: >-
+      Access a to specified previous version of a single resource of type
+      Observation
+    get:
+      summary: Read a past state of the resource
+      operationId: vreadObservation
+      responses:
+        '200':
+          description: the resource being returned
+          headers:
+            ETag:
+              description: >-
+                Version from Resource.meta.version as a weak ETag for that
+                version
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Observation
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: >-
+                  https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+      parameters:
+        - $ref: '#/components/parameters/rid'
+        - $ref: '#/components/parameters/hid'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/format'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/elements'
+components:
+  parameters:
+    rid:
+      name: rid
+      in: path
+      description: id of the resource (=Resource.id)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    hid:
+      name: hid
+      in: path
+      description: id of the history entry (=Resource.meta.versionId)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    summary:
+      name: _summary
+      in: query
+      description: Requests the server to return a designated subset of the resource
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        enum:
+          - 'true'
+          - text
+          - data
+          - count
+          - 'false'
+    format:
+      name: _format
+      in: query
+      description: >-
+        Specify alternative response formats by their MIME-types (when a client
+        is unable acccess accept: header)
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        format: mime-type
+    pretty:
+      name: _pretty
+      in: query
+      description: Ask for a pretty printed response for human convenience
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: boolean
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
+    count:
+      name: _count
+      in: query
+      description: >-
+        The maximum number of search results on a page. The server is not bound
+        to return the number requested, but cannot return more
+      schema:
+        type: number

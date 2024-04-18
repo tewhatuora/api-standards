@@ -8,22 +8,7 @@ An API specification acts like a blueprint for an API, outlining how it function
 
 An API specification is also a key document for API Producers as it **sSHOULD** be used as a design, implementation and testing artifact.
 
-### OpenAPI Specification Structure
-
-| Component | Description | Requirement |
-|:---|:---|:---|
-| OpenAPI specification | The core specification | All mandatory fields defined in the specification itself |
-| Property descriptions | A human readable description of a property defined in an OpenAPI specification. Descriptions should be relatively verbose and provide enough information to enable the reader to understand the purpose of the property being described. | Specification authors **MUST** provide descriptions for all properties |
-
-#### Property Descriptions
-
-Open API property descriptions are intended to be used by API consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
-
-example
-
-
-
-
+See [OpenAPI Specification](./OAS)
 
 ## Documentation
 
