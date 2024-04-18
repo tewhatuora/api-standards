@@ -16,12 +16,25 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 |Property|Description|Requirement|
 |:---|:---|:---|
 |`info.title`| | **MUST** |
-|`info.description`| | **MUST** |
+|`info.description`|See [Property Descriptions](#property-descriptions) | **MUST** |
 |`info.license`| | `info.license.name` **MUST** `info.license.url` **MUST** |
 |`info.version`| | **MUST** |
 | `info.contact`| Contains details on appropriate mechanism for contacting the API provider | `info.contact.name` **MUST** `info.contact.url` **MUST** |
+|`info.servers`| | **MUST** |
+|`info.externalDocs`| A reference to documentation that supports the API. | **MUST** for FHIR APIs (reference the implementation guide) **SHOULD** for non-FHIR APIs |
+
+### Paths Section
+
+The `paths` section is a parent property that contains a list of the resource paths in the API and the properties associated with each resource path.
+
+|Property|Description|Requirement|
+|:---|:---|:---|
+|`path.summary`| A short human readable summary of the resource purpose | **MUST** |
+|`path.description`|See [Property Descriptions](#property-descriptions)|**MUST**|
+
 
 ### Property Descriptions
+
 
 Open API property descriptions are intended to be used by API consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
 
