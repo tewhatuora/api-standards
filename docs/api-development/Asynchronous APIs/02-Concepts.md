@@ -7,7 +7,9 @@ There are a number of terminologies used in the Async and Event driven architect
 | Concept | Description |
 |---|---|
 | Message | A packet of data that is transmitted over a channel, containing data such as an event |
+| Message Producer | A software application which publishes messages to API Consumers using Asynchronous APIs |
 | Event | A message containing information about something that has occurred, such as an immunisation being administered, or a patient updating their address |
+| Event Producer | A software application which publishes event messages to API Consumers using Asynchronous APIs |
 | Unbounded event | An event containing unbounded data, that is, data that is continuous, such as a heart rate reading sent from an IoT device |
 | Discrete event | An event containing discrete data - facts that have happened, such as an immunisation being administered |
 | Message broker | Software which allows API Consumers and Provider to communicate. The message broker is responsible for distributing messages to the correct channels (routing), applying authorisation, managing subscriptions and applying transformations |

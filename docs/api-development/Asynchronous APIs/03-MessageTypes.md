@@ -46,7 +46,7 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 A key design consideration for thin events is the potential for traffic to data sources to become volatile as the ecosystem scales. This volatility arises from the likelihood that all subscribers will simultaneously trigger automated workflows to access the data. Ensure that the data source has the correct scale and API gateway policies like Spike Control to take this into account.
 :::
 
-This message type **SHOULD** be used if the API Provider does not have full control or knowledge of the event data being sent.
+This message type **SHOULD** be used if the Message Producer does not have full control or knowledge of the event data being sent.
 
 ### Event-Carried State Transfer (Thick events)
 
