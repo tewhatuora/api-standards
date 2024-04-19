@@ -14,7 +14,7 @@ The message body contains the detail of the event we want to publish.
 
 ### Event notification (Thin events)
 
-This message type is often referred to as a `thin` message - as usually it will only contain the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
+This message type is often referred to as a `thin` message - as it will contain no data or the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
 Thin events may include a pointer (URL or similar identifier) back to the specific resource that initiated the notification. If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time}`.
 
 Example event notification:
@@ -46,11 +46,11 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 A key design consideration for thin events is the potential for traffic to data sources to become volatile as the ecosystem scales. This volatility arises from the likelihood that all subscribers will simultaneously trigger automated workflows to access the data. Ensure that the data source has the correct scale and API gateway policies like Spike Control to take this into account.
 :::
 
-This message type **SHOULD** be used if the Message Producer does not have full control or knowledge of the event data being sent.
+This message type **SHOULD** be used if the API Consumer/s are unknown or dynamic and may not be fully trusted, which is common when using the [Pub/Sub](./Async%20Patterns/02-PubSub.md).
 
 ### Event-Carried State Transfer (Thick events)
 
-This message type is used when you want consumers to have information about the event that has occurred, without them needing to contact the source system for more information. These event types typically contain ALL the current event/domain data, hence the colloquial name "thick events".
+This message type is used when you want consumers to have information about the event that has occurred, without them needing to contact the source system for more information. These event types typically contain sufficient current event/domain data necessary to act upon the event without the need to contact the source system, hence the colloquial name "thick events". As they carry the state of a particular point in time, this message type may also be referred to as a "fact" event.
 
 Example event carried state transfer message:
 
@@ -85,9 +85,11 @@ Example event carried state transfer message:
 - API Consumers are fully decoupled from the API Provider, as they do not need to interact with the Provider directly (they already have all of the data)
 - Data is eventually consistent, meaning data may not be perfectly synchronised, but will ultimately become consistent
 
+This message type may be used when it is undesirable or not possible for the API Consumer to perform additional REST API calls back to the Message Producer. A thick event is more suited to an integration using the [Point to Point](./Async%20Patterns/03-PointToPoint.md) pattern where the API Consumer is known and trusted.
+
 ### Delta events
 
-This message type sends both the current state of the event subject, as well as the prior state.
+A delta event details the changes between one state and another. The contents of a delta event typically includes information about the fields that have changed, the new values for those fields, and may also include the reason for the change. Delta events do not include information about data that hasn’t changed.
 
 Example delta event message:
 
@@ -116,8 +118,10 @@ Example delta event message:
 
 **Characteristics:**
 
-- Stores the difference between prior and current states
+- Details the change between prior and current states
 - Can reduce complexity in API Consumers needing to find out what state change has occurred, if they do not have knowledge of the prior state themselves
+
+Delta Events may be used when it is desired to reduce processing by the API Consumer/s, or to reduce the size of message payloads (when compared to a thick event).
 
 ### FHIR Subscriptions
 
@@ -304,11 +308,19 @@ When deciding which payload type to request, systems **SHOULD** consider both ea
 
 Note that this is not an exhaustive list of all possible message types, but these are considered most relevant to the use cases in the New Zealand Health Sector.
 
-## Message headers
+## Message header fields
 
-Message headers, referred to as message metadata in some implementations, is used to store information about the message.
+Message headers, referred to as message metadata in some implementations, is used to store information about the message. Message headers enable Message Broker implementations to perform actions such as routing and logging without needing to inspect the full message payload. API Consumers and Message Producers can also use these for the similar purposes.
+
+When using the [CloudEvents](./06-APIDesignandDocumentation.md#cloudevents) specification when describing event data, metadata is referred to as [Context Attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#context-attributes). Some context attributes are mandatory to conform to the specification - `id`, `source` and `specversion` and `type`, each with further constraints and data types. Dependent on the particular [protocol/s](./04-Protocols.md) used for message transport, the corresponding CloudEvents protocol binding defines how the CloudEvent is bound to the protocols's transform frame.
+
+For example, in the [CloudEvents MQTT Protocol Binding](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/mqtt-protocol-binding.md#2-use-of-cloudevents-attributes) the `datacontenttype` attribute is mapped to the MQTT PUBLISH `Content Type` field. The [CloudEvents HTTP Protocol Binding](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md#21-datacontenttype-attribute) maps attributes to HTTP headers prefixed by `ce-` - for example `ce-id` for the `id` context attribute.
+
+When using FHIR Subscriptions, the framework supports the use of the [R4 - Subscription.channel.header](https://www.hl7.org/fhir/r4/subscription-definitions.html#Subscription.channel.header) or the [R5 - Subscription.parameter](https://hl7.org/fhir/subscription-definitions.html#Subscription.parameter) for API Consumer defined headers.
 
 ### Suggested headers
+
+When not following a specification that defines mandatory event metadata such as CloudEvents, the below are suggested as a minimal set of headers which allow all parties in the integration to reliably troubleshoot and log interactions.
 
 | Header name   | Value example | Description |
 | ----------- | ----------- | --- |
@@ -316,7 +328,8 @@ Message headers, referred to as message metadata in some implementations, is use
 | Correlation-Id   | `63841126-0aba-4e21-adbe-fa21279e83b2`  | Unique identifier for the interaction |
 | Event-Id | `54e7587e-5a38-4c85-94cb-96cc9570a19f` | Unique identifier for this event, used for idempotency |
 
-For further reading, please refer to:
+
+For further reading on message types, please refer to:
 
 - [Martin Fowler's "What do you mean by Event-Driven?"](https://martinfowler.com/articles/201701-event-driven.html)
 - [Event-Driven architecture event types](https://serverlessland.com/event-driven-architecture/visuals/event-types)
