@@ -1,5 +1,5 @@
 ---
-title: "Open API Specifications"
+title: "OpenAPI Specifications"
 ---
 
 ## OpenAPI Specification Structure
@@ -18,7 +18,7 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 |`info.title`| | **MUST** |
 |`info.description`|See [Property Descriptions](#property-descriptions) | **MUST** |
 |`info.license`| | `info.license.name` **MUST** `info.license.url` **MUST** |
-|`info.version`| | **MUST** |
+|`info.version`| The version of the API specification itself | **MUST** |
 | `info.contact`| Contains details on appropriate mechanism for contacting the API provider | `info.contact.name` **MUST** `info.contact.url` **MUST** |
 |`info.servers`| | **MUST** |
 |`info.externalDocs`| A reference to documentation that supports the API. | **MUST** for FHIR APIs (reference the implementation guide) **SHOULD** for non-FHIR APIs |
@@ -36,7 +36,7 @@ The `paths` section is a parent property that contains a list of the resource pa
 ### Property Descriptions
 
 
-Open API property descriptions are intended to be used by API consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
+OpenAPI property descriptions are intended to be used by API Consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
 
 ```yaml
   description: >-
@@ -48,9 +48,6 @@ Open API property descriptions are intended to be used by API consumer developer
     `POST /hij`
 ```
 
-The above example would render in standard tooling as follows
-
 :::info The above example would render in standard tooling similar to the following honouring CommonMark syntax
 <img src="/img/content/oas-description.png"/>
 :::
-

@@ -95,7 +95,7 @@ module.exports = async function createConfig() {
         },
         navbar: {
           title: 'API Standards',
-          hideOnScroll: true,
+          hideOnScroll: false,
           logo: {
             alt: 'Health New Zealand | Te Whatu Ora logo',
             src: 'img/two.svg',
