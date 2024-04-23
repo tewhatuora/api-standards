@@ -2,9 +2,9 @@
 title: "Introduction"
 ---
 
-A key indicator to interoperability within digital health is the ease and efficiency in which data sharing can occur across multiple distributed systems within the sector. Utilising event-driven, Asynchronous API architectures can significantly enhance interoperability by providing sector API Consumers with:
+A key indicator to interoperability within digital health is the ease and efficiency in which data sharing can occur across multiple distributed systems within the sector. Utilising event-driven, Asynchronous API architectures can significantly enhance interoperability by providing sector API Consumers with benefits which can include:
 
-- **Realtime communication** - when an update or event occurs in one domain, the relevant information can be shared with interested API consumers in realtime
+- **Realtime communication** - as soon as an update or event occurs in one domain, the relevant information can be shared with interested API Consumers without significant delay
 - **Decoupled systems** - each API Provider and Consumer can operate independently, so changes to integrated systems generally do not require other systems to be aware of changes made to the other
 - **Scalability** - a large number of new API Providers or Consumers can be added without any performance impacts or changes in message publishing
 - **Elimination of polling** - unlike REST APIs that rely on polling to check for updates, Asynchronous APIs eliminate the need for constant polling, as systems are instead notified when events that interest them occur
@@ -16,7 +16,7 @@ Asynchronous APIs are a type of API which allow for non-blocking communication w
 
 Synchronous APIs typically return or generate data when it is requested by a client, however Asynchronous APIs generate or receive data when the data changes, or an event has taken place. This means that the interactions in an Asynchronous API moves from the single client and single server relationship in synchronous APIs where the client initiates the request, to the API Provider publishing events which one or many API Consumers may consume.
 
-Asynchronous APIs have many uses, such as realtime chat applications, software developed using [CQRS](https://martinfowler.com/bliki/CQRS.html) and remote procedure invocation and messaging/data sharing. The primary focus of these standards focus on the messaging and data sharing use cases for Async APIs.
+Asynchronous APIs have many uses, such as realtime chat applications, software developed using [CQRS](https://martinfowler.com/bliki/CQRS.html), remote procedure invocation and messaging/data sharing. The primary focus of these standards focus on the messaging and data sharing use cases for Async APIs.
 
 ## When to choose an Asynchronous API
 
