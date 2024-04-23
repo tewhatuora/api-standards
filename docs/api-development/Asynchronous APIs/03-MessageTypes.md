@@ -46,7 +46,7 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 A key design consideration for thin events is the potential for traffic to data sources to become volatile as the ecosystem scales. This volatility arises from the likelihood that all subscribers will simultaneously trigger automated workflows to access the data. Ensure that the data source has the correct scale and API gateway policies like Spike Control to take this into account.
 :::
 
-This message type **SHOULD** be used if the API Consumer/s are unknown or dynamic and may not be fully trusted, which is common when using the [Pub/Sub](./Async%20Patterns/02-PubSub.md).
+This message type **SHOULD** be used if the API Consumer/s may not be fully trusted or if re-authentication of the client is mandatory, which is common when using the [Pub/Sub Pattern](./Async%20Patterns/02-PubSub.md).
 
 ### Event-Carried State Transfer (Thick events)
 
