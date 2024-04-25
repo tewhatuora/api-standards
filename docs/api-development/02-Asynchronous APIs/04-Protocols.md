@@ -6,7 +6,7 @@ There are a number of transport protocols which are commonly used for transporti
 
 ### MQTT (Message Queuing Telemetry Transport)
 
-MQTT is a lightweight and efficient protocol designed for low bandwidth, high latency networks, which supports all [Async Patterns](../Asynchronous%20APIs/Async%20Patterns/01-Intro.md). This protocol is often used with IoT devices.
+MQTT is a lightweight and efficient protocol designed for low bandwidth, high latency networks, which supports all [Async Patterns](../02-Asynchronous%20APIs/Async%20Patterns/01-Intro.md). This protocol is often used with IoT devices.
 
 API Providers **SHOULD** support the use of this protocol.
 
