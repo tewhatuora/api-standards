@@ -1,5 +1,6 @@
 ---
 title: "OpenAPI Specifications"
+slug: "openapi-specifications"
 ---
 
 ## OpenAPI Specification Structure
@@ -21,7 +22,10 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 |`info.version`| The version of the OpenAPI document (not the API or OpenAPI version used) | **MUST** |
 | `info.contact`| Contains details on appropriate mechanism for contacting the API provider | `info.contact.name` **MUST** `info.contact.url` **MUST** |
 |`info.servers`| | **MUST** |
-|`info.externalDocs`| A reference to documentation that supports the API. | **MUST** for FHIR APIs (reference the implementation guide) **SHOULD** for non-FHIR APIs |
+
+### External Documentation
+
+|`externalDocs`| A reference to documentation that supports the API. | **MUST** for FHIR APIs (reference the implementation guide) **SHOULD** for non-FHIR APIs |
 
 ### Paths Section
 
@@ -29,8 +33,13 @@ The `paths` section is a parent property that contains a list of the resource pa
 
 |Property|Description|Requirement|
 |:---|:---|:---|
-|`path.summary`| A short human readable summary of the resource purpose | **MUST** |
-|`path.description`|See [Property Descriptions](#property-descriptions)|**MUST**|
+|`{path}.summary`| A short human readable summary of the resource purpose | **MUST** |
+|`{path}.description`|See [Property Descriptions](#property-descriptions)|**MUST**|
+|`{path}.{http-verb}.summary`|A short human readable summary of the resource operation purpose|**MUST**|
+|`{path}.{http-verb}.operationId`|A **UNIQUE** string to identify the operation. Used by tools and libraries to uniquely identify the operation.|**MUST**|
+|`{path}.{http-verb}.responses`|A list of the responses that an API Consumer can expect from the operation.|**MUST**|
+
+
 
 
 ### Property Descriptions
