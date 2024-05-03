@@ -25,6 +25,8 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 
 ### External Documentation
 
+|Property|Description|Requirement|
+|:---|:---|:---|
 |`externalDocs`| A reference to documentation that supports the API. | **MUST** for FHIR APIs (reference the implementation guide) **SHOULD** for non-FHIR APIs |
 
 ### Paths Section
@@ -37,8 +39,9 @@ The `paths` section is a parent property that contains a list of the resource pa
 |`{path}.description`|See [Property Descriptions](#property-descriptions)|**MUST**|
 |`{path}.{http-verb}.summary`|A short human readable summary of the resource operation purpose|**MUST**|
 |`{path}.{http-verb}.operationId`|A **UNIQUE** string to identify the operation. Used by tools and libraries to uniquely identify the operation.|**MUST**|
+|`{path}.{http-verb}.requestBody`|The request body appropriate for this operation. See [Request Body](#request-body).|**MUST** for `POST`, `PUT`, `PATCH` verbs. **MUST NOT** for `GET`, `DELETE`, `HEAD`, `OPTIONS` verbs.|
 |`{path}.{http-verb}.responses`|A list of the responses that an API Consumer can expect from the operation.|**MUST**|
-
+|`{path}.{http-verb}.responses`|A list of the responses that an API Consumer can expect from the operation. See [Responses](#responses)|**MUST**|
 
 
 
@@ -59,6 +62,55 @@ OpenAPI property descriptions are intended to be used by API Consumer developers
 :::info The above example would render in standard tooling similar to the following honouring CommonMark syntax
 <img src="/img/content/oas-description.png"/>
 :::
+
+### Responses
+
+An open API specification path/http-verb **SHOULD** include **ALL** responses by HTTP response code. **MUST** include error responses and where possible **SHOULD** refer to an error schema
+
+```yaml
+responses:
+  '200':
+    description: API request success
+    content:
+      application/fhir+json:
+        schema:
+          $ref: '#/components/schemas/Observation'
+  '400':
+    description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
+    content:
+      application/fhir+json:
+        schema:
+          $ref: '#/components/schemas/OperationOutcome'
+  '404':
+    description: Resource not found error. The request failed as the requested resource could not be found on the server.
+    content:
+      application/fhir+json:
+        schema:
+          $ref: '#/components/schemas/OperationOutcome'
+  '500':
+    description: Server error
+    content:
+      application/fhir+json:
+        schema:
+          $ref: '#/components/schemas/OperationOutcome'
+```
+
+### Request Body
+
+Where an OpenAPI Specification defines a `POST`, `PUT`, or `PATCH` operation this **MUST** include a `requestBody` property that defines the operation request content. The `requestBody` **SHOULD** include a reference to a `schemas` object defined in the `components` section of the OpenAPI specification.
+
+```yaml
+post:
+  summary: Create a new instance of a resource
+  operationId: createObservation
+  requestBody:
+    description: The payload for the new resource
+    required: true
+    content:
+      application/fhir+json:
+        schema:
+          $ref: '#/components/schemas/Observation'
+```
 
 ## OpenAPI Validation
 
