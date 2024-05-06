@@ -13,7 +13,7 @@ verb, without needing to see a query string. As basic guidance, endpoint
 URLs should advertise resources, and avoid verbs.
 
 In some situations an implemented standard may define the URI structure
-for you. A good example of this is [Fast Health Interoperability Resources (FHIR)](https://www.hl7.org/fhir/resource.html). For additional guidance on the use of FHIR see [Part D: FHIR API Design and Development Standards](../fhir-api-standard/)
+for you. A good example of this is [Fast Health Interoperability Resources (FHIR)](https://www.hl7.org/fhir/resource.html). For additional guidance on the use of FHIR see [Part D: FHIR API Design and Development Standards](../../fhir-api-standard/)
 
 ### API Offering
 
