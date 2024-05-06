@@ -1,5 +1,5 @@
 ---
-title: "Part D: HL7 FHIR API Design and Development Standards"
+title: "Part D: HL7 FHIR API Design and Development Standards - HISO 10110"
 sidebar_position: 5
 ---
 

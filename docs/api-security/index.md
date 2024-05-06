@@ -1,5 +1,5 @@
 ---
-title: "Part B: API Security"
+title: "Part B: API Security- HISO 10107"
 sidebar_position: 3
 ---
 

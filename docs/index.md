@@ -10,6 +10,12 @@ Learn about how Health NZ are implementing APIs to their systems and what the be
 
 These standards provide both API Providers and API consumers with context for focused design and implementation as well as API best practices. This is intended to help both producers and consumers achieve a consistent and common approach to developing and delivering APIs.
 
+:::info
+These standards are have been ratified and approved by Health Information Standards Organisation (HISO).
+
+Please see the [list of approved HISO standards](https://www.tewhatuora.govt.nz/health-services-and-programmes/digital-health/data-and-digital-standards/approved-standards/).
+:::
+
 ## Introduction
 
 The standards and guidelines are split into the following 3 parts:
@@ -18,15 +24,15 @@ The standards and guidelines are split into the following 3 parts:
 
 Part A contains the business context for APIs and their use within Health NZ. It describes the principles and considerations when producing or consuming APIs, some of the benefits and pitfalls of doing so as well as their value when fostering innovation in the health sector.
 
-[**Part B: API Security**](/api-security)
+[**Part B: API Security - HISO 10107**](/api-security)
 
 Part B contains the API security reference architecture and technical details for implementing API security. This section of the standard lays out the minimum security requirements for both API Providers and consumers and gives guidance to organisations on security best practice in relation to APIs
 
-[**Part C: API Development**](/api-development)
+[**Part C: API Development - HISO 10109**](/api-development)
 
 Part C contains technical details for API development, including general API implementation standards for API developers and consuming application developers.
 
-[**Part D: HL7 FHIR API Standards**](/fhir-api-standard)
+[**Part D: HL7 FHIR API Standards - HISO 10110**](/fhir-api-standard)
 
 Part D contains standards information and guidance for HL7 FHIR APIs
 

@@ -1,5 +1,5 @@
 ---
-title: "Part C: API Design and Development Standards"
+title: "Part C: API Design and Development Standards - HISO 10109"
 sidebar_position: 4
 ---
 
