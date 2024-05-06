@@ -32,7 +32,7 @@ Part B contains the API security reference architecture and technical details fo
 
 Part C contains technical details for API development, including general API implementation standards for API developers and consuming application developers.
 
-[**Part D: HL7 FHIR API Standards - HISO 10106**](/fhir-api-standard)
+[**Part D: HL7 FHIR API Standards - HISO 10110**](/fhir-api-standard)
 
 Part D contains standards information and guidance for HL7 FHIR APIs
 
