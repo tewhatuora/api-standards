@@ -28,7 +28,7 @@ Part A contains the business context for APIs and their use within Health NZ. It
 
 Part B contains the API security reference architecture and technical details for implementing API security. This section of the standard lays out the minimum security requirements for both API Providers and consumers and gives guidance to organisations on security best practice in relation to APIs
 
-[**Part C: API Development - HISO 10105**](/api-development)
+[**Part C: API Development - HISO 10109**](/api-development)
 
 Part C contains technical details for API development, including general API implementation standards for API developers and consuming application developers.
 
