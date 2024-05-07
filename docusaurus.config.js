@@ -140,6 +140,14 @@ module.exports = async function createConfig() {
                   label: 'Legal and copyright',
                   href: 'https://www.tewhatuora.govt.nz/about-our-site/legal-and-copyright/',
                 },
+                {
+                  html: `
+                      </br>
+                      <a href="https://www.govt.nz" target="_blank" rel="noreferrer noopener" aria-label="Hiso">
+                        <img src="/img/govt-nz.png" alt="Te Kāwanatanga o Aotearoa — New Zealand Government" style="float:left;width:7.5rem;height:auto;" />
+                      </a>
+                    `,
+                },
               ],
             },
             {
@@ -160,16 +168,19 @@ module.exports = async function createConfig() {
                 {
                   label: 'Contributors',
                   href: '/contributors'
-                }
+                },
+                {
+                  html: `
+                      </br>
+                      </br>
+                      <a href="https://www.tewhatuora.govt.nz/health-services-and-programmes/digital-health/data-and-digital-standards/approved-standards/api-standards/" target="_blank" rel="noreferrer noopener" aria-label="Hiso">
+                        <img src="/img/hiso-logo.png" alt="Hiso" style="width:300px;height:auto;" />
+                      </a>
+                    `,
+                },
               ],
             },
           ],
-          logo: {
-            alt: 'Te Kāwanatanga o Aotearoa — New Zealand Government',
-            src: 'img/govt-nz.png',
-            href: 'https://www.govt.nz',
-            style: { float: 'left', width: '7.5rem' },
-          },
         },
         prism: {
           theme: lightTheme,
