@@ -67,6 +67,13 @@ OpenAPI property descriptions are intended to be used by API Consumer developers
 
 An open API specification path/http-verb **SHOULD** include **ALL** responses by HTTP response code. **MUST** include error responses and where possible **SHOULD** refer to an error schema
 
+|Property|Description|Requirement|
+|:---|:---|:---|
+|`{path}.{http-verb}.responses.{code}.description`|See [Property Descriptions](#property-descriptions)|**MUST**|
+|`{path}.{http-verb}.responses.{code}.content`|The definition of the content that an API Consumer can expect when consuming the API|**MUST**|
+|`{path}.{http-verb}.responses.{code}.{media-type}`|The media type(s) that the API COnsumer can expect in the response - e.g. `application/fhir+json`. See also [Accept Headers](../api-development/Synchronous%20APIs/Headers#accept)|**MUST**|
+|`{path}.{http-verb}.responses.{code}.{media-type}.schema`|The schema definition associated with the response|**MUST**|
+
 ```yaml
 responses:
   '200':
@@ -93,6 +100,20 @@ responses:
       application/fhir+json:
         schema:
           $ref: '#/components/schemas/OperationOutcome'
+```
+
+
+API Providers **SHOULD NOT** include a `default` response. Whilst supported by OpenAPI this is discouraged.
+
+Below is an example of a `default` response to illustrate what **SHOULD NOT** be used
+
+```yaml
+default:
+  description: Error, with details
+  content:
+    application/fhir+json:
+      schema:
+        $ref: "#/components/schemas/OperationOutcome"
 ```
 
 ### Request Body
