@@ -1,0 +1,261 @@
+openapi: 3.0.0
+info:
+  version: 2.0.0
+  title: Example Agency API
+  description: A sample API specification demonstrating OpenAPI capabilities - this is for
+    example purposes only
+  termsOfService: https:// api.example.govt.nz/termsandconditions/
+  contact:
+    name: Example Agency API team
+    email: exampleteam@api.govt.nz
+    url: https://agency.govt.nz
+paths:
+  "/customers/{customerId}":
+    get:
+      parameters:
+        - name: customerId
+          in: path
+          description: Unique ID of customer
+          required: true
+          schema:
+            type: string
+      tags:
+        - get customer details
+      description: |
+        Returns details for a customer given a unique customer ID
+      security:
+        - AuthorizationCode:
+            - customerRead
+      responses:
+        "200":
+          description: OK - Successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/customer"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+    put:
+      tags:
+        - modify customer
+      description: Updates a customer’s details
+      parameters:
+        - name: customerId
+          in: path
+          description: Unique ID of customer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/customer"
+      responses:
+        "200":
+          description: Updated resource successfully
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      security:
+        - AuthorizationCode:
+            - customerWrite
+    delete:
+      tags:
+        - delete customer
+      description: Deletes an existing customer resource
+      parameters:
+        - name: customerId
+          in: path
+          description: Unique ID of customer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Deleted resource successfully
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      security:
+        - AuthorizationCode:
+            - customerDelete
+  /customers:
+    post:
+      tags:
+        - create customer
+      description: Creates a new customer. API will create a customer resource and, if
+        successful, return a hyperlink to the created resource
+      requestBody:
+        $ref: "#/components/requestBodies/customer"
+      responses:
+        "201":
+          description: Created resource successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/_links"
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorModel"
+      security:
+        - AuthorizationCode:
+            - customerCreate
+servers:
+  - url: https:// api.example.govt.nz/v2
+components:
+  parameters:
+    Authorization:
+      description: For demonstration purposes only - this should not be required in most
+        situations as OAuth Authorization Code grant type implicity indicates
+        this.
+      name: Authorization
+      in: header
+      required: true
+      schema:
+        type: string
+        default: "Bearer "
+  requestBodies:
+    customer:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/customer"
+      required: true
+  securitySchemes:
+    AuthorizationCode:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https:// api.example.govt.nz/web
+          tokenUrl: https:// api.example.govt.nz/oauth2/token
+          scopes:
+            customerRead: Grants read access to a customer resource
+            customerWrite: Grants write (update) access to an existing customer resource
+            customerCreate: Grants access to create a new customer resource
+            customerDelete: Grants access to delete an existing customer resource
+  schemas:
+    customer:
+      type: object
+      properties:
+        customerId:
+          type: string
+          description: Unique identifier for the customer resource - GUID format
+          readOnly: true
+        names:
+          type: object
+          properties:
+            firstName:
+              type: string
+              description: Customers first name
+              example: Swithin
+            middleName:
+              type: string
+              description: Customers middle name
+              example: Henry
+            lastName:
+              type: string
+              description: Customers last name
+              example: Foote
+            salutation:
+              type: string
+              description: Customers salutation - e.g. Mr John Doe
+              example: Mr Swithin Henry Foote
+            title:
+              type: string
+              description: Customers title - e.g. Ms, Mr, Mrs, Dr etc.
+              example: Mr
+        addresses:
+          type: array
+          description: An array of addresses. Unpopulated properties or items will be
+            returned as null JSON objects.
+          items:
+            properties:
+              addressType:
+                type: string
+                description: Address type - e.g. Home, Business
+                example: Home
+              address1:
+                type: string
+                description: First line of the address e.g. 2 something street
+                example: 2 Queens Drive
+              address2:
+                type: string
+                description: Second line of address e.g. Khandallah
+                example: Khandallah
+              address3:
+                type: string
+                description: Third line of address e.g. Wellington
+                example: Wellington
+              address4:
+                type: string
+              country:
+                type: string
+                description: This is a human readable country name e.g. New Zealand and not
+                  a country code
+                example: New Zealand
+        _links:
+          type: array
+          readOnly: true
+          description: An array of related links relevant to the request/response.
+          items:
+            properties:
+              rel:
+                type: string
+                description: A piece of information providing context for the link - e.g.
+                  self or accounts.
+              href:
+                type: string
+                description: A fully qualified URL to the resource.
+    errorModel:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            description: An array of error items containing error codes and descriptions.
+              Note that the error descriptions will be normalised.
+            properties:
+              code:
+                type: integer
+                format: int32
+                description: An error code - should be used in conjunction with the HTPP
+                  response code.
+              description:
+                type: string
+                description: A short description of the error.
+        _links:
+          type: array
+          items:
+            properties:
+              rel:
+                type: string
+                description: The relationship to the request e.g. self which contains the
+                  resource that was requested or {object name}, a link to a
+                  resource that is related to the requested resource
+              href:
+                type: string
+                description: A link to the related resource. In an error scenario this is
+                  likely to be something such as a link to a support portal.
+    _links:
+      type: array
+      items:
+        properties:
+          rel:
+            type: string
+            description: The relationship to the request e.g. self which contains the
+              resource that was requested or {object name}, a link to a resource
+              that is related to the requested resource
+          href:
+            type: string
+            description: A link to the related resource
