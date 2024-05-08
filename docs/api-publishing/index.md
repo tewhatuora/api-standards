@@ -3,7 +3,7 @@ title: API Publishing Standards
 sidebar_position: 6
 ---
 
-Welcome to our API Design and Development Standards. This section is aimed at API Providers and Consumers.
+Welcome to our API Publishing Standards. This section is aimed at API Providers.
 
 This section is relevant to you if:
 
