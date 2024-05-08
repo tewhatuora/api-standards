@@ -3,6 +3,12 @@ title: "OpenAPI Specifications"
 slug: "openapi-specifications"
 ---
 
+:::info
+
+All components of the [OpenAPI Specification](https://swagger.io/specification/) are supported by this standard and should be interpreted as a **MAY** unless stated otherwise below.
+
+:::
+
 ## OpenAPI Specification Structure
 
 | Component | Description | Requirement |
@@ -40,30 +46,12 @@ The `paths` section is a parent property that contains a list of the resource pa
 |`{path}.{http-verb}.summary`|A short human readable summary of the resource operation purpose|**MUST**|
 |`{path}.{http-verb}.operationId`|A **UNIQUE** string to identify the operation. Used by tools and libraries to uniquely identify the operation.|**MUST**|
 |`{path}.{http-verb}.requestBody`|The request body appropriate for this operation. See [Request Body](#request-body).|**MUST** for `POST`, `PUT`, `PATCH` verbs. **MUST NOT** for `GET`, `DELETE`, `HEAD`, `OPTIONS` verbs.|
-|`{path}.{http-verb}.responses`|A list of the responses that an API Consumer can expect from the operation.|**MUST**|
 |`{path}.{http-verb}.responses`|A list of the responses that an API Consumer can expect from the operation. See [Responses](#responses)|**MUST**|
 
 
+#### Responses
 
-### Property Descriptions
-
-OpenAPI property descriptions are intended to be used by API Consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
-
-```yaml
-  description: >-
-    OpenAPI Specification for example API Provider API.</br>
-    By consuming these APIs, an API Consumer can achieve specific business outcomes.</br></br>
-    These APIs can be called by API Consumers during processing of the following endpoints:</br>
-    `POST /abc`</br>
-    `POST /def`</br>
-    `POST /hij`
-```
-
-:::info The above example would render in standard tooling similar to the following honouring CommonMark syntax
-<img src="/img/content/oas-description.png"/>
-:::
-
-### Responses
+`{path}.{http-verb}.responses`
 
 An open API specification path/http-verb **SHOULD** include **ALL** responses by HTTP response code. **MUST** include error responses and where possible **SHOULD** refer to an error schema
 
@@ -116,7 +104,9 @@ default:
         $ref: "#/components/schemas/OperationOutcome"
 ```
 
-### Request Body
+#### Request Body
+
+`{path}.{http-verb}.requestBody`
 
 Where an OpenAPI Specification defines a `POST`, `PUT`, or `PATCH` operation this **MUST** include a `requestBody` property that defines the operation request content. The `requestBody` **SHOULD** include a reference to a `schemas` object defined in the `components` section of the OpenAPI specification.
 
@@ -132,6 +122,145 @@ post:
         schema:
           $ref: '#/components/schemas/Observation'
 ```
+
+### Components Section
+
+#### Parameters
+
+`components.parameters`
+
+OpenAPI specifications **SHOULD** define reusable parameters here.
+
+e.g.
+
+```yaml
+components:
+  parameters:
+    rid:
+      name: rid
+      in: path
+      description: Unique id of the resource host/path/{resource}/{rid}
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+```
+
+#### Schemas
+
+`components.schemas`
+
+OpenAPI specifications **SHOULD** use schema references to define content.
+
+API providers **MAY** use nested schema references where reusable schema elements are appropriate.
+
+e.g.
+
+```yaml
+components:
+  schemas:
+    OperationOutcome: 
+      description: "A collection of error, warning, or information messages that result from a system action."
+      properties: 
+        resourceType: 
+          description: "This is a OperationOutcome resource"
+          default: "OperationOutcome"
+        id: 
+          description: "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
+          $ref: "#/components/schemas/id"
+        meta: 
+          description: "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."
+          $ref: "#/components/schemas/Meta"
+        text: 
+          description: "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it clinically safe for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."
+          $ref: "#/components/schemas/Narrative"
+        issue: 
+          description: "An error, warning, or information message that results from a system action."
+          items: 
+            $ref: "#/components/schemas/OperationOutcome_Issue"
+          type: "array"
+      additionalProperties: false
+      required: 
+      - "issue"
+      - "resourceType"
+    id: 
+      pattern: "^[A-Za-z0-9-.]{1,64}$"
+      type: "string"
+      description: "Any combination of letters, numerals, - and ., with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive."
+```
+
+#### Examples
+`components/examples`
+
+OpenAPI specifications **SHOULD** define reusable examples here
+
+```yaml
+components:
+  examples:
+    OperationOutcomeNotFound:
+        summary: An example OperationOutcome payload when the requested resource is not found.
+        value: {
+            "resourceType": "OperationOutcome",
+            "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h1>Operation Outcome</h1><table border=\"0\"><tr><td style=\"font-weight: bold;\">error</td><td>[]</td><td><pre>Resource Observation/aaabbbbcccc is not known</pre></td></tr></table></div>"
+            },
+            "issue": [
+                {
+                    "severity": "error",
+                    "code": "not-found",
+                    "diagnostics": "Resource Observation/aaabbbbcccc is not known"
+                }
+            ]
+        }
+```
+
+The example above would be referenced as follows
+
+```yaml
+      responses:
+        '200':
+          description: the resource being returned after being updated
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/Observation'
+        '404':
+          description: Resource not found error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: "#/components/schemas/OperationOutcome"
+              examples:
+                notFound:
+                  $ref: "#/components/examples/OperationOutcomeNotFound"
+```
+
+### Property Descriptions
+
+OpenAPI property descriptions are intended to be used by API Consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
+
+```yaml
+  description: >-
+    OpenAPI Specification for example API Provider API.</br>
+    By consuming these APIs, an API Consumer can achieve specific business outcomes.</br></br>
+    These APIs can be called by API Consumers during processing of the following endpoints:</br>
+    `POST /abc`</br>
+    `POST /def`</br>
+    `POST /hij`
+```
+
+:::info The above example would render in standard tooling similar to the following honouring CommonMark syntax
+<img src="/img/content/oas-description.png"/>
+:::
+
+
 
 ## OpenAPI Validation
 

@@ -167,12 +167,15 @@ paths:
             application/fhir+json:
               schema:
                 $ref: '#/components/schemas/Observation'
-        default:
-          description: Error, with details
+        '404':
+          description: Resource not found error, with details
           content:
             application/fhir+json:
               schema:
                 $ref: "#/components/schemas/OperationOutcome"
+              examples:
+                notFound:
+                  $ref: "#/components/examples/OperationOutcomeNotFound"
       # parameters:
         # - $ref: '#/components/parameters/summary'
         # - $ref: '#/components/parameters/format'
@@ -302,6 +305,23 @@ paths:
   #       - $ref: '#/components/parameters/pretty'
   #       - $ref: '#/components/parameters/elements'
 components:
+  examples:
+    OperationOutcomeNotFound:
+        summary: An example OperationOutcome payload when the requested resource is not found.
+        value: {
+            "resourceType": "OperationOutcome",
+            "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h1>Operation Outcome</h1><table border=\"0\"><tr><td style=\"font-weight: bold;\">error</td><td>[]</td><td><pre>Resource Observation/aaabbbbcccc is not known</pre></td></tr></table></div>"
+            },
+            "issue": [
+                {
+                    "severity": "error",
+                    "code": "not-found",
+                    "diagnostics": "Resource Observation/aaabbbbcccc is not known"
+                }
+            ]
+        }
   parameters:
     rid:
       name: rid

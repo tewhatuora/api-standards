@@ -3,7 +3,7 @@ title: "AsyncAPI Specifications"
 slug: "asyncapi-specifications"
 ---
 
-The AsyncAPI Specification is a project used to describe and document message-driven APIs in a machine-readable format. It’s protocol-agnostic, so you can use it for APIs that work over any [protocol](../api-development/Asynchronous%20APIs/04-Protocols.md) (e.g., AMQP, MQTT, WebSockets, Kafka, HTTP, etc).
+The AsyncAPI Specification is a project used to describe and document message-driven APIs in a machine-readable format. It’s protocol-agnostic, so you can use it for APIs that work over any [protocol](../api-development/Asynchronous%20APIs/Protocols) (e.g., AMQP, MQTT, WebSockets, Kafka, HTTP, etc).
 
 The AsyncAPI Specification defines a set of files required to describe such an API. These files can then be used to create utilities, such as documentation, integration and/or testing tools.
 
