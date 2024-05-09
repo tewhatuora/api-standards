@@ -2,8 +2,6 @@
 title: "Uniform Resource Identifiers (URI)"
 ---
 
-
-
 ## URI Construction
 
 URI construction is important in that it is the door through which
@@ -20,9 +18,11 @@ for you. A good example of this is [Fast Health Interoperability Resources (FHIR
 Is it recommended that the URL makes it clear that it
 is an API:
 
-**<span class="smallcaps">Example</span>**
+**<span class="smallcaps">Examples</span>**
 
 [https://**api**.example.govt.nz]
+
+[https://example.govt.nz/**api**]
 
 ### Version
 
@@ -33,11 +33,7 @@ consuming application.
 Header-based versioning is recommended (see section [API Version Control](./Version%20Control)); however, it is recognised
 that some API infrastructure does not readily support header-based versioning.
 
-URL-based versioning is a viable alternative, as the version number in
-the URL should only change when major revisions have been made and the
-interface has changed substantially without backwards compatibility. For
-URL-based versioning the URI should include /vN with the major version
-(N) and v as a prefix. APIs should not include minor version numbers
+URL-based versioning is a viable alternative, as the version number in the URL should only change when major revisions have been made and the interface has changed substantially without backwards compatibility. For URL-based versioning the URI should include /vN with the major version (N) and v as a prefix. APIs should not include minor version numbers
 when using version numbers in the path.
 
 **<span class="smallcaps">Template</span>**
@@ -234,3 +230,12 @@ query {
     }
 }
 ```
+
+## Summary
+
+URI Conformance standards.
+
+- <ApiStandard id="C-2.1" type="SHOULD" text="endpoint URLs **SHOULD** advertise resources, and avoid verbs" extendedText="It should be intuitive and easy to guess what an endpoint does just by looking at the URI and HTTP verb, without needing to see a query string" />
+- <ApiStandard id="C-2.2" type="SHOULD" text="URL **SHOULD** include 'api'" extendedText="It should be intuitive and easy to guess what an endpoint does just by looking at the URI and HTTP verb, without needing to see a query string" />
+- <ApiStandard id="C-2.3" type="SHOULD" text="endpoint URLs **SHOULD** use Header-based versioning" extendedText="When using URL-versioning, the version number in the URL should only change when major revisions have been made" />
+- <ApiStandard id="C-2.4" type="SHOULD" text="URL versioning **SHOULD** be based on major version only" extendedText="For URL-based versioning the URI should include /vN with the major version (N) and v as a prefix. APIs should not include minor version numbers when using version numbers in the path" />
