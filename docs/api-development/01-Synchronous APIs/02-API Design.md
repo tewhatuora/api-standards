@@ -2,11 +2,9 @@
 title: "API Design"
 ---
 
-:::tip[Status]
-Ready for review
-:::
 
-This section looks at API design and offers the standards required to support [health sector organisations](../api-concepts/ComponentDefinitions#health-sector-organisations) in designing, developing and governing APIs. The intended audience for this section of the document is **_technical_** for example [API developers](../api-concepts/ComponentDefinitions#api-developers), or [API designers](../api-concepts/ComponentDefinitions#api-designers).
+
+This section looks at API design and offers the standards required to support [health sector organisations](../../api-concepts/ComponentDefinitions#health-sector-organisations) in designing, developing and governing APIs. The intended audience for this section of the document is **_technical_** for example [API developers](../../api-concepts/ComponentDefinitions#api-developers), or [API designers](../../api-concepts/ComponentDefinitions#api-designers).
 
 When reading this section consider the implications for your organisation. Fundamentally, APIs should make interoperability with your
 organisation simple, but more importantly consistent.
@@ -61,15 +59,15 @@ There are several different types of API and the type you choose may depend on t
 
 | API Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |               Status                |
 | :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------: |
-| **REST**              | Representational State Transfer (REST) is the most common and well understood API type. REST should be considered an architectural style for developing distributed hypermedia systems. There is a wealth of information and tooling to support the definition and creation of REST APIs. Typically, a REST API will have a well-defined and strongly typed schema definition (OpenAPI) where strict compliance can be achieved.                                    | Creating distributed systems where a set of API resources are well defined. If medium latency resource creation or modification (POST, PUT, DELETE) is required then typically a REST API is a better fit. Typically used for synchronous interactions.                                                                                                                                                                                     | <ApiStandard id="C-1.1" type="MAY" text="**MAY** support" extendedText="The REST API type of API MAY be used." />|
+| **REST**              | Representational State Transfer (REST) is the most common and well understood API type. REST should be considered an architectural style for developing distributed hypermedia systems. There is a wealth of information and tooling to support the definition and creation of REST APIs. Typically, a REST API will have a well-defined and strongly typed schema definition (OpenAPI) where strict compliance can be achieved.                                    | Creating distributed systems where a set of API resources are well defined. If medium latency resource creation or modification (POST, PUT, DELETE) is required then typically a REST API is a better fit. Typically used for synchronous interactions.                                                                                                                                                                                                                                                                                                                                     |    Supported :white_check_mark:     |
 |                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                     |
-| **GraphQL**           | GraphQL is an open source query and manipulation language developed by Facebook primarily designed to empower API consumers to consume only the data that they require. A common criticism of REST is that only the entire resource is available for consumption, sometimes referred to as “over fetching”, however with GraphQL the client decides the data that it requires. GraphQL also has a strongly typed schema (GraphQL Schema Definition Language – SDL). | An API that has a widely distributed client set with a variety of data requirements. Particularly well suited to high read (GET) clients                                                                                                                                                                                                                                                                                                                                                                                                                                                   |  <ApiStandard id="C-1.2" type="MAY" text="**MAY** support" extendedText="The GraphQL API type of API MAY be used." />|
+| **GraphQL**           | GraphQL is an open source query and manipulation language developed by Facebook primarily designed to empower API consumers to consume only the data that they require. A common criticism of REST is that only the entire resource is available for consumption, sometimes referred to as “over fetching”, however with GraphQL the client decides the data that it requires. GraphQL also has a strongly typed schema (GraphQL Schema Definition Language – SDL). | An API that has a widely distributed client set with a variety of data requirements. Particularly well suited to high read (GET) clients                                                                                                                                                                                                                                                                                                                                                                                                                                                   |    Supported :white_check_mark:     |
 |                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                     |
-| **Asynchronous APIs** | AsyncAPI is an open source initiative to create an event-driven and asynchronous API standardization and development tooling. The AsyncAPI specification, inspired by the OpenAPI specification, describes and documents event-driven APIs in a machine-readable format.                                                                                                                                                                                            | Creating distributed systems where a set of API resources are well defined. Typically used for asynchronous interactions and event driven architectures. Also, useful when developing APIs that front workflows or long running orchestrations.                                                                                                                                                                                                                                                                                                                                            |  <ApiStandard id="C-1.3" type="MAY" text="**MAY** support" extendedText="The Asynchronous API type of API MAY be used." />    |
+| **Asynchronous APIs** | AsyncAPI is an open source initiative to create an event-driven and asynchronous API standardisation and development tooling. The AsyncAPI specification, inspired by the OpenAPI specification, describes and documents event-driven APIs in a machine-readable format.                                                                                                                                                                                            | Creating distributed systems where a set of API resources are well defined. Typically used for asynchronous interactions and event driven architectures. Also, useful when developing APIs that front workflows or long running orchestrations.                                                                                                                                                                                                                                                                                                                                            |    Supported :white_check_mark:     |
 |                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                     |
-| **gRPC**              | gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment.                                                                                                                                                                                                                                                                                                                                                | Creating distributed systems that require highly performant and scalable API's. gRPC makes use of binary data rather than just text which makes the communication more compact and more efficient. In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. This is enabled by a formal Interface Definition Language (IDL). gRPC utilizes Protocol Buffers by default, you can make it work with other data formats, such as JSON. |   <ApiStandard id="C-1.4" type="MUST NOT" text="**MUST NOT** support" extendedText="The gRPC API type of API MUST NOT be used." />          |
+| **gRPC**              | gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment.                                                                                                                                                                                                                                                                                                                                                | Creating distributed systems that require highly performant and scalable API's. gRPC makes use of binary data rather than just text which makes the communication more compact and more efficient. In gRPC, a client application can directly call a method on a server application on a different machine as if it were a local object, making it easier for you to create distributed applications and services. This is enabled by a formal Interface Definition Language (IDL). gRPC utilises Protocol Buffers by default, you can make it work with other data formats, such as JSON. |          Not Supported :x:          |
 |                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                     |
-| **SOAP**              | SOAP APIs are formatted as XML files and they are extremely common web communication protocols. The acronym stands for Simple Object Access Protocol, and it was developed in the late 1990s. Despite its age, SOAP still remains one of the more popular API types used by developers.                                                                                                                                                                             | Stateful operations; if the application needs contextual information and conversational state management then SOAP 1.2 has the additional specification in the WS\* structure to support those things (Security, Transactions, Coordination, etc). Comparatively, the REST approach would make the developers build this custom plumbing.                                                                                                                                                                                                                                                  | <ApiStandard id="C-1.5" type="SHOULD NOT" text="**MAY** support" extendedText="The SOAP API type of API SHOULD not be used for new APIs, as SOAP is deprecated" /> |
+| **SOAP**              | SOAP APIs are formatted as XML files and they are extremely common web communication protocols. The acronym stands for Simple Object Access Protocol, and it was developed in the late 1990s. Despite its age, SOAP still remains one of the more popular API types used by developers.                                                                                                                                                                             | Stateful operations; if the application needs contextual information and conversational state management then SOAP 1.2 has the additional specification in the WS\* structure to support those things (Security, Transactions, Coordination, etc). Comparatively, the REST approach would make the developers build this custom plumbing.                                                                                                                                                                                                                                                  | Deprecated :warning: |
 
 Example Technical Use Case Synchronous/Asynchronous API
 
@@ -105,7 +103,7 @@ note right of SPS
     This call is to enable the API Consumer
     to register their notification endpoint. Note
     that this is illustrative only. In reality most API
-    consumers will register with Te Whatu Ora using a
+    consumers will register with Health NZ using a
     developer portal or equivalent and create client
     application credentials with registered notification
     endpoint(s).
@@ -154,7 +152,7 @@ The example above has two associated API specifications. The first is an
 OpenAPI specification that describes the "Create Claim” and "Get Claim”
 RESTful interactions and the second is an AsyncAPI specification that
 describes the "Receive Updates” interaction. These example
-specifications are available for reference [here](../api-specifications/example-agency-specification)
+specifications are available for reference [here](../../api-specifications/example-agency-specification)
 
 ## API Design Principles
 
@@ -185,7 +183,7 @@ API, it also includes threat protection (DDoS, SQL Injection, Cross site
 scripting etc.) as well as availability and quality of service (QoS).
 When designing and developing APIs it is often cost effective to create
 a common framework that handles security for all APIs. See the
-associated document, [Part B: API Security](../api-security), for more details.
+associated document, [Part B: API Security](../../api-security), for more details.
 
 #### Caching
 
@@ -235,14 +233,14 @@ APIC -[#blue,dotted]l-> Consumer
 
 ```
 
-<DetailedDescription text="The diagram illustrates the interactions between a health sector participant, an API consumer, security, caching and API components. The health sector participant initiates the process by performing some action within the API consumer. The API consumer makes a request and calls the security component for authentication and authorization. The security component communicates with the cache which fulfils or passes through the data request as needed. Behind the cache is the API component itself which implements the API's operations and defines the representation of data served. A response flow returns data to the API consumer in the opposite direction." />
+<DetailedDescription text="The diagram illustrates the interactions between a health sector participant, an API consumer, security, caching and API components. The health sector participant initiates the process by performing some action within the API consumer. The API consumer makes a request and calls the security component for authentication and authorisation. The security component communicates with the cache which fulfils or passes through the data request as needed. Behind the cache is the API component itself which implements the API's operations and defines the representation of data served. A response flow returns data to the API consumer in the opposite direction." />
 
 ### Standards-Based
 
 Web standards have rapidly become powerful agreements, which span not
 just local regions but are internationally accepted and enable
-commonality and consistency. Using standard HTTP and URLs, the core
-technologies of the web, along with standards such as JSON and OAuth
+commonality and consistency. Using standard HTTP and URLs, the core
+technologies of the web, along with standards such as JSON and OAuth 2.0
 ensures that organisations are not creating bespoke or proprietary
 technologies.
 
@@ -254,10 +252,10 @@ and accepted standards e.g.
 - AsyncAPI
 - REST
 - JSON
-- OAuth
+- OAuth 2.0
 - OIDC
 
-Refer to the [API Development Industry Standards](./DevelopmentIndustryStandards) for detailed
+Refer to the [API Development Industry Standards](/api-development/Synchronous%20APIs/DevelopmentIndustryStandards) for detailed
 information about relevant standards.
 
 ## Designing an API
@@ -274,8 +272,8 @@ potential partners to involve in the co-design, consider:
 
 - processes that require a capability an API could expose
 
-Some actors in the design process will be human such as [application developers](../api-concepts/ComponentDefinitions#application-developers) or [health sector participants](../api-concepts/ComponentDefinitions#health-sector-participants) whilst some
-actors will be [systems or organisations](../api-concepts/ComponentDefinitions#health-sector-organisations) that will interact with, or depend on, the
+Some actors in the design process will be human such as [application developers](../../api-concepts/ComponentDefinitions#application-developers) or [health sector participants](../../api-concepts/ComponentDefinitions#health-sector-participants) whilst some
+actors will be [systems or organisations](../../api-concepts/ComponentDefinitions#health-sector-organisations) that will interact with, or depend on, the
 API.
 
 When representatives for the potential actors are identified, start
@@ -341,7 +339,7 @@ health sector:
   interoperability use cases. It is also important to note here that
   if there is an appropriate resource in the Fast Health
   Interoperability Resource (FHIR) standard then a FHIR approach
-  should be considered. See this documents [FHIR API Guidance](../fhir-api-standard)
+  should be considered. See this documents [FHIR API Guidance](../../fhir-api-standard)
 
 - The information supplied via an API may still be dependent on
   overnight batch processes for update. It is worth making the
@@ -418,7 +416,7 @@ environments until successful test execution.
 ## Granularity
 
 There is a question as to how fine-grained an API resource should
-be. APIs should be designed at the lowest practical level of granularity
+be. APIs should be designed at the lowest practical level of granularity
 because this makes each resource simpler and allows them to be combined
 in ways that suit the application developer. The key principle is to
 design APIs that can be re-used and combined in different ways, and
@@ -441,22 +439,21 @@ API was being created, it may make sense to offer a coarse grained
 resource for posting a new image set as a bundle of content including
 images, observations, keywords as well as the supporting information for the images. But when
 offering the ability to comment on the images it would make
-sense, for clarity and ease of use, to offer these as separate
+sense, for clarity and ease of use, to offer these as separate
 sub-resources, for example, notes or comments.
 
 It is important to aim for a granularity that will prevent business
 logic from leaking into the API e.g. requiring API calls to be made in a
 certain sequence to meet with internal business processes. With the
 imaging example, consider the impact of a fine-grained API being
-offered for posting an initial encounter, with separate calls for adding subsequent images or metadata. If metadata is mandatory, then the API application
-developer needs to ensure that every blog post call is followed by a
+offered for posting an initial encounter, with separate calls for adding subsequent images or metadata. If metadata is mandatory, then the application
+developer (API consumer) needs to ensure that every new post call to the API to create an image is followed by a
 metadata call. This puts the onus on the application developer to get
 the sequence of calls correct and could lead to inconsistent data if
 they do not adhere to the rules. It also leads to close coupling between
 the consuming application and the API, and if the business logic changes
 in the future there is a downstream impact on all application
 developers, requiring them to modify their applications.
-
 General guidelines are:
 
 - Don't aim for the finest granularity - an API should be built around
@@ -472,15 +469,14 @@ General guidelines are:
 - Resources can be identified by reviewing a business process and
   identifying the key entities that underpin the process. Any
   entities that the organisation manages or maintains throughout its
-  full lifecycle will be potential API resources. There is typically
+  full lifecycle will be potential API resources. There is typically
   one API operation for each entity lifecycle state transition.
 
-- There should be only one API function for one business outcome (e.g.
-  change an address)
+- There should be only one API operation for one business outcome (e.g. change an address)
 
-- Consider using query parameters in URLs for different granularity of
-  resources. For example, /appointments could return a list of
-  appointments, whilst /appointments?$summary could return a summarised view.
+- Consider using query parameters in URLs for different granularity of
+  resources. For example, /appointments could return a list of
+  appointments, whilst /appointments?$summary could return a summarised view.
 
 ## Interface Specification
 
@@ -509,11 +505,11 @@ The most commonly used API modelling language today is an open standard
 known as the OpenAPI Specification (formerly Swagger) maintained by the
 Open API Initiative. This initiative is supported by many of the main
 commercial entities in IT (Google, IBM, Microsoft, Atlassian, Paypal
-etc.). It offers a standard, programming language-agnostic (JSON/YAML)
+etc.). It offers a standard, programming language-agnostic (JSON/YAML)
 interface to REST APIs which allows both humans and computers to
 discover and understand the capabilities of the service. For an example
 of a Swagger interface specification see [Example Interface
-Specification](/api-specifications/example-agency-specification).
+Specification](../../api-specifications/example-agency-specification).
 
 It is important to use a modelling language to define the API interface
 specification as essentially it is text or code and can be maintained
@@ -560,6 +556,6 @@ Some examples of health sector specific SDKs include:
 | [Amazon Web Services (AWS) Health API SDK](https://docs.aws.amazon.com/health/latest/ug/health-api.html) | The AWS Health API SDK is a collection of tools and libraries that help you build healthcare applications on Amazon Web Services (AWS). The SDK includes APIs for managing patient data, scheduling appointments, and billing. |
 
 Once an API is in sufficient state to be offered to API consumers, the
-API definition should be published to the Hira API catalogue. The primary API
+API definition should be published to the Health NZ API Marketplace or equivalent health sector capability. The primary API
 discoverer is the developer, so an external API must be well documented,
 and provide accurate and up-to-date guidance via the catalogue.
