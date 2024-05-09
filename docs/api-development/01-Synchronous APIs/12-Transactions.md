@@ -182,3 +182,9 @@ Another point to note within the example is the differing use of sub-request ide
 ## Asynchronous Transactions
 
 In many cases, where bulk processing is required, the intended payloads may be to large for timely synchronous processing. In these scenarios, it is appropriate for the API to support the `application/json-seq` Content-Type. When an API Consumer sends this content type it informs the API that the JSON payload provided is a sequenced data set and the API can process each record individually and respond asynchronously to the client with a `Location` header indicating the location of the transaction process detail/status.
+
+## Summary
+
+URI Conformance standards.
+
+- <ApiStandard id="C-3.1" type="MUST" text="sub-request identifiers **MUST** be built into bulk API calls" extendedText="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end." />
