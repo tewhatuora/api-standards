@@ -10,7 +10,7 @@ An API specification is also a key document for API Producers as it **SHOULD** b
 
 See [OpenAPI Specification](./OAS)
 
-## Documentation
+## API Documentation
 
 Whilst an API specification goes a long way to provide documentation for an API there is usually contextual information that supports different consumer groups who wish to build experiences that utilise the API.
 
