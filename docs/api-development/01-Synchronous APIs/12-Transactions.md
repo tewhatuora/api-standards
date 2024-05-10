@@ -2,8 +2,6 @@
 title: "Bulk APIs"
 ---
 
-
-
 ## Bulk API Handling
 
 APIs are not typically designed for large payloads i.e. bulk handling for
@@ -15,10 +13,13 @@ logical grouping of similar requests, atomicity of transactions, and recoverabil
 
 When handling bulk requests, it is important to consider the
 troubleshooting and recovery aspects of error handling. This includes
-visibility of request progress and the ability to perform root cause analysis. To achieve this, it is advisable that logging is performed on all sub-requests coming through an API, with accurate timestamping, so that monitoring tools can visualise transaction progress. It is also **REQUIRED** that sub-request identifiers (See [Request
-Headers](./Headers#request-header-detail)) to be built into bulk API calls to ensure the sub-requests are traceable end-to-end.
+visibility of request progress and the ability to perform root cause analysis. To achieve this, it is
+advisable that logging is performed on all sub-requests coming through an API, with accurate timestamping,
+so that monitoring tools can visualise transaction progress. <ApiStandard id="C-3.1" type="MUST" text="It is **REQUIRED** that sub-request identifiers (See [Request Headers](./Headers#request-header-detail)), be built into bulk API calls to ensure the sub-requests are traceable end-to-end." extendedText="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end." />
 
-In some cases, it may be deemed appropriate to provide an asynchronous batch type capability using an API. This would usually be implemented in a scenario where legacy system impact is a concern. An example of this could be a bulk creation of person records in a database based on a
+In some cases, it may be deemed appropriate to provide an asynchronous batch type capability using an
+API.This would usually be implemented in a scenario where legacy system impact is a concern. An
+example of this could be a bulk creation of person records in a database based on a
 batch event in a consuming legacy application. In such a scenario it
 would be preferable for the consuming application to treat each person
 as a unique event and to POST to a person API for each new unique
@@ -182,9 +183,3 @@ Another point to note within the example is the differing use of sub-request ide
 ## Asynchronous Transactions
 
 In many cases, where bulk processing is required, the intended payloads may be to large for timely synchronous processing. In these scenarios, it is appropriate for the API to support the `application/json-seq` Content-Type. When an API Consumer sends this content type it informs the API that the JSON payload provided is a sequenced data set and the API can process each record individually and respond asynchronously to the client with a `Location` header indicating the location of the transaction process detail/status.
-
-## Summary
-
-URI Conformance standards.
-
-- <ApiStandard id="C-3.1" type="MUST" text="sub-request identifiers **MUST** be built into bulk API calls" extendedText="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end." />
