@@ -61,7 +61,7 @@ Depending on the particular interoperability use case which the FHIR implementat
 
 #### Authoring
 
-The most common and **PREFERRED** way to author these FHIR resources is by using [FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/index.html) and its associated tooling. FHIR Shorthand (FSH) is a domain specific language for defining FHIR Artifacts involved in the creation of IGs, which is typically used alongside the [SUSHI](https://fshschool.org/docs/sushi) compiler.
+The **RECOMMENDED** way to author these FHIR resources is by using [FHIR Shorthand](https://build.fhir.org/ig/HL7/fhir-shorthand/index.html) and its associated tooling. FHIR Shorthand (FSH) is a domain specific language for defining FHIR Artifacts involved in the creation of IGs, which is typically used alongside the [SUSHI](https://fshschool.org/docs/sushi) compiler.
 
 Both the HL7 Publisher and Simplifier support seamless processing of `.fsh` files into FHIR Artifacts as part of their IG build processes.
 
