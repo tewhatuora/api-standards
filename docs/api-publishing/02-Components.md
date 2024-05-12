@@ -24,7 +24,7 @@ See [Business Context](./07-BusinessContext.md)
 
 ### Diagrams
 
-API Providers **MUST** capture use case diagrams that describe an API Consumer journey when interacting with the published API.
+Meaningful diagrams are critical for describing the functionality of an API. As such, API Providers **MUST** provide diagrams that describe an API Consumer journey when interacting with the published API.
 
 The API Provider can choose the format that these diagrams are created with however they **SHOULD** be available via a web experience.
 
