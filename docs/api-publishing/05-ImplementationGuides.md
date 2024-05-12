@@ -43,7 +43,7 @@ In addition, every page within the IG website **MUST** clearly show:
 - diagrams **SHOULD** be used when communicating use cases or data relationships, in addition to text content. These should use a consistent theme/appearance throughout the IG. The authoring tool for diagrams **SHOULD** be one that is free and widely used. The [HL7 FHIR Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation) provides support for [PlantUML](https://plantuml.com) in the standard build process so this tool is **PREFERRED** for creating diagrams
 - the source code to any diagrams or generated images included in the IG **MUST** be available alongside the IG source
 - the IG **MUST** contain an OpenAPI specification which represents each `CapabilityStatement` in the Implementation Guide
-- when authoring business content, the pages should use hierarchical headings
+- when authoring business content, the pages **SHOULD** use hierarchical headings
 - profiles included as part of an IG **MUST** have an associated example instance included within the IG. The content of the example resource **MUST** be representative of what the data intended to be shared looks like, as opposed to placeholder values (note that real production data **MUST NOT** be used for this)
 - IG content should be authored using `en-NZ` New Zealand English, however, all references to the [FHIR specification **MUST** use the correct `en-US` American English spelling,](https://www.hl7.org/fhir/languages.html#spec) for example `Immunization` should be used when communicating about the FHIR Resource, as opposed to `Immunisation`
 
