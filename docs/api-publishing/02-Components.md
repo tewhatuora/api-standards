@@ -22,7 +22,7 @@ Business Context **SHOULD** be available via a web experience.
 
 See [Business Context](./07-BusinessContext.md)
 
-### Use Case Diagrams
+### Diagrams
 
 API Providers **MUST** capture use case diagrams that describe an API Consumer journey when interacting with the published API.
 
