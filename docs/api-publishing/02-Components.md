@@ -39,8 +39,6 @@ The documentation **SHOULD** be available via a web experience.
 
 ## Terms and Conditions
 
-Terms and Conditions
-
 API Providers **MUST** have a set of terms and conditions that articulate the rules that API Consumers must agree to when using the API.
 
 Terms and conditions **SHOULD** be available via a web experience.
