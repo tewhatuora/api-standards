@@ -87,4 +87,4 @@ FHIR Implementation Guides can be written by anyone and a wide variety of toolin
 
 ## Implementation Guide Source
 
-Implementation Guide FHIR resources and supporting artifacts **SHOULD** be stored in a public git repository on [GitHub](https:///github.com). Comments, feedback and suggestions from sector API Consumers on FHIR resources and associated documentation **SHOULD** be managed through GitHub using the standard features for raising and tracking issues on the site.
+Implementation Guide FHIR resources and supporting artifacts **SHOULD** be stored in a public git repository such as on [GitHub](https:///github.com). Comments, feedback and suggestions from sector API Consumers on FHIR resources and associated documentation **SHOULD** be managed through raising and tracking issues on the site.
