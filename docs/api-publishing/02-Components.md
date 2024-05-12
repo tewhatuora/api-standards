@@ -58,4 +58,12 @@ API Providers **SHOULD** make this functionality available via an authenticated 
 
 API Providers **MUST** publish service level agreements that define commitments to service by the API Provider as well as service expectations for API Consumers.
 
+What SLAs are published will vary depending on the implementation, however common SLAs include:
+
+- API availability (i.e., uptime)
+- Latency
+- Request throughput (number of requests in a given timeframe)
+
+API producer **MAY** provide _SLA Tiering_ in which different SLAs are applied to different clients. For example, a "gold" tier can be applied to a high-value consumer-facing application to grant higher request quotas and faster response times. Conserverly, a "bronze" tier could be applied to a non-critical back-office application consuming the same API.
+
 SLAs **SHOULD** be available via a web experience.
