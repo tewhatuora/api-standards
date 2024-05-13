@@ -183,6 +183,11 @@ body {
   transform: rotate(45deg);
 }
 
+sup {
+  font-size: small;
+  vertical-align:super;
+}
+
 .long-description summary {
   color: #369;
   cursor: pointer;

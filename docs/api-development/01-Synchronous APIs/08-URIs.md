@@ -2,27 +2,25 @@
 title: "Uniform Resource Identifiers (URI)"
 ---
 
-
-
 ## URI Construction
 
 URI construction is important in that it is the door through which
 consumers enter to obtain API resources. It should be intuitive and
 easy to guess what an endpoint does just by looking at the URI and HTTP
-verb, without needing to see a query string. As basic guidance, endpoint
-URLs should advertise resources, and avoid verbs.
+verb, without needing to see a query string. <ApiStandard id="C-2.1" type="SHOULD" text="Endpoint URLs **SHOULD** advertise resources, and avoid verbs." extendedText="Endpoint purpose should be intuitive from the URI, avoiding verbs." />
 
 In some situations an implemented standard may define the URI structure
 for you. A good example of this is [Fast Health Interoperability Resources (FHIR)](https://www.hl7.org/fhir/resource.html). For additional guidance on the use of FHIR see [Part D: FHIR API Design and Development Standards](../../fhir-api-standard/)
 
 ### API Offering
 
-Is it recommended that the URL makes it clear that it
-is an API:
+<ApiStandard id="C-2.2" type="SHOULD" text="Is it **RECOMMENDED** that the URL makes it clear that it is an API:" extendedText="URL should include 'api' as sud-domain e.g. https://api.example.govt.nz or context, e.g. https://example.govt.nz/api." />
 
-**<span class="smallcaps">Example</span>**
+**<span class="smallcaps">Examples</span>**
 
 [https://**api**.example.govt.nz]
+
+[https://example.govt.nz/**api**]
 
 ### Version
 
@@ -30,15 +28,12 @@ APIs should have a clear indication of the version, so that application
 developers can ensure they are using the appropriate version for their
 consuming application.
 
-Header-based versioning is recommended (see section [API Version Control](./Version%20Control)); however, it is recognised
-that some API infrastructure does not readily support header-based versioning.
+<ApiStandard id="C-2.3" type="SHOULD" text="Header-based versioning is **RECOMMENDED** (see section [API Version Control](./Version%20Control)); however, it is recognised
+that some API infrastructure does not readily support header-based versioning, URL-based versioning is a viable alternative, as the version number in the URL should only change when major revisions have been made and the interface has changed substantially without backwards compatibility." extendedText="When using URL-versioning, the version number in the URL should only change when major revisions have been made" />
 
-URL-based versioning is a viable alternative, as the version number in
-the URL should only change when major revisions have been made and the
-interface has changed substantially without backwards compatibility. For
-URL-based versioning the URI should include /vN with the major version
-(N) and v as a prefix. APIs should not include minor version numbers
-when using version numbers in the path.
+<ApiStandard id="C-2.4" type="SHOULD" text="For URL-based versioning the URI **SHOULD** include /vN with the major version (N) and v as a prefix." extendedText="URL version should be of the format /vN, where 'N' in the major version number, e.g. /v1" />
+
+<ApiStandard id="C-2.5" type="SHOULD NOT" text="APIs **SHOULD NOT** include minor version numbers when using version numbers in the path." extendedText="For URL-based versioning, minor version numbers should not be included, e.g. /v1.0.1, should be /v1" />
 
 **<span class="smallcaps">Template</span>**
 
@@ -233,4 +228,3 @@ query {
         }
     }
 }
-```
