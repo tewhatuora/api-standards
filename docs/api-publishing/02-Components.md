@@ -26,7 +26,7 @@ See [Business Context](./07-BusinessContext.md)
 
 Meaningful diagrams are critical for describing the functionality of an API. As such, API Providers **MUST** provide diagrams that describe an API Consumer journey when interacting with the published API.
 
-The API provider can choose the type of diagram that best represents their API however they **SHOULD** provide UML Sequence Diagrams. See [Sequence Diagrams](./06-SequenceDiagrams.md)
+The API provider can choose the type of diagram that best represents their API however they **SHOULD** provide UML Sequence Diagrams. See [Diagrams](./Diagrams)
 
 The API Provider can also choose the format that these diagrams are created with however they **SHOULD** be available via a web experience.
 

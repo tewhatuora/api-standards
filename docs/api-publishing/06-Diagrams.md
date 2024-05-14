@@ -1,5 +1,5 @@
 ---
-title: Use Case Diagrams
+title: Diagrams
 ---
 
 Effective use case diagrams document the complex behaviour of an API in an easily human readable manner. In this type of diagram, the technical components of the applications and parties involved in the APIs execution are displayed as actors so the reader can focus on the overall flow of the API and interactions between the actors.
