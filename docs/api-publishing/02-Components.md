@@ -8,7 +8,7 @@ An API specification acts like a blueprint for an API, outlining how it function
 
 An API specification is also a key document for API Producers as it can be used as a design, implementation and testing artifact. Given the importance of this document, API Producers **MUST** follow a [Specification-Driven Development Approach](https://apistandards.digital.health.nz/api-development/Synchronous%20APIs/API%20Design#design-driven-development)
 
-See [OpenAPI Specification](./OAS)
+See [OpenAPI Specification](./openapi-specifications)
 
 ## API Documentation
 

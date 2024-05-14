@@ -2,7 +2,7 @@
 title: Business Context
 ---
 
-The business context section of an API's documentation details the business outcomes which are achieved through use of the API, the value proposition offered, and higher level context for the developer or integrating parties. It can include historic information about the API which may be useful to consumers. This page will usually link forward to [Use Cases](./use-cases).
+The business context section of an API's documentation details the business outcomes which are achieved through use of the API, the value proposition offered, and higher level context for the developer or integrating parties. It can include historic information about the API which may be useful to consumers. This page will usually link forward to [Use Cases](./Diagrams).
 
 ### Example
 
