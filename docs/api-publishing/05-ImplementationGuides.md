@@ -40,7 +40,7 @@ In addition, every page within the IG website **MUST** clearly show:
 
 ### Other
 
-- diagrams **SHOULD** be used when communicating use cases or data relationships, in addition to text content. These should use a consistent theme/appearance throughout the IG. The authoring tool for diagrams **SHOULD** be one that is free and widely used. The [HL7 FHIR Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation) provides support for [PlantUML](https://plantuml.com) in the standard build process so this tool is **PREFERRED** for creating diagrams
+- diagrams **SHOULD** be used when communicating use cases or data relationships, in addition to text content. These should use a consistent theme/appearance throughout the IG. The authoring tool for diagrams **SHOULD** be one that is free and widely used. The [HL7 FHIR Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation) provides support for [PlantUML](https://plantuml.com) in the standard build process so this tool is **RECOMMENDED** for creating diagrams
 - the source code to any diagrams or generated images included in the IG **MUST** be available alongside the IG source
 - the IG **MUST** contain an OpenAPI specification which represents each `CapabilityStatement` in the Implementation Guide
 - when authoring business content, the pages **SHOULD** use hierarchical headings
