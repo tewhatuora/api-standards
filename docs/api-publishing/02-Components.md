@@ -32,10 +32,13 @@ The API Provider can also choose the format that these diagrams are created with
 
 ### Developer Documentation
 
-API Providers **MUST** publish developer documentation that explains the technical constructs of their API.
+API Providers **MUST** publish developer documentation that explains the technical constructs of their API such as instances where developers are required to ensure that API Consumers behave in a certain way when accessing the API.
 
-The documentation **SHOULD** be available via a web experience.
+For example, an API that supports field level encryption should clearly document both the mechanism and the result of applying this encryption.
 
+It is also useful to provide code snippets for developers where complex API Consumer logic is required.
+
+Developer documentation **SHOULD** be available via a web experience.
 
 ## Terms and Conditions
 
