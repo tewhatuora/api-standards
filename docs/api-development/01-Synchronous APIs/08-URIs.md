@@ -65,7 +65,7 @@ API Providers may hold multiple responsibilities which can result in overlapping
 
 <ApiStandard id="HNZAS_SHOULD_USE_NAMESPACES" type="SHOULD">It is **RECOMMENDED** that namespaces be used to avoid any ambiguity.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_REFLECT_FUNCTION_IN_NAMESPACE" type="SHOULD" toolTip="Namespace should first reflect the government function.">The namespace **SHOULD** be the first noun in the URI and **SHOULD** reflect the function of government being offered by this API.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_REFLECT_FUNCTION_IN_NAMESPACE" type="SHOULD" toolTip="Namespace should be the first noun in the URI and reflect the government function.">The namespace **SHOULD** be the first noun in the URI and **SHOULD** reflect the function of government being offered by this API.</ApiStandard>
 
 <ApiStandard id="HNZAS_MAY_USE_PLURAL_SINGULAR_NAMESPACES" type="MAY" toolTip="Namespaces may be singular or plural based on context.">Namespaces **MAY** be singular or plural, depending on the situation.</ApiStandard>
 
