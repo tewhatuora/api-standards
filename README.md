@@ -54,14 +54,19 @@ To modify the website itself in a local development environment, for
 
 1. Install the [Node.js runtime.](https://nodejs.org/en/download)
 2. Clone the repo
+
    ```sh
    git clone https://github.com/tewhatuora/api-standards.git
    ```
+
 3. Install NPM packages
+
    ```sh
    npm install
    ```
+
 4. Start the website in development
+
    ```sh
    npm start
    ```
@@ -71,11 +76,13 @@ To modify the website itself in a local development environment, for
 There is are npm scripts that will check the spelling and formatting of changes to the docs.
 
 Run markdown linting:
+
 ```
 npm run markdownlint
 ```
 
 Run a spell check:
+
 ```
 npm run spellcheck
 ```
@@ -87,6 +94,12 @@ Any issues with the [markdown linting](https://github.com/DavidAnson/markdownlin
 ```html
 <!-- markdownlint-disable MD024 MD036 MD040 MD041 MD051 -->
 ```
+
+#### <ApiStandard> component and auto-generation
+
+There is an <ApiStandard> component which is used to auto-generate tooltips and a master checklist of all standards. On build, a script (/scripts/extractStandards.js) runs which parses these components and generates the master checklist and tooltips. The IDs are required to be in this format:
+
+`HNZAS_{verb}_{description}`, where `verb` is one of MUST, MUST_NOT, SHOULD, SHOULD_NOT, or MAY, and `description` is a short description of the standard in UPPER_SNAKE_CASE.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

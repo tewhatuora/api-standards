@@ -15,7 +15,7 @@ When handling bulk requests, it is important to consider the
 troubleshooting and recovery aspects of error handling. This includes
 visibility of request progress and the ability to perform root cause analysis. To achieve this, it is
 advisable that logging is performed on all sub-requests coming through an API, with accurate timestamping,
-so that monitoring tools can visualise transaction progress. <ApiStandard id="C-3.1" type="MUST" text="It is **REQUIRED** that sub-request identifiers (See [Request Headers](./Headers#request-header-detail)), be built into bulk API calls to ensure the sub-requests are traceable end-to-end." extendedText="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end." />
+so that monitoring tools can visualise transaction progress. <ApiStandard id="HNZAS_MUST_USE_SUB_REQUEST_IDENTIFIERS" type="REQUIRED" toolTip="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end.">It is **REQUIRED** that sub-request identifiers (See [Request Headers](./Headers#request-header-detail)), be built into bulk API calls to ensure the sub-requests are traceable end-to-end.</ApiStandard>
 
 In some cases, it may be deemed appropriate to provide an asynchronous batch type capability using an
 API.This would usually be implemented in a scenario where legacy system impact is a concern. An

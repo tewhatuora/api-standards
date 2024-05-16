@@ -18,7 +18,8 @@ import { Tooltip } from "react-tooltip";
 function ApiStandard({ id, type, toolTip, children }) {
   if (children === undefined || toolTip === undefined) {
     throw new Error(
-      "Error in rendering ApiStandard component; please check the format"
+      "Error in rendering ApiStandard component; please check the format for " +
+        id
     );
   }
 
