@@ -7,14 +7,16 @@ title: "Uniform Resource Identifiers (URI)"
 URI construction is important in that it is the door through which
 consumers enter to obtain API resources. It should be intuitive and
 easy to guess what an endpoint does just by looking at the URI and HTTP
-verb, without needing to see a query string. <ApiStandard id="HNZAS_SHOULD_USE_INTUITIVE_ENDPOINTS" type="SHOULD" toolTip="Endpoint purpose should be intuitive from the URI, avoiding verbs." >Endpoint URLs **SHOULD** advertise resources, and avoid verbs.</ApiStandard>
+verb, without needing to see a query string.
+
+<ApiStandard id="HNZAS_SHOULD_USE_INTUITIVE_ENDPOINTS" type="SHOULD" toolTip="Endpoint purpose should be intuitive from the URI, avoiding verbs." >Endpoint URLs **SHOULD** advertise resources, and avoid verbs.</ApiStandard>
 
 In some situations an implemented standard may define the URI structure
 for you. A good example of this is [Fast Health Interoperability Resources (FHIR)](https://www.hl7.org/fhir/resource.html). For additional guidance on the use of FHIR see [Part D: FHIR API Design and Development Standards](../../fhir-api-standard/)
 
 ### API Offering
 
-<ApiStandard id="HNZAS_SHOULD_INCLUDE_API_SUBDOMAIN" type="SHOULD" toolTip="URL should include 'api' as sud-domain e.g. https://api.example.govt.nz or context, e.g. https://example.govt.nz/api." >Is it **RECOMMENDED** that the URL makes it clear that it is an API:</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_INCLUDE_API_SUBDOMAIN" type="SHOULD" toolTip="URL should include 'api' as sud-domain e.g. https://api.example.govt.nz or context, e.g. https://example.govt.nz/api." >It is **RECOMMENDED** that the URL makes it clear that it is an API:</ApiStandard>
 
 **<span class="smallcaps">Examples</span>**
 
@@ -59,10 +61,13 @@ Host: api.example.govt.nz
 
 ### Namespaces
 
-API Providers may hold multiple responsibilities which can result in overlapping resource naming (for example "supplier" could be used in both pharmacy/contracts and laboratory/contracts). It is recommended that namespaces be used to avoid
-any ambiguity. The namespace would be the first noun in the URI and
-should reflect the function of government being offered by this API.
-Namespaces may be singular or plural, depending on the situation.
+API Providers may hold multiple responsibilities which can result in overlapping resource naming (for example "supplier" could be used in both pharmacy/contracts and laboratory/contracts).
+
+<ApiStandard id="HNZAS_SHOULD_USE_NAMESPACES" type="SHOULD">It is **RECOMMENDED** that namespaces be used to avoid any ambiguity.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_REFLECT_FUNCTION_IN_NAMESPACE" type="SHOULD" toolTip="Namespace should first reflect the government function.">The namespace **SHOULD** be the first noun in the URI and **SHOULD** reflect the function of government being offered by this API.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_USE_PLURAL_SINGULAR_NAMESPACES" type="MAY" toolTip="Namespaces may be singular or plural based on context.">Namespaces **MAY** be singular or plural, depending on the situation.</ApiStandard>
 
 **<span class="smallcaps">Template</span>**
 
@@ -74,21 +79,20 @@ Namespaces may be singular or plural, depending on the situation.
 
 ### Resources and Sub-resources
 
-Resource names should be noun-based, and collection resource names
-should be plural nouns, e.g. /laboratories in lower case. Resource naming
-should be short, simple and clearly understandable. It should also be
-human-guessable, avoiding technical or specialist terms where possible.
+<ApiStandard id="HNZAS_SHOULD_USE_NOUNS" type="SHOULD" toolTip="Resource names should be nouns, collections plural, like 'laboratories'.">Resource names **SHOULD** be noun-based, and collection resource names **SHOULD** be plural nouns, e.g. /laboratories in lower case.</ApiStandard>
 
-Sub-resources must appear under the resource they relate to, but should
-go no more than three deep i.e.
-/resource/id/sub-resource/id/sub-sub-resource. If you reach a third
+<ApiStandard id="HNZAS_SHOULD_NAME_RESOURCES_SIMPLY" type="SHOULD" toolTip="Resource names should be short, simple, and guessable, avoiding complex terms.">Resource naming **SHOULD** be short, simple, and clearly understandable. It **SHOULD** also be human-guessable, avoiding technical or specialist terms where possible.</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_LIMIT_SUBRESOURCE_DEPTH" type="MUST" toolTip="Sub-resources must not exceed three levels deep in the hierarchy.">Sub-resources **MUST** appear under the resource they relate to, but **SHOULD** go no more than three deep i.e. /resource/id/sub-resource/id/sub-sub-resource.</ApiStandard>
+
+If you reach a third
 level of granularity (sub-sub-resource), it may be worth reviewing your
 resource construction to see if it is actually a combination of multiple
 first or second level resources.
 
-The URI references for resources should consistently use the same path
-structure to refer to resources. Sub-namespace or sub-folders should be
-avoided, to maintain path consistency. This allows application
+<ApiStandard id="HNZAS_SHOULD_MAINTAIN_PATH_CONSISTENCY" type="SHOULD" toolTip="URI paths should be consistent, avoiding sub-namespaces or sub-folders.">The URI references for resources **SHOULD** consistently use the same path structure to refer to resources. Sub-namespace or sub-folders **SHOULD** be avoided, to maintain path consistency.</ApiStandard>
+
+This allows application
 developers to have a predictable experience in case they are building
 URIs in code.
 
@@ -113,9 +117,7 @@ expression language). This has led to hyphens, or kebab-case, being the
 de facto standard in the interests of readability and Search Engine
 Optimization (SEO).
 
-Therefore, in order to keep URLs consistently formatted, path and query
-string parameters should be lower case with hyphen separators for
-multiword names.
+<ApiStandard id="HNZAS_SHOULD_USE_LOWER_CASE_HYPHENS" type="SHOULD" toolTip="URLs should use lowercase and hyphens for multiword names to ensure format consistency.">Therefore, in order to keep URLs consistently formatted, path and query string parameters **SHOULD** be lower case with hyphen separators for multiword names.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
@@ -128,9 +130,9 @@ returning result set.
 
 The general rule is:
 
-- If it changes the behaviour of the result set then it should be a query argument
+- <ApiStandard id="HNZAS_SHOULD_USE_QUERY_FOR_BEHAVIOR" type="SHOULD" toolTip="Use query arguments for any behavior-affecting changes to result sets.">If it changes the behaviour of the result set then it **SHOULD** be a query argument.</ApiStandard>
 
-- If it changes the behaviour of the API then it should be in the path
+- <ApiStandard id="HNZAS_SHOULD_INCLUDE_API_CHANGES_IN_PATH" type="SHOULD" toolTip="Include changes affecting API behavior directly in the path.">If it changes the behaviour of the API then it **SHOULD** be in the path.</ApiStandard>
 
 Query arguments are generally used for:
 
@@ -138,10 +140,9 @@ Query arguments are generally used for:
 
 - Pagination - pagination is a query argument because it effectively
   acts as a filter and limits the result set returned. This is
-  particularly useful with large response data sets. When using
-  pagination it is a good idea to inform the consumer where they can
-  find previous and subsequent result sets using hypermedia as
-  discussed in [the HATEOS](./Content#hateoas) section of this document.
+  particularly useful with large response data sets.
+  
+  <ApiStandard id="HNZAS_DOCUMENT_PAGINATION_LINK_LOCATIONS" type="SHOULD" toolTip="Documentation should detail locations of previous and next result sets in paginated responses.">When using pagination, the documentation **SHOULD** inform the consumer where they can find previous and subsequent result sets using hypermedia as discussed in [the HATEOS](./Content#hateoas) section of this document.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
@@ -169,18 +170,12 @@ Query arguments are generally used for:
 }
 ```
 
-- Limiting the result set - e.g. by specifying which fields to return.
-  This approach can be complicated and is often a decision based on
-  functionality vs complexity. For example, it may be desirable to be
-  able to filter a result set to a specific set of objects. Whilst
+- <ApiStandard id="HNZAS_MAY_LIMIT_RESULT_FIELDS_WITH_QUERY_ARGUMENT" type="MAY" toolTip="Result sets MAY be limited with query arguments, where justified.">Limiting the result set - e.g. by specifying which fields to return. This approach can be complicated and is often a decision based on functionality vs complexity. For example, it may be desirable to be able to filter a result set to a specific set of objects.</ApiStandard> Whilst
   this is possible, it is not a recommended approach. If this kind of
   flexibility is required in an API it could be a good time to
   consider the use of [Open Data Protocol (OData)](http://www.odata.org/) or [GraphQL](./API%20Design#types-of-api).
 
-- In cases where response filtering is used, providers should ensure
-  that they use a JSON schema by default so that consumers have the
-  ability to understand the entire resource and do not need to query
-  the resource for the message structure.
+- <ApiStandard id="HNZAS_SHOULD_USE_JSON_SCHEMA_FOR_RESPONSE_FILTERING" type="SHOULD" toolTip="Use a JSON schema where response filtering is used, so consumers understand the entire resource without extra queries.">In cases where response filtering is used, providers should ensure that they use a JSON schema by default so that consumers have the ability to understand the entire resource and do not need to query the resource for the message structure.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
