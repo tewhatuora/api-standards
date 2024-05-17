@@ -1,12 +1,12 @@
+import { parse } from "node-html-parser";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { Tooltip } from "react-tooltip";
 
 const extractText = (Component) => {
   const markup = ReactDOMServer.renderToStaticMarkup(Component);
-  const div = document.createElement("div");
-  div.innerHTML = markup;
-  return div.textContent || div.innerText || "";
+  const root = parse(markup);
+  return root.text;
 };
 
 /**

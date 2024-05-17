@@ -36,7 +36,7 @@ a custom header notation that is relevant. For example, _X-Request-Id_ could be 
 
 ## Request Header Detail
 
-<ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_HEADERS" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept', 'Content-Type', and 'Authorization'.">Request headers are supplied by the consuming application and **MUST** include the following elements: 
+<ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_HEADERS" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept', 'Content-Type', and 'Authorization'.">Request headers are supplied by the consuming application and **MUST** include the following elements.</ApiStandard>
 
 - Accept
 
@@ -44,14 +44,11 @@ a custom header notation that is relevant. For example, _X-Request-Id_ could be 
 
 - Authorization
 
-</ApiStandard>
-
 For many years Header definitions could be found in [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). RFC2616 is now obsolete and has been superseded by a series of RFC documents RFC9110-RFC9114. For specific HTTP header information you should refer to [RFC9110 - HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110.html)
 
 ### Accept
 
 **<span class="smallcaps">MUST</span>**
-
 
 <ApiStandard id="HNZAS_MUST_REQUIRE_ACCEPT_HEADER" type="MUST" toolTip="The 'Accept' header MUST be specified to indicate the desired data format (e.g., JSON, XML).">An Accept header is **REQUIRED** to indicate what format the consuming application wants the information to be returned as (e.g. JSON or XML).</ApiStandard>
 <ApiStandard id="HNZAS_SHOULD_SPECIFY_RESPONSE_TYPE" type="SHOULD" toolTip="Consuming applications SHOULD specify the expected response content type.">It is preferable for the consuming application to specify the response content type that they expect.</ApiStandard>
