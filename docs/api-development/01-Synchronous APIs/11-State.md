@@ -6,7 +6,9 @@ title: "API State"
 
 ## Consideration of state
 
-In almost all cases a REST API should be entirely stateless. As part of
+<ApiStandard id="HNZAS_SHOULD_USE_STATELESS_REST_API" type="SHOULD" toolTip="A REST API SHOULD be stateless">In almost all cases a REST API **SHOULD** be entirely stateless.</ApiStandard>
+
+As part of
 processing it is possible for an API to gather context and pass this to
 a downstream system, however an API should not maintain that context for
 future requests. This should not be confused with caching, as discussed
@@ -88,7 +90,7 @@ end legend
 
 In some solution domains, API providers need to implement services that are process-driven, whether *short-running* (when a process can be completed within one consumer request) or *long-running* (the process persists over many requests and potentially long period of time).  
 
-In these cases the 'state' of the process flow is usually important to the API consumer as it affects the actions a user can take next.  RESTful APIs that embody process workflow **MUST** provide a mechanism for the API consumer to retrieve the current state of their process.
+In these cases the 'state' of the process flow is usually important to the API consumer as it affects the actions a user can take next.  <ApiStandard id="HNZAS_MUST_PROVIDE_PROCESS_STATE_MECHANISM" type="MUST" toolTip="RESTful APIs that embody process workflow MUST provide a mechanism for the API consumer to retrieve the current state of their process.">RESTful APIs that embody process workflow **MUST** provide a mechanism for the API consumer to retrieve the current state of their process.</ApiStandard>
 
 As process flows are typically very specific to the business solution domain an API is supporting, it is prudent to implement the specific state model and flow logic in a single logical component for ease of testing and maintenance.  This can be done by interposing a **service orchestrator** as illustrated below.  The service orchestrator takes care of dispatching requests to services appropriate for the current process position and keeping track of the overall process flow state.
 

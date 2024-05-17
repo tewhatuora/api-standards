@@ -341,7 +341,7 @@ health sector:
   information’s timeliness and update period clear to potential
   API consumers.
 
-- <ApiStandard id="HNZAS_SHOULD_NOT_USE_FOR_BATCH" type="SHOULD_NOT" toolTip="APIs SHOULD NOT be used for large batch transfers.">APIs should not be used to handle large batch transfers because of the atomic nature of the usage i.e. if one single data write fails then the whole batch fails.</ApiStandard> APIs work better for multiple individual update transactions.
+- <ApiStandard id="HNZAS_SHOULD_NOT_USE_API_FOR_BATCH" type="SHOULD_NOT" toolTip="APIs SHOULD NOT be used for large batch transfers.">APIs should not be used to handle large batch transfers because of the atomic nature of the usage i.e. if one single data write fails then the whole batch fails.</ApiStandard> APIs work better for multiple individual update transactions.
 
 ## Design Driven Development
 

@@ -32,16 +32,18 @@ determine how much resource data is returned in the response.
 
 ### Formats
 
-REST responses should be of a format which is both human and machine
-readable. Even if your initial consumer is via B2B, the API should be
-designed, where possible, for all potential consumers. REST APIs should,
-by default, return content in JSON format. But it is possible to
-support multiple message formats (e.g. XML, Multi-part MIME) and allow
-consuming applications to request the format they wish to consume (in
-line with the "Design for the Consumer" principle).
+<ApiStandard id="HNZAS_SHOULD_USE_HUMAN_MACHINE_READABLE_FORMAT" type="SHOULD" toolTip="REST responses SHOULD be of a format that is both human and machine-readable.">REST responses **SHOULD** be of a format which is both human and machine readable.</ApiStandard>
 
-The response format required from a GET request must be indicated by the
-consumer in their request using the Accept header. For example:
+Even if your initial consumer is via B2B, the API should be
+designed, where possible, for all potential consumers.
+
+<ApiStandard id="HNZAS_SHOULD_RETURN_JSON_BY_DEFAULT" type="SHOULD" toolTip="REST APIs SHOULD, by default, return content in JSON format.">REST APIs **SHOULD**, by default, return content in JSON format.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_SUPPORT_MULTIPLE_FORMATS" type="MAY" toolTip="APIs MAY support multiple message formats and allow consumers to request their preferred format.">But it is possible to support multiple message formats (e.g. XML, Multi-part MIME) and allow consuming applications to request the format they wish to consume (in line with the "Design for the Consumer" principle).</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." dupe="true">The response format required from a GET request **MUST** be indicated by the consumer in their request using the Accept header.</ApiStandard>
+
+For example:
 
 ```xml
 
@@ -95,8 +97,9 @@ Accept: application/xml
 </CrownPropertyResponseBody>
 ```
 
-The request format for a request containing a request body (POST, PUT,
-PATCH) must be supplied in the Content-Type request header. For example:
+<ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_FOR_NON_GET_FORMAT_REQUEST" type="MUST" toolTip="The request format for a request containing a request body (POST, PUT, PATCH) MUST be supplied in the Content-Type request header.">The request format for a request containing a request body (POST, PUT, PATCH) **MUST** be supplied in the Content-Type request header.</ApiStandard>
+
+For example:
 
 ```json
 # PUT (update) a resource
@@ -151,33 +154,33 @@ Accept: application/json
 }
 ```
 
-Where JSON format is used in responses, it must conform to the JSON
-Standard [RFC7159](https://tools.ietf.org/html/rfc7159). In
-line with this standard, textual content **SHOULD** be UTF-8 encoded by
-default, and any deviations from this must be limited.
+<ApiStandard id="HNZAS_MUST_CONFORM_TO_JSON_STANDARD" type="MUST" toolTip="Where JSON format is used in responses, it MUST conform to the JSON Standard RFC7159.">Where JSON format is used in responses, it **MUST** conform to the JSON Standard [RFC7159](https://tools.ietf.org/html/rfc7159).</ApiStandard>
 
-It is inadvisable to use APIs for returning binary data such as images
-in the response content; hyperlinks to images are the preferred returned
-response. But where images _are_ returned, ensure that the image
-encoding is MIME, HTTP Multipart.
+<ApiStandard id="HNZAS_SHOULD_USE_UTF8_ENCODING" type="SHOULD" toolTip="Textual content SHOULD be UTF-8 encoded by default, with deviations limited.">In line with this standard, textual content **SHOULD** be UTF-8 encoded by default, and any deviations from this must be limited.</ApiStandard>
 
-HTML is allowed, but is less flexible for consumer usage (e.g. how can
+<ApiStandard id="HNZAS_SHOULD_NOT_RETURN_BINARY_DATA" type="SHOULD_NOT" toolTip="APIs SHOULD NOT return binary data such as images; hyperlinks to images are preferred.">It is inadvisable to use APIs for returning binary data such as images in the response content; hyperlinks to images are the preferred returned response.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_USE_MIME_FOR_IMAGES" type="SHOULD" toolTip="Where images are returned, ensure the image encoding is MIME, HTTP Multipart.">But where images _are_ returned, ensure that the image encoding is MIME, HTTP Multipart.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_USE_HTML_RESPONSES" type="MAY" toolTip="HTML responses are allowed but not preferred.">HTML is allowed, but not preferred.</ApiStandard>
+
+HTML is less flexible for consumers (e.g. how can
 it be consumed by a native mobile app?), ties content to presentation
 and loses its benefits when building a single page application. It also
 reduces the ability to filter the content in transit for consumers who
 have fine grained control on what they can access. However, it may be
 necessary for some forms of API e.g. APIs with geospatial content.
 
-Avoid using bespoke formats in returned content.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_BESPOKE_FORMATS" type="SHOULD_NOT" toolTip="Avoid using bespoke formats in returned content.">Avoid using bespoke formats in returned content.</ApiStandard>
 
 **<span class="smallcaps">SHOULD</span>**
 
-Returned content format should be JSON by default.
+<ApiStandard id="HNZAS_SHOULD_RETURN_JSON_BY_DEFAULT" type="SHOULD" toolTip="REST APIs SHOULD, by default, return content in JSON format." dupe="true">Returned content format should be JSON by default.</ApiStandard>
 
 **<span class="smallcaps">MUST</span>**
 
-Requests for a specific return format must be defined in the Accept
-header.
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." dupe="true" wrapper="span">Requests for a specific return format must be defined in the Accept
+header (for GET requests)</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_FOR_NON_GET_FORMAT_REQUEST" type="MUST" toolTip="The request format for a request containing a request body (POST, PUT, PATCH) MUST be supplied in the Content-Type request header." dupe="true" wrapper="span">and in the Content-Type header (for other verbs).</ApiStandard>
 
 ### Layout
 

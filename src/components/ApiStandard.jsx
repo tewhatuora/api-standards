@@ -1,5 +1,5 @@
 import { parse } from "node-html-parser";
-import React from "react";
+import React, { useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import { Tooltip } from "react-tooltip";
 
@@ -23,7 +23,7 @@ const extractText = (Component) => {
  * <ApiStandard id="HNZAS_MUST_NOT_X_NOTATION_HEADERS" type="MUST_NOT" toolTip="API Providers **MUST NOT** used X-Notation headers, as they have been deprecated in the HTTP standard.">Providers **MUST NOT** use X- notation headers</ApiStandard>
  */
 
-function ApiStandard({ id, type, toolTip, children }) {
+function ApiStandard({ id, type, toolTip, dupe, wrapper, children }) {
   if (children === undefined) {
     throw new Error(
       "Error in rendering ApiStandard component; please check the format for " +
@@ -35,18 +35,31 @@ function ApiStandard({ id, type, toolTip, children }) {
     toolTip = extractText(children);
   }
 
+  dupe = dupe === undefined ? false : dupe;
+
+  const Component = wrapper === undefined ? "p" : wrapper;
+
+  const [tooltipContent, setTooltipContent] = useState(`
+    <div>
+      <p><strong>${id}</strong></p>
+      <p>${toolTip}</p>
+    </div>
+  `);
+
   return (
     <>
-      <p
+      <Component
+        type={wrapper}
         data-tooltip-id={id}
-        data-tooltip-content={id + ": " + toolTip}
+        data-tooltip-html={tooltipContent}
         id={id}
         data-standard-type={type}
         data-extended-text={toolTip}
+        data-duplicate={dupe}
       >
         {children}
         <Tooltip id={id} place="bottom" />
-      </p>
+      </Component>
     </>
   );
 }

@@ -23,7 +23,7 @@ function extractDataFromHTML(filePath, htmlContent) {
     const id = $element.attr("id");
 
     // Check for duplicate IDs
-    if (standardsIds.has(id)) {
+    if (standardsIds.has(id) && $element.attr("data-duplicate") !== "true") {
       throw new Error(`Duplicate Standards ID found: ${id}`);
     }
     if (!idFormatRegex.test(id)) {

@@ -8,49 +8,48 @@ title: "HTTP Headers"
 
 | **Header**                          | **Usage**                                                                                                                                                                      | **GET**                       | **POST**                              | **PUT**                               | **DELETE**                    |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------------------------------- | ------------------------------------- | ----------------------------- |
-| **Accept**                          | Indicates desired format of the response. If set to a value that cannot be supported by the server, API responds with 406 (not acceptable)                                     | **MUST**                      | **MUST**                               | **MUST**                               | N/A                           |
-| **Content-Type**                    | Indicates the format of the payload provided on the request. If not supported by the server, API responds with 415 (Unsupported Media Type)                                    | N/A                           | **MUST**                               | **MUST**                               | N/A                           |
-| **Authorization**                   | To provide authorization information – type and token, depending on authorization type. If token is not valid for the request, API responds with 401 (Unauthorized)            | **MUST**, unless a public API | **MUST**, unless a public API         | **MUST**, unless a public API         | **MUST**, unless a public API |
-| **Accept-Encoding**                 | Advertises what compression algorithm the consuming application is able to understand. If encoding not supported by the server, API responds with uncompressed response        | **SHOULD**                    | **SHOULD**, if response body expected | **SHOULD**, if response body expected | N/A                           |
-| **API Key Header**                  | Send the API Keys with every request. If keys are not valid, API response with 401 (Not authorised)                                                                            | **MUST**, if issued           | **MUST**, if issued                   | **MUST**, if issued                   | **MUST**, if issued           |
-| **If_Modified_Since/If-None-Match** | Makes the request conditional; the server will respond with the resource only if the specified condition is met. If condition is not met, API responds with 304 (Not Modified) | **SHOULD**                    | N/A                                   | N/A                                   | N/A                           |
-| **Request tracking Headers**        | Unique identifier that can be used to trace a request throughout its lifecycle                                                                                                 | **SHOULD**                    | **SHOULD**                            | **SHOULD**                            | **SHOULD**                    |
+| **Accept**                          | Indicates desired format of the response. If set to a value that cannot be supported by the server, API responds with 406 (not acceptable)                                     | <ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="GET requests MUST use the Accept header.">**MUST**</ApiStandard>                      | <ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the Accept header.">**MUST**</ApiStandard>                               | <ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the Accept header.">**MUST**</ApiStandard>                               | N/A                           |
+| **Content-Type**                    | Indicates the format of the payload provided on the request. If not supported by the server, API responds with 415 (Unsupported Media Type)                                    | N/A                           | <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the Content-type header.">**MUST**</ApiStandard>                               | <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the Content-type header.">**MUST**</ApiStandard>                              | N/A                           |
+| **Authorization**                   | To provide authorization information – type and token, depending on authorization type. If token is not valid for the request, API responds with 401 (Unauthorized)            | <ApiStandard id="HNZAS_MUST_USE_AUTHORIZATION_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="GET requests MUST use the Authorization header, unless a public API.">**MUST**, unless a public API</ApiStandard> | <ApiStandard id="HNZAS_MUST_USE_AUTHORIZATION_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the Authorization header, unless a public API.">**MUST**, unless a public API</ApiStandard>        | <ApiStandard id="HNZAS_MUST_USE_AUTHORIZATION_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the Authorization header, unless a public API.">**MUST**, unless a public API</ApiStandard>        | <ApiStandard id="HNZAS_MUST_USE_AUTHORIZATION_HEADER_FOR_DELETE_REQUEST" type="MUST" toolTip="DELETE requests MUST use the Authorization header, unless a public API.">**MUST**, unless a public API</ApiStandard> |
+| **Accept-Encoding**                 | Advertises what compression algorithm the consuming application is able to understand. If encoding not supported by the server, API responds with uncompressed response        | <ApiStandard id="HNZAS_SHOULD_USE_ACCEPT_ENCODING_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="GET requests SHOULD use the Accept-Encoding header.">**SHOULD**</ApiStandard>                   | <ApiStandard id="HNZAS_SHOULD_USE_ACCEPT_ENCODING_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests SHOULD use the Accept-Encoding header.">**SHOULD**, if response body expected</ApiStandard> |<ApiStandard id="HNZAS_SHOULD_USE_ACCEPT_ENCODING_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests SHOULD use the Accept-Encoding header.">**SHOULD**, if response body expected</ApiStandard> | N/A                           |
+| **API Key Header**                  | Send the API Keys with every request. If keys are not valid, API response with 401 (Not authorised)                                                                            | <ApiStandard id="HNZAS_MUST_USE_API_KEY_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="GET requests MUST use the API Key header, if issued.">**MUST**, if issued</ApiStandard>           | <ApiStandard id="HNZAS_MUST_USE_API_KEY_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the API Key header, if issued.">**MUST**, if issued</ApiStandard>                   | <ApiStandard id="HNZAS_MUST_USE_API_KEY_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the API Key header, if issued.">**MUST**, if issued</ApiStandard>                | <ApiStandard id="HNZAS_MUST_USE_API_KEY_HEADER_FOR_DELETE_REQUEST" type="MUST" toolTip="DELETE requests MUST use the API Key header, if issued.">**MUST**, if issued</ApiStandard>           |
+| **If_Modified_Since/If-None-Match** | Makes the request conditional; the server will respond with the resource only if the specified condition is met. If condition is not met, API responds with 304 (Not Modified) | <ApiStandard id="HNZAS_SHOULD_USE_CONDITIONAL_HEADERS_FOR_GET_REQUEST" type="SHOULD" toolTip="GET requests SHOULD use the If_Modified_Since/If-None-Match header.">**SHOULD**</ApiStandard>                    | N/A                                   | N/A                                   | N/A                           |
+| **Request tracking Headers**        | Unique identifier that can be used to trace a request throughout its lifecycle                                                                                                 | <ApiStandard id="HNZAS_SHOULD_USE_REQUEST_TRACKING_HEADER_FOR_GET_REQUEST" type="SHOULD" toolTip="GET requests SHOULD use a request tracking header to trace a request throughout its lifecycle.">**SHOULD**</ApiStandard>                    | <ApiStandard id="HNZAS_SHOULD_USE_REQUEST_TRACKING_HEADER_FOR_POST_REQUEST" type="SHOULD" toolTip="POST requests SHOULD use a request tracking header to trace a request throughout its lifecycle.">**SHOULD**</ApiStandard>                            | <ApiStandard id="HNZAS_SHOULD_USE_REQUEST_TRACKING_HEADER_FOR_PUT_REQUEST" type="SHOULD" toolTip="PUT requests SHOULD use a request tracking header to trace a request throughout its lifecycle.">**SHOULD**</ApiStandard>                            | <ApiStandard id="HNZAS_SHOULD_USE_REQUEST_TRACKING_HEADER_FOR_DELETE_REQUEST" type="SHOULD" toolTip="DELETE requests SHOULD use a request tracking header to trace a request throughout its lifecycle.">**SHOULD**</ApiStandard>                    |
 
 ## Response Headers
 
 | **Response Headers** | **Usage**                                                                            | **GET**                   | **POST**                            | **PUT**                             | **DELETE** |
 | -------------------- | ------------------------------------------------------------------------------------ | ------------------------- | ----------------------------------- | ----------------------------------- | ---------- |
-| **Content-Type**     | Indicates the format type of the response                                            | **MUST**                  | **MUST**, if response body returned | **MUST**, if response body returned | N/A        |
-| **Location**         | Indicates the absolute URI of the newly created resource item                        | **MUST** for 302 redirect | **SHOULD**, if resource created     | N/A                                 | N/A        |
-| **Content-Location** | Indicates the absolute URI of the requested resource                                 | **SHOULD**                | **SHOULD**, if resource returned    | **SHOULD**                          | N/A        |
-| **Cache-Control**    | Directives to control caching behaviour external to the API layer (e.g. CDN caching) | **SHOULD**                | **SHOULD**                          | **SHOULD**                          | N/A        |
-| **Expires**          | Used in conjunction with Cache-Control for backwards compatibility                   | **SHOULD**                | **SHOULD**                          | **SHOULD**                          | N/A        |
-| **ETag**             | Concurrency control header                                                           | **SHOULD**                | **SHOULD**                          | **SHOULD**                          | **SHOULD** |
+| **Content-Type**     | Indicates the format type of the response                                            | **MUST**                  | <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_POST_RESPONSE" type="MUST" toolTip="POST requests MUST use a Content-type header.">**MUST**, if response body returned</ApiStandard> | <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_PUT_RESPONSE" type="MUST" toolTip="PUT requests MUST use a Content-type header.">**MUST**, if response body returned</ApiStandard> | N/A        |
+| **Location**         | Indicates the absolute URI of the newly created resource item                        | <ApiStandard id="HNZAS_MUST_USE_LOCATION_HEADER_FOR_GET_RESPONSE" type="MUST" toolTip="GET requests MUST use a Location header.">**MUST** for 302 redirect</ApiStandard> | <ApiStandard id="HNZAS_SHOULD_USE_LOCATION_HEADER_FOR_POST_RESPONSE" type="SHOULD" toolTip="POST requests SHOULD use a Location header.">**SHOULD**, if resource created</ApiStandard>   | N/A                                 | N/A        |
+| **Content-Location** | Indicates the absolute URI of the requested resource                                 | <ApiStandard id="HNZAS_SHOULD_USE_CONTENT_LOCATION_HEADER_FOR_GET_RESPONSE" type="SHOULD" toolTip="GET requests SHOULD use a Content-Location header.">**SHOULD**</ApiStandard>              | <ApiStandard id="HNZAS_SHOULD_USE_CONTENT_LOCATION_HEADER_FOR_POST_RESPONSE" type="SHOULD" toolTip="POST requests SHOULD use a Content-Location header.">**SHOULD**, if resource returned</ApiStandard>    | <ApiStandard id="HNZAS_SHOULD_USE_CONTENT_LOCATION_HEADER_FOR_PUT_RESPONSE" type="SHOULD" toolTip="PUT requests SHOULD use a Content-Location header.">**SHOULD**</ApiStandard>                      | N/A        |
+| **Cache-Control**    | Directives to control caching behaviour external to the API layer (e.g. CDN caching) | <ApiStandard id="HNZAS_SHOULD_USE_CACHE_CONTROL_HEADER_FOR_GET_RESPONSE" type="SHOULD" toolTip="GET requests SHOULD use a Cache-Control header.">**SHOULD**</ApiStandard>               | <ApiStandard id="HNZAS_SHOULD_USE_CACHE_CONTROL_HEADER_FOR_POST_RESPONSE" type="SHOULD" toolTip="POST requests SHOULD use a Cache-Control header.">**SHOULD**</ApiStandard>                        | <ApiStandard id="HNZAS_SHOULD_USE_CACHE_CONTROL_HEADER_FOR_PUT_RESPONSE" type="SHOULD" toolTip="PUT requests SHOULD use a Cache-Control header.">**SHOULD**</ApiStandard>                          | N/A        |
+| **Expires**          | Used in conjunction with Cache-Control for backwards compatibility                   | <ApiStandard id="HNZAS_SHOULD_USE_EXPIRES_HEADER_FOR_GET_RESPONSE" type="SHOULD" toolTip="GET requests SHOULD use an Expires header.">**SHOULD**</ApiStandard>                | <ApiStandard id="HNZAS_SHOULD_USE_EXPIRES_HEADER_FOR_POST_RESPONSE" type="SHOULD" toolTip="POST requests SHOULD use an Expires header.">**SHOULD**</ApiStandard>                         | <ApiStandard id="HNZAS_SHOULD_USE_EXPIRES_HEADER_FOR_PUT_RESPONSE" type="SHOULD" toolTip="PUT requests SHOULD use an Expires header.">**SHOULD**</ApiStandard>                        | N/A        |
+| **ETag**             | Concurrency control header                                                           | <ApiStandard id="HNZAS_SHOULD_USE_ETAG_HEADER_FOR_GET_RESPONSE" type="SHOULD" toolTip="GET requests SHOULD use an ETag header.">**SHOULD**</ApiStandard>                | <ApiStandard id="HNZAS_SHOULD_USE_ETAG_HEADER_FOR_POST_RESPONSE" type="SHOULD" toolTip="POST requests SHOULD use an ETag header.">**SHOULD**</ApiStandard>                         | <ApiStandard id="HNZAS_SHOULD_USE_ETAG_HEADER_FOR_PUT_RESPONSE" type="SHOULD" toolTip="PUT requests SHOULD use an ETag header.">**SHOULD**</ApiStandard>                        | <ApiStandard id="HNZAS_SHOULD_USE_ETAG_HEADER_FOR_DELETE_RESPONSE" type="SHOULD" toolTip="DELETE requests SHOULD use an ETag header.">**SHOULD**</ApiStandard> |
 
 ## Custom X-HTTP Headers
 
-`X-` notation headers have been deprecated as per
-[RFC6648](https://tools.ietf.org/html/rfc6648) and should be avoided where possible. This standard appreciates that `X-` notation headers are widely
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">X- notation headers have been deprecated as per [RFC6648](https://tools.ietf.org/html/rfc6648) and **SHOULD NOT** be used, if possible.</ApiStandard> This standard appreciates that `X-` notation headers are widely
 used however this document recommends that the `X-` notation not be used when defining your own custom headers and instead define
 a custom header notation that is relevant. For example, _X-Request-Id_ could be redefined as _Request-Id_.
 
 ## Request Header Detail
 
-<ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_HEADERS" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept', 'Content-Type', and 'Authorization'.">Request headers are supplied by the consuming application and **MUST** include the following elements.</ApiStandard>
+Request headers are supplied by the consuming application and **MUST** include the following elements:
 
-- Accept
+- <ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_ACCEPT_HEADER" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept'.">Accept</ApiStandard>
 
-- Content-Type
+- <ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_CONTENT_TYPE_HEADER" type="MUST" toolTip="Request headers from consuming applications MUST include 'Content-Type'.">Content-Type</ApiStandard>
 
-- Authorization
+- <ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_AUTHORIZATION_HEADER" type="MUST" toolTip="Request headers from consuming applications MUST include 'Authorization'.">Authorization.</ApiStandard>
 
 For many years Header definitions could be found in [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). RFC2616 is now obsolete and has been superseded by a series of RFC documents RFC9110-RFC9114. For specific HTTP header information you should refer to [RFC9110 - HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110.html)
 
 ### Accept
 
-**<span class="smallcaps">MUST</span>**
+<ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_ACCEPT_HEADER" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept'." dupe="true">**MUST**</ApiStandard>
 
-<ApiStandard id="HNZAS_MUST_REQUIRE_ACCEPT_HEADER" type="MUST" toolTip="The 'Accept' header MUST be specified to indicate the desired data format (e.g., JSON, XML).">An Accept header is **REQUIRED** to indicate what format the consuming application wants the information to be returned as (e.g. JSON or XML).</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER" type="MUST" toolTip="The 'Accept' header MUST be specified to indicate the desired data format (e.g., JSON, XML).">An Accept header is **REQUIRED** to indicate what format the consuming application wants the information to be returned as (e.g. JSON or XML).</ApiStandard>
 <ApiStandard id="HNZAS_SHOULD_SPECIFY_RESPONSE_TYPE" type="SHOULD" toolTip="Consuming applications SHOULD specify the expected response content type.">It is preferable for the consuming application to specify the response content type that they expect.</ApiStandard>
 <ApiStandard id="HNZAS_MAY_USE_Q_PARAMETER" type="MAY" toolTip="It is acceptable to use the 'q' parameter to specify the quality of support for response content-type.">However it is acceptable to use the _‘q’_ parameter to specify the quality of support.</ApiStandard>
 
@@ -67,13 +66,9 @@ Accept: application/json;q=1.0,application/xml;q=0.8,version=1.\*
 Accept: application/xml;q=1.0,application/json;q=0.0,version=1.2
 ```
 
-If the client has specified via the Accept header that it doesn’t
-support any formats provided by the API, the server **MUST** return an
-HTTP 406 Not Acceptable response. The response **SHOULD** also include a
-Link header with a link to documentation or help on supported formats.
-The body of the representation **SHOULD** include an error message in human
-readable plain text or HTML.
-
+<ApiStandard id="HNZAS_MUST_RETURN_406_IF_UNSUPPORTED" type="MUST" toolTip="If the API's formats aren't supported as specified by the Accept header, the server MUST return HTTP 406 Not Acceptable.">If the client has specified via the Accept header that it doesn’t support any formats provided by the API, the server **MUST** return an HTTP 406 Not Acceptable response.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_INCLUDE_LINK_HEADER_WITH_406_RESPONSE" type="SHOULD" toolTip="406 responses SHOULD include a Link header to documentation or help on supported formats.">The response **SHOULD** also include a Link header with a link to documentation or help on supported formats.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_INCLUDE_ERROR_MESSAGE_IN_406_RESPONSE" type="SHOULD" toolTip="The body of a 406 response SHOULD include an error message in human readable plain text or HTML.">The body of the representation **SHOULD** include an error message in human readable plain text or HTML.</ApiStandard>
 **<span class="smallcaps">Example Response</span>**
 
 ```bash
@@ -96,7 +91,7 @@ some cases technology choice.
 **<span class="smallcaps">Required</span>**
 
 The Content-Type header is required for all requests that include a
-request body i.e. POST, PUT, DELETE.
+request body i.e. <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the Content-type header." dupe="true" wrapper="span">POST</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the Content-type header." dupe="true" wrapper="span">PUT</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_DELETE_REQUEST" type="MUST" toolTip="DELETE requests MUST use the Content-type header." dupe="true" wrapper="span">DELETE</ApiStandard>.
 
 **<span class="smallcaps">Example</span>**
 
@@ -156,7 +151,9 @@ Authorization: Bearer x6TLB4JaomezC5rJ3CIl3KxxNinq
 
 **<span class="smallcaps">MUST</span>**
 
-Most API requests will be authorised. The Authorization header should be used for this purpose and no other. If an [API Key Header](#api-key-header) is not used, then the Authorization token **MUST** be used to identify the API Consumer using an attribute within the token.
+Most API requests will be authorised. The Authorization header should be used for this purpose and no other.
+
+<ApiStandard id="HNZAS_MUST_USE_AUTH_TOKEN_FOR_IDENTITY_IF_NO_API_KEY" type="MUST" toolTip="If an API Key Header is not used, the Authorization token MUST be used to identify the API Consumer using an attribute within the token.">If an [API Key Header](#api-key-header) is not used, then the Authorization token **MUST** be used to identify the API Consumer using an attribute within the token.</ApiStandard>
 
 Note that the Authorization header is not the best place for an API Key.
 
@@ -200,10 +197,11 @@ compressed responses.
 
 **<span class="smallcaps">MUST</span>**
 
-An API key issued to a consuming application **MUST** be sent with every
-request made to the API, if the API uses this mechanism to identify the client. The name of the header is up to the API provider, but
-it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated. Sometimes API keys are passed in URIs; however, this is not
-considered best practice and **SHOULD** be avoided.
+<ApiStandard id="HNZAS_MUST_SEND_API_KEY_IF_USED_FOR_IDENTITY" type="MUST" toolTip="An API key issued to a consuming application MUST be sent with every request if the API uses this mechanism to identify the client.">An API key issued to a consuming application **MUST** be sent with every request made to the API, if the API uses this mechanism to identify the client.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648." dupe="true">The name of the header is up to the API provider, but it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_API_KEYS_IN_URIS" type="SHOULD_NOT" toolTip="API keys SHOULD NOT be passed in URIs as it is not considered best practice.">Sometimes API keys are passed in URIs; however, this is not considered best practice and **SHOULD NOT** be done.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
@@ -214,9 +212,11 @@ considered best practice and **SHOULD** be avoided.
 **<span class="smallcaps">SHOULD</span>**
 
 The If-Modified header is a pre-condition header used to instruct a
-client on the validity of the resource requested. Note that
-pre-condition handling is not required, but where appropriate should be
-considered. Pre-condition control can be a complex topic so in some
+client on the validity of the resource requested.
+
+<ApiStandard id="HNZAS_SHOULD_CONSIDER_PRECONDITION_HANDLING" type="SHOULD" toolTip="Pre-condition If-Modified-Since/If-None-Match handling is not required but SHOULD be considered where appropriate.">Note that pre-condition handling is not required, but where appropriate **SHOULD** be considered.</ApiStandard>
+
+Pre-condition control can be a complex topic so in some
 cases the complexity may eclipse the value.
 
 Conditional header standards are available in [Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-conditional-requests)
@@ -229,8 +229,8 @@ consuming application that the resource they requested has not changed
 and therefore there is no need to return the full payload in the
 response.
 
-When using If-Modified headers you should also implement ETag as
-discussed in the [ETag section](#etag-entity-tag).
+<ApiStandard id="HNZAS_SHOULD_IMPLEMENT_ETAG_WITH_IF_MODIFIED" type="SHOULD" toolTip="When using If-Modified headers, you SHOULD also implement ETag as discussed in the ETag section.">When using If-Modified headers you should also implement ETag as
+discussed in the [ETag section](#etag-entity-tag).</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
@@ -258,9 +258,7 @@ Content-Length: 0
 
 **<span class="smallcaps">MUST</span>**
 
-To support the tracking of API requests it is a good idea to apply a
-transaction ID header that will enable analysts to trace a request
-throughout its lifecycle. Note: there is no set naming standard for a
+<ApiStandard id="HNZAS_MUST_USE_TRANSACTION_ID" type="MUST" toolTip="To support tracking of API requests, you MUST apply a transaction ID header for tracing requests throughout their lifecycle.">To support the tracking of API requests it is a good idea to apply a transaction ID header that will enable analysts to trace a request throughout its lifecycle.</ApiStandard> Note: there is no set naming standard for a
 transaction ID header.
 
 There are two common approaches to this: one is to request that the
@@ -298,24 +296,21 @@ Response headers are supplied by the API Provider:
 
 **<span class="smallcaps">MUST</span>**
 
-The Content-Type must be returned in the response, and indicate the
-format type the response content is in e.g. Content-Type:
-application/json. The Content-Type header should also include the
-version of the API that processed the request e.g. Content-Type:
-application/json,version=1.1
+<ApiStandard id="HNZAS_MUST_RETURN_CONTENT_TYPE" type="MUST" toolTip="The Content-Type header MUST be returned in the response, indicating the format type of the response content.">The Content-Type **MUST** be returned in the response, and indicate the format type the response content is in e.g. Content-Type: application/json.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_INCLUDE_API_VERSION_IN_CONTENT_TYPE" type="SHOULD" toolTip="The Content-Type header SHOULD include the API version that processed the request, e.g., application/json,version=1.1.">The Content-Type header **SHOULD** also include the version of the API that processed the request e.g. Content-Type: application/json,version=1.1.</ApiStandard>
 
 ### Location
 
 **<span class="smallcaps">MUST (201, 30X)</span>**
 
-Where a new resource item has been created (POST), the server **MUST**
-respond with a 201 Created HTTP header and a Location header indicating
-the URI of the newly created resource item e.g: `Location: https://api.example.govt.nz/v1/alerts/198373`
+<ApiStandard id="HNZAS_MUST_RETURN_LOCATION_WITH_201" type="MUST" toolTip="When a new resource is created (POST), the server MUST respond with a 201 Created status and a Location header indicating the URI of the new resource.">Where a new resource item has been created (POST), the server **MUST** respond with a 201 Created HTTP header and a Location header indicating the URI of the newly created resource item.</ApiStandard>
 
-A location header **MUST** also be returned by a server when it sends a
-30X HTTP response, indicating a temporary or permanent redirection.
+E.g: `Location: https://api.example.govt.nz/v1/alerts/198373`
 
-A location header **MUST** be absolute e.g: `Location: https://api.example.govt.nz/v1/alerts/198373`
+<ApiStandard id="HNZAS_MUST_RETURN_LOCATION_WITH_30X" type="MUST" toolTip="A Location header MUST be returned by a server when it sends a 30X HTTP response, indicating a temporary or permanent redirection.">A Location header **MUST** also be returned by a server when it sends a 30X HTTP response, indicating a temporary or permanent redirection.</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_USE_ABSOLUTE_LOCATION_HEADER" type="MUST" toolTip="A Location header MUST be absolute, e.g., Location: https://api.example.govt.nz/v1/alerts/198373.">A location header **MUST** be absolute e.g: `Location: https://api.example.govt.nz/v1/alerts/198373`.</ApiStandard>
 
 Location headers should not be relative e.g: `Location: /v1/crown-property/198373`
 
@@ -323,8 +318,7 @@ Location headers should not be relative e.g: `Location: /v1/crown-property/19837
 
 **<span class="smallcaps">SHOULD</span>**
 
-The Content-Location header indicates the location of the requested
-resource. It should be an absolute and not a relative link.
+<ApiStandard id="HNZAS_SHOULD_USE_CONTENT_LOCATION" type="MUST" toolTip="The Content-Location header SHOULD indicate the absolute location of the requested resource.">The Content-Location header **SHOULD** indicate the location of the requested resource and be an absolute link.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
@@ -350,8 +344,9 @@ Content-Location: https://api.example.govt.nz/v1/alerts/198373
 
 **<span class="smallcaps">MUST</span>**
 
-It is important to consider caching when designing APIs, to ensure that
-the APIs you build can perform at scale. The Cache-Control header is
+<ApiStandard id="HNZAS_MUST_USE_CACHE_CONTROL" type="MUST" toolTip="The Cache-Control header MUST be used to ensure APIs can perform at scale.">To ensure that the APIs you build can perform at scale, the Cache-Control header **MUST** be used.</ApiStandard>
+
+The Cache-Control header is
 only concerned with caching that occurs externally to the API layer.
 Common examples may be client-side caching or caching within a Content
 Delivery Network (CDN). This header should not be concerned with caching
@@ -406,8 +401,7 @@ HTTP Cache Control standards can be found in [Hypertext Transfer Protocol (HTTP/
 
 **<span class="smallcaps">SHOULD</span>**
 
-When using Cache-Control you should include an Expires header in the
-response for backward compatibility.
+<ApiStandard id="HNZAS_SHOULD_INCLUDE_EXPIRES_WITH_CACHE_CONTROL" type="SHOULD" toolTip="When using Cache-Control, you SHOULD include an Expires header in the response for backward compatibility.">When using Cache-Control you **SHOULD** include an Expires header in the response for backward compatibility.</ApiStandard>
 
 ### ETag (Entity Tag)
 
@@ -429,9 +423,7 @@ ETag: "686897696a7c876b7e"
 
 ## Custom X- HTTP Headers
 
-`X-` notation headers have been deprecated as per
-[RFC6648](https://tools.ietf.org/html/rfc6648) and should not
-be used. This is because the `X-` name often became a standard, making the
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648." dupe="true">X- notation headers have been deprecated as per [RFC6648](https://tools.ietf.org/html/rfc6648) and **SHOULD NOT** be used, if possible.</ApiStandard> This is because the `X-` name often became a standard, making the
 `X-notation` inaccurate (e.g. `x-gzip` became `gzip`) and requiring support
 for both the `X-` and the `non-X-` notation. Common uses of the `X-` headers
 are examples such as the `X-HTTP-Method-Override` header or the
