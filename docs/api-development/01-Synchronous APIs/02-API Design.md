@@ -156,7 +156,7 @@ specifications are available for reference [here](../../api-specifications/examp
 
 ### Future-Focused Design
 
-APIs should avoid exposing obsolete or legacy structures or functions.
+<ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_OBSOLETE_STRUCTURES" type="SHOULD">APIs **SHOULD NOT** expose obsolete or legacy structures or functions.</ApiStandard>
 
 Good API design seeks to avoid future breakage in dependent consumer applications by minimising functions, data structures and behaviour exposed, while planning for (at least signalling) foreseeable future change.  
 
@@ -334,28 +334,18 @@ health sector:
   REST API, e.g. one-to-many. In some cases however a GraphQL
   API may be appropriate and is supported by this document. REST APIs
   are widely understood, easier to govern and suitable for most
-  interoperability use cases. It is also important to note here that
-  if there is an appropriate resource in the Fast Health
-  Interoperability Resource (FHIR) standard then a FHIR approach
-  should be considered. See this documents [FHIR API Guidance](../../fhir-api-standard)
+  interoperability use cases. <ApiStandard id="HNZAS_SHOULD_USE_FHIR" type="SHOULD" toolTip="If a relevant resource exists in the FHIR standard, a FHIR approach SHOULD be considered.">It is also important to note here that if there is an appropriate resource in the Fast Health Interoperability Resource (FHIR) standard then a FHIR approach **SHOULD** be considered.</ApiStandard> See this documents [FHIR API Guidance](../../fhir-api-standard)
 
 - The information supplied via an API may still be dependent on
   overnight batch processes for update. It is worth making the
   information’s timeliness and update period clear to potential
   API consumers.
 
-- APIs should not be used to handle large batch transfers because of
-  the atomic nature of the usage i.e. if one single data write fails
-  then the whole batch fails. APIs work better for multiple individual
-  update transactions.
+- <ApiStandard id="HNZAS_SHOULD_NOT_USE_FOR_BATCH" type="SHOULD_NOT" toolTip="APIs SHOULD NOT be used for large batch transfers.">APIs should not be used to handle large batch transfers because of the atomic nature of the usage i.e. if one single data write fails then the whole batch fails.</ApiStandard> APIs work better for multiple individual update transactions.
 
 ## Design Driven Development
 
-:::tip[Guidance]
-MUST
-:::
-
-When building APIs, a Design Driven Approach must be taken.
+<ApiStandard id="HNZAS_MUST_USE_DESIGN_DRIVEN_APPROACH" type="MUST">When building APIs, a Design Driven Approach **MUST** be taken.</ApiStandard>
 
 This includes:
 
@@ -553,7 +543,5 @@ Some examples of health sector specific SDKs include:
 | [Microsoft Azure Healthcare API SDK](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/healthcare-apis?view=azure-dotnet) | The Microsoft Azure Healthcare API SDK is a collection of tools and libraries that help you build healthcare applications on Microsoft Azure. The SDK includes APIs for managing patient data, scheduling appointments, and billing. |
 | [Amazon Web Services (AWS) Health API SDK](https://docs.aws.amazon.com/health/latest/ug/health-api.html) | The AWS Health API SDK is a collection of tools and libraries that help you build healthcare applications on Amazon Web Services (AWS). The SDK includes APIs for managing patient data, scheduling appointments, and billing. |
 
-Once an API is in sufficient state to be offered to API consumers, the
-API definition should be published to the Health NZ API Marketplace or equivalent health sector capability. The primary API
-discoverer is the developer, so an external API must be well documented,
-and provide accurate and up-to-date guidance via the catalogue.
+<ApiStandard id="HNZAS_SHOULD_PUBLISH_API_DEFINITION" type="SHOULD" toolTip="Publish API definitions to the Health NZ API Marketplace or similar platforms once ready for consumption.">Once an API is in sufficient state to be offered to API consumers, the API definition **SHOULD** be published to the Health NZ API Marketplace or equivalent health sector capability.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_DOCUMENT_EXTERNAL_API" type="MUST" toolTip="External APIs MUST be thoroughly documented and updated in the API catalogue.">The primary API discoverer is the developer, so an external API **MUST** be well documented, and provide accurate and up-to-date guidance via the catalogue.</ApiStandard>

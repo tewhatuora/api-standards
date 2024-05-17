@@ -4,7 +4,7 @@ title: "HTTP Verbs"
 
 
 
-Access to REST APIs **MUST** be via the standard HTTP verbs: GET, PUT, POST, DELETE in line with the [<u>W3C Standard</u>](https://www.w3.org/2001/tag/doc/whenToUseGet.html) namely:
+<ApiStandard id="HNZAS_MUST_USE_HTTP_VERBS" type="MUST" toolTip="Access to REST APIs MUST use standard HTTP verbs: GET, PUT, POST, DELETE as per W3C standards.">Access to REST APIs **MUST** be via the standard HTTP verbs: GET, PUT, POST, DELETE in line with the [<u>W3C Standard</u>](https://www.w3.org/2001/tag/doc/whenToUseGet.html)</ApiStandard>
 
 | Verb  | Common Usage|
 | :---------- | :------------ |
