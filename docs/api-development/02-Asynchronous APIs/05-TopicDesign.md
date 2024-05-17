@@ -19,9 +19,9 @@ When a topic is defined, multiple "levels" may be defined, which are separated b
 
 <ApiStandard id="HNZAS_MUST_TOPIC_SEPARATION" type="MUST" toolTip="Different topic items MUST be separated by a `/`." >Different topic items **MUST** be separated by a `/` as opposed to any form of concatenation such as `{domain}-{action}` to support subscription filtering across different consumption protocols.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_TOPIC_LOWERCASE" type="MUST" toolTip="Topics SHOULD be lowercase." >Topics are case-sensitive in most message broker technologies, so using lower case is **RECOMMENDED**.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_TOPIC_LOWERCASE" type="SHOULD" toolTip="Topics SHOULD be lowercase." >Topics are case-sensitive in most message broker technologies, so using lower case is **RECOMMENDED**.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_TOPIC_SPECIAL_CHARS" type="MUST" toolTip="Topics SHOULD avoid using any special characters." >It is **RECOMMENDED** to avoid using any special characters as these often have a reserved use in some messaging protocols and message broker implementations, which are often not defined in protocol specifications (e.g. `$SYS/monitor/+` as a system monitoring topic).</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_TOPIC_SPECIAL_CHARS" type="SHOULD" toolTip="Topics SHOULD avoid using any special characters." >It is **RECOMMENDED** to avoid using any special characters as these often have a reserved use in some messaging protocols and message broker implementations, which are often not defined in protocol specifications (e.g. `$SYS/monitor/+` as a system monitoring topic).</ApiStandard>
 
 In general, the below topic design can be used, or expanded for each use case - for example, to add a sub-identifier:
 
@@ -66,7 +66,7 @@ When this topic hierarchy is shared amongst more events, this allows consistency
 
 <ApiStandard id="HNZAS_SHOULD_BROKER_FHIR" type="SHOULD" toolTip="A message producer for systems implementing the FHIR Standard, the FHIR Subscriptions Model SHOULD be the preferred mechanism to manage this subscription." >For systems implementing the FHIR Standard, the FHIR Subscriptions Model **SHOULD** be the preferred mechanism to manage this subscription.</ApiStandard>
 
-<ApiStandard id="HNZAS_MUST_WILDCARD_TOPIC" type="MUST" toolTip="An API Provider **MUST** support the ability for an API Consumer to subscribe to topics using wildcards." >An API Provider **MUST** support the ability for an API Consumer to subscribe to topics using wildcards.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_WILDCARD_TOPIC" type="MUST" toolTip="An API Provider MUST support the ability for an API Consumer to subscribe to topics using wildcards." >An API Provider **MUST** support the ability for an API Consumer to subscribe to topics using wildcards.</ApiStandard>
 
 Different messaging protocols will support different wildcard characters, for example, MQTT uses `+` for a single level wildcard and `#` for a multi-level wildcard, however other implementations use `*` and `>`.
 
