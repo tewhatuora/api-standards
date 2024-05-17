@@ -83,7 +83,9 @@ API Providers may hold multiple responsibilities which can result in overlapping
 
 <ApiStandard id="HNZAS_SHOULD_NAME_RESOURCES_SIMPLY" type="SHOULD" toolTip="Resource names should be short, simple, and guessable, avoiding complex terms.">Resource naming **SHOULD** be short, simple, and clearly understandable. It **SHOULD** also be human-guessable, avoiding technical or specialist terms where possible.</ApiStandard>
 
-<ApiStandard id="HNZAS_MUST_LIMIT_SUBRESOURCE_DEPTH" type="MUST" toolTip="Sub-resources must not exceed three levels deep in the hierarchy.">Sub-resources **MUST** appear under the resource they relate to, but **SHOULD** go no more than three deep i.e. /resource/id/sub-resource/id/sub-sub-resource.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_NEST_SUBRESOURCES" type="MUST" toolTip="Sub-resources must appear under the resource they relate to.">Sub-resources **MUST** appear under the resource they relate to, i.e. /resource/id/sub-resource/id</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_LIMIT_SUBRESOURCE_DEPTH" type="SHOULD" toolTip="Sub-resources should not exceed three levels deep in the hierarchy.">Sub-resources **SHOULD** go no more than three deep i.e. /resource/id/sub-resource/id/sub-sub-resource.</ApiStandard>
 
 If you reach a third
 level of granularity (sub-sub-resource), it may be worth reviewing your
@@ -142,7 +144,7 @@ Query arguments are generally used for:
   acts as a filter and limits the result set returned. This is
   particularly useful with large response data sets.
   
-  <ApiStandard id="HNZAS_DOCUMENT_PAGINATION_LINK_LOCATIONS" type="SHOULD" toolTip="Documentation should detail locations of previous and next result sets in paginated responses.">When using pagination, the documentation **SHOULD** inform the consumer where they can find previous and subsequent result sets using hypermedia as discussed in [the HATEOS](./Content#hateoas) section of this document.</ApiStandard>
+  <ApiStandard id="HNZAS_SHOULD_GIVE_PAGINATION_LINKS" type="SHOULD" toolTip="Response SHOULD detail locations of previous and next result sets using hypermedia (HATEOS).">When using pagination, the response **SHOULD** inform the consumer where they can find previous and subsequent result sets using hypermedia as discussed in [the HATEOS](./Content#hateoas) section of this document.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
