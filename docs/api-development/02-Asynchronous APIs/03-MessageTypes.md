@@ -15,7 +15,10 @@ The message body contains the detail of the event we want to publish.
 ### Event notification (Thin events)
 
 This message type is often referred to as a `thin` message - as it will contain no data or the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
-Thin events may include a pointer (URL or similar identifier) back to the specific resource that initiated the notification. If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time}`.
+
+<ApiStandard id="HNZAS_MAY_INCLUDE_THIN_POINTER" type="MAY" toolTip="Asynchronous thin events MAY include a pointer." >Thin events **MAY** include a pointer (URL or similar identifier) back to the specific resource that initiated the notification.</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_THIN_DATASOURCE" type="MUST" toolTip="Asynchronous thin events MUST ensure the data source allows subscribers to query specifically for the resources that have changed." >If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time}`.</ApiStandard>
 
 Example event notification:
 
@@ -327,7 +330,6 @@ When not following a specification that defines mandatory event metadata such as
 | Content-Type      | `application/json`   | Indicates the content type of the message |
 | Correlation-Id   | `63841126-0aba-4e21-adbe-fa21279e83b2`  | Unique identifier for the interaction |
 | Event-Id | `54e7587e-5a38-4c85-94cb-96cc9570a19f` | Unique identifier for this event, used for idempotency |
-
 
 For further reading on message types, please refer to:
 
