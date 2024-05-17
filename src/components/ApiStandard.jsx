@@ -41,8 +41,8 @@ function ApiStandard({ id, type, toolTip, dupe, wrapper, children }) {
 
   const [tooltipContent, setTooltipContent] = useState(`
     <div>
-      <p><strong>${id}</strong></p>
-      <p>${toolTip}</p>
+      <div><strong>${id}</strong></div>
+      <div>${toolTip}</div>
     </div>
   `);
 

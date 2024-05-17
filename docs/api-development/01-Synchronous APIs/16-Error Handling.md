@@ -8,8 +8,12 @@ Error handling is important because API consumers see the API as a black
 box, and when an error occurs they need to know how to handle it. Hence
 error responses need to be informative yet avoid information leakage
 about the internals of the back-end system. Errors should be handled in
-both a human and machine-consumable way. When an error occurs, the
+both a human and machine-consumable way.
+
+<ApiStandard id="HNZAS_MUST_INCLUDE_ERROR_DETAILS_IN_RESPONSE_BODY" type="MUST" toolTip="When an error occurs, the response body MUST contain the HTTP status code, an API-specific error code, and a human-readable error message.">
+ When an error occurs, the
 response body **MUST** contain:
+</ApiStandard>
 
 - The HTTP status code
 - An API-specific error code, which API support staff will be able to look up to identify what has gone wrong
@@ -17,10 +21,9 @@ response body **MUST** contain:
 
 ## HTTP Status Codes
 
-RESTful APIs **MUST** always use the standard HTTP error responses when an
-error occurs, but different codes may be pertinent depending on the HTTP
-verb being used and the quantity of data being retrieved (e.g., single
-item vs. list/collection of data).
+<ApiStandard id="HNZAS_MUST_USE_STANDARD_HTTP_ERROR_RESPONSES" type="MUST" toolTip="RESTful APIs MUST always use standard HTTP error responses.">RESTful APIs **MUST** always use the standard HTTP error responses when an error occurs, but different codes may be pertinent depending on the HTTP verb being used and the quantity of data being retrieved (e.g., single item vs. list/collection of data).</ApiStandard>
+
+```​⬤
 
 The following tables give an example of good practice use of HTTP error codes:
 
@@ -75,8 +78,7 @@ much. But when a critical error occurs it is important for the API
 provider to be able to trace the root cause and fix it as soon as
 possible.
 
-One way of achieving this is to return an API-specific error code in the
-response to consumer. When the consumer reports the error to the API
+<ApiStandard id="HNZAS_MAY_RETURN_API_SPECIFIC_ERROR_CODE" type="MAY" toolTip="APIs MAY achieve more secure detailed error handling with API-specific error codes." wrapper='span'>One way of achieving this is to return an API-specific error code in the response to the consumer.</ApiStandard> When the consumer reports the error to the API
 support team, the consumer can relate the associated API-specific code.
 The support team can then look this code up and ascertain exactly what
 has gone wrong and who needs to address it.
@@ -87,24 +89,18 @@ The human readable error message should be as informative as is useful
 to an end customer, without offering too many technical details (e.g.
 "An account with this ID already exists”).
 
-It is important to avoid revealing system information in the human
-readable response, such as composition of the backend system (e.g.
-component names), as this informs malicious consumers as to what
-vulnerabilities and back doors to look for. It is also important not to
-confirm or deny sensitive information, such as username in a
-username/password combination, as this informs potential attackers which
-criteria they have got correct.
+<ApiStandard id="HNZAS_SHOULD_NOT_REVEAL_SYSTEM_INFO" type="SHOULD" toolTip="Avoid revealing system information in human-readable responses to prevent informing malicious consumers of vulnerabilities.">It is important to avoid revealing system information in the human readable response, such as composition of the backend system (e.g., component names), as this informs malicious consumers as to what vulnerabilities and back doors to look for.</ApiStandard>
 
-In non-production instances of the API it may be appropriate to offer
-more verbose error messages with some technical detail (e.g. "Body
-should be a JSON object”). However, it is still recommended not to
+<ApiStandard id="HNZAS_SHOULD_NOT_CONFIRM_SENSITIVE_INFO" type="SHOULD" toolTip="Avoid confirming or denying sensitive information in responses to prevent informing potential attackers.">It is also important not to confirm or deny sensitive information, such as username in a username/password combination, as this informs potential attackers which criteria they have got correct.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_PROVIDE_VERBOSE_ERRORS_IN_NON_PRODUCTION" type="MAY" toolTip="In non-production instances, it MAY be appropriate to offer more verbose error messages with some technical detail." wrapper='span'>In non-production instances of the API it **MAY** be appropriate to offer more verbose error messages with some technical detail (e.g., "Body should be a JSON object").</ApiStandard> However, it is still recommended not to
 reveal too much about the internal systems which underpin the API, as
 non-production systems still reflect a lot of the composition of
 production.
 
 ## Error Schema
 
-API Providers **MUST** document their errors in a machine readable schema. This **MUST** be published to API Consumers in the form of an [OpenAPI specification](./API%20Artefacts). See the [example API specification default error](../../api-specifications/example-agency-specification#tag/get-customer-details/paths/~1customers~1%7BcustomerId%7D/get) for an example.
+<ApiStandard id="HNZAS_MUST_DOCUMENT_ERRORS_IN_SCHEMA" type="MUST" toolTip="API Providers MUST document their errors in a machine-readable schema." wrapper='span'>API Providers **MUST** document their errors in a machine-readable schema.</ApiStandard> <ApiStandard id="HNZAS_MUST_PUBLISH_ERRORS_AS_OPENAPI" type="MUST" toolTip="API Providers MUST publish their documented errors to API Consumers in the form of an OpenAPI specification." wrapper='span'>This **MUST** be published to API Consumers in the form of an [OpenAPI specification](./API%20Artefacts).</ApiStandard> See the [example API specification default error](../../api-specifications/example-agency-specification#tag/get-customer-details/paths/~1customers~1%7BcustomerId%7D/get) for an example.
 
 **<span class="smallcaps">Examples</span>**
 
