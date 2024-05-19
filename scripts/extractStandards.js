@@ -18,12 +18,17 @@ function extractDataFromHTML(filePath, htmlContent) {
 
   $("[data-standard-type]").each((index, element) => {
     const $element = $(element);
+
+    if ($element.attr("data-duplicate") === "true") {
+      return;
+    }
+
     const standardType = $element.attr("data-standard-type");
     const content = $element.attr("data-extended-text");
     const id = $element.attr("id");
 
     // Check for duplicate IDs
-    if (standardsIds.has(id) && $element.attr("data-duplicate") !== "true") {
+    if (standardsIds.has(id)) {
       throw new Error(`Duplicate Standards ID found: ${id}`);
     }
     if (!idFormatRegex.test(id)) {
