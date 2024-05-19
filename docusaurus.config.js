@@ -45,6 +45,14 @@ module.exports = async function createConfig() {
             {
               spec: 'docs/api-development/api-specifications/example-agency-spec.yaml',
               route: 'draft/api-specifications/example-agency-specification',
+            },
+            {
+              spec: 'docs/api-development/api-specifications/example-Observation-spec.yaml',
+              route: '/api-specifications/example-fhir-specification',
+            },
+            {
+              spec: 'docs/api-development/api-specifications/example-Observation-spec.yaml',
+              route: 'draft/api-specifications/example-fhir-specification',
             }
           ],
           theme: {

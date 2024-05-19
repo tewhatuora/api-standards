@@ -15,6 +15,16 @@ All components of the [OpenAPI Specification](https://swagger.io/specification/)
 
 :::
 
+:::info
+
+View exmaple API specifications
+
+[FHIR-APISpecification](../api-specifications/example-fhir-specification)
+
+[REST-API-Specification](../api-specifications/example-agency-specification)
+
+:::
+
 ## OpenAPI Specification Structure
 
 | Component | Description | Requirement |
@@ -50,10 +60,64 @@ The `paths` section is a parent property that contains a list of the resource pa
 |`{path}.summary`| A short human readable summary of the resource purpose | **MUST** |
 |`{path}.description`|See [Property Descriptions](#property-descriptions)|**MUST**|
 |`{path}.{http-verb}.summary`|A short human readable summary of the resource operation purpose|**MUST**|
+|`{path}.{http-verb}.security`|The security scheme appropriate for the path/verb - see [security](#security)|**MUST**|
 |`{path}.{http-verb}.operationId`|A **UNIQUE** string to identify the operation. Used by tools and libraries to uniquely identify the operation.|**MUST**|
 |`{path}.{http-verb}.requestBody`|The request body appropriate for this operation. See [Request Body](#request-body).|**MUST** for `POST`, `PUT`, `PATCH` verbs. **MUST NOT** for `GET`, `DELETE`, `HEAD`, `OPTIONS` verbs.|
 |`{path}.{http-verb}.responses`|A list of the responses that an API Consumer can expect from the operation. See [Responses](#responses)|**MUST**|
 
+#### Security
+
+Open API Specifications **MUST** define appropriate security mechanisms for the API.
+
+Security schemes **MUST** be defined in `components.securitySchemes` and referenced in all API operations.
+
+:::info
+
+Note that if an operation is PUBLIC, for example a FHIR meatadata endpoint, the definition in OpenAPI **SHOULD** still have a security property.
+
+:::
+
+**Example PUBLIC definition**
+
+```yaml
+
+paths:
+  /fhir/mdr/v1/metadata:
+    summary: Access to the Server's Capability Statement
+    description: >-
+      All FHIR Servers return a CapabilityStatement that describes what services
+      they perform
+    get:
+      security: []
+      summary: Return the server's capability statement
+
+```
+
+**Example Security Schemes**
+
+```yaml
+
+components:
+  securitySchemes:
+    api_key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+    oauth-client-credentials:
+      type: oauth2
+      description: Client credentials flow for system to system authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://npd.auth.services.health.nz/realms/hnz-integration/protocol/openid-connect/token
+          scopes:
+            system/Observation.r: Grant read access to Observation resources
+            system/Observation.c: Grant create access to Observation resources
+            system/Observation.u: Grant update access to Observation resources
+            system/Observation.d: Grant delete access to Observation resources
+            system/Observation.rs: Grant read and search access to Observation resources
+            system/Observation.crus: Grant full permissions to Observation resources
+
+```
 
 #### Responses
 

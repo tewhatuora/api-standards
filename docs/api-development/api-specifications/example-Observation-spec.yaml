@@ -31,37 +31,43 @@ paths:
     get:
       summary: Search all resources of type Observation based on a set of criteria
       operationId: searchObservation
+      security: 
+        -  oauth-client-credentials:
+            - system/Observation.r
+        - api_key: []
       responses:
         '200':
           description: the resource being returned
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/Observation'
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
         '400':
           description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/OperationOutcome'
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
         '404':
           description: Resource not found error. The request failed as the requested resource could not be found on the server.
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/OperationOutcome'
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                NotFound:
+                  $ref: '#/components/examples/OperationOutcomeNotFound'
         '500':
           description: Server error
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/OperationOutcome'
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
 
       parameters:
         - $ref: '#/components/parameters/Date'
         - $ref: '#/components/parameters/Patient'
         - $ref: '#/components/parameters/Encounter'
-
         - name: category
           in: query
           description: The classification of the type of observation
@@ -92,13 +98,17 @@ paths:
     post:
       summary: Create a new resource
       operationId: createObservation
+      security: 
+        -  oauth-client-credentials:
+            - system/Observation.c
+        - api_key: []
       requestBody:
         description: The new state of the resource
         required: true
         content:
           application/fhir+json:
             schema:
-              $ref: '#/components/schemas/Observation'
+              $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
       responses:
         '200':
           description: the resource being returned after being updated
@@ -110,16 +120,31 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/Observation'
-        '404':
-          description: Resource not found error, with details
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+        '400':
+          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
           content:
             application/fhir+json:
               schema:
-                $ref: "#/components/schemas/OperationOutcome"
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
               examples:
-                notFound:
-                  $ref: "#/components/examples/OperationOutcomeNotFound"
+                BadRequest:
+                  $ref: '#/components/examples/OperationOutcomeBadRequest'
+        '404':
+          description: Resource not found error. The request failed as the requested resource could not be found on the server.
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                NotFound:
+                  $ref: '#/components/examples/OperationOutcomeNotFound'
+        '500':
+          description: Server error
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
       parameters:
         - $ref: '#/components/parameters/Request-Context'
         - $ref: '#/components/parameters/summary'
@@ -132,6 +157,10 @@ paths:
     get:
       summary: Read the current state of the resource
       operationId: readObservation
+      security: 
+        -  oauth-client-credentials:
+            - system/Observation.r
+        - api_key: []
       responses:
         '200':
           description: the resource being returned
@@ -143,29 +172,46 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/Observation'
-        default:
-          description: Error, with details
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+        '400':
+          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/OperationOutcome'
-      # parameters:
-        # - $ref: '#/components/parameters/rid'
-        # - $ref: '#/components/parameters/summary'
-        # - $ref: '#/components/parameters/format'
-        # - $ref: '#/components/parameters/pretty'
-        # - $ref: '#/components/parameters/elements'
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+        '404':
+          description: Resource not found error. The request failed as the requested resource could not be found on the server.
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                NotFound:
+                  $ref: '#/components/examples/OperationOutcomeNotFound'
+        '500':
+          description: Server error
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+      parameters:
+        - $ref: '#/components/parameters/rid'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/elements'
     put:
       summary: Update the current state of the resource
       operationId: updateObservation
+      security: 
+        -  oauth-client-credentials:
+            - system/Observation.u
+        - api_key: []
       requestBody:
         description: The new state of the resource
         required: true
         content:
           application/fhir+json:
             schema:
-              $ref: '#/components/schemas/Observation'
+              $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
       responses:
         '200':
           description: the resource being returned after being updated
@@ -177,81 +223,149 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/Observation'
-        default:
-          description: Error, with details
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+        '400':
+          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
           content:
             application/fhir+json:
               schema:
-                $ref: '#/components/schemas/Observation'
-      # parameters:
-        # - $ref: '#/components/parameters/rid'
-        # - $ref: '#/components/parameters/summary'
-        # - $ref: '#/components/parameters/format'
-        # - $ref: '#/components/parameters/pretty'
-        # - $ref: '#/components/parameters/elements'
-  #   delete:
-  #     summary: Delete the resource so that it no exists (no read, search etc)
-  #     operationId: deleteObservation
-  #     responses:
-  #       '204':
-  #         description: If the resource is deleted - no content is returned
-  #         headers:
-  #           ETag:
-  #             description: Version from Resource.meta.version as a weak ETag
-  #             schema:
-  #               type: string
-  #       default:
-  #         description: Error, with details
-  #         content:
-  #           application/fhir+json:
-  #             schema:
-  #               $ref: >-
-  #                 https://hl7.org/fhir/R4/fhir.schema.json#/components/schemas/OperationOutcome
-  #     parameters:
-  #       - $ref: '#/components/parameters/rid'
-  # /Observation/{rid}/_history/{hid}:
-  #   summary: Read a past version of resource instance of type Observation
-  #   description: >-
-  #     Access a to specified previous version of a single resource of type
-  #     Observation
-  #   get:
-  #     summary: Read a past state of the resource
-  #     operationId: vreadObservation
-  #     responses:
-  #       '200':
-  #         description: the resource being returned
-  #         headers:
-  #           ETag:
-  #             description: >-
-  #               Version from Resource.meta.version as a weak ETag for that
-  #               version
-  #             schema:
-  #               type: string
-  #         content:
-  #           application/fhir+json:
-  #             schema:
-  #               $ref: >-
-  #                 https://hl7.org/fhir/R4/fhir.schema.json#/components/schemas/Observation
-  #       default:
-  #         description: Error, with details
-  #         content:
-  #           application/fhir+json:
-  #             schema:
-  #               $ref: >-
-  #                 https://hl7.org/fhir/R4/fhir.schema.json#/components/schemas/OperationOutcome
-  #     parameters:
-  #       - $ref: '#/components/parameters/rid'
-  #       - $ref: '#/components/parameters/hid'
-  #       - $ref: '#/components/parameters/summary'
-  #       - $ref: '#/components/parameters/format'
-  #       - $ref: '#/components/parameters/pretty'
-  #       - $ref: '#/components/parameters/elements'
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/OperationOutcomeBadRequest'
+        '404':
+          description: Resource not found error. The request failed as the requested resource could not be found on the server.
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                NotFound:
+                  $ref: '#/components/examples/OperationOutcomeNotFound'
+        '500':
+          description: Server error
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+      parameters:
+        - $ref: '#/components/parameters/rid'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/elements'
+    delete:
+      summary: Delete the resource so that it no exists (no read, search etc)
+      operationId: deleteObservation
+      security: 
+        -  oauth-client-credentials:
+            - system/Observation.d
+        - api_key: []
+      responses:
+        '204':
+          description: If the resource is deleted - no content is returned
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+        '400':
+          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+        '404':
+          description: Resource not found error. The request failed as the requested resource could not be found on the server.
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                NotFound:
+                  $ref: '#/components/examples/OperationOutcomeNotFound'
+        '500':
+          description: Server error
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+      parameters:
+        - $ref: '#/components/parameters/rid'
+  /Observation/{rid}/_history/{hid}:
+    summary: Read a past version of resource instance of type Observation
+    description: >-
+      Access a to specified previous version of a single resource of type
+      Observation
+    get:
+      summary: Read a past state of the resource
+      operationId: vreadObservation
+      security: 
+        -  oauth-client-credentials:
+            - system/Observation.r
+        - api_key: []
+      responses:
+        '200':
+          description: the resource being returned
+          headers:
+            ETag:
+              description: >-
+                Version from Resource.meta.version as a weak ETag for that
+                version
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+        '400':
+          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+        '404':
+          description: Resource not found error. The request failed as the requested resource could not be found on the server.
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+              examples:
+                NotFound:
+                  $ref: '#/components/examples/OperationOutcomeNotFound'
+        '500':
+          description: Server error
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+      parameters:
+        - $ref: '#/components/parameters/rid'
+        - $ref: '#/components/parameters/hid'
+        - $ref: '#/components/parameters/summary'
+        - $ref: '#/components/parameters/elements'
 components:
+  securitySchemes:
+    api_key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+    oauth-client-credentials:
+      type: oauth2
+      description: Client credentials flow for system to system authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://npd.auth.services.health.nz/realms/hnz-integration/protocol/openid-connect/token
+          scopes:
+            system/Observation.r: Grant read access to Observation resources
+            system/Observation.c: Grant create access to Observation resources
+            system/Observation.u: Grant update access to Observation resources
+            system/Observation.d: Grant delete access to Observation resources
+            system/Observation.rs: Grant read and search access to Observation resources
+            system/Observation.crus: Grant full permissions to Observation resources
   examples:
     OperationOutcomeNotFound:
         summary: An example OperationOutcome payload when the requested resource is not found.
-        value: {
+        value:
+          {
             "resourceType": "OperationOutcome",
             "text": {
                 "status": "generated",
@@ -264,10 +378,38 @@ components:
                     "diagnostics": "Resource Observation/3d7b5f7a-12da-411b-8948-37c07d247bb6 is not known"
                 }
             ]
-        }
+          }
+    OperationOutcomeBadRequest:
+      summary: An example OperationOutcome payload when there is an issue with the content of the request.
+      value:
+        {
+          "resourceType": "OperationOutcome",
+          "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h1>Operation Outcome</h1><table border=\"0\"><tr><td style=\"font-weight: bold;\">error</td><td>[]</td><td><pre>Condition - Unrecognised property '@someNonsenseProperty'</pre></td></tr></table></div>"
+          },
+          "issue": [
+              {
+                  "severity": "error",
+                  "code": "invalid",
+                  "diagnostics": "Condition - Unrecognised property '@someNonsenseProperty'"
+              }
+          ]
+      }
     uuid:
       value: '3d7b5f7a-12da-411b-8948-37c07d247bb6'
   parameters:
+    hid:
+      name: hid
+      in: path
+      description: id of the history entry (=Resource.meta.versionId)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+        example:
+          $ref: '#/components/examples/uuid'
     rid:
       name: rid
       in: path
@@ -378,616 +520,3 @@ components:
       - userIdentifier
       - userRole
       - secondaryIdentifiers
-    Observation: 
-      description: "Measurements and simple assertions made about a patient, device or other subject."
-      properties: 
-        resourceType: 
-          description: "This is a Observation resource"
-        id: 
-          description: "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
-          $ref: "#/components/schemas/id"
-    OperationOutcome: 
-      description: "A collection of error, warning, or information messages that result from a system action."
-      properties: 
-        resourceType: 
-          description: "This is a OperationOutcome resource"
-          default: "OperationOutcome"
-        id: 
-          description: "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."
-          $ref: "#/components/schemas/id"
-        meta: 
-          description: "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."
-          $ref: "#/components/schemas/Meta"
-        text: 
-          description: "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it clinically safe for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."
-          $ref: "#/components/schemas/Narrative"
-        issue: 
-          description: "An error, warning, or information message that results from a system action."
-          items: 
-            $ref: "#/components/schemas/OperationOutcome_Issue"
-          type: "array"
-      additionalProperties: false
-      required: 
-      - "issue"
-      - "resourceType"
-    OperationOutcome_Issue: 
-      description: "A collection of error, warning, or information messages that result from a system action."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        modifierExtension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions. Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        severity: 
-          description: "Indicates whether the issue indicates a variation from successful processing."
-          enum: 
-          - "fatal"
-          - "error"
-          - "warning"
-          - "information"
-        code: 
-          description: "Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element."
-          enum: 
-          - "invalid"
-          - "structure"
-          - "required"
-          - "value"
-          - "invariant"
-          - "security"
-          - "login"
-          - "unknown"
-          - "expired"
-          - "forbidden"
-          - "suppressed"
-          - "processing"
-          - "not-supported"
-          - "duplicate"
-          - "multiple-matches"
-          - "not-found"
-          - "deleted"
-          - "too-long"
-          - "code-invalid"
-          - "extension"
-          - "too-costly"
-          - "business-rule"
-          - "conflict"
-          - "transient"
-          - "lock-error"
-          - "no-store"
-          - "exception"
-          - "timeout"
-          - "incomplete"
-          - "throttled"
-          - "informational"
-        details: 
-          description: "Additional details about the error. This may be a text description of the error or a system code that identifies the error."
-          $ref: "#/components/schemas/CodeableConcept"
-        diagnostics: 
-          description: "Additional diagnostic information about the issue."
-          $ref: "#/components/schemas/string"
-        location: 
-          description: "This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse. For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be http. + the parameter name."
-          items: 
-            $ref: "#/components/schemas/string"
-          type: "array"
-        expression: 
-          description: "A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."
-          items: 
-            $ref: "#/components/schemas/string"
-          type: "array"
-      additionalProperties: false
-    id: 
-      pattern: "^[A-Za-z0-9-.]{1,64}$"
-      type: "string"
-      description: >-
-        Any combination of letters, numerals, - and ., with a length limit of 64 characters.
-        Typically an ID will be of type `uuid`
-    Meta: 
-      description: "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."
-      properties: 
-        lastUpdated: 
-          description: "When the resource last changed - e.g. when the version changed."
-          $ref: "#/components/schemas/instant"
-        profile: 
-          description: "A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]."
-          items: 
-            $ref: "#/components/schemas/canonical"
-          type: "array"
-        security: 
-          description: "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure."
-          items: 
-            $ref: "#/components/schemas/Coding"
-          type: "array"
-        tag: 
-          description: "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource."
-          items: 
-            $ref: "#/components/schemas/Coding"
-          type: "array"
-      additionalProperties: false
-    string: 
-      pattern: "^[ \r\n\tS]+$"
-      type: "string"
-      description: "A sequence of Unicode characters"
-    Extension: 
-      description: "Optional Extension Element - found in all resources."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        url: 
-          description: "Source of the definition for the extension code - a logical name or a URL."
-          $ref: "#/components/schemas/uri"
-        valueBoolean: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^true|false$
-          type: "boolean"
-        valueCanonical: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: '^\S*$'
-          type: "string"
-        valueCode: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: '^[^\s]+(\s[^\s]+)*$'
-          type: "string"
-        valueDate: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$"
-          type: "string"
-        valueDateTime: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$
-          type: "string"
-        valueDecimal: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$
-          type: "number"
-        valueId: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^[A-Za-z0-9\-\.]{1,64}$
-          type: "string"
-        valueInstant: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$
-          type: "string"
-        valueInteger: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^-?([0]|([1-9][0-9]*))$
-          type: "number"
-        valueMarkdown: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^[ \r\n\t\S]+$
-          type: "string"
-        valueOid: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$
-          type: "string"
-        valuePositiveInt: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: "^[1-9][0-9]*$"
-          type: "number"
-        valueString: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^[ \r\n\t\S]+$
-          type: "string"
-        valueTime: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$
-          type: "string"
-        valueUnsignedInt: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: "^[0]|([1-9][0-9]*)$"
-          type: "number"
-        valueUri: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^\S*$
-          type: "string"
-        valueUrl: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: ^\S*$
-          type: "string"
-        valueUuid: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          pattern: "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-          type: "string"
-        valueCodeableConcept: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          $ref: "#/components/schemas/CodeableConcept"
-        valueCoding: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          $ref: "#/components/schemas/Coding"
-        valueIdentifier: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          $ref: "#/components/schemas/Identifier"
-        valueReference: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          $ref: "#/components/schemas/Reference"
-        valueMeta: 
-          description: "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."
-          $ref: "#/components/schemas/Meta"
-      additionalProperties: false
-    instant: 
-      pattern: ^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$
-      type: "string"
-      description: "An instant in time - known at least to the second"
-    integer: 
-      pattern: "^-?([0]|([1-9][0-9]*))$"
-      type: "number"
-      description: "A whole number"
-    uri: 
-      pattern: ^\S*$
-      type: "string"
-      description: "String of characters used to identify a name or a resource"
-    url: 
-      pattern: ^\S*$
-      type: "string"
-      description: "A URI that is a literal reference"
-    uuid: 
-      pattern: "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-      type: "string"
-      description: "A UUID, represented as a URI"
-    canonical: 
-      example: https://build.fhir.org/ig/your-repo/your-product/StructureDefinition/Observation
-      pattern: ^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z0-9\x{00a1}-\x{ffff}][a-z0-9\x{00a1}-\x{ffff}_-]{0,62})?[a-z0-9\x{00a1}-\x{ffff}]\.)+(?:[a-z\x{00a1}-\x{ffff}]{2,}\.?))(?::\d{2,5})?(?:[/?#]\S*)?$
-      type: "string"
-      description: "A URI that is a reference to a canonical URL on a FHIR resource"
-    Coding: 
-      description: "A reference to a code defined by a terminology system."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        system: 
-          description: "The identification of the code system that defines the meaning of the symbol in the code."
-          $ref: "#/components/schemas/uri"
-        version: 
-          description: "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."
-          $ref: "#/components/schemas/string"
-        code: 
-          description: "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)."
-          $ref: "#/components/schemas/code"
-        display: 
-          description: "A representation of the meaning of the code in the system, following the rules of the system."
-          $ref: "#/components/schemas/string"
-        userSelected: 
-          description: "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays)."
-          $ref: "#/components/schemas/boolean"
-      additionalProperties: false
-    boolean: 
-      pattern: ^true|false$
-      type: "boolean"
-      description: "Value of true or false"
-    Narrative: 
-      description: "A human-readable summary of the resource conveying the essential clinical and business information for the resource."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        status: 
-          description: "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data."
-          enum: 
-          - "generated"
-          - "extensions"
-          - "additional"
-          - "empty"
-        div: 
-          description: "The actual narrative content, a stripped down version of XHTML."
-          $ref: "#/components/schemas/xhtml"
-      additionalProperties: false
-      required: 
-      - "div"
-    xhtml: 
-      description: "xhtml - escaped html (see specification)"
-    code: 
-      pattern: ^[^\s]+(\s[^\s]+)*$
-      type: "string"
-      description: "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents"
-    CodeableConcept: 
-      description: "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        coding: 
-          description: "A reference to a code defined by a terminology system."
-          items: 
-            $ref: "#/components/schemas/Coding"
-          type: "array"
-        text: 
-          description: "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
-          $ref: "#/components/schemas/string"
-      additionalProperties: false
-    Identifier: 
-      description: "An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        use: 
-          description: "The purpose of this identifier."
-          enum: 
-          - "usual"
-          - "official"
-          - "temp"
-          - "secondary"
-          - "old"
-        type: 
-          description: "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose."
-          $ref: "#/components/schemas/CodeableConcept"
-        system: 
-          description: "Establishes the namespace for the value - that is, a URL that describes a set values that are unique."
-          $ref: "#/components/schemas/uri"
-        value: 
-          description: "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
-          $ref: "#/components/schemas/string"
-        assigner: 
-          description: "Organization that issued/manages the identifier."
-          $ref: "#/components/schemas/Reference"
-      additionalProperties: false
-    Reference: 
-      description: "A reference from one resource to another."
-      properties: 
-        id: 
-          description: "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."
-          $ref: "#/components/schemas/string"
-        extension: 
-          description: "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-          items: 
-            $ref: "#/components/schemas/Extension"
-          type: "array"
-        reference: 
-          description: "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources."
-          $ref: "#/components/schemas/string"
-        type: 
-          description: "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.The type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. Patient is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources)."
-          $ref: "#/components/schemas/uri"
-        identifier: 
-          description: "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference."
-          $ref: "#/components/schemas/Identifier"
-        display: 
-          description: "Plain text narrative that identifies the resource in addition to the resource reference."
-          $ref: "#/components/schemas/string"
-      additionalProperties: false
-
-#         meta: 
-#           description: "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."
-#           $ref: "#/components/schemas/Meta"
-#         implicitRules: 
-#           description: "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."
-#           $ref: "#/components/schemas/uri"
-#         _implicitRules: 
-#           description: "Extensions for implicitRules"
-#           $ref: "#/components/schemas/Element"
-#         language: 
-#           description: "The base language in which the resource is written."
-#           $ref: "#/components/schemas/code"
-#         _language: 
-#           description: "Extensions for language"
-#           $ref: "#/components/schemas/Element"
-#         text: 
-#           description: "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."
-#           $ref: "#/components/schemas/Narrative"
-#         extension: 
-#           description: "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."
-#           items: 
-#             $ref: "#/components/schemas/Extension"
-#           type: "array"
-#         modifierExtension: 
-#           description: "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."
-#           items: 
-#             $ref: "#/components/schemas/Extension"
-#           type: "array"
-#         identifier: 
-#           description: "A unique identifier assigned to this observation."
-#           items: 
-#             $ref: "#/components/schemas/Identifier"
-#           type: "array"
-#         basedOn: 
-#           description: "A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed."
-#           items: 
-#             $ref: "#/components/schemas/Reference"
-#           type: "array"
-#         partOf: 
-#           description: "A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure."
-#           items: 
-#             $ref: "#/components/schemas/Reference"
-#           type: "array"
-#         status: 
-#           description: "The status of the result value."
-#           enum: 
-#           - "registered"
-#           - "preliminary"
-#           - "final"
-#           - "amended"
-#           - "corrected"
-#           - "cancelled"
-#           - "entered-in-error"
-#           - "unknown"
-#         _status: 
-#           description: "Extensions for status"
-#           $ref: "#/components/schemas/Element"
-#         category: 
-#           description: "A code that classifies the general type of observation being made."
-#           items: 
-#             $ref: "#/components/schemas/CodeableConcept"
-#           type: "array"
-#         code: 
-#           description: "Describes what was observed. Sometimes this is called the observation "name"."
-#           $ref: "#/components/schemas/CodeableConcept"
-#         subject: 
-#           description: "The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation."
-#           $ref: "#/components/schemas/Reference"
-#         focus: 
-#           description: "The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."
-#           items: 
-#             $ref: "#/components/schemas/Reference"
-#           type: "array"
-#         encounter: 
-#           description: "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made."
-#           $ref: "#/components/schemas/Reference"
-#         effectiveDateTime: 
-#           description: "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."
-#           pattern: "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$"
-#           type: "string"
-#         _effectiveDateTime: 
-#           description: "Extensions for effectiveDateTime"
-#           $ref: "#/components/schemas/Element"
-#         effectivePeriod: 
-#           description: "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."
-#           $ref: "#/components/schemas/Period"
-#         effectiveTiming: 
-#           description: "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."
-#           $ref: "#/components/schemas/Timing"
-#         effectiveInstant: 
-#           description: "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."
-#           pattern: "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$"
-#           type: "string"
-#         _effectiveInstant: 
-#           description: "Extensions for effectiveInstant"
-#           $ref: "#/components/schemas/Element"
-#         issued: 
-#           description: "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified."
-#           $ref: "#/components/schemas/instant"
-#         _issued: 
-#           description: "Extensions for issued"
-#           $ref: "#/components/schemas/Element"
-#         performer: 
-#           description: "Who was responsible for asserting the observed value as "true"."
-#           items: 
-#             $ref: "#/components/schemas/Reference"
-#           type: "array"
-#         valueQuantity: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           $ref: "#/components/schemas/Quantity"
-#         valueCodeableConcept: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           $ref: "#/components/schemas/CodeableConcept"
-#         valueString: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           pattern: "^[ \r\n\t\S]+$"
-#           type: "string"
-#         _valueString: 
-#           description: "Extensions for valueString"
-#           $ref: "#/components/schemas/Element"
-#         valueBoolean: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           pattern: "^true|false$"
-#           type: "boolean"
-#         _valueBoolean: 
-#           description: "Extensions for valueBoolean"
-#           $ref: "#/components/schemas/Element"
-#         valueInteger: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           pattern: "^-?([0]|([1-9][0-9]*))$"
-#           type: "number"
-#         _valueInteger: 
-#           description: "Extensions for valueInteger"
-#           $ref: "#/components/schemas/Element"
-#         valueRange: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           $ref: "#/components/schemas/Range"
-#         valueRatio: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           $ref: "#/components/schemas/Ratio"
-#         valueSampledData: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           $ref: "#/components/schemas/SampledData"
-#         valueTime: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?$"
-#           type: "string"
-#         _valueTime: 
-#           description: "Extensions for valueTime"
-#           $ref: "#/components/schemas/Element"
-#         valueDateTime: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           pattern: "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$"
-#           type: "string"
-#         _valueDateTime: 
-#           description: "Extensions for valueDateTime"
-#           $ref: "#/components/schemas/Element"
-#         valuePeriod: 
-#           description: "The information determined as a result of making the observation, if the information has a simple value."
-#           $ref: "#/components/schemas/Period"
-#         dataAbsentReason: 
-#           description: "Provides a reason why the expected value in the element Observation.value[x] is missing."
-#           $ref: "#/components/schemas/CodeableConcept"
-#         interpretation: 
-#           description: "A categorical assessment of an observation value.  For example, high, low, normal."
-#           items: 
-#             $ref: "#/components/schemas/CodeableConcept"
-#           type: "array"
-#         note: 
-#           description: "Comments about the observation or the results."
-#           items: 
-#             $ref: "#/components/schemas/Annotation"
-#           type: "array"
-#         bodySite: 
-#           description: "Indicates the site on the subject's body where the observation was made (i.e. the target site)."
-#           $ref: "#/components/schemas/CodeableConcept"
-#         method: 
-#           description: "Indicates the mechanism used to perform the observation."
-#           $ref: "#/components/schemas/CodeableConcept"
-#         specimen: 
-#           description: "The specimen that was used when this observation was made."
-#           $ref: "#/components/schemas/Reference"
-#         device: 
-#           description: "The device used to generate the observation data."
-#           $ref: "#/components/schemas/Reference"
-#         referenceRange: 
-#           description: "Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an "OR".   In other words, to represent two distinct target populations, two `referenceRange` elements would be used."
-#           items: 
-#             $ref: "#/components/schemas/Observation_ReferenceRange"
-#           type: "array"
-#         hasMember: 
-#           description: "This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."
-#           items: 
-#             $ref: "#/components/schemas/Reference"
-#           type: "array"
-#         derivedFrom: 
-#           description: "The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image."
-#           items: 
-#             $ref: "#/components/schemas/Reference"
-#           type: "array"
-#         component: 
-#           description: "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations."
-#           items: 
-#             $ref: "#/components/schemas/Observation_Component"
-#           type: "array"
-#       additionalProperties: "false"
-#       required: 
-#       - "code"
-#       - "resourceType"
-# definitions:
