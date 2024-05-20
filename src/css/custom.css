@@ -3620,4 +3620,5 @@ h2+.rich-text--highlight {
 
 .react-tooltip {
   z-index: 1000;
+  max-width:60vw
 }

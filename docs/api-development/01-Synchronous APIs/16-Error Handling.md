@@ -10,10 +10,7 @@ error responses need to be informative yet avoid information leakage
 about the internals of the back-end system. Errors should be handled in
 both a human and machine-consumable way.
 
-<ApiStandard id="HNZAS_MUST_INCLUDE_ERROR_DETAILS_IN_RESPONSE_BODY" type="MUST" toolTip="When an error occurs, the response body MUST contain the HTTP status code, an API-specific error code, and a human-readable error message.">
- When an error occurs, the
-response body **MUST** contain:
-</ApiStandard>
+<ApiStandard id="HNZAS_MUST_INCLUDE_ERROR_DETAILS_IN_RESPONSE_BODY" type="MUST" toolTip="When an error occurs, the response body MUST contain the HTTP status code, an API-specific error code, and a human-readable error message.">When an error occurs, the response body **MUST** contain:</ApiStandard>
 
 - The HTTP status code
 - An API-specific error code, which API support staff will be able to look up to identify what has gone wrong
@@ -78,8 +75,7 @@ much. But when a critical error occurs it is important for the API
 provider to be able to trace the root cause and fix it as soon as
 possible.
 
-<ApiStandard id="HNZAS_MAY_RETURN_API_SPECIFIC_ERROR_CODE" type="MAY" toolTip="APIs MAY achieve more secure detailed error handling with API-specific error codes." wrapper='span'>One way of achieving this is to return an API-specific error code in the response to the consumer.</ApiStandard> When the consumer reports the error to the API
-support team, the consumer can relate the associated API-specific code.
+<ApiStandard id="HNZAS_MAY_RETURN_API_SPECIFIC_ERROR_CODE" type="MAY" toolTip="APIs MAY achieve more secure detailed error handling with API-specific error codes." wrapper='span'>One way of achieving this is to return an API-specific error code in the response to the consumer.</ApiStandard> When the consumer reports the error to the API support team, the consumer can relate the associated API-specific code.
 The support team can then look this code up and ascertain exactly what
 has gone wrong and who needs to address it.
 

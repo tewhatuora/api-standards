@@ -108,21 +108,13 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer
 For the SAML Assertion Grant Flow, Health NZ:
 
 <ul>
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_SAML_FOR_SERVER_TO_SERVER" type="SHOULD_NOT" toolTip="SAML Assertion Grant Flow SHOULD NOT be used for Server to Server flows." wrapper="li">
-   **SHOULD NOT** be used for Server to Server flows.
-</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_SAML_FOR_SERVER_TO_SERVER" type="SHOULD_NOT" toolTip="SAML Assertion Grant Flow SHOULD NOT be used for Server to Server flows." wrapper="li"> **SHOULD NOT** be used for Server to Server flows.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_CREATED_ASSERTION" type="SHOULD_NOT" toolTip="SAML Assertion Grant Flow SHOULD NOT use a client created assertion model." wrapper="li">
-  **SHOULD NOT** use a client created assertion model.
-</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_CREATED_ASSERTION" type="SHOULD_NOT" toolTip="SAML Assertion Grant Flow SHOULD NOT use a client created assertion model." wrapper="li">**SHOULD NOT** use a client created assertion model.</ApiStandard>
 
-<ApiStandard id="HNZAS_MAY_USE_SAML_FOR_UNCLASSIFIED" type="MAY" toolTip="SAML Assertion Grant Flow MAY be used for UNCLASSIFIED APIs." wrapper="li">
-  **MAY** be used for **UNCLASSIFIED** APIs.
-</ApiStandard>
+<ApiStandard id="HNZAS_MAY_USE_SAML_FOR_UNCLASSIFIED" type="MAY" toolTip="SAML Assertion Grant Flow MAY be used for UNCLASSIFIED APIs." wrapper="li">**MAY** be used for **UNCLASSIFIED** APIs.</ApiStandard>
 
-<ApiStandard id="HNZAS_MAY_USE_SAML_WITH_AUTH_CODE_FOR_MEDICAL" type="MAY" toolTip="SAML Assertion Grant Flow MAY be used with Authorisation Code flows for MEDICAL IN-CONFIDENCE APIs when a SAML token endpoint authorisation model is required." wrapper="li">
-  **MAY** be used with Authorisation Code flows for **MEDICAL IN-CONFIDENCE** APIs when a SAML token endpoint authorisation model is required. (See code below)
-</ApiStandard>
+<ApiStandard id="HNZAS_MAY_USE_SAML_WITH_AUTH_CODE_FOR_MEDICAL" type="MAY" toolTip="SAML Assertion Grant Flow MAY be used with Authorisation Code flows for MEDICAL IN-CONFIDENCE APIs when a SAML token endpoint authorisation model is required." wrapper="li">**MAY** be used with Authorisation Code flows for **MEDICAL IN-CONFIDENCE** APIs when a SAML token endpoint authorisation model is required. (See code below)</ApiStandard>
 </ul>
 
 <!-- cspell:disable -->

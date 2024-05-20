@@ -82,6 +82,4 @@ This defines the four levels of identity assurance:
 
 ## OpenID Connect Level of Assurance Standards
 
-<ApiStandard id="HNZAS_MAY_USE_OIDC_LOA_MODEL" type="MAY" toolTip="OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers MAY use to implement LOA standards.">
-  OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers **MAY** use to implement the standards defined above.
-</ApiStandard>
+<ApiStandard id="HNZAS_MAY_USE_OIDC_LOA_MODEL" type="MAY" toolTip="OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers MAY use to implement LOA standards.">OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers **MAY** use to implement the standards defined above.</ApiStandard>

@@ -58,6 +58,7 @@ function ApiStandard({ id, type, toolTip, dupe, wrapper, children }) {
         data-duplicate={dupe}
       >
         {children}
+        <sup>💡</sup>
         <Tooltip id={id} place="bottom" />
       </Component>
     </>

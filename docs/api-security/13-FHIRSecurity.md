@@ -15,9 +15,7 @@ There are a few items in the FHIR specification related to security which should
 
 Security Labels are part of the `meta.security` element of every FHIR resource, and in other elements of certain resources such as `Consent.provision.securityLabel`. They are tags that provide specific security metadata about the information in the resource that it is attached to. The intent of a security label is that the recipient of resources or bundles with security-tags is obligated to enforce the handling caveats of the tags and carry the security labels forward as appropriate.
 
-<ApiStandard id="HNZAS_SHOULD_USE_FHIR_SECURITY_LABELS" type="SHOULD" toolTip="FHIR Security labels SHOULD be used to convey information on a resource's confidentiality requirements where necessary.">
-  FHIR Security labels **SHOULD** be used as a means to convey information on a resource's confidentiality requirements if they differ from other information that is present in the FHIR Server or what has been defined in an Implementation Guide.
-</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_USE_FHIR_SECURITY_LABELS" type="SHOULD" toolTip="FHIR Security labels SHOULD be used to convey information on a resource's confidentiality requirements where necessary.">FHIR Security labels **SHOULD** be used as a means to convey information on a resource's confidentiality requirements if they differ from other information that is present in the FHIR Server or what has been defined in an Implementation Guide.</ApiStandard>
 
 An example JSON FHIR search result that includes a resource that the receiving application must delete all copies of the resource after using it:
 
@@ -79,18 +77,17 @@ A REST API conforming to FHIR will likely support much more than standard CRUD o
 
 Typically, the resources defined in FHIR can fall into four sensitivity buckets:
 
-<ApiStandard id="HNZAS_MUST_USE_ACCESS_CONTROL_FOR_PATIENT_SENSITIVE" type="MUST" toolTip="Access to patient sensitive resources MUST use some form of access control mechanism and consent." wrapper='span'>
-  - **Patient sensitive** - these resources make up the bulk of FHIR and contain highly sensitive health information such as a `Condition`. Access to these resources **MUST** use some form of access control mechanism and consent.
-</ApiStandard>
+<ul>
 
-<ApiStandard id="HNZAS_MUST_USE_ACCESS_CONTROL_FOR_INDIVIDUAL_SENSITIVE" type="MUST" toolTip="Access to individual sensitive resources MUST use some form of access control." wrapper='span'>
-  - **Individual sensitive** - these resources do not contain patient data but contain data about an individual such as a `RelatedPerson` or `Practitioner`. Access to these resources **MUST** use some form of access control.
-</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_ACCESS_CONTROL_FOR_PATIENT_SENSITIVE" type="MUST" toolTip="Access to patient sensitive resources MUST use some form of access control mechanism and consent." wrapper='li'>**Patient sensitive** - these resources make up the bulk of FHIR and contain highly sensitive health information such as a `Condition`. Access to these resources **MUST** use some form of access control mechanism and consent.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_USE_ACCESS_CONTROL_FOR_BUSINESS_SENSITIVE" type="SHOULD" toolTip="Access to business sensitive resources SHOULD use some form of access control." wrapper='span'>
-  - **Business sensitive** - these resources contain data that may be business-sensitive information, that is not identifiable to individuals. Access to these resources **SHOULD** use some form of access control.
-</ApiStandard>
-  - **Anonymous READ resources** - these resources are typically intended to be public, such as a FHIR server's `CapabilityStatement` or `ImplementationGuide`.
+<ApiStandard id="HNZAS_MUST_USE_ACCESS_CONTROL_FOR_INDIVIDUAL_SENSITIVE" type="MUST" toolTip="Access to individual sensitive resources MUST use some form of access control." wrapper='li'>**Individual sensitive** - these resources do not contain patient data but contain data about an individual such as a `RelatedPerson` or `Practitioner`. Access to these resources **MUST** use some form of access control.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_USE_ACCESS_CONTROL_FOR_BUSINESS_SENSITIVE" type="SHOULD" toolTip="Access to business sensitive resources SHOULD use some form of access control." wrapper='li'>**Business sensitive** - these resources contain data that may be business-sensitive information, that is not identifiable to individuals. Access to these resources **SHOULD** use some form of access control.</ApiStandard>
+
+<li>**Anonymous READ resources** - these resources are typically intended to be public, such as a FHIR server's `CapabilityStatement` or `ImplementationGuide`.</li>
+
+</ul>
 
 When exposing FHIR resources, care must be taken to identify which level of resource sensitivity a resource falls into and ensure that appropriate access control mechanisms are in place.
 
