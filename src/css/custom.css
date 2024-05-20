@@ -3617,3 +3617,7 @@ h2+.rich-text--highlight {
 .menu__link {
   font-size: smaller;
 }
+
+.react-tooltip {
+  z-index: 1000;
+}

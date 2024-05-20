@@ -14,7 +14,7 @@ Therefore, it is important that API Providers consider their consumers and the c
 
 ## Consideration of Risks
 
-API designers and implementers **MUST** show how they have assessed and managed risks associated with their API solution.  This assessment should be conducted during API design and be part of ongoing risk assessments of their APIs and products.  Records of risk assessment, current status and mitigation **SHOULD** be maintained in API Provider risk management systems.
+<ApiStandard id="HNZAS_MUST_SHOW_RISK_ASSESSMENT" type="MUST" toolTip="API designers and implementers MUST show how they have assessed and managed risks associated with their API solution." wrapper='span'>API designers and implementers **MUST** show how they have assessed and managed risks associated with their API solution.</ApiStandard> This assessment should be conducted during API design and be part of ongoing risk assessments of their APIs and products. <ApiStandard id="HNZAS_SHOULD_MAINTAIN_RISK_ASSESSMENT_RECORDS" type="SHOULD" toolTip="Records of risk assessment, current status, and mitigation SHOULD be maintained in API Provider risk management systems." wrapper='span'>Records of risk assessment, current status, and mitigation **SHOULD** be maintained in API Provider risk management systems.</ApiStandard>
 
 This standard calls for API designers/implementers to **show** they have considered API security risk mitigation.  This would generally be **demonstrated by design documentation** or where security mitigations are being re-used from other solutions, by reference to documentation or certification of those solutions / components.
 

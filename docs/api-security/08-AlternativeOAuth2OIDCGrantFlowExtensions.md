@@ -23,8 +23,8 @@ How the JWT is created is captured in the table below.
 
 | JWT creation |Issues| Recommendation|
 |----|----|----|
-|API Consumer created JWT| <li>Compromise of the private key</li><li> Management of tokens and key rotation</li>| **MAY** be used for:<li>Server to Server flow</li><li>**UNCLASSIFIED** APIs</li>|
-|IDP created JWT| A Trust relationship is required to be setup| **MAY** be used for:<li>**UNCLASSIFIED** APIs</li><li>Consent is not required</li>|
+|API Consumer created JWT| <li>Compromise of the private key</li><li> Management of tokens and key rotation</li>| <ApiStandard id="HNZAS_MAY_USE_CONSUMER_CREATED_JWT" type="MAY" toolTip="API Consumer created JWT MAY be used for Server to Server flow or UNCLASSIFIED APIs.">**MAY** be used for:<li>Server to Server flow</li><li>**UNCLASSIFIED** APIs</li></ApiStandard> |
+|IDP created JWT| A Trust relationship is required to be setup| <ApiStandard id="HNZAS_MAY_USE_IDP_CREATED_JWT" type="MAY" toolTip="IDP created JWT MAY be used for UNCLASSIFIED APIs or when consent is not required.">**MAY** be used for:<li>**UNCLASSIFIED** APIs</li><li>Consent is not required</li></ApiStandard> |
 
 The Sequence flow below details the steps for the JWT Assertion Profile Flow.
 
@@ -78,7 +78,7 @@ end
 
 <!-- cspell:enable -->
 
-Note: the jwt-bearer flow **MAY** be used with authorisation code flows. In this case the JWT is only used to validate the client with the API Provider.
+Note: <ApiStandard id="HNZAS_MAY_USE_JWT_BEARER_WITH_AUTH_CODE" type="MAY" toolTip="The jwt-bearer flow MAY be used with authorisation code flows." wrapper='span'>the jwt-bearer flow **MAY** be used with authorisation code flows.</ApiStandard> In this case the JWT is only used to validate the client with the API Provider.
 
 <!-- cspell:disable -->
 
@@ -107,10 +107,23 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer
 
 For the SAML Assertion Grant Flow, Health NZ:
 
-- **SHOULD NOT** use it for Server to Server flows
-- **SHOULD NOT** use a client created assertion model
-- **MAY** use it for **UNCLASSIFIED** APIs
-- **MAY** use it with Authorisation Code flows for **MEDICAL IN-CONFIDENCE** APIs when a SAML token endpoint authorisation model is required. (See code below)
+<ul>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_SAML_FOR_SERVER_TO_SERVER" type="SHOULD_NOT" toolTip="SAML Assertion Grant Flow SHOULD NOT be used for Server to Server flows." wrapper="li">
+   **SHOULD NOT** be used for Server to Server flows.
+</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_CREATED_ASSERTION" type="SHOULD_NOT" toolTip="SAML Assertion Grant Flow SHOULD NOT use a client created assertion model." wrapper="li">
+  **SHOULD NOT** use a client created assertion model.
+</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_USE_SAML_FOR_UNCLASSIFIED" type="MAY" toolTip="SAML Assertion Grant Flow MAY be used for UNCLASSIFIED APIs." wrapper="li">
+  **MAY** be used for **UNCLASSIFIED** APIs.
+</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_USE_SAML_WITH_AUTH_CODE_FOR_MEDICAL" type="MAY" toolTip="SAML Assertion Grant Flow MAY be used with Authorisation Code flows for MEDICAL IN-CONFIDENCE APIs when a SAML token endpoint authorisation model is required." wrapper="li">
+  **MAY** be used with Authorisation Code flows for **MEDICAL IN-CONFIDENCE** APIs when a SAML token endpoint authorisation model is required. (See code below)
+</ApiStandard>
+</ul>
 
 <!-- cspell:disable -->
 
