@@ -58,7 +58,7 @@ parameters:
 
 ### Publishing of FHIR examples and instances which do not support business version
 
-<ApiStandard id="HNZAS_SHALL_TAKE_BUSINESS_VERSION_FROM_IG" type="SHALL" toolTip="Where a FHIR API specification declares well-known or canonical resource instances that do not support business version, API consumers shall take the business version to be the version of the IG.">Where a FHIR API specification declares well-known or canonical resource instances of types which do not support business version (that is, no "date" element) API consumers <b>SHALL</b> take the business version to be the version of the IG in which those instances are defined.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_TAKE_BUSINESS_VERSION_FROM_IG" type="SHOULD" toolTip="Where a FHIR API specification declares well-known or canonical resource instances that do not support business version, API consumers shall take the business version to be the version of the IG.">Where a FHIR API specification declares well-known or canonical resource instances of types which do not support business version (that is, no "date" element) API consumers <b>SHOULD</b> take the business version to be the version of the IG in which those instances are defined.</ApiStandard>
 
 ---
 
