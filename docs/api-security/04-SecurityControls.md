@@ -51,7 +51,7 @@ Patient|<li><ApiStandard id="HNZAS_MUST_USE_TLS" type="MUST" toolTip="TLS MUST b
 
 The following is a list of controls and their applicability for all API Providers:
 
-- **MUST** enforce [access controls](./APIAuthentcationandAuthorisationBasics#authorisation) at the API provider edge
+- **MUST** enforce [access controls](./APIAuthenticationandAuthorisationBasics#authorisation) at the API provider edge
   - [Throttling](#availability-and-threat-protection) to address Distributed Denial of Service (DDoS)attacks
   - [Message analysis](#availability-and-threat-protection) to block HTTP attacks; parameter attacks such as cross-site scripting (XSS), SQL injection, command injection and cross site request forgery (XSRF)
 - **MUST** use [short lived Access Tokens](#token-threat-mitigation)

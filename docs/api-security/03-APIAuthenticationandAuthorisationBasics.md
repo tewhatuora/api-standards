@@ -201,7 +201,7 @@ of its validation period.
 
 An API consumer may invite a user to authorise the application to
 act on behalf of the health sector participant. <ApiStandard id="HNZAS_MUST_PROVIDE_INTENT_TO_AUTH_SERVER" type="MUST" toolTip="API consumers must provide request intent to authorisations servers." > In order for this to occur the
-the API consumer **MUST** provide the authorisation server with the `intent` of it's
+the API consumer **MUST** provide the authorisation server with the `intent` of its
 request.</ApiStandard>
 
 :::note[My Health Record Screenshot]
