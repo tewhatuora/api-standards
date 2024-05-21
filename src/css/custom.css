@@ -3613,3 +3613,12 @@ h2+.rich-text--highlight {
 .small-text {
   font-size: small;
 }
+
+.menu__link {
+  font-size: smaller;
+}
+
+.react-tooltip {
+  z-index: 1000;
+  max-width:60vw
+}

@@ -20,8 +20,9 @@ over which is the most "RESTful”. Below is a description of each methodology h
 
 ### URI (Path) Versioning (Supported)
 
-For URL-based versioning the [Uniform Resource Identifier (URI)](./URIs) **MUST** include `/v{N}` with the major version
-(N) and v as a prefix. API Providers **should not** include minor version numbers. Considering semantic version description above only the **MAJOR** version should be represented in the URI.
+<ApiStandard id="HNZAS_MUST_USE_URL_VERSIONING" type="MUST" toolTip="For URL-based versioning, the URI MUST include /v{N} with the major version (N) and 'v' as a prefix.">For URL-based versioning the [Uniform Resource Identifier (URI)](./URIs) **MUST** include `/v{N}` with the major version (N) and v as a prefix.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_NOT_INCLUDE_MINOR_VERSION" type="SHOULD_NOT" toolTip="API Providers SHOULD NOT include minor version numbers in the URI. Only the MAJOR version should be represented.">API Providers **SHOULD NOT** include minor version numbers. Considering semantic version description above, only the **MAJOR** version should be represented in the URI.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
@@ -35,7 +36,7 @@ GET https://api.example.govt.nz/people/v1/search?first-name=John&last-name=Smith
 GET https://api.example.govt.nz/people/v2/search?first-name=John&last-name=Smith&page-size=10
 ```
 
-The response **MUST** still indicate, at least, the **MAJOR** version of the API that processed the request. This can be done using the [**Content-Type**](./Headers#content-type-response) response header.
+<ApiStandard id="HNZAS_MUST_INDICATE_MAJOR_VERSION" type="MUST" toolTip="Responses MUST indicate at least the MAJOR version of the API that processed the request, using the Content-Type response header.">The response **MUST** still indicate, at least, the **MAJOR** version of the API that processed the request. This can be done using the [**Content-Type**](./Headers#content-type-response) response header.</ApiStandard>
 
 ```bash
 Content-Type: application/json; version=v3.2.5
@@ -92,8 +93,7 @@ client request in the **Content-Type** header.
 
 ## When to Version
 
-Simply put, an API should be versioned when a change is considered
-breaking. One of the benefits of an API is that, if it is well designed,
+<ApiStandard id="HNZAS_SHOULD_VERSION_ON_BREAKING_CHANGE" type="SHOULD" toolTip="An API SHOULD be versioned when a change is considered breaking." wrapper='span'>Simply put, an API **SHOULD** be versioned when a change is considered breaking.</ApiStandard> One of the benefits of an API is that, if it is well designed,
 there should be fewer breaking changes. However, legislative changes may enforce a new version
 of an API and deprecation of all previous versions.
 
@@ -141,10 +141,7 @@ Such changes include:
 
 It is important to remember that version control is more than just
 versioning the resource. An API will inherently have associated code and
-artefacts. Consider what comprises an API and include these as a logical
-artefact stored and managed in a source code management (SCM)
-system. It is a good idea to try and capture all components in a format
-that can be controlled by SCM.
+artefacts. <ApiStandard id="HNZAS_SHOULD_MANAGE_API_ARTEFACTS_IN_SCM" type="SHOULD" toolTip="All components of an API comprising a logical artefact SHOULD be stored and managed in an SCM system." wrapper='span'>Consider what comprises an API and include these as a logical artefact stored and managed in a source code management (SCM) system. It is a good idea to try and capture all components in a format that can be controlled by SCM.</ApiStandard>
 
 An API artefact should, where possible, comprise the following:
 
@@ -157,7 +154,9 @@ An API artefact should, where possible, comprise the following:
 
 ## Resource Version Control
 
-As discussed in [HTTP Verbs - PUT](./HTTPVerbs#put) there are some scenarios in REST where an API may be vulnerable to race conditions. This is a situation where an API Consumer and an API Provider become out of sync with regards to their expectations of a resource. There are two common ways of handling this situation and, in the context of these standards, API Providers **MUST** implement one of the two concurrency mechanisms listed below.
+As discussed in [HTTP Verbs - PUT](./HTTPVerbs#put) there are some scenarios in REST where an API may be vulnerable to race conditions. This is a situation where an API Consumer and an API Provider become out of sync with regards to their expectations of a resource. <ApiStandard id="HNZAS_MUST_IMPLEMENT_CONCURRENCY_MECHANISM" type="MUST" toolTip="API Providers MUST implement either optimistic or pessimistic concurrency.">There are two common ways of handling this situation and, in the context of these standards, API Providers **MUST** implement one of the two concurrency mechanisms listed below.</ApiStandard>
+
+```​⬤
 
 | Feature | Optimistic Concurrency | Pessimistic Concurrency |
 |:---|:---|:---|
@@ -216,4 +215,5 @@ The best approach for your API depends on several factors:
 - Performance requirements: Can your system handle the overhead of pessimistic locking?
 - Complexity considerations: How easy is it to implement and maintain pessimistic locking in your API?
 
-Typically, optimistic concurrency is preferred for APIs due to its simplicity and scalability. However, pessimistic concurrency is necessary for scenarios where data consistency is paramount and conflicts are frequent.
+<ApiStandard id="HNZAS_SHOULD_PREFER_OPTIMISTIC_CONCURRENCY" type="SHOULD" toolTip="APIs SHOULD implement optimistic concurrency." wrapper='span'>Typically, optimistic concurrency is preferred for APIs due to its simplicity and scalability.</ApiStandard>
+ <ApiStandard id="HNZAS_MAY_USE_PESSIMISTIC_CONCURRENCY" type="MAY" toolTip="Pessimistic concurrency MAY be used where data consistency is paramount and conflicts are frequent.">However, pessimistic concurrency is necessary for scenarios where data consistency is paramount and conflicts are frequent.</ApiStandard>

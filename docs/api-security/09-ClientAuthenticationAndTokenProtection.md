@@ -8,7 +8,9 @@ title: Client Authentication and Token Protection
 
 The role of Client Authentication in OAuth 2.0 and OpenID Connect is to help maintain the integrity and security of the authentication flow. Its objective is to enure that only authorised API Consumers can interact with API Providers.
 
-All MEDICAL IN-CONFIDENCE APIs **SHOULD** be secured using Client Authentication to protect the token endpoint and tokens issued **MUST** be bound to the client.
+<ApiStandard id="HNZAS_SHOULD_SECURE_MEDICAL_APIS" type="SHOULD" toolTip="All medical in-confidence APIs SHOULD be secured using Client Authentication to protect the token endpoint.">All MEDICAL IN-CONFIDENCE APIs **SHOULD** be secured using Client Authentication to protect the API endpoints.</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_BIND_TOKENS_TO_CLIENT" type="MUST" toolTip="Tokens issued MUST be bound to the client.">Tokens issued **MUST** be bound to the client.</ApiStandard>
 
 There are four authentication models that can be applied to secure the Confidential Client connection from the API Consumer to the API Provider's token endpoint.
 
@@ -42,13 +44,13 @@ This model uses the HTTP Basic authentication scheme, and the client ID and clie
       Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
       Content_Type: application/x-www-form-urlenclosed
       ```
-**MAY** be used for UNCLASSIFIED APIs.
+<ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_BASIC_FOR_UNCLASSIFIED" type="MAY" toolTip="Client secret basic auth MAY be used for UNCLASSIFIED APIs.">Client secret basic auth **MAY** be used for UNCLASSIFIED APIs.</ApiStandard>
 
-**SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_BASIC_FOR_MEDICAL" type="SHOULD_NOT" toolTip="Client secret basic auth SHOULD NOT be used for MEDICAL IN-CONFIDENCE APIs.">Client secret basic auth **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
 
-**SHOULD NOT** be used with Public Clients.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_BASIC_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Client secret basic auth SHOULD NOT be used with Public Clients.">Client secret basic auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
-Confidential clients **MUST** securely store these credentials.
+<ApiStandard id="HNZAS_MUST_SECURELY_STORE_CLIENT_SECRET_BASIC" type="MUST" toolTip="Confidential clients MUST securely store client secret basic auth credentials.">Confidential clients **MUST** securely store these credentials.</ApiStandard>
 
 ### `client_secret_post`
 
@@ -64,13 +66,13 @@ This sends the client ID and secret within a POST body so it is percieved as a m
 
 <!-- cspell:enable -->
 
-**COULD** be used for UNCLASSIFIED APIs.
+<ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_POST_FOR_UNCLASSIFIED" type="MAY" toolTip="Client secret post auth MAY be used for UNCLASSIFIED APIs.">Client secret post auth **MAY** be used for UNCLASSIFIED APIs.</ApiStandard>
 
-**SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_POST_FOR_MEDICAL" type="SHOULD_NOT" toolTip="Client secret post auth SHOULD NOT be used for MEDICAL IN-CONFIDENCE APIs.">Client secret post auth **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
 
-**SHOULD NOT** be used with Public Clients.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_POST_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Client secret post auth SHOULD NOT be used with Public Clients.">Client secret post auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
-Confidential clients **MUST** securely store these credentials.
+<ApiStandard id="HNZAS_MUST_SECURELY_STORE_CLIENT_SECRET_POST" type="MUST" toolTip="Confidential clients MUST securely store client secret post auth credentials.">Confidential clients **MUST** securely store these credentials.</ApiStandard>
 
 ## JWT based Authentication Methods
 
@@ -97,13 +99,13 @@ The API Consumer creates the JWT and embeds the client ID in the body of the tok
       ```
 <!-- cspell:enable -->
 
-**COULD** be used for UNCLASSIFIED APIs.
+<ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_JWT_FOR_UNCLASSIFIED" type="MAY" toolTip="Client secret JWT auth MAY be used for UNCLASSIFIED APIs.">Client secret JWT auth **MAY** be used for UNCLASSIFIED APIs.</ApiStandard>
 
-**MAY** be used for MEDICAL IN-CONFIDENCE APIs.
+<ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_JWT_FOR_MEDICAL" type="MAY" toolTip="Client secret JWT auth MAY be used for MEDICAL IN-CONFIDENCE APIs.">Client secret JWT auth **MAY** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
 
-**SHOULD NOT** be used with Public Clients.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_JWT_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Client secret JWT auth SHOULD NOT be used with Public Clients.">Client secret JWT auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
-**MAY** be used with Confidential Clients.
+<ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_JWT_FOR_CONFIDENTIAL_CLIENTS" type="MAY" toolTip="Client secret JWT auth MAY be used with Confidential Clients.">Client secret JWT auth **MAY** be used with Confidential Clients.</ApiStandard>
 
 ### `private_key_jwt`
 
@@ -127,9 +129,9 @@ This is a less complex solution that tls_client_auth.
       ```
 <!-- cspell:enable -->
 
-This **SHOULD** be used when protecting MEDICAL IN-CONFIDENCE APIs via a confidential client
+<ApiStandard id="HNZAS_SHOULD_USE_PRIVATE_KEY_JWT_FOR_MEDICAL" type="SHOULD" toolTip="Private key JWT SHOULD be used when protecting MEDICAL IN-CONFIDENCE APIs via a confidential client.">This **SHOULD** be used when protecting MEDICAL IN-CONFIDENCE APIs via a confidential client.</ApiStandard>
 
-**SHOULD NOT** be used with Public Clients
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_PRIVATE_KEY_JWT_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Private key JWT SHOULD NOT be used with Public Clients.">Private key JWT **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
 ## Mutual TLS Method
 
@@ -145,11 +147,11 @@ There are two methods:
 
 Both add security enhancement as they use mTLS creating a two way trust between the API Consumer and API Provider but add complexity to the design.
 
-`self_signed_tls_client_auth` **MAY** be used in Testing and Development environments they **SHOULD NOT** be used in production implementations.
+<ApiStandard id="HNZAS_MAY_USE_SELF_SIGNED_TLS_FOR_TESTING" type="MAY" toolTip="Self-signed TLS client auth MAY be used in Testing and Development environments but SHOULD NOT be used in production implementations.">`self_signed_tls_client_auth` **MAY** be used in Testing and Development environments but **SHOULD NOT** be used in production implementations.</ApiStandard>
 
-`tls_client_auth` **COULD** be used in a production implementation and **COULD** be used in a confidential client.
+<ApiStandard id="HNZAS_MAY_USE_TLS_CLIENT_AUTH_FOR_PRODUCTION" type="MAY" toolTip="TLS client auth MAY be used in a production implementation and MAY be used in a confidential client.">`tls_client_auth` **MAY** be used in a production implementation and **MAY** be used in a confidential client.</ApiStandard>
 
-Public clients **SHOULD NOT** use either of these authentication methods.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_TLS_AUTH_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Public clients SHOULD NOT use self-signed TLS or TLS client auth methods.">Public clients **SHOULD NOT** use either of these authentication methods.</ApiStandard>
 
 ## Token Protection
 
@@ -181,6 +183,6 @@ There are two DPoP methods defined by OpenID Connect.
 
 Certificate-based proof of possession has a higher level of security than the JWT PoP as it includes mTLS.
 
-When protecting MEDICAL IN-CONFIDENCE APIs a DPoP model **COULD** be used.
+<ApiStandard id="HNZAS_MAY_USE_DPOP_FOR_MEDICAL" type="MAY" toolTip="When protecting MEDICAL IN-CONFIDENCE APIs, a DPoP model MAY be used.">When protecting MEDICAL IN-CONFIDENCE APIs a DPoP model **MAY** be used.</ApiStandard>
 
-Selection of the certificate or the JWT PoP **SHOULD** be based on a risk assessment taking into account the sensitivity of the information being exposed by the API.
+<ApiStandard id="HNZAS_SHOULD_BASE_CERT_OR_JWT_ON_RISK" type="SHOULD" toolTip="Selection of the certificate or the JWT PoP SHOULD be based on a risk assessment considering the sensitivity of the information exposed by the API.">Selection of the certificate or the JWT PoP **SHOULD** be based on a risk assessment taking into account the sensitivity of the information being exposed by the API.</ApiStandard>
