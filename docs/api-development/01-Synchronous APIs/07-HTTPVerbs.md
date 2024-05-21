@@ -47,9 +47,7 @@ safe when used this way. That is, they can be called without risk of
 data modification or corruption - calling it once has the same effect as
 calling it 10 times. GET is idempotent, which means that making multiple
 identical requests ends up having the same result as a single
-request. <ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_UNSAFE_GET_OPERATIONS" type="SHOULD_NOT" toolTip="APIs SHOULD NOT expose unsafe operations via GET; GET requests should never modify any resources on the server.">
-  Do not expose unsafe operations via GET - it should never modify any resources on the server.
-</ApiStandard>
+request. <ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_UNSAFE_GET_OPERATIONS" type="SHOULD_NOT" toolTip="APIs SHOULD NOT expose unsafe operations via GET; GET requests should never modify any resources on the server.">Do not expose unsafe operations via GET - it should never modify any resources on the server.</ApiStandard>
 
 ### GET Examples
 
