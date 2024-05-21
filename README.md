@@ -95,11 +95,97 @@ Any issues with the [markdown linting](https://github.com/DavidAnson/markdownlin
 <!-- markdownlint-disable MD024 MD036 MD040 MD041 MD051 -->
 ```
 
-#### <ApiStandard> component and auto-generation
+# <ApiStandard> component and auto-generation
 
-There is an <ApiStandard> component which is used to auto-generate tooltips and a master checklist of all standards. On build, a script (/scripts/extractStandards.js) runs which parses these components and generates the master checklist and tooltips. The IDs are required to be in this format:
+There is an <ApiStandard> component which is used to auto-generate tooltips and a master checklist of all standards. On build, a script (/scripts/extractStandards.js) runs which parses these components and generates the master checklist and tooltips.
 
-`HNZAS_{verb}_{description}`, where `verb` is one of MUST, MUST_NOT, SHOULD, SHOULD_NOT, or MAY, and `description` is a short description of the standard in UPPER_SNAKE_CASE.
+## Basic Usage
+
+To wrap a piece of text in an `ApiStandard` component, use the following structure:
+
+```jsx
+
+<ApiStandard id="UNIQUE_ID" type="RULE_TYPE" toolTip="Description of the rule." wrapper="li">
+
+  Your text here
+
+</ApiStandard>
+
+```
+
+### Example
+
+```jsx
+
+<ApiStandard id="HNZAS_MUST_USE_TLS" type="MUST" toolTip="All communications to or from an API MUST use TLS 1.3 or higher." wrapper="li">
+
+  All communications to or from an API **MUST** use TLS 1.3 or higher.
+
+</ApiStandard>
+
+```
+
+## Component Attributes
+
+- `id`: A unique identifier for the rule. It follows the pattern `HNZAS_<RULE_TYPE>_<SHORT_DESCRIPTION>`.
+
+- `type`: The type of rule, such as MUST, SHOULD, MAY, SHOULD_NOT, MUST_NOT.
+
+- `toolTip`: A brief description that appears as a tooltip when hovering over the rule.
+
+- `wrapper`: The HTML tag used to wrap the text, commonly `li` for list items or `span` for inline text.
+
+- `dupe`: A boolean attribute that indicates if the rule is a duplicate of another rule. This is used to prevent the rule from being included twice in the master checklist.
+
+## Trends and Common Patterns
+
+### Single Line Rules
+
+When documenting simple rules, wrap the rule text in an `ApiStandard` component:
+
+```jsx
+
+<ApiStandard id="HNZAS_SHOULD_HAVE_HOME_PAGE" type="SHOULD" toolTip="A FHIR IG should have a home page with a clear high level description of the implementation." wrapper="li">
+
+  A FHIR IG **SHOULD** have a home page: "A clear high level description of the implementation"
+
+</ApiStandard>
+
+```
+
+### Multiple Sentences
+
+For more complex rules that span multiple sentences, ensure each sentence is clear and the entire rule is wrapped:
+
+```jsx
+
+<ApiStandard id="HNZAS_MUST_PUBLISH_CAPABILITY_STATEMENT" type="MUST" toolTip="FHIR APIs MUST publish a CapabilityStatement resource at the {{API_URL}}/metadata endpoint." wrapper="li">
+
+  FHIR APIs **MUST** publish a **CapabilityStatement** resource at the `{{API_URL}}/metadata` endpoint.
+
+</ApiStandard>
+
+```
+
+### Lists of Requirements
+
+When listing multiple requirements, each item should be wrapped individually:
+
+```jsx
+
+<ApiStandard id="HNZAS_MUST_USE_TLS" type="MUST" toolTip="All communications to or from an API MUST use TLS 1.3 or higher." wrapper="li">
+
+  All communications to or from an API **MUST** use TLS 1.3 or higher.
+
+</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_ENCRYPT_TOKENS" type="MUST" toolTip="Tokens MUST be encrypted." wrapper="li">
+
+  Tokens **MUST** be encrypted.
+
+</ApiStandard>
+
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
