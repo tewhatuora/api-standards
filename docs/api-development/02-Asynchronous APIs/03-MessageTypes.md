@@ -15,7 +15,10 @@ The message body contains the detail of the event we want to publish.
 ### Event notification (Thin events)
 
 This message type is often referred to as a `thin` message - as it will contain no data or the minimal amount of data required to inform a consumer of an event that has occurred. If any of the consumers of the message are interested to know further details about this particular event, they are able to contact the API Provider for more information (typically this will be using a REST or FHIR API). These message types are valuable when there is a need to notify other parties that a particular event has taken place, however the API Consumer may not need to know all the details right away.
-Thin events may include a pointer (URL or similar identifier) back to the specific resource that initiated the notification. If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time}`.
+
+<ApiStandard id="HNZAS_MAY_INCLUDE_THIN_POINTER" type="MAY" toolTip="Asynchronous thin events MAY include a pointer." >Thin events **MAY** include a pointer (URL or similar identifier) back to the specific resource that initiated the notification.</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_THIN_DATASOURCE" type="MUST" toolTip="Asynchronous thin events MUST ensure the data source allows subscribers to query specifically for the resources that have changed." >If a pointer is not supplied, implementations **MUST** ensure the data source allows subscribers to query specifically for the resources that have changed. An example based on time factors would be to query for all resources where `lastUpdatedTime > {last query time}`.</ApiStandard>
 
 Example event notification:
 
@@ -46,7 +49,7 @@ The payload above notifies that a `hospital_admission` has occurred for Patient 
 A key design consideration for thin events is the potential for traffic to data sources to become volatile as the ecosystem scales. This volatility arises from the likelihood that all subscribers will simultaneously trigger automated workflows to access the data. Ensure that the data source has the correct scale and API gateway policies like Spike Control to take this into account.
 :::
 
-This message type **SHOULD** be used if the API Consumer/s may not be fully trusted or if re-authentication of the client is mandatory, which is common when using the [Pub/Sub Pattern](./Async%20Patterns/02-PubSub.md).
+<ApiStandard id="HNZAS_SHOULD_THIN_TYPE_USE" type="SHOULD" toolTip="Asynchronous thin message types SHOULD be used if the API Consumer/s may not be fully trusted or if re-authentication of the client is mandatory" >This message type **SHOULD** be used if the API Consumer/s may not be fully trusted or if re-authentication of the client is mandatory, which is common when using the [Pub/Sub Pattern](./Async%20Patterns/02-PubSub.md).</ApiStandard>
 
 ### Event-Carried State Transfer (Thick events)
 
@@ -304,7 +307,7 @@ In this message type, the full FHIR resource targeted by the notification is sen
 }
 ```
 
-When deciding which payload type to request, systems **SHOULD** consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems **SHOULD** use the minimum level of detail consistent with the use case. In practice, id-only provides a good balance between security and performance for many real-world scenarios.
+<ApiStandard id="HNZAS_SHOULD_FIHR5_PHI" type="SHOULD" toolTip="Asynchronous FHIR R5 Subscriptions requests SHOULD consider both ease of processing and security of PHI." >When deciding which payload type to request, systems **SHOULD** consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems **SHOULD** use the minimum level of detail consistent with the use case. In practice, id-only provides a good balance between security and performance for many real-world scenarios.</ApiStandard>
 
 Note that this is not an exhaustive list of all possible message types, but these are considered most relevant to the use cases in the New Zealand Health Sector.
 
@@ -327,7 +330,6 @@ When not following a specification that defines mandatory event metadata such as
 | Content-Type      | `application/json`   | Indicates the content type of the message |
 | Correlation-Id   | `63841126-0aba-4e21-adbe-fa21279e83b2`  | Unique identifier for the interaction |
 | Event-Id | `54e7587e-5a38-4c85-94cb-96cc9570a19f` | Unique identifier for this event, used for idempotency |
-
 
 For further reading on message types, please refer to:
 
