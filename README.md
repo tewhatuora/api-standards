@@ -95,7 +95,7 @@ Any issues with the [markdown linting](https://github.com/DavidAnson/markdownlin
 <!-- markdownlint-disable MD024 MD036 MD040 MD041 MD051 -->
 ```
 
-# <ApiStandard> component and auto-generation
+## Standards authoring
 
 There is an <ApiStandard> component which is used to auto-generate tooltips and a master checklist of all standards. On build, a script (/scripts/extractStandards.js) runs which parses these components and generates the master checklist and tooltips.
 
