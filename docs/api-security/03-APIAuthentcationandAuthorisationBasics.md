@@ -431,10 +431,7 @@ The downside of this model is that it makes it difficult to gather
 effective analytics, and therefore to understand the implications of
 proposed changes to, and deprecation of, an API.
 
-<ApiStandard id="HNZAS_MUST_IMPLEMENT_VULNERABILITY_PROTECTION_FOR_ANON_AUTH" type="MUST" toolTip="When using anonymous authentication providers must implement appropriate vulnerabiity protection." >
-If using the Anonymous authentication model the API **MUST** implement appropriate protection against typical
-API vulnerabilities and threats, as listed on the [OWASP (Open Web Application Security Project)](https://owasp.org/www-project-api-security/) site. 
-</ApiStandard>
+<ApiStandard id="HNZAS_MUST_IMPLEMENT_VULNERABILITY_PROTECTION_FOR_ANON_AUTH" type="MUST" toolTip="When using anonymous authentication providers must implement appropriate vulnerabiity protection." >If using the Anonymous authentication model the API **MUST** implement appropriate protection against typical API vulnerabilities and threats, as listed on the [OWASP (Open Web Application Security Project)](https://owasp.org/www-project-api-security/) site.</ApiStandard>
 
 Typically, these relate to:
 
@@ -516,10 +513,7 @@ This model **MAY** be used for *testing and development* purposes but **SHOULD N
 
 <ApiStandard id="HNZAS_SHOULD_USE_API_KEYS_FOR_APP_AUTH" type="SHOULD" toolTip="API keys should be used for application authentication.">**<span class="smallcaps">SHOULD</span>**</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_USE_UNIQUE_API_KEYS" type="SHOULD" toolTip="API keys should be unique to a application, developer or organisation.">
-API Keys are a digital authentication mechanism, with the API key generally being opaque - e.g. a GUID. API keys **SHOULD** be
-unique and can be assigned to an **application**, **developer**, or **organisation**. 
-</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_USE_UNIQUE_API_KEYS" type="SHOULD" toolTip="API keys should be unique to a application, developer or organisation.">API Keys are a digital authentication mechanism, with the API key generally being opaque - e.g. a GUID. API keys **SHOULD** be unique and can be assigned to an **application**, **developer**, or **organisation**.</ApiStandard>
 
 The
 usual practice is for an application developer to obtain a key for their
@@ -578,10 +572,7 @@ approval.
 
 API keys are not linked to users and usually require no cryptographic functions.
 
-<ApiStandard id="HNZAS_MUST_USE_API_KEYS_FOR_SYSTEM_TO_SYSTEM" type="MUST" toolTip="API keys must be used for system to system authentication.">
-API Keys **MUST** be used wherever system to system authentication is
-needed (especially with a production level API).
-</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_API_KEYS_FOR_SYSTEM_TO_SYSTEM" type="MUST" toolTip="API keys must be used for system to system authentication.">API Keys **MUST** be used wherever system to system authentication is needed (especially with a production level API).</ApiStandard>
 
 They **MAY** be used on their own for simple public APIs which do not need more complex authentication models.
 
@@ -602,9 +593,7 @@ this decide if API Keys are required.
 
 ## Certificates (Mutual) Authentication
 
-<ApiStandard id="HNZAS_MAY_USE_CERT_AUTH" type="MUST" toolTip="API providers MAY use certificate authentication, when the model depends on legacy authentication mechanisms.">
-**MAY** use this model when the API depends on legacy authentication mechanisms such as [HealthSecure Certificates](https://www.acc.co.nz/health/)
-</ApiStandard>
+<ApiStandard id="HNZAS_MAY_USE_CERT_AUTH" type="MUST" toolTip="API providers MAY use certificate authentication, when the model depends on legacy authentication mechanisms.">**MAY** use this model when the API depends on legacy authentication mechanisms such as [HealthSecure Certificates](https://www.acc.co.nz/health/)</ApiStandard>
 
 In Certificate (Mutual) Authentication both the API consumer and
 the API provider hold a digital certificate. The digital certificate can
@@ -660,9 +649,7 @@ API -[#blue]> AC : Application data (encrypted with session key)
 
 ## Developer Authentication
 
-<ApiStandard id="HNZAS_MUST_IMPLEMENT_DEV_AUTH" type="MUST" toolTip="API providers MUST implement developer authentication on API portals.">
-API Providers **MUST** implement Developer Authentication
-</ApiStandard>
+<ApiStandard id="HNZAS_MUST_IMPLEMENT_DEV_AUTH" type="MUST" toolTip="API providers MUST implement developer authentication on API portals.">API Providers **MUST** implement Developer Authentication</ApiStandard>
 
 Developer authentication should take place at an API Portal.
 

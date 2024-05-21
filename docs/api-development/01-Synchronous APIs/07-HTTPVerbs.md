@@ -259,23 +259,15 @@ there and still has the same state as it did with the first call.
 However, were the PUT call to increment a counter within the resource,
 the call is no longer idempotent. Sometimes this is necessary behaviour,
 and it may be enough to document that the call is not idempotent.
-<ApiStandard id="HNZAS_SHOULD_KEEP_PUT_REQUESTS_IDEMPOTENT" type="SHOULD" toolTip="PUT requests SHOULD be idempotent." wrapper='span'>
-  However, it's recommended to keep PUT requests idempotent.
-</ApiStandard> <ApiStandard id="HNZAS_SHOULD_USE_POST_FOR_NON_IDEMPOTENT_REQUESTS" type="SHOULD" toolTip="POST SHOULD be used for non-idempotent requests." wrapper='span'>
-  It is strongly recommended to use POST for non-idempotent requests.
-</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_KEEP_PUT_REQUESTS_IDEMPOTENT" type="SHOULD" toolTip="PUT requests SHOULD be idempotent." wrapper='span'>However, it's recommended to keep PUT requests idempotent.</ApiStandard> <ApiStandard id="HNZAS_SHOULD_USE_POST_FOR_NON_IDEMPOTENT_REQUESTS" type="SHOULD" toolTip="POST SHOULD be used for non-idempotent requests." wrapper='span'>It is strongly recommended to use POST for non-idempotent requests.</ApiStandard>
 
 It is good practice to perform a GET on a resource before you perform a
 PUT. This means that the consuming application has the latest
-representation of that resource. <ApiStandard id="HNZAS_SHOULD_PUT_CONTAIN_ENTIRE_RESOURCE" type="SHOULD" toolTip="PUT requests SHOULD contain the entire resource content in the message body." wrapper='span'>
-  PUT should contain the entire resource content in the message body.
-</ApiStandard> By performing a GET prior to the PUT the
+representation of that resource. <ApiStandard id="HNZAS_SHOULD_PUT_CONTAIN_ENTIRE_RESOURCE" type="SHOULD" toolTip="PUT requests SHOULD contain the entire resource content in the message body." wrapper='span'>PUT should contain the entire resource content in the message body.</ApiStandard> By performing a GET prior to the PUT the
 consuming application can re-send the results of the GET with any
 modifications.
 
-<ApiStandard id="HNZAS_SHOULD_INVALIDATE_CACHE_ON_PUT" type="SHOULD" toolTip="When using a resource response cache, any PUT to a resource SHOULD invalidate that cache or re-populate the cache with the updated resource.">
-  When using a resource response cache, any PUT to a resource should invalidate that cache or re-populate the cache with the updated resource.
-</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_INVALIDATE_CACHE_ON_PUT" type="SHOULD" toolTip="When using a resource response cache, any PUT to a resource SHOULD invalidate that cache or re-populate the cache with the updated resource.">When using a resource response cache, any PUT to a resource should invalidate that cache or re-populate the cache with the updated resource.</ApiStandard>
 
 <ApiStandard id="HNZAS_MUST_DESIGN_PUT_TOLERANT_APIS" type="MUST" toolTip="API Providers and API Consumers MUST design APIs that are PUT tolerant." wrapper='span'>[API Providers](../../api-concepts/ComponentDefinitions#api-provider) and [API Consumers](../../api-concepts/ComponentDefinitions#api-consumer) **MUST** design APIs that are PUT tolerant.</ApiStandard> What this means is that both producers and consumers should be aware that the resource that is `PUT` to the server becomes the most up to date representation of that resource. This exposes the `PUT` method to a commonly found race condition. This condition is explained in the simple sequence below.
 
