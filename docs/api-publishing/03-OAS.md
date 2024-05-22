@@ -73,7 +73,7 @@ Security schemes **MUST** be defined in `components.securitySchemes` and referen
 
 :::info
 
-Note that if an operation is PUBLIC, for example a FHIR meatadata endpoint, the definition in OpenAPI **SHOULD** still have a security property.
+Note that if an operation is PUBLIC, for example a FHIR metadata endpoint, the definition in OpenAPI **SHOULD** still have a security property.
 
 :::
 
