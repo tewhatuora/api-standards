@@ -15,7 +15,7 @@ info:
     name: Health NZ | Te Whatu Ora
     url: https://www.tewhatuora.govt.nz/
 servers:
-  - url: https://fhir.ap1.digital.health.nz/R4
+  - url: https://fhir.api.digital.health.nz/R4
     description: API Standards Example FHIR API URL
 externalDocs:
   url: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
