@@ -17,6 +17,8 @@ info:
 servers:
   - url: https://fhir.api.digital.health.nz/R4
     description: API Standards Example FHIR API URL
+  - url: https://fhir.api-test.digital.health.nz/R4
+    description: API Standards Example FHIR API Test URL
 externalDocs:
   url: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
   description: FHIR Implementation Guide
