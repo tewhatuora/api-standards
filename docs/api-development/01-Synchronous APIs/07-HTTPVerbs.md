@@ -47,7 +47,7 @@ safe when used this way. That is, they can be called without risk of
 data modification or corruption - calling it once has the same effect as
 calling it 10 times. GET is idempotent, which means that making multiple
 identical requests ends up having the same result as a single
-request. <ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_UNSAFE_GET_OPERATIONS" type="SHOULD_NOT" toolTip="APIs SHOULD NOT expose unsafe operations via GET; GET requests should never modify any resources on the server.">Do not expose unsafe operations via GET - it should never modify any resources on the server.</ApiStandard>
+request. <ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_UNSAFE_GET_OPERATIONS" type="SHOULD NOT" toolTip="APIs SHOULD NOT expose unsafe operations via GET; GET requests should never modify any resources on the server.">Do not expose unsafe operations via GET - it should never modify any resources on the server.</ApiStandard>
 
 ### GET Examples
 
@@ -259,7 +259,7 @@ there and still has the same state as it did with the first call.
 However, were the PUT call to increment a counter within the resource,
 the call is no longer idempotent. Sometimes this is necessary behaviour,
 and it may be enough to document that the call is not idempotent.
-<ApiStandard id="HNZAS_SHOULD_KEEP_PUT_REQUESTS_IDEMPOTENT" type="SHOULD" toolTip="PUT requests SHOULD be idempotent." wrapper='span'>However, it's recommended to keep PUT requests idempotent.</ApiStandard> <ApiStandard id="HNZAS_SHOULD_USE_POST_FOR_NON_IDEMPOTENT_REQUESTS" type="SHOULD" toolTip="POST SHOULD be used for non-idempotent requests." wrapper='span'>It is strongly recommended to use POST for non-idempotent requests.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_KEEP_PUT_REQUESTS_IDEMPOTENT" type="SHOULD" toolTip="PUT requests SHOULD be idempotent." wrapper='span'>However, it's recommended to keep PUT requests idempotent.</ApiStandard> <ApiStandard id="HNZAS_SHOULD_USE_POST_FOR_NON_IDEMPOTENT_REQUESTS" type="SHOULD" toolTip="POST requests SHOULD be used for non-idempotent requests." wrapper='span'>It is strongly recommended to use POST for non-idempotent requests.</ApiStandard>
 
 It is good practice to perform a GET on a resource before you perform a
 PUT. This means that the consuming application has the latest

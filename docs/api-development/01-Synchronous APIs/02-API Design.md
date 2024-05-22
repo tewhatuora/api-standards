@@ -156,7 +156,7 @@ specifications are available for reference [here](../../api-specifications/examp
 
 ### Future-Focused Design
 
-<ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_OBSOLETE_STRUCTURES" type="SHOULD">APIs **SHOULD NOT** expose obsolete or legacy structures or functions.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_EXPOSE_OBSOLETE_STRUCTURES" type="SHOULD NOT">APIs **SHOULD NOT** expose obsolete or legacy structures or functions.</ApiStandard>
 
 Good API design seeks to avoid future breakage in dependent consumer applications by minimising functions, data structures and behaviour exposed, while planning for (at least signalling) foreseeable future change.  
 
@@ -341,7 +341,7 @@ health sector:
   information’s timeliness and update period clear to potential
   API consumers.
 
-- <ApiStandard id="HNZAS_SHOULD_NOT_USE_API_FOR_BATCH" type="SHOULD_NOT" toolTip="APIs SHOULD NOT be used for large batch transfers.">APIs should not be used to handle large batch transfers because of the atomic nature of the usage i.e. if one single data write fails then the whole batch fails.</ApiStandard> APIs work better for multiple individual update transactions.
+- <ApiStandard id="HNZAS_SHOULD_NOT_USE_API_FOR_BATCH" type="SHOULD NOT" toolTip="APIs SHOULD NOT be used for large batch transfers.">APIs should not be used to handle large batch transfers because of the atomic nature of the usage i.e. if one single data write fails then the whole batch fails.</ApiStandard> APIs work better for multiple individual update transactions.
 
 ## Design Driven Development
 
@@ -543,5 +543,5 @@ Some examples of health sector specific SDKs include:
 | [Microsoft Azure Healthcare API SDK](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/healthcare-apis?view=azure-dotnet) | The Microsoft Azure Healthcare API SDK is a collection of tools and libraries that help you build healthcare applications on Microsoft Azure. The SDK includes APIs for managing patient data, scheduling appointments, and billing. |
 | [Amazon Web Services (AWS) Health API SDK](https://docs.aws.amazon.com/health/latest/ug/health-api.html) | The AWS Health API SDK is a collection of tools and libraries that help you build healthcare applications on Amazon Web Services (AWS). The SDK includes APIs for managing patient data, scheduling appointments, and billing. |
 
-<ApiStandard id="HNZAS_SHOULD_PUBLISH_API_DEFINITION" type="SHOULD" toolTip="Publish API definitions to the Health NZ API Marketplace or similar platforms once ready for consumption.">Once an API is in sufficient state to be offered to API consumers, the API definition **SHOULD** be published to the Health NZ API Marketplace or equivalent health sector capability.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_PUBLISH_API_DEFINITION" type="SHOULD" toolTip="API Providers SHOULD publish API definitions to the Health NZ API Marketplace or similar platforms once ready for consumption.">Once an API is in sufficient state to be offered to API consumers, the API definition **SHOULD** be published to the Health NZ API Marketplace or equivalent health sector capability.</ApiStandard>
 <ApiStandard id="HNZAS_MUST_DOCUMENT_EXTERNAL_API" type="MUST" toolTip="External APIs MUST be thoroughly documented and updated in the API catalogue.">The primary API discoverer is the developer, so an external API **MUST** be well documented, and provide accurate and up-to-date guidance via the catalogue.</ApiStandard>

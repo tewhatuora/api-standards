@@ -307,7 +307,7 @@ In this message type, the full FHIR resource targeted by the notification is sen
 }
 ```
 
-<ApiStandard id="HNZAS_SHOULD_FIHR5_PHI" type="SHOULD" toolTip="Asynchronous FHIR R5 Subscriptions requests SHOULD consider both ease of processing and security of PHI." >When deciding which payload type to request, systems **SHOULD** consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems **SHOULD** use the minimum level of detail consistent with the use case. In practice, id-only provides a good balance between security and performance for many real-world scenarios.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_FHIR5_PHI" type="SHOULD" toolTip="Asynchronous FHIR R5 Subscriptions requests SHOULD consider both ease of processing and security of PHI." >When deciding which payload type to request, systems **SHOULD** consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems **SHOULD** use the minimum level of detail consistent with the use case. In practice, id-only provides a good balance between security and performance for many real-world scenarios.</ApiStandard>
 
 Note that this is not an exhaustive list of all possible message types, but these are considered most relevant to the use cases in the New Zealand Health Sector.
 

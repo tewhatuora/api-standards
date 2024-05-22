@@ -19,9 +19,9 @@ When a topic is defined, multiple "levels" may be defined, which are separated b
 
 <ApiStandard id="HNZAS_MUST_TOPIC_SEPARATION" type="MUST" toolTip="Different topic items MUST be separated by a `/`." >Different topic items **MUST** be separated by a `/` as opposed to any form of concatenation such as `{domain}-{action}` to support subscription filtering across different consumption protocols.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_TOPIC_LOWERCASE" type="SHOULD" toolTip="Topics SHOULD be lowercase." >Topics are case-sensitive in most message broker technologies, so using lower case is **RECOMMENDED**.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_TOPIC_LOWERCASE" type="SHOULD" toolTip="Asynchronous API topics SHOULD be lowercase." >Topics are case-sensitive in most message broker technologies, so using lower case is **RECOMMENDED**.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_TOPIC_SPECIAL_CHARS" type="SHOULD" toolTip="Topics SHOULD avoid using any special characters." >It is **RECOMMENDED** to avoid using any special characters as these often have a reserved use in some messaging protocols and message broker implementations, which are often not defined in protocol specifications (e.g. `$SYS/monitor/+` as a system monitoring topic).</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_TOPIC_SPECIAL_CHARS" type="SHOULD" toolTip="Asynchronous API topics SHOULD avoid using any special characters." >It is **RECOMMENDED** to avoid using any special characters as these often have a reserved use in some messaging protocols and message broker implementations, which are often not defined in protocol specifications (e.g. `$SYS/monitor/+` as a system monitoring topic).</ApiStandard>
 
 In general, the below topic design can be used, or expanded for each use case - for example, to add a sub-identifier:
 
@@ -33,7 +33,7 @@ In general, the below topic design can be used, or expanded for each use case - 
 |Action|The action that occurred within the domain. This should be a past tense verb, where HTTP verbs should be avoided.|`administered`, `created`, `issued`, `expired`, `address_updated`, `revoked`|
 |Identifier|An identifier for the subject of an event|`NHI123`, `HPI123`|
 
-<ApiStandard id="HNZAS_MAY_TOPIC_LEVEL_VERSION" type="MAY" toolTip="Topic level MAY be used to indicate different versions of an event." >A topic level **MAY** be used to indicate different versions of an event, where API Consumers may have a different consuming application between versions, or to manage migrations without breaking changes.</ApiStandard>
+<ApiStandard id="HNZAS_MAY_TOPIC_LEVEL_VERSION" type="MAY" toolTip="Topic level MAY be used to indicate different versions of an event." >A topic levels **MAY** be used to indicate different versions of an event, where API Consumers may have a different consuming application between versions, or to manage migrations without breaking changes.</ApiStandard>
 
 <ApiStandard id="HNZAS_MUST_TOPIC_LEVEL_VERSION" type="MUST" toolTip="If topic level is used to indicate different versions of an event, the version MUST also be indicated in the message body or header." >In these cases the event version can be appended as a topic level, however the version **MUST** also be indicated in the message body or header.</ApiStandard>
 
@@ -64,7 +64,7 @@ When this topic hierarchy is shared amongst more events, this allows consistency
 
 <ApiStandard id="HNZAS_MUST_BROKER_SUBSCRIPTION" type="MUST" toolTip="A message producer MUST provide mechanisms for API Consumers to use to subscribe or unsubscribe from available message channels." >A subscription is the mechanism where API Consumers define which events they would like to receive. A message producer **MUST** provide mechanisms for API Consumers to use to subscribe or unsubscribe from available message channels.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_BROKER_FHIR" type="SHOULD" toolTip="A message producer for systems implementing the FHIR Standard, the FHIR Subscriptions Model SHOULD be the preferred mechanism to manage this subscription." >For systems implementing the FHIR Standard, the FHIR Subscriptions Model **SHOULD** be the preferred mechanism to manage this subscription.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_BROKER_FHIR" type="SHOULD" toolTip="For systems implementing the FHIR Standard, the FHIR Subscriptions Model SHOULD be the preferred mechanism to manage this subscription." >For systems implementing the FHIR Standard, the FHIR Subscriptions Model **SHOULD** be the preferred mechanism to manage this subscription.</ApiStandard>
 
 <ApiStandard id="HNZAS_MUST_WILDCARD_TOPIC" type="MUST" toolTip="An API Provider MUST support the ability for an API Consumer to subscribe to topics using wildcards." >An API Provider **MUST** support the ability for an API Consumer to subscribe to topics using wildcards.</ApiStandard>
 

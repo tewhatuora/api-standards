@@ -46,9 +46,9 @@ This model uses the HTTP Basic authentication scheme, and the client ID and clie
       ```
 <ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_BASIC_FOR_UNCLASSIFIED" type="MAY" toolTip="Client secret basic auth MAY be used for UNCLASSIFIED APIs.">Client secret basic auth **MAY** be used for UNCLASSIFIED APIs.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_BASIC_FOR_MEDICAL" type="SHOULD_NOT" toolTip="Client secret basic auth SHOULD NOT be used for MEDICAL IN-CONFIDENCE APIs.">Client secret basic auth **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_BASIC_FOR_MEDICAL" type="SHOULD NOT" toolTip="Client secret basic auth SHOULD NOT be used for MEDICAL IN-CONFIDENCE APIs.">Client secret basic auth **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_BASIC_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Client secret basic auth SHOULD NOT be used with Public Clients.">Client secret basic auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_BASIC_FOR_PUBLIC_CLIENTS" type="SHOULD NOT" toolTip="Client secret basic auth SHOULD NOT be used with Public Clients.">Client secret basic auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
 <ApiStandard id="HNZAS_MUST_SECURELY_STORE_CLIENT_SECRET_BASIC" type="MUST" toolTip="Confidential clients MUST securely store client secret basic auth credentials.">Confidential clients **MUST** securely store these credentials.</ApiStandard>
 
@@ -68,9 +68,9 @@ This sends the client ID and secret within a POST body so it is percieved as a m
 
 <ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_POST_FOR_UNCLASSIFIED" type="MAY" toolTip="Client secret post auth MAY be used for UNCLASSIFIED APIs.">Client secret post auth **MAY** be used for UNCLASSIFIED APIs.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_POST_FOR_MEDICAL" type="SHOULD_NOT" toolTip="Client secret post auth SHOULD NOT be used for MEDICAL IN-CONFIDENCE APIs.">Client secret post auth **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_POST_FOR_MEDICAL" type="SHOULD NOT" toolTip="Client secret post auth SHOULD NOT be used for MEDICAL IN-CONFIDENCE APIs.">Client secret post auth **SHOULD NOT** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_POST_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Client secret post auth SHOULD NOT be used with Public Clients.">Client secret post auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_POST_FOR_PUBLIC_CLIENTS" type="SHOULD NOT" toolTip="Client secret post auth SHOULD NOT be used with Public Clients.">Client secret post auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
 <ApiStandard id="HNZAS_MUST_SECURELY_STORE_CLIENT_SECRET_POST" type="MUST" toolTip="Confidential clients MUST securely store client secret post auth credentials.">Confidential clients **MUST** securely store these credentials.</ApiStandard>
 
@@ -103,7 +103,7 @@ The API Consumer creates the JWT and embeds the client ID in the body of the tok
 
 <ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_JWT_FOR_MEDICAL" type="MAY" toolTip="Client secret JWT auth MAY be used for MEDICAL IN-CONFIDENCE APIs.">Client secret JWT auth **MAY** be used for MEDICAL IN-CONFIDENCE APIs.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_JWT_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Client secret JWT auth SHOULD NOT be used with Public Clients.">Client secret JWT auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_CLIENT_SECRET_JWT_FOR_PUBLIC_CLIENTS" type="SHOULD NOT" toolTip="Client secret JWT auth SHOULD NOT be used with Public Clients.">Client secret JWT auth **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
 <ApiStandard id="HNZAS_MAY_USE_CLIENT_SECRET_JWT_FOR_CONFIDENTIAL_CLIENTS" type="MAY" toolTip="Client secret JWT auth MAY be used with Confidential Clients.">Client secret JWT auth **MAY** be used with Confidential Clients.</ApiStandard>
 
@@ -131,7 +131,7 @@ This is a less complex solution that tls_client_auth.
 
 <ApiStandard id="HNZAS_SHOULD_USE_PRIVATE_KEY_JWT_FOR_MEDICAL" type="SHOULD" toolTip="Private key JWT SHOULD be used when protecting MEDICAL IN-CONFIDENCE APIs via a confidential client.">This **SHOULD** be used when protecting MEDICAL IN-CONFIDENCE APIs via a confidential client.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_PRIVATE_KEY_JWT_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Private key JWT SHOULD NOT be used with Public Clients.">Private key JWT **SHOULD NOT** be used with Public Clients.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_PRIVATE_KEY_JWT_FOR_PUBLIC_CLIENTS" type="SHOULD NOT" toolTip="Private key JWT SHOULD NOT be used with Public Clients.">Private key JWT **SHOULD NOT** be used with Public Clients.</ApiStandard>
 
 ## Mutual TLS Method
 
@@ -151,7 +151,7 @@ Both add security enhancement as they use mTLS creating a two way trust between 
 
 <ApiStandard id="HNZAS_MAY_USE_TLS_CLIENT_AUTH_FOR_PRODUCTION" type="MAY" toolTip="TLS client auth MAY be used in a production implementation and MAY be used in a confidential client.">`tls_client_auth` **MAY** be used in a production implementation and **MAY** be used in a confidential client.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_TLS_AUTH_FOR_PUBLIC_CLIENTS" type="SHOULD_NOT" toolTip="Public clients SHOULD NOT use self-signed TLS or TLS client auth methods.">Public clients **SHOULD NOT** use either of these authentication methods.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_TLS_AUTH_FOR_PUBLIC_CLIENTS" type="SHOULD NOT" toolTip="Public clients SHOULD NOT use self-signed TLS or TLS client auth methods.">Public clients **SHOULD NOT** use either of these authentication methods.</ApiStandard>
 
 ## Token Protection
 

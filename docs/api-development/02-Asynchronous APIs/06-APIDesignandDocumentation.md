@@ -113,6 +113,6 @@ Health New Zealand will use the Digital Services Hub to publish its Event Catalo
 
 ## FHIR Implementation Guides
 
-<ApiStandard id="HNZAS_MUST_IG" type="MAY" toolTip="Asynchronous API Providers MUST publish a FHIR Implementation, MUST publish a FHIR Implementation Guide (IG) to detail the implementation." >When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation Guide (IG) to detail the implementation.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_IG" type="MAY" toolTip="Asynchronous API Providers MUST publish a FHIR Implementation Guide (IG) to detail the implementation." >When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation Guide (IG) to detail the implementation.</ApiStandard>
 
 For more information on FHIR Implementation Guide standards, review [FHIR Implementation Guides.](../../fhir-api-standard/Standards/05-IGInformation.md)

@@ -78,7 +78,7 @@ const ApiStandardsChecklist = () => {
         <div>
           {Object.keys(data).map((key) => (
             <div key={key}>
-              <h3>{key}</h3>
+              <h3 id={key}>{key}</h3>
               <p>{RFC_DEFINITIONS[key]}</p>
               {createTable(data[key])}
             </div>
