@@ -17,7 +17,7 @@ All components of the [OpenAPI Specification](https://swagger.io/specification/)
 
 :::info
 
-View exmaple API specifications
+View example API specifications
 
 [FHIR-APISpecification](../api-specifications/example-fhir-specification)
 
