@@ -1,4 +1,4 @@
-openapi: 3.0.2
+openapi: 3.1.0
 info:
   title: >-
     Health NZ | Te Whatu Ora :
@@ -20,6 +20,19 @@ servers:
 externalDocs:
   url: https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig
   description: FHIR Implementation Guide
+tags: 
+  - name: searchObservations
+    description: Search Observation resources
+  - name: getObservation
+    description: Retrieve an instance of an Observation resource
+  - name: vreadObservation
+    description: Retrieve a specific version of an Observation resource
+  - name: createObservation
+    description: Create Observation resource
+  - name: updateObservation
+    description: Update Observation resource
+  - name: deleteObservation
+    description: Delete Observation resource
 paths:
   /Observation:
     summary: FHIR Observation resource
@@ -31,6 +44,9 @@ paths:
     get:
       summary: Search all resources of type Observation based on a set of criteria
       operationId: searchObservation
+      description: This base resource 
+      tags:
+        - searchObservations
       security: 
         -  oauth-client-credentials:
             - system/Observation.r
@@ -41,33 +57,22 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
-        '400':
-          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-        '404':
-          description: Resource not found error. The request failed as the requested resource could not be found on the server.
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Bundle-definition.json
               examples:
-                NotFound:
-                  $ref: '#/components/examples/OperationOutcomeNotFound'
+                BundleTypeSearchSet:
+                  $ref: '#/components/examples/BundleTypeSearchSet'
+        '400':
+          $ref: '#/components/responses/400'
+        '404':
+          $ref: '#/components/responses/404'
         '500':
-          description: Server error
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-
+          $ref: '#/components/responses/500'
       parameters:
         - $ref: '#/components/parameters/Date'
         - $ref: '#/components/parameters/Patient'
         - $ref: '#/components/parameters/Encounter'
+        - $ref: '#/components/parameters/identifier'
+        - $ref: '#/components/parameters/count'
         - name: category
           in: query
           description: The classification of the type of observation
@@ -98,6 +103,9 @@ paths:
     post:
       summary: Create a new resource
       operationId: createObservation
+      tags:
+        - createObservation
+      description: Create a new Observation resource
       security: 
         -  oauth-client-credentials:
             - system/Observation.c
@@ -108,7 +116,7 @@ paths:
         content:
           application/fhir+json:
             schema:
-              $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+              $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Observation-definition.json
       responses:
         '200':
           description: the resource being returned after being updated
@@ -120,31 +128,13 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Observation-definition.json
         '400':
-          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/OperationOutcomeBadRequest'
+          $ref: '#/components/responses/400'
         '404':
-          description: Resource not found error. The request failed as the requested resource could not be found on the server.
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                NotFound:
-                  $ref: '#/components/examples/OperationOutcomeNotFound'
+          $ref: '#/components/responses/404'
         '500':
-          description: Server error
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/500'
       parameters:
         - $ref: '#/components/parameters/Request-Context'
         - $ref: '#/components/parameters/summary'
@@ -157,6 +147,9 @@ paths:
     get:
       summary: Read the current state of the resource
       operationId: readObservation
+      description: Retrieve an instance of an observation resource using the resource's unique id
+      tags:
+        - getObservation
       security: 
         -  oauth-client-credentials:
             - system/Observation.r
@@ -172,28 +165,13 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Observation-definition.json
         '400':
-          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/400'
         '404':
-          description: Resource not found error. The request failed as the requested resource could not be found on the server.
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                NotFound:
-                  $ref: '#/components/examples/OperationOutcomeNotFound'
+          $ref: '#/components/responses/404'
         '500':
-          description: Server error
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/500'
       parameters:
         - $ref: '#/components/parameters/rid'
         - $ref: '#/components/parameters/summary'
@@ -201,6 +179,12 @@ paths:
     put:
       summary: Update the current state of the resource
       operationId: updateObservation
+      description: >-
+        Update an instance of an observation resource using the resource's unique id.
+        Note that this will result in a version of the resource being preserved on the server which can be retrieved using the `vread` parameter
+        See vreadObservation
+      tags: 
+        -  updateObservation
       security: 
         -  oauth-client-credentials:
             - system/Observation.u
@@ -211,7 +195,7 @@ paths:
         content:
           application/fhir+json:
             schema:
-              $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+              $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Observation-definition.json
       responses:
         '200':
           description: the resource being returned after being updated
@@ -223,38 +207,23 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Observation-definition.json
         '400':
-          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                BadRequest:
-                  $ref: '#/components/examples/OperationOutcomeBadRequest'
+          $ref: '#/components/responses/400'
         '404':
-          description: Resource not found error. The request failed as the requested resource could not be found on the server.
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                NotFound:
-                  $ref: '#/components/examples/OperationOutcomeNotFound'
+          $ref: '#/components/responses/404'
         '500':
-          description: Server error
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/500'
       parameters:
         - $ref: '#/components/parameters/rid'
         - $ref: '#/components/parameters/summary'
         - $ref: '#/components/parameters/elements'
     delete:
       summary: Delete the resource so that it no exists (no read, search etc)
+      description: Permanently delete an instance of an observation resource from the server
       operationId: deleteObservation
+      tags: 
+        -  deleteObservation
       security: 
         -  oauth-client-credentials:
             - system/Observation.d
@@ -268,26 +237,11 @@ paths:
               schema:
                 type: string
         '400':
-          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/400'
         '404':
-          description: Resource not found error. The request failed as the requested resource could not be found on the server.
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                NotFound:
-                  $ref: '#/components/examples/OperationOutcomeNotFound'
+          $ref: '#/components/responses/404'
         '500':
-          description: Server error
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/500'
       parameters:
         - $ref: '#/components/parameters/rid'
   /Observation/{rid}/_history/{hid}:
@@ -297,7 +251,10 @@ paths:
       Observation
     get:
       summary: Read a past state of the resource
+      description: Read the past state of a resource using the resource's unique id and a specific version
       operationId: vreadObservation
+      tags:
+        - vreadObservation
       security: 
         -  oauth-client-credentials:
             - system/Observation.r
@@ -315,34 +272,64 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/Observation-definition.json
+                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/Observation-definition.json
         '400':
-          description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/400'
         '404':
-          description: Resource not found error. The request failed as the requested resource could not be found on the server.
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
-              examples:
-                NotFound:
-                  $ref: '#/components/examples/OperationOutcomeNotFound'
+          $ref: '#/components/responses/404'
         '500':
-          description: Server error
-          content:
-            application/fhir+json:
-              schema:
-                $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions/OperationOutcome-definition.json
+          $ref: '#/components/responses/500'
       parameters:
         - $ref: '#/components/parameters/rid'
         - $ref: '#/components/parameters/hid'
         - $ref: '#/components/parameters/summary'
         - $ref: '#/components/parameters/elements'
 components:
+  responses: 
+    '400':
+      description: Bad request error. The request failed due to invalid input format or a validation error - retrying the request will not succeed
+      content:
+        application/fhir+json:
+          schema:
+            $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/OperationOutcome-definition.json
+          examples:
+            OperationOutcomeBadRequest:
+              $ref: '#/components/examples/OperationOutcomeBadRequest'
+    '404':
+      description: Resource not found error. The request failed as the requested resource could not be found on the server.
+      content:
+        application/fhir+json:
+          schema:
+            $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/OperationOutcome-definition.json
+          examples:
+            OperationOutcomeNotFound:
+              $ref: '#/components/examples/OperationOutcomeNotFound'
+    '500':
+      description: Server error
+      content:
+        application/fhir+json:
+          schema:
+            $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/OperationOutcome-definition.json
+          examples:
+            OperationOutcomeServerError:
+              $ref: '#/components/examples/OperationsOutcomeServerError'
+  examples:
+    OperationOutcomeNotFound:
+        summary: An example OperationOutcome payload when the requested resource is not found.
+        value: 
+          $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/OperationOutcomeNotFound-example.json
+    OperationOutcomeBadRequest:
+      summary: An example OperationOutcome payload when the request is invalid.
+      value:
+        $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/OperationOutcomeBadRequest-example.json
+    OperationsOutcomeServerError:
+      summary: A generic server error
+      value:
+        $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/OperationOutcomeServerError-example.json
+    BundleTypeSearchSet:
+      summary: A bundle of type searchset containing search results
+      value:
+        $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/Bundle-type-searchset.json
   securitySchemes:
     api_key:
       type: "apiKey"
@@ -361,43 +348,6 @@ components:
             system/Observation.d: Grant delete access to Observation resources
             system/Observation.rs: Grant read and search access to Observation resources
             system/Observation.crus: Grant full permissions to Observation resources
-  examples:
-    OperationOutcomeNotFound:
-        summary: An example OperationOutcome payload when the requested resource is not found.
-        value:
-          {
-            "resourceType": "OperationOutcome",
-            "text": {
-                "status": "generated",
-                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h1>Operation Outcome</h1><table border=\"0\"><tr><td style=\"font-weight: bold;\">error</td><td>[]</td><td><pre>Resource Observation/aaabbbbcccc is not known</pre></td></tr></table></div>"
-            },
-            "issue": [
-                {
-                    "severity": "error",
-                    "code": "not-found",
-                    "diagnostics": "Resource Observation/3d7b5f7a-12da-411b-8948-37c07d247bb6 is not known"
-                }
-            ]
-          }
-    OperationOutcomeBadRequest:
-      summary: An example OperationOutcome payload when there is an issue with the content of the request.
-      value:
-        {
-          "resourceType": "OperationOutcome",
-          "text": {
-              "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h1>Operation Outcome</h1><table border=\"0\"><tr><td style=\"font-weight: bold;\">error</td><td>[]</td><td><pre>Condition - Unrecognised property '@someNonsenseProperty'</pre></td></tr></table></div>"
-          },
-          "issue": [
-              {
-                  "severity": "error",
-                  "code": "invalid",
-                  "diagnostics": "Condition - Unrecognised property '@someNonsenseProperty'"
-              }
-          ]
-      }
-    uuid:
-      value: '3d7b5f7a-12da-411b-8948-37c07d247bb6'
   parameters:
     hid:
       name: hid
@@ -408,8 +358,9 @@ components:
       style: simple
       schema:
         type: string
+        format: uuid
         example:
-          $ref: '#/components/examples/uuid'
+          $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/uuid.txt
     rid:
       name: rid
       in: path
@@ -420,7 +371,7 @@ components:
       schema:
         type: string
         example:
-          $ref: '#/components/examples/uuid'
+          $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/uuid.txt
     summary:
       name: _summary
       in: query
@@ -476,7 +427,7 @@ components:
       schema:
         type: string
         example:
-          $ref: '#/components/examples/uuid'
+          $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/uuid.txt
     Patient:
       name: patient
       in: query
@@ -487,18 +438,16 @@ components:
     Encounter:
       name: encounter
       in: query
-      description: "Search for Observations by an associated `Edncounter` ID"
+      description: "Search for Observations by an associated `Encounter` ID"
       schema:
         type: string
-        format: uuid
         example:
-          $ref: '#/components/examples/uuid'
-
+          $ref: https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-examples/uuid.txt
   schemas:
     Request-Context:
       type: object
       properties: 
-        userIdentifier: 
+        userIdentifier:
           type: string
           example: AABBCC
         userRole:
