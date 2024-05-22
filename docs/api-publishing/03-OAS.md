@@ -32,6 +32,19 @@ View example API specifications
 | OpenAPI specification | The core specification | All mandatory fields defined in the specification itself |
 | Property descriptions | A human readable description of a property defined in an OpenAPI specification. Descriptions should be relatively verbose and provide enough information to enable the reader to understand the purpose of the property being described. | Specification authors **MUST** provide descriptions for all properties |
 
+### Servers Property
+
+|Property|Description|Requirement|
+|`servers`| Property defining a list of endpoints where the API can be accessed. | **MUST** |
+
+```yaml
+servers:
+  - url: https://fhir.api.digital.health.nz/R4
+    description: API Standards Example FHIR API URL
+  - url: https://fhir.api-test.digital.health.nz/R4
+    description: API Standards Example FHIR API Test URL
+```
+
 ### Info Section
 
 The `info` section of an OpenAPI specification contains details on the API Provider.
@@ -43,7 +56,6 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 |`info.license`| | `info.license.name` **MUST** `info.license.url` **MUST** |
 |`info.version`| The version of the OpenAPI document (not the API or OpenAPI version used) | **MUST** |
 | `info.contact`| Contains details on appropriate mechanism for contacting the API provider | `info.contact.name` **MUST** `info.contact.url` **MUST** |
-|`info.servers`| | **MUST** |
 
 ### External Documentation
 
