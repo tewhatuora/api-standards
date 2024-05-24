@@ -17,7 +17,7 @@ securing modern APIs this section provides a high level introduction to OAuth 2.
 
 ## Authentication
 
-**<span class="smallcaps">Appropriate authentication MUST be achieved when accessing APIs</span>**
+<ApiStandard id="HNZAS_MUST_AUTHENTICATE_API_CONSUMERS" type="MUST" toolTip="Consumers of APIs must be authenticated to access resources." >**<span class="smallcaps">Appropriate authentication MUST be achieved when accessing APIs</span>**</ApiStandard>
 
 When securing APIs, authentication is required to identify the [health sector participants](../../api-concepts/ComponentDefinitions#health-sector-participants)
 and/or [API Consumers](../../api-concepts/ComponentDefinitions#api-consumer) that want to access or use an API.
@@ -125,7 +125,7 @@ detail how SAML is used as an authentication token in OAuth 2:
 
 ## Authorisation
 
-**<span class="smallcaps">Appropriate authorisation MUST be applied</span>**
+<ApiStandard id="HNZAS_MUST_USE_APPROPRIATE_AUTHORISATION" type="MUST" toolTip="Appropriate authorisation must be applied to control access to resources." >**<span class="smallcaps">Appropriate authorisation MUST be applied</span>**</ApiStandard>
 
 Authorisation is the act of performing access control on a resource.
 Authorisation covers both the definition of access controls and the enforcement of those controls.
@@ -157,7 +157,7 @@ Gateway request point, and fine-grained control at the API Provider service impl
 
 ### Role Based Access Controls (RBAC)
 
-**<span class="smallcaps">RBAC SHOULD be used</span>**
+<ApiStandard id="HNZAS_SHOULD_USE_RBAC" type="SHOULD" toolTip="Role Based Access Controls (RBAC) should be used." >**<span class="smallcaps">RBAC SHOULD be used</span>**</ApiStandard>
 
 In many organisations a Directory service provides authentication
 for users. Directory groups are then used to provide
@@ -170,15 +170,16 @@ used to provide coarse-grained authorisation for APIs.
 
 ### Scopes (Limited Fine Grain Access)
 
-**<span class="smallcaps">Appropriate scopes MUST be present in access tokens when accessing APIs</span>**
+<ApiStandard id="HNZAS_MUST_INCLUDE_SCOPES_IN_ACCESS_TOKENS" type="MUST" toolTip="Appropriate scopes must be present in access tokens when accessing APIs." >**<span class="smallcaps">Appropriate scopes MUST be present in access tokens when accessing APIs</span>**</ApiStandard>
 
 Based on the services (APIs) that are exposed, additional access
 controls can be applied using scopes. For example, a data service
 might provide `read` and `write` scopes which could be granted to a
 user based on the directory groups they were in.
 
-[OAuth 2.0 Scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) can be used to limit the authorisation granted to the
-API consumer by the resource owner. The developer
+<ApiStandard id="HNZAS_MAY_USE_OAUTH2_SCOPES_FOR_RBAC" type="MAY" toolTip="OAuth 2.0 Scopes may be used to limit the authorisation granted to the
+API consumer by the resource owner.">[OAuth 2.0 Scopes](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) **MAY** be used to limit the authorisation granted to the
+API consumer by the resource owner. </ApiStandard> The developer
 has to ensure that the minimum privileges are granted to API consumers to carry out the API requests that the user wishes the API consumer to complete.
 
 Scopes provide a level of coarse/fine grained access and represent
@@ -199,9 +200,9 @@ bound by the scope are encapsulated in the Access Token for the length
 of its validation period.
 
 An API consumer may invite a user to authorise the application to
-act on behalf of the health sector participant. In order for this to occur the
-API consumer **MUST** provide the authorisation server with the `intent` of it's
-request.
+act on behalf of the health sector participant. <ApiStandard id="HNZAS_MUST_PROVIDE_INTENT_TO_AUTH_SERVER" type="MUST" toolTip="API consumers must provide request intent to authorisations servers." > In order for this to occur the
+the API consumer **MUST** provide the authorisation server with the `intent` of its
+request.</ApiStandard>
 
 :::note[My Health Record Screenshot]
 <img src="/img/content/MHA-Consent.png"  alt="My Health Record consent screen"/>
@@ -209,7 +210,7 @@ request.
 
 ### Heart Working Group
 
-API Providers **MAY** utilise Heart Working Group specifications.
+<ApiStandard id="HNZAS_MAY_UTILIZE_HEART_WORKING_GROUP_SPECS" type="MAY" toolTip="API Providers may utilise Heart Working Group specifications." >API Providers **MAY** utilise Heart Working Group specifications.</ApiStandard>
 
 The OpenID Foundation uses [working groups](https://openid.net/wg/) to focus on
 specific problems, technology or specific marketplace sectors like
@@ -232,7 +233,7 @@ Two pertinent specifications are:
 
 ## Attribute Based Access Controls (ABAC)
 
-API Providers **MAY** utilise ABAC
+<ApiStandard id="HNZAS_MAY_UTILIZE_ABAC" type="MAY" toolTip="API Providers may utilise ABAC." >API Providers **MAY** utilise ABAC.</ApiStandard>
 
 Attribute-based access control (ABAC) defines an access control
 process whereby access is granted based on policies that are built
@@ -251,7 +252,7 @@ based-language.
 
 ### ABAC Implementation
 
-API Providers **MAY** implement ABAC.
+<ApiStandard id="HNZAS_MAY_IMPLEMENT_ABAC" type="MAY" dupe="true" toolTip="API Providers may implement ABAC." >API Providers **MAY** implement ABAC.</ApiStandard>
 
 To implement Attribute Based Access Control, the current models defined
 use XACML.
@@ -341,7 +342,7 @@ but this is being addressed in two ways:
 
 ## API Gateway
 
-API Providers **MAY** implement API Gateway technology
+<ApiStandard id="HNZAS_MAY_IMPLEMENT_API_GATEWAYS" type="MAY" toolTip="API Providers may implement API Gateways." >API Providers **MAY** implement API Gateway technology.</ApiStandard>
 
 API Gateways have been mentioned previously in the context of API
 protection. Most API Gateways on the market provide support for OAuth
@@ -388,7 +389,7 @@ API -right-> PS : TLS
 
 ## Anonymous Authentication
 
-**<span class="smallcaps">SHOULD NOT</span>**
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_ANONYMOUS_AUTH" type="SHOULD NOT" toolTip="Publishers should not use anonymous authentication for APIs." >**<span class="smallcaps">SHOULD NOT</span>**</ApiStandard>
 
 This is where the health sector participant and the API consumer they are using can gain
 access to APIs without needing to authenticate in any way.
@@ -423,15 +424,16 @@ API -right-> PS : TLS
 
 <DetailedDescription text="This diagram depicts a simplified system where health sector participants can access resources through an API without requiring authentication. Here's a breakdown: Health sector participants can access resources directly through an API without authenticating. A secure (TLS) connection is used between the client app and the API gateway. The API gateway directly forwards requests to the provider service, bypassing any authentication checks. This setup allows anyone to access resources, potentially posing security risks."/>
 
-This approach **MAY** be used when the risk associated with the API is
-negligible e.g. an API offering publicly available information.
+<ApiStandard id="HNZAS_MAY_USE_ANONYMOUS_AUTH_IF_NEGLIGIBLE_RISK" type="MAY" toolTip="Negligible risk (e.g. publicly available data) resources may use anonymous authentication." ><span class="smallcaps">This approach **MAY** be used when the risk associated with the API is
+negligible e.g. an API offering publicly available information.</span></ApiStandard>
 
 The downside of this model is that it makes it difficult to gather
 effective analytics, and therefore to understand the implications of
 proposed changes to, and deprecation of, an API.
 
-If using the Anonymous authentication model the API **MUST** implement appropriate protection against typical
-API vulnerabilities and threats, as listed on the [OWASP (Open Web Application Security Project)](https://owasp.org/www-project-api-security/) site. Typically, these relate to:
+<ApiStandard id="HNZAS_MUST_IMPLEMENT_VULNERABILITY_PROTECTION_FOR_ANON_AUTH" type="MUST" toolTip="When using anonymous authentication providers must implement appropriate vulnerabiity protection." >If using the Anonymous authentication model the API **MUST** implement appropriate protection against typical API vulnerabilities and threats, as listed on the [OWASP (Open Web Application Security Project)](https://owasp.org/www-project-api-security/) site.</ApiStandard>
+
+Typically, these relate to:
 
 - Throttling to prevent Denial of Service attacks
 
@@ -441,7 +443,7 @@ API vulnerabilities and threats, as listed on the [OWASP (Open Web Application S
 
 ## Username and Password Authentication (Direct Authentication)
 
-**<span class="smallcaps">SHOULD NOT</span>**
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_DIRECT_AUTH" type="SHOULD NOT" toolTip="API providers should not use Direct Authentication." >**<span class="smallcaps">SHOULD NOT</span>**</ApiStandard>
 
 In the Direct Authentication model, also known as HTTP Basic or Digest Auth, the user is authenticated via an
 identity store using username and password credentials over HTTPS.
@@ -509,10 +511,11 @@ This model **MAY** be used for *testing and development* purposes but **SHOULD N
 
 ## API Key Authentication
 
-**<span class="smallcaps">SHOULD</span>**
+<ApiStandard id="HNZAS_SHOULD_USE_API_KEYS_FOR_APP_AUTH" type="SHOULD" toolTip="API keys should be used for application authentication.">**<span class="smallcaps">SHOULD</span>**</ApiStandard>
 
-API Keys are a digital authentication mechanism, with the API key generally being opaque - e.g. a GUID. API keys **SHOULD** be
-unique and can be assigned to an **application**, **developer**, or **organisation**. The
+<ApiStandard id="HNZAS_SHOULD_USE_UNIQUE_API_KEYS" type="SHOULD" toolTip="API keys should be unique to a application, developer or organisation.">API Keys are a digital authentication mechanism, with the API key generally being opaque - e.g. a GUID. API keys **SHOULD** be unique and can be assigned to an **application**, **developer**, or **organisation**.</ApiStandard>
+
+The
 usual practice is for an application developer to obtain a key for their
 API consumer from the API provider and utilise the key within their
 API consumer. To obtain an API key, the developer must undergo an
@@ -569,9 +572,9 @@ approval.
 
 API keys are not linked to users and usually require no cryptographic functions.
 
-API Keys **MUST** be used wherever system to system authentication is
-needed (especially with a production level API). They **MAY** be used on their own for
-simple public APIs which do not need more complex authentication models.
+<ApiStandard id="HNZAS_MUST_USE_API_KEYS_FOR_SYSTEM_TO_SYSTEM" type="MUST" toolTip="API keys must be used for system to system authentication.">API Keys **MUST** be used wherever system to system authentication is needed (especially with a production level API).</ApiStandard>
+
+They **MAY** be used on their own for simple public APIs which do not need more complex authentication models.
 
 However, the risk is that anyone with a copy of the API key can use it
 as though they were the legitimate API consumer. Hence all
@@ -590,7 +593,7 @@ this decide if API Keys are required.
 
 ## Certificates (Mutual) Authentication
 
-**MAY** use this model when the API depends on legacy authentication mechanisms such as [HealthSecure Certificates](https://www.acc.co.nz/health/)
+<ApiStandard id="HNZAS_MAY_USE_CERT_AUTH" type="MUST" toolTip="API providers MAY use certificate authentication, when the model depends on legacy authentication mechanisms.">**MAY** use this model when the API depends on legacy authentication mechanisms such as [HealthSecure Certificates](https://www.acc.co.nz/health/)</ApiStandard>
 
 In Certificate (Mutual) Authentication both the API consumer and
 the API provider hold a digital certificate. The digital certificate can
@@ -646,7 +649,7 @@ API -[#blue]> AC : Application data (encrypted with session key)
 
 ## Developer Authentication
 
-API Providers **MUST** implement Developer Authentication
+<ApiStandard id="HNZAS_MUST_IMPLEMENT_DEV_AUTH" type="MUST" toolTip="API providers MUST implement developer authentication on API portals.">API Providers **MUST** implement Developer Authentication</ApiStandard>
 
 Developer authentication should take place at an API Portal.
 

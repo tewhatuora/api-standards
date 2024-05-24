@@ -4,8 +4,6 @@ title: "Use NZ Base"
 
 ## Use NZ Base IG resource profiles and definitions
 
-
-
 :::info
 The [**New Zealand Base Implementation Guide**](https://fhir.org.nz/ig/base/index.html), or 'NZ Base', contains common extensions that most NZ FHIR implementations will need, along with any terminology artifacts referenced by them (ie coded elements).
 
@@ -20,9 +18,7 @@ As well getting better interoperability with other NZ health applications, FHIR 
 
 ### Requirements
 
-1. FHIR APIs **MUST** use *NZ Base* resource profiles and definitions.
-
-FHIR APIs **MUST** derive profiles from the [New Zealand Base Implementation Guide](https://fhir.org.nz/ig/base/index.html) and make good use of NZ Base extensions or definitions where available:
+<ApiStandard id="HNZAS_MUST_DERIVE_PROFILES_FROM_NZ_BASE" type="MUST" toolTip="FHIR APIs MUST derive profiles from the New Zealand Base Implementation Guide and make good use of NZ Base extensions or definitions where available.">FHIR APIs **MUST** derive resource profiles and definitions from the [New Zealand Base Implementation Guide](https://fhir.org.nz/ig/base/index.html) and make good use of NZ Base extensions or definitions where available:</ApiStandard>
 
 - [NzPatient](https://fhir.org.nz/ig/base/StructureDefinition-NzPatient.html) profile of FHIR `Patient`
 - [NzCondition](https://fhir.org.nz/ig/base/StructureDefinition-NzCondition.html) profile of FHIR `Condition`

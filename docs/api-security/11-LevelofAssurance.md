@@ -22,9 +22,9 @@ The Level of Assurance or `acr` claim is required to:
 
 - Ensure the API Consumer has the appropriate authorisation to act on behalf of the end user
 
-API Providers **MUST** adopt a Level of Assurance model which can be applied when API Consumers are accessing health records that are classed as MEDICAL IN-CONFIDENCE.
+<ApiStandard id="HNZAS_MUST_ADOPT_LOA_MODEL" type="MUST" toolTip="API Providers MUST adopt a Level of Assurance model for accessing MEDICAL IN-CONFIDENCE health records.">API Providers **MUST** adopt a Level of Assurance model which can be applied when API Consumers are accessing health records that are classed as MEDICAL IN-CONFIDENCE.</ApiStandard>
 
-API Providers **MUST** indicate the LoA associated with a Health Sector Participant's authentication and authorisation process in any issued tokens.
+<ApiStandard id="HNZAS_MUST_INDICATE_LOA_IN_TOKENS" type="MUST" toolTip="API Providers MUST indicate the Level of Assurance (LoA) in any issued tokens associated with a Health Sector Participant's authentication and authorisation process.">API Providers **MUST** indicate the LoA associated with a Health Sector Participant's authentication and authorisation process in any issued tokens.</ApiStandard>
 
 ### Level of Assurance
 
@@ -36,7 +36,7 @@ The API Provider uses these claims to confirm the level of trust that the user i
 
 |Claim| Description| How They Are Applied|
 |---|---|---|
-|`acr`|Authentication Context Class Reference| LoA based on a pre-defined set of values, the higher the value the stronger the LoA<br/>&nbsp;&nbsp;&nbsp;&nbsp;(i) `0` = no authentication performed **MAY** be applied to UNCLASSIFIED information. **MUST NOT** be applied to MEDICAL IN-CONFIDENCE information<br/>&nbsp;&nbsp;&nbsp;&nbsp;(ii) `1` = credential only. **MAY** be applied to UNCLASSIFIED information. **MUST NOT** be applied to MEDICAL IN-CONFIDENCE information<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iii) `2` = credential and password and OTP. **MAY** be applied to UNCLASSIFIED information. **MUST NOT** be applied to MEDICAL IN-CONFIDENCE information<br/>&nbsp;&nbsp;&nbsp;&nbsp;(iv) `3` = Password, OTP and Multi factor Authentication required. **MUST** be applied to MEDICAL IN-CONFIDENCE information|
+| `acr` | Authentication Context Class Reference | <p>LoA based on a pre-defined set of values, the higher the value the stronger the LoA.</p><p>**`0` = no authentication performed**</p><ul><ApiStandard id="HNZAS_MAY_APPLY_LOA_0_TO_UNCLASSIFIED" type="MAY" toolTip="LoA 0 MAY be applied to UNCLASSIFIED information." wrapper='li'>**MAY** be applied to UNCLASSIFIED information.</ApiStandard><ApiStandard id="HNZAS_MUST_NOT_APPLY_LOA_0_TO_MEDICAL" type="MUST NOT" toolTip="LoA 0 MUST NOT be applied to MEDICAL IN-CONFIDENCE information." wrapper='li'>**MUST NOT** be applied to MEDICAL IN-CONFIDENCE information</ApiStandard></ul><p>**`1` = credential only**</p><ul><ApiStandard id="HNZAS_MAY_APPLY_LOA_1_TO_UNCLASSIFIED" type="MAY" toolTip="LoA 1 MAY be applied to UNCLASSIFIED information." wrapper='li'>**MAY** be applied to UNCLASSIFIED information.</ApiStandard><ApiStandard id="HNZAS_MUST_NOT_APPLY_LOA_1_TO_MEDICAL" type="MUST NOT" toolTip="LoA 1 MUST NOT be applied to MEDICAL IN-CONFIDENCE information." wrapper='li'>**MUST NOT** be applied to MEDICAL IN-CONFIDENCE information</ApiStandard></ul><p>**`2` = credential, password, and OTP**</p><ul><ApiStandard id="HNZAS_MAY_APPLY_LOA_2_TO_UNCLASSIFIED" type="MAY" toolTip="LoA 2 MAY be applied to UNCLASSIFIED information." wrapper='li'>**MAY** be applied to UNCLASSIFIED information.</ApiStandard><ApiStandard id="HNZAS_MUST_NOT_APPLY_LOA_2_TO_MEDICAL" type="MUST NOT" toolTip="LoA 2 MUST NOT be applied to MEDICAL IN-CONFIDENCE information." wrapper='li'>**MUST NOT** be applied to MEDICAL IN-CONFIDENCE information</ApiStandard></ul><p>**`3` = password, OTP, and multi-factor authentication required**</p><ul><ApiStandard id="HNZAS_MUST_APPLY_LOA_3_TO_MEDICAL" type="MUST" toolTip="LoA 3 MUST be applied to MEDICAL IN-CONFIDENCE information." wrapper='li'>**MUST** be applied to MEDICAL IN-CONFIDENCE information</ApiStandard></ul> |
 |`amr`|Authentication Methods References|Details the authentication method used e.g.<br/>-    password<br/>-  OTP<br/>-   Biometrics<br/><br/> API Providers can define the requirements (acr) based on this information which are enforced by the API Consumers  |
 |`azp`| Authorised party| Client id of the API Consumer, used where there can be multiple API Consumer services|
 
@@ -82,4 +82,4 @@ This defines the four levels of identity assurance:
 
 ## OpenID Connect Level of Assurance Standards
 
-OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers **MAY** use to implement the standards defined above.
+<ApiStandard id="HNZAS_MAY_USE_OIDC_LOA_MODEL" type="MAY" toolTip="OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers MAY use to implement LOA standards.">OpenID Connect and Financial Grade API (FAPI) define a Level of Assurance model that API providers **MAY** use to implement the standards defined above.</ApiStandard>

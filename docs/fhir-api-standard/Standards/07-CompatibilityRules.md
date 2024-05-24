@@ -16,9 +16,9 @@ It is reasonable that parties who develop applications consuming a FHIR API shal
 
 Designers / developers proposing **breaking change**[^1] to an *existing, published FHIR API* **MUST** adhere to the following compatibility rules for Health NZ public APIs:
 
-- Ensure that all applications using the existing published API version can continue to depend on it without change for a **period of at least three years from introduction of the new API version**, and  
-- Ensure all affected API-consuming parties are given opportunity to provide feedback on the proposed changes, and  
-- All applications already consuming the existing API **MUST** receive warnings for a minimum period of **one year** before that API version is withdrawn from support and no longer usable.  
+- <ApiStandard id="HNZAS_MUST_ENSURE_APPLICATION_DEPENDENCY" type="MUST" toolTip="Ensure that all applications using the existing published API version can continue to depend on it without change for at least three years from the introduction of the new API version."><b>MUST</b> ensure that all applications using the existing published API version can continue to depend on it without change for a period of at least three years from introduction of the new API version</ApiStandard>
+- <ApiStandard id="HNZAS_MUST_ENSURE_FEEDBACK_OPPORTUNITY" type="MUST" toolTip="Ensure all affected API-consuming parties are given the opportunity to provide feedback on proposed changes."><b>MUST</b> ensure all affected API-consuming parties are given opportunity to provide feedback on the proposed changes</ApiStandard>
+- <ApiStandard id="HNZAS_MUST_PROVIDE_WITHDRAWAL_WARNINGS" type="MUST" toolTip="API Provider must ensure all applications already consuming the existing API receive warnings for at least one year before that API version is withdrawn from support."><b>MUST</b> ensure all applications already consuming the existing API receive warnings for a minimum period of one year before that API version is withdrawn from support and no longer usable.</ApiStandard>
 
 ---
 

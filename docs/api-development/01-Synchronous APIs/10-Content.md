@@ -32,16 +32,18 @@ determine how much resource data is returned in the response.
 
 ### Formats
 
-REST responses should be of a format which is both human and machine
-readable. Even if your initial consumer is via B2B, the API should be
-designed, where possible, for all potential consumers. REST APIs should,
-by default, return content in JSON format. But it is possible to
-support multiple message formats (e.g. XML, Multi-part MIME) and allow
-consuming applications to request the format they wish to consume (in
-line with the "Design for the Consumer" principle).
+<ApiStandard id="HNZAS_SHOULD_USE_HUMAN_MACHINE_READABLE_FORMAT" type="SHOULD" toolTip="REST responses SHOULD be of a format that is both human and machine-readable.">REST responses **SHOULD** be of a format which is both human and machine readable.</ApiStandard>
 
-The response format required from a GET request must be indicated by the
-consumer in their request using the Accept header. For example:
+Even if your initial consumer is via B2B, the API should be
+designed, where possible, for all potential consumers.
+
+<ApiStandard id="HNZAS_SHOULD_RETURN_JSON_BY_DEFAULT" type="SHOULD" toolTip="REST APIs SHOULD, by default, return content in JSON format.">REST APIs **SHOULD**, by default, return content in JSON format.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_SUPPORT_MULTIPLE_FORMATS" type="MAY" toolTip="APIs MAY support multiple message formats and allow consumers to request their preferred format.">But it is possible to support multiple message formats (e.g. XML, Multi-part MIME) and allow consuming applications to request the format they wish to consume (in line with the "Design for the Consumer" principle).</ApiStandard>
+
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." dupe="true">The response format required from a GET request **MUST** be indicated by the consumer in their request using the Accept header.</ApiStandard>
+
+For example:
 
 ```xml
 
@@ -95,8 +97,9 @@ Accept: application/xml
 </CrownPropertyResponseBody>
 ```
 
-The request format for a request containing a request body (POST, PUT,
-PATCH) must be supplied in the Content-Type request header. For example:
+<ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_FOR_NON_GET_FORMAT_REQUEST" type="MUST" toolTip="The request format for a request containing a request body (POST, PUT, PATCH) MUST be supplied in the Content-Type request header.">The request format for a request containing a request body (POST, PUT, PATCH) **MUST** be supplied in the Content-Type request header.</ApiStandard>
+
+For example:
 
 ```json
 # PUT (update) a resource
@@ -151,42 +154,41 @@ Accept: application/json
 }
 ```
 
-Where JSON format is used in responses, it must conform to the JSON
-Standard [RFC7159](https://tools.ietf.org/html/rfc7159). In
-line with this standard, textual content **SHOULD** be UTF-8 encoded by
-default, and any deviations from this must be limited.
+<ApiStandard id="HNZAS_MUST_CONFORM_TO_JSON_STANDARD" type="MUST" toolTip="Where JSON format is used in responses, it MUST conform to the JSON Standard RFC7159.">Where JSON format is used in responses, it **MUST** conform to the JSON Standard [RFC7159](https://tools.ietf.org/html/rfc7159).</ApiStandard>
 
-It is inadvisable to use APIs for returning binary data such as images
-in the response content; hyperlinks to images are the preferred returned
-response. But where images _are_ returned, ensure that the image
-encoding is MIME, HTTP Multipart.
+<ApiStandard id="HNZAS_SHOULD_USE_UTF8_ENCODING" type="SHOULD" toolTip="Textual content SHOULD be UTF-8 encoded by default, with deviations limited.">In line with this standard, textual content **SHOULD** be UTF-8 encoded by default, and any deviations from this must be limited.</ApiStandard>
 
-HTML is allowed, but is less flexible for consumer usage (e.g. how can
+<ApiStandard id="HNZAS_SHOULD_NOT_RETURN_BINARY_DATA" type="SHOULD NOT" toolTip="APIs SHOULD NOT return binary data such as images; hyperlinks to images are preferred.">It is inadvisable to use APIs for returning binary data such as images in the response content; hyperlinks to images are the preferred returned response.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_USE_MIME_FOR_IMAGES" type="SHOULD" toolTip="Where images are returned, ensure the image encoding is MIME, HTTP Multipart.">But where images _are_ returned, ensure that the image encoding is MIME, HTTP Multipart.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_USE_HTML_RESPONSES" type="MAY" toolTip="HTML responses are allowed but not preferred.">HTML is allowed, but not preferred.
+HTML is less flexible for consumers (e.g. how can
 it be consumed by a native mobile app?), ties content to presentation
 and loses its benefits when building a single page application. It also
 reduces the ability to filter the content in transit for consumers who
 have fine grained control on what they can access. However, it may be
-necessary for some forms of API e.g. APIs with geospatial content.
+necessary for some forms of API e.g. APIs with geospatial content.</ApiStandard>
 
-Avoid using bespoke formats in returned content.
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_BESPOKE_FORMATS" type="SHOULD NOT" toolTip="Avoid using bespoke formats in returned content.">Avoid using bespoke formats in returned content.</ApiStandard>
 
 **<span class="smallcaps">SHOULD</span>**
 
-Returned content format should be JSON by default.
+<ApiStandard id="HNZAS_SHOULD_RETURN_JSON_BY_DEFAULT" type="SHOULD" toolTip="REST APIs SHOULD, by default, return content in JSON format." dupe="true">Returned content format should be JSON by default.</ApiStandard>
 
 **<span class="smallcaps">MUST</span>**
 
-Requests for a specific return format must be defined in the Accept
-header.
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." dupe="true" wrapper="span">Requests for a specific return format must be defined in the Accept
+header (for GET requests)</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_FOR_NON_GET_FORMAT_REQUEST" type="MUST" toolTip="The request format for a request containing a request body (POST, PUT, PATCH) MUST be supplied in the Content-Type request header." dupe="true" wrapper="span">and in the Content-Type header (for other verbs).</ApiStandard>
 
 ### Layout
 
-Responses should be a JSON object (not an array) by default. Using an
+<ApiStandard id="HNZAS_SHOULD_USE_JSON_OBJECT" type="SHOULD" toolTip="Responses SHOULD be a JSON object (not an array) by default.">Responses **SHOULD** be a JSON object (not an array) by default. Using an
 array to return results limits the ability to include metadata about
 results and limits the API's ability to add additional top-level
 properties in the future. Don't use unpredictable properties. Parsing a
 JSON response where properties are unpredictable (e.g. derived from
-data) is difficult, and adds friction for clients.
+data) is difficult, and adds friction for clients.</ApiStandard>
 
 **<span class="smallcaps">Example of good layout</span>**
 
@@ -228,24 +230,23 @@ data) is difficult, and adds friction for clients.
 
 Within content, property names should conform to the following guidelines:
 
-- Property names should be meaningful names with defined semantics
+- <ApiStandard id="HNZAS_SHOULD_USE_MEANINGFUL_PROPERTY_NAMES" type="SHOULD" toolTip="Property names SHOULD be meaningful with defined semantics.">Property names **SHOULD** be meaningful names with defined semantics.</ApiStandard>
 
-- Property names **MUST** be camel-case ASCII strings `exampleProperty`
+- <ApiStandard id="HNZAS_MUST_USE_CAMEL_CASE_PROPERTY_NAMES" type="MUST" toolTip="Property names MUST be camel-case ASCII strings, e.g., exampleProperty.">Property names **MUST** be camel-case ASCII strings `exampleProperty`.</ApiStandard>
 
-- The first character **MUST** be a letter or underscore `_property` or `property`
+- <ApiStandard id="HNZAS_MUST_START_WITH_LETTER_OR_UNDERSCORE" type="MUST" toolTip="The first character of a property name MUST be a letter or underscore, e.g., _property or property.">The first character **MUST** be a letter or underscore `_property` or `property`.</ApiStandard>
 
-- Subsequent characters can be a letter, a digit, or underscore
+- <ApiStandard id="HNZAS_MUST_USE_VALID_SUBSEQUENT_CHARACTERS" type="MUST" toolTip="Subsequent characters in property names can be a letter, a digit, or underscore.">Subsequent characters can be a letter, a digit, or underscore.</ApiStandard>
 
-- Reserved [JavaScript keywords](https://www.w3schools.com/js/js_reserved.asp) should be avoided
+- <ApiStandard id="HNZAS_SHOULD_AVOID_RESERVED_KEYWORDS" type="SHOULD" toolTip="Reserved JavaScript keywords should be avoided in property names.">Reserved [JavaScript keywords](https://www.w3schools.com/js/js_reserved.asp) **SHOULD** be avoided.</ApiStandard>
 
 ### Consistency
 
-Preserve backwards compatibility with existing consumers of the API by
-returning expected fields and employing sensible default values for
-missing fields. Keep consistency of terminology throughout, so that the
-consumer is not misled. Avoid modifying the semantics of content to new
-meanings, e.g. don’t change a 'title' field from meaning the title of
-the page, to meaning the prefix for a name to the person’s job title.
+<ApiStandard id="HNZAS_SHOULD_PRESERVE_BACKWARDS_COMPATIBILITY" type="SHOULD" toolTip="Preserve backwards compatibility by returning expected fields and employing sensible default values for missing fields.">Preserve backwards compatibility with existing consumers of the API by returning expected fields and employing sensible default values for missing fields.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_KEEP_CONSISTENT_TERMINOLOGY" type="SHOULD" toolTip="API Providers SHOULD keep consistency of terminology throughout the implementation to avoid misleading the consumer.">Keep consistency of terminology throughout, so that the consumer is not misled.</ApiStandard>
+
+<ApiStandard id="HNZAS_SHOULD_NOT_MODIFY_CONTENT_SEMANTICS" type="SHOULD NOT" toolTip="Avoid modifying the semantics of content to new meanings, e.g., don't change a 'title' field from the title of the page to the prefix for a name to a person's job title.">Avoid modifying the semantics of content to new meanings, e.g., don’t change a 'title' field from meaning the title of the page, to meaning the prefix for a name to the person’s job title.</ApiStandard>
 
 ### Singletons vs. Collections
 
@@ -312,18 +313,14 @@ Accept: application/json,version=1.\*
 ```
 
 A collection will take the form of an array of the given resources,
-including any related metadata. The collection returned should be the
-complete set, leaving it to the consumer to reduce the quantity of
-information returned by sending filters in the resource request (see
+including any related metadata. <ApiStandard id="HNZAS_SHOULD_RETURN_COMPLETE_COLLECTION" type="SHOULD" toolTip="The collection returned SHOULD be the complete set, leaving it to the consumer to reduce the quantity of information returned by sending filters in the resource request." wrapper='span'>The collection returned **SHOULD** be the complete set, leaving it to the consumer to reduce the quantity of information returned by sending filters in the resource request.</ApiStandard> (see
 [Query Arguments](./URIs#query-arguments)). The only
 reason the collection should be filtered by the API provider is based on
 the security context; the API consumer should only gain access to what
 that consumer is allowed to see. It is advisable to aim for consistent
 naming of collection resource fields, as this enables application
 developers to create generic handling of the data from across various
-resource collections offered by the API. Collection resources should not
-contain binary attachments or other content that will lead to large
-response payloads.
+resource collections offered by the API. <ApiStandard id="HNZAS_SHOULD_NOT_INCLUDE_BINARY_ATTACHMENTS" type="SHOULD NOT" toolTip="Collection resources SHOULD NOT contain binary attachments or other content that will lead to large response payloads." wrapper='span'>Collection resources **SHOULD NOT** contain binary attachments or other content that will lead to large response payloads.</ApiStandard>
 
 Note that the example below is contrived and it would be rare to expose
 an unfiltered resource collection as large as passengers.
@@ -378,22 +375,11 @@ Accept: application/json,version=1.\*
 }
 ```
 
-If there were no results from a query against a filter, e.g. passengers
-booked on a specific flight
-(`GET https://api.example.govt.nz/passengers/flights/1234`), the return
-value would be a 200 response code, because the query is not invalid and
-there may be such data in the future.
+<ApiStandard id="HNZAS_SHOULD_RETURN_200_IF_NO_RESULTS" type="SHOULD" toolTip="If there are no results from a query against a filter, the return value SHOULD be a 200 response code.">If there were no results from a query against a filter, e.g. passengers booked on a specific flight (`GET https://api.example.govt.nz/passengers/flights/1234`), the return value would be a 200 response code, because the query is not invalid and there may be such data in the future.</ApiStandard>
 
 ### HATEOAS
 
-HATEOAS, or _Hypermedia as the Engine of Application State_, is the
-principle of not just returning a response to a request, but also
-returning links to other useful capabilities. So, if a POST has just
-been used to create an item, the response could return links to options
-to update the item, delete the item and view other items of the same
-type. This makes it possible for user interfaces which utilise an API to be
-automatically generated (in terms of hyperlinks) and adaptable to change
-(response content links).
+<ApiStandard id="HNZAS_SHOULD_IMPLEMENT_HATEOAS" type="SHOULD" toolTip="HATEOAS (Hypermedia as the Engine of Application State) SHOULD be implemented to return links to other useful capabilities in responses.">HATEOAS, or _Hypermedia as the Engine of Application State_, is the principle of not just returning a response to a request, but also returning links to other useful capabilities. So, if a POST has just been used to create an item, the response could return links to options to update the item, delete the item, and view other items of the same type. This makes it possible for user interfaces which utilise an API to be automatically generated (in terms of hyperlinks) and adaptable to change (response content links).</ApiStandard>
 
 If a web page effectively captures a single state in time, then
 hyperlinks are transitions to other states. The HATEOAS principle

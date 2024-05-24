@@ -4,10 +4,8 @@ title: "Caching"
 
 
 
-Caching enables faster responses from APIs and reduces server load. It
-is good for information which is frequently requested but does not
-change very often. The aim is to retrieve information once but re-use
-many times.
+<ApiStandard id="HNZAS_SHOULD_USE_CACHING_FOR_INFREQUENTLY_CHANGED_DATA" type="SHOULD" toolTip="Caching SHOULD be used for data which is frequently accessed but does not change very often">Caching enables faster responses from APIs and reduces server load. It is good for information which is frequently requested but does not change very often. The aim is to retrieve information once but re-use
+many times.</ApiStandard>
 
 There are a number of caching methodologies available. This section
 focuses on two types of caching that should be owned and controlled by
@@ -20,11 +18,9 @@ on a unique resource. The response should be cached as close to the
 consumer as possible while remaining inside the security and control boundaries of
 the agency. Response caches are usually fast, in-memory caches. Many off
 the shelf API gateway/management solutions provide a built-in response
-cache. When using a response cache, API Providers should ensure that they
-understand and monitor their cache to ensure that stale objects are kept
-to a minimum and that they have sufficient system memory to service
-caching loads. This means ensuring that the cache is refreshed once a
-user has updated the information or a cache timeout has occurred.
+cache. 
+
+<ApiStandard id="HNZAS_SHOULD_MONITOR_RESPONSE_CACHE" type="SHOULD" toolTip="API Providers SHOULD monitor their response cache to minimize stale objects and ensure sufficient system memory for caching loads.">When using a response cache, API Providers **SHOULD** ensure that they understand and monitor their cache to ensure that stale objects are kept to a minimum and that they have sufficient system memory to service caching loads. This means ensuring that the cache is refreshed once a user has updated the information or a cache timeout has occurred.</ApiStandard>
 
 Consider the following example regarding response cache:
 
