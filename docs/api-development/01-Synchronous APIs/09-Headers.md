@@ -47,7 +47,7 @@ For many years Header definitions could be found in [RFC2616](http://www.w3.org/
 
 ### Accept
 
-<ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_ACCEPT_HEADER" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept'." dupe="true">**MUST**</ApiStandard>
+<ApiStandard id="HNZAS_MUST_INCLUDE_REQUEST_ACCEPT_HEADER" type="MUST" toolTip="Request headers from consuming applications MUST include 'Accept'.">**MUST**</ApiStandard>
 
 <ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER" type="MUST" toolTip="The 'Accept' header MUST be specified to indicate the desired data format (e.g., JSON, XML).">An Accept header is **REQUIRED** to indicate what format the consuming application wants the information to be returned as (e.g. JSON or XML).</ApiStandard>
 <ApiStandard id="HNZAS_SHOULD_SPECIFY_RESPONSE_TYPE" type="SHOULD" toolTip="Consuming applications SHOULD specify the expected response content type.">It is preferable for the consuming application to specify the response content type that they expect.</ApiStandard>
@@ -91,7 +91,7 @@ some cases technology choice.
 **<span class="smallcaps">Required</span>**
 
 The Content-Type header is required for all requests that include a
-request body i.e. <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the Content-type header." dupe="true" wrapper="span">POST</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the Content-type header." dupe="true" wrapper="span">PUT</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_DELETE_REQUEST" type="MUST" toolTip="DELETE requests MUST use the Content-type header." dupe="true" wrapper="span">DELETE</ApiStandard>.
+request body i.e. <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_POST_REQUEST" type="MUST" toolTip="POST requests MUST use the Content-type header." wrapper="span">POST</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_PUT_REQUEST" type="MUST" toolTip="PUT requests MUST use the Content-type header." wrapper="span">PUT</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_HEADER_FOR_DELETE_REQUEST" type="MUST" toolTip="DELETE requests MUST use the Content-type header." wrapper="span">DELETE</ApiStandard>.
 
 **<span class="smallcaps">Example</span>**
 
@@ -199,7 +199,7 @@ compressed responses.
 
 <ApiStandard id="HNZAS_MUST_SEND_API_KEY_IF_USED_FOR_IDENTITY" type="MUST" toolTip="An API key issued to a consuming application MUST be sent with every request if the API uses this mechanism to identify the client.">An API key issued to a consuming application **MUST** be sent with every request made to the API, if the API uses this mechanism to identify the client.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648." dupe="true">The name of the header is up to the API provider, but it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">The name of the header is up to the API provider, but it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated.</ApiStandard>
 
 <ApiStandard id="HNZAS_SHOULD_NOT_USE_API_KEYS_IN_URIS" type="SHOULD_NOT" toolTip="API keys SHOULD NOT be passed in URIs as it is not considered best practice.">Sometimes API keys are passed in URIs; however, this is not considered best practice and **SHOULD NOT** be done.</ApiStandard>
 
@@ -423,7 +423,7 @@ ETag: "686897696a7c876b7e"
 
 ## Custom X- HTTP Headers
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648." dupe="true">X- notation headers have been deprecated as per [RFC6648](https://tools.ietf.org/html/rfc6648) and **SHOULD NOT** be used, if possible.</ApiStandard> This is because the `X-` name often became a standard, making the
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">X- notation headers have been deprecated as per [RFC6648](https://tools.ietf.org/html/rfc6648) and **SHOULD NOT** be used, if possible.</ApiStandard> This is because the `X-` name often became a standard, making the
 `X-notation` inaccurate (e.g. `x-gzip` became `gzip`) and requiring support
 for both the `X-` and the `non-X-` notation. Common uses of the `X-` headers
 are examples such as the `X-HTTP-Method-Override` header or the

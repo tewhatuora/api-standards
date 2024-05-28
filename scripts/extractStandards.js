@@ -5,8 +5,9 @@ const cheerio = require("cheerio");
 const sourceDir = "./build";
 const outputFilePath = "./build/assets/api-standards.json";
 
-// Set to store Standards IDs to check uniqueness
+// Set to store Standards IDs and content to check uniqueness
 const standardsIds = new Set();
+const standardsContent = {};
 
 // Regular expression to match the desired format (e.g., HNZAS_MUST_NOT_X_NOTATION_HEADERS)
 const idFormatRegex = /^HNZAS_(MUST|MUST_NOT|SHOULD|SHOULD_NOT|MAY)_[\w_]+$/;
@@ -19,17 +20,21 @@ function extractDataFromHTML(filePath, htmlContent) {
   $("[data-standard-type]").each((index, element) => {
     const $element = $(element);
 
-    if ($element.attr("data-duplicate") === "true") {
-      return;
-    }
-
     const standardType = $element.attr("data-standard-type");
     const content = $element.attr("data-extended-text");
     const id = $element.attr("id");
 
     // Check for duplicate IDs
     if (standardsIds.has(id)) {
-      throw new Error(`Duplicate Standards ID found: ${id}`);
+      if (standardsContent[id] !== content) {
+        console.log(standardsContent[id], content);
+        // An unintentional dupe has been written with different content for the same rule
+        throw new Error(`Duplicate Standards ID found: ${id}`);
+      }
+      else {
+        // This is just the second time this rule's been used; skip it from the checklist
+        return;
+      }
     }
     if (!idFormatRegex.test(id)) {
       throw new Error(
@@ -38,6 +43,7 @@ function extractDataFromHTML(filePath, htmlContent) {
     }
 
     standardsIds.add(id);
+    standardsContent[id] = content;
     elementsWithDataStandardType.push({ standardType, content, id, filePath });
   });
 

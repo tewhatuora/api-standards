@@ -41,7 +41,7 @@ designed, where possible, for all potential consumers.
 
 <ApiStandard id="HNZAS_MAY_SUPPORT_MULTIPLE_FORMATS" type="MAY" toolTip="APIs MAY support multiple message formats and allow consumers to request their preferred format.">But it is possible to support multiple message formats (e.g. XML, Multi-part MIME) and allow consuming applications to request the format they wish to consume (in line with the "Design for the Consumer" principle).</ApiStandard>
 
-<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." dupe="true">The response format required from a GET request **MUST** be indicated by the consumer in their request using the Accept header.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header.">The response format required from a GET request **MUST** be indicated by the consumer in their request using the Accept header.</ApiStandard>
 
 For example:
 
@@ -174,12 +174,12 @@ necessary for some forms of API e.g. APIs with geospatial content.</ApiStandard>
 
 **<span class="smallcaps">SHOULD</span>**
 
-<ApiStandard id="HNZAS_SHOULD_RETURN_JSON_BY_DEFAULT" type="SHOULD" toolTip="REST APIs SHOULD, by default, return content in JSON format." dupe="true">Returned content format should be JSON by default.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_RETURN_JSON_BY_DEFAULT" type="SHOULD" toolTip="REST APIs SHOULD, by default, return content in JSON format.">Returned content format should be JSON by default.</ApiStandard>
 
 **<span class="smallcaps">MUST</span>**
 
-<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." dupe="true" wrapper="span">Requests for a specific return format must be defined in the Accept
-header (for GET requests)</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_FOR_NON_GET_FORMAT_REQUEST" type="MUST" toolTip="The request format for a request containing a request body (POST, PUT, PATCH) MUST be supplied in the Content-Type request header." dupe="true" wrapper="span">and in the Content-Type header (for other verbs).</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_ACCEPT_HEADER_FOR_GET_REQUEST" type="MUST" toolTip="The response format required from a GET request MUST be indicated by the consumer using the Accept header." wrapper="span">Requests for a specific return format must be defined in the Accept
+header (for GET requests)</ApiStandard>, <ApiStandard id="HNZAS_MUST_USE_CONTENT_TYPE_FOR_NON_GET_FORMAT_REQUEST" type="MUST" toolTip="The request format for a request containing a request body (POST, PUT, PATCH) MUST be supplied in the Content-Type request header." wrapper="span">and in the Content-Type header (for other verbs).</ApiStandard>
 
 ### Layout
 
