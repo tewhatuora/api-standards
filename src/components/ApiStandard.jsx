@@ -20,7 +20,7 @@ const extractText = (Component) => {
  *
  * @example
  * // Usage example in Markdown:
- * <ApiStandard id="HNZAS_MUST_NOT_X_NOTATION_HEADERS" type="MUST_NOT" toolTip="API Providers **MUST NOT** used X-Notation headers, as they have been deprecated in the HTTP standard.">Providers **MUST NOT** use X- notation headers</ApiStandard>
+ * <ApiStandard id="HNZAS_MUST_NOT_X_NOTATION_HEADERS" type="MUST NOT" toolTip="API Providers **MUST NOT** used X-Notation headers, as they have been deprecated in the HTTP standard.">Providers **MUST NOT** use X- notation headers</ApiStandard>
  */
 
 function ApiStandard({ id, type, toolTip, wrapper, children }) {

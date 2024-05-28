@@ -22,7 +22,7 @@ over which is the most "RESTful”. Below is a description of each methodology h
 
 <ApiStandard id="HNZAS_MUST_USE_URL_VERSIONING" type="MUST" toolTip="For URL-based versioning, the URI MUST include /v{N} with the major version (N) and 'v' as a prefix.">For URL-based versioning the [Uniform Resource Identifier (URI)](./URIs) **MUST** include `/v{N}` with the major version (N) and v as a prefix.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_INCLUDE_MINOR_VERSION" type="SHOULD_NOT" toolTip="API Providers SHOULD NOT include minor version numbers in the URI. Only the MAJOR version should be represented.">API Providers **SHOULD NOT** include minor version numbers. Considering semantic version description above, only the **MAJOR** version should be represented in the URI.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_INCLUDE_MINOR_VERSION" type="SHOULD NOT" toolTip="API Providers SHOULD NOT include minor version numbers in the URI. Only the MAJOR version should be represented.">API Providers **SHOULD NOT** include minor version numbers. Considering semantic version description above, only the **MAJOR** version should be represented in the URI.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 

@@ -252,7 +252,7 @@ based-language.
 
 ### ABAC Implementation
 
-<ApiStandard id="HNZAS_MAY_IMPLEMENT_ABAC" type="MAY" toolTip="API Providers may implement ABAC." >API Providers **MAY** implement ABAC.</ApiStandard>
+<ApiStandard id="HNZAS_MAY_IMPLEMENT_ABAC" type="MAY" dupe="true" toolTip="API Providers may implement ABAC." >API Providers **MAY** implement ABAC.</ApiStandard>
 
 To implement Attribute Based Access Control, the current models defined
 use XACML.

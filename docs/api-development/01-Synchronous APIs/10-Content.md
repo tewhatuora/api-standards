@@ -158,7 +158,7 @@ Accept: application/json
 
 <ApiStandard id="HNZAS_SHOULD_USE_UTF8_ENCODING" type="SHOULD" toolTip="Textual content SHOULD be UTF-8 encoded by default, with deviations limited.">In line with this standard, textual content **SHOULD** be UTF-8 encoded by default, and any deviations from this must be limited.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_RETURN_BINARY_DATA" type="SHOULD_NOT" toolTip="APIs SHOULD NOT return binary data such as images; hyperlinks to images are preferred.">It is inadvisable to use APIs for returning binary data such as images in the response content; hyperlinks to images are the preferred returned response.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_RETURN_BINARY_DATA" type="SHOULD NOT" toolTip="APIs SHOULD NOT return binary data such as images; hyperlinks to images are preferred.">It is inadvisable to use APIs for returning binary data such as images in the response content; hyperlinks to images are the preferred returned response.</ApiStandard>
 
 <ApiStandard id="HNZAS_SHOULD_USE_MIME_FOR_IMAGES" type="SHOULD" toolTip="Where images are returned, ensure the image encoding is MIME, HTTP Multipart.">But where images _are_ returned, ensure that the image encoding is MIME, HTTP Multipart.</ApiStandard>
 
@@ -170,7 +170,7 @@ reduces the ability to filter the content in transit for consumers who
 have fine grained control on what they can access. However, it may be
 necessary for some forms of API e.g. APIs with geospatial content.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_BESPOKE_FORMATS" type="SHOULD_NOT" toolTip="Avoid using bespoke formats in returned content.">Avoid using bespoke formats in returned content.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_BESPOKE_FORMATS" type="SHOULD NOT" toolTip="Avoid using bespoke formats in returned content.">Avoid using bespoke formats in returned content.</ApiStandard>
 
 **<span class="smallcaps">SHOULD</span>**
 
@@ -244,9 +244,9 @@ Within content, property names should conform to the following guidelines:
 
 <ApiStandard id="HNZAS_SHOULD_PRESERVE_BACKWARDS_COMPATIBILITY" type="SHOULD" toolTip="Preserve backwards compatibility by returning expected fields and employing sensible default values for missing fields.">Preserve backwards compatibility with existing consumers of the API by returning expected fields and employing sensible default values for missing fields.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_KEEP_CONSISTENT_TERMINOLOGY" type="SHOULD" toolTip="Keep consistency of terminology throughout to avoid misleading the consumer.">Keep consistency of terminology throughout, so that the consumer is not misled.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_KEEP_CONSISTENT_TERMINOLOGY" type="SHOULD" toolTip="API Providers SHOULD keep consistency of terminology throughout the implementation to avoid misleading the consumer.">Keep consistency of terminology throughout, so that the consumer is not misled.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_MODIFY_CONTENT_SEMANTICS" type="SHOULD_NOT" toolTip="Avoid modifying the semantics of content to new meanings, e.g., don't change a 'title' field from the title of the page to the prefix for a name to a person's job title.">Avoid modifying the semantics of content to new meanings, e.g., don’t change a 'title' field from meaning the title of the page, to meaning the prefix for a name to the person’s job title.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_MODIFY_CONTENT_SEMANTICS" type="SHOULD NOT" toolTip="Avoid modifying the semantics of content to new meanings, e.g., don't change a 'title' field from the title of the page to the prefix for a name to a person's job title.">Avoid modifying the semantics of content to new meanings, e.g., don’t change a 'title' field from meaning the title of the page, to meaning the prefix for a name to the person’s job title.</ApiStandard>
 
 ### Singletons vs. Collections
 
@@ -320,7 +320,7 @@ the security context; the API consumer should only gain access to what
 that consumer is allowed to see. It is advisable to aim for consistent
 naming of collection resource fields, as this enables application
 developers to create generic handling of the data from across various
-resource collections offered by the API. <ApiStandard id="HNZAS_SHOULD_NOT_INCLUDE_BINARY_ATTACHMENTS" type="SHOULD_NOT" toolTip="Collection resources SHOULD NOT contain binary attachments or other content that will lead to large response payloads." wrapper='span'>Collection resources **SHOULD NOT** contain binary attachments or other content that will lead to large response payloads.</ApiStandard>
+resource collections offered by the API. <ApiStandard id="HNZAS_SHOULD_NOT_INCLUDE_BINARY_ATTACHMENTS" type="SHOULD NOT" toolTip="Collection resources SHOULD NOT contain binary attachments or other content that will lead to large response payloads." wrapper='span'>Collection resources **SHOULD NOT** contain binary attachments or other content that will lead to large response payloads.</ApiStandard>
 
 Note that the example below is contrived and it would be rare to expose
 an unfiltered resource collection as large as passengers.

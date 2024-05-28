@@ -4,7 +4,7 @@ title: "Caching"
 
 
 
-<ApiStandard id="HNZAS_SHOULD_USE_CACHING_FOR_INFREQUENTLY_CHANGED_DATA" type="SHOULD" toolTip="Caching enables faster responses from APIs and reduces server load. It is good for information which is frequently requested but does not change very often.">Caching enables faster responses from APIs and reduces server load. It is good for information which is frequently requested but does not change very often. The aim is to retrieve information once but re-use
+<ApiStandard id="HNZAS_SHOULD_USE_CACHING_FOR_INFREQUENTLY_CHANGED_DATA" type="SHOULD" toolTip="Caching SHOULD be used for data which is frequently accessed but does not change very often">Caching enables faster responses from APIs and reduces server load. It is good for information which is frequently requested but does not change very often. The aim is to retrieve information once but re-use
 many times.</ApiStandard>
 
 There are a number of caching methodologies available. This section
