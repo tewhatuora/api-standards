@@ -199,7 +199,7 @@ compressed responses.
 
 <ApiStandard id="HNZAS_MUST_SEND_API_KEY_IF_USED_FOR_IDENTITY" type="MUST" toolTip="An API key issued to a consuming application MUST be sent with every request if the API uses this mechanism to identify the client.">An API key issued to a consuming application **MUST** be sent with every request made to the API, if the API uses this mechanism to identify the client.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">The name of the header is up to the API provider, but it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">The name of the header is up to the API provider, but it **SHOULD NOT** be an `X-` prefixed header as this use is deprecated.</ApiStandard>
 
 <ApiStandard id="HNZAS_SHOULD_NOT_USE_API_KEYS_IN_URIS" type="SHOULD NOT" toolTip="API keys SHOULD NOT be passed in URIs as it is not considered best practice.">Sometimes API keys are passed in URIs; however, this is not considered best practice and **SHOULD NOT** be done.</ApiStandard>
 
@@ -423,7 +423,7 @@ ETag: "686897696a7c876b7e"
 
 ## Custom X- HTTP Headers
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD_NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">X- notation headers have been deprecated as per [RFC6648](https://tools.ietf.org/html/rfc6648) and **SHOULD NOT** be used, if possible.</ApiStandard> This is because the `X-` name often became a standard, making the
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_X_HEADERS" type="SHOULD NOT" toolTip="'X-' notation headers SHOULD NOT be used as per RFC6648.">X- notation headers have been deprecated as per [RFC6648](https://tools.ietf.org/html/rfc6648) and **SHOULD NOT** be used, if possible.</ApiStandard> This is because the `X-` name often became a standard, making the
 `X-notation` inaccurate (e.g. `x-gzip` became `gzip`) and requiring support
 for both the `X-` and the `non-X-` notation. Common uses of the `X-` headers
 are examples such as the `X-HTTP-Method-Override` header or the
