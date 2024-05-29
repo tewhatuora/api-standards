@@ -14,7 +14,7 @@ A well architected and consistent topic design is crucial to the success and re-
 <ApiStandard id="HNZAS_MUST_CONSISTENTLY_APPLY_EVENT_TOPIC_DESIGN" type="MUST" toolTip="The event topic design MUST be consistently applied once agreed upon." wrapper="span">
   The event topic design **MUST** be consistently applied once agreed upon,
 </ApiStandard>
-<ApiStandard id="HNZAS_MUST_NOT_CHANGE_ROOT_LEVELS_OF_TOPIC_MEANING" type="MUST_NOT" toolTip="Root levels of the topic MUST NOT change meaning." wrapper="span">
+<ApiStandard id="HNZAS_MUST_NOT_CHANGE_ROOT_LEVELS_OF_TOPIC_MEANING" type="MUST NOT" toolTip="Root levels of the topic MUST NOT change meaning." wrapper="span">
   and root levels of the topic **MUST NOT** change meaning.
 </ApiStandard>
 
