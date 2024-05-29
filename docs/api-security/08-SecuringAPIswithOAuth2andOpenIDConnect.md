@@ -186,12 +186,8 @@ The ID Token is a JSON Web Token (JWT) that contains authenticated user informat
 |Encryption| <ApiStandard id="HNZAS_MAY_ENCRYPT_ID_TOKEN" type="MAY" toolTip="ID tokens MAY be encrypted." wrapper="span">The ID Token **MAY** be encrypted</ApiStandard> |
 |Customise API Consumer application| <ApiStandard id="HNZAS_MAY_USE_ID_TOKEN_TO_CUSTOMIZE" type="MAY" toolTip="Depending on the flow selected, the API Consumer MAY use the content of the ID token to customise the API Consumer client." wrapper="span">Depending on the flow selected the API Consumer **MAY** use the content of the ID Token to customise the API Consumer client</ApiStandard> |
 
-<ApiStandard id="HNZAS_MUST_MINIMIZE_IDENTITY_ATTRIBUTES" type="MUST" toolTip="API Providers MUST ensure only the minimum number of identity attributes are provided to meet the required outcome of the API Consumer request." wrapper="li">
-  API Providers **MUST** ensure only the minimum number of identity attributes are provided to meet the required outcome of the API Consumer request
-</ApiStandard>
-<ApiStandard id="HNZAS_MUST_PROTECT_ID_TOKEN_PII" type="MUST" toolTip="API Providers MUST ensure that any ID Token that are transmitted over TLS (via the Authorise endpoint) do not contain PII or PHI information. ID Tokens can be returned from the authorise (TLS) or token (mTLS) endpoint." wrapper="li">
-  API Providers **MUST** ensure that any ID Token that are transmitted over TLS (via the Authorise endpoint) do not contain PII or PHI information. ID Tokens can be returned from the authorise (TLS) or token (mTLS) endpoint.
-</ApiStandard>
+<ApiStandard id="HNZAS_MUST_MINIMIZE_IDENTITY_ATTRIBUTES" type="MUST" toolTip="API Providers MUST ensure only the minimum number of identity attributes are provided to meet the required outcome of the API Consumer request." wrapper="li">API Providers **MUST** ensure only the minimum number of identity attributes are provided to meet the required outcome of the API Consumer request</ApiStandard>
+<ApiStandard id="HNZAS_MUST_PROTECT_ID_TOKEN_PII" type="MUST" toolTip="API Providers MUST ensure that any ID Token that are transmitted over TLS (via the Authorise endpoint) do not contain PII or PHI information. ID Tokens can be returned from the authorise (TLS) or token (mTLS) endpoint." wrapper="li">API Providers **MUST** ensure that any ID Token that are transmitted over TLS (via the Authorise endpoint) do not contain PII or PHI information. ID Tokens can be returned from the authorise (TLS) or token (mTLS) endpoint.</ApiStandard>
 
 ### Userinfo Endpoint
 
@@ -204,18 +200,10 @@ The Userinfo endpoint can be called with an access token to obtain the same clai
 
 There are a number of additional scopes that OpenID Connect introduces (e.g. `profile`, `name`, `email` etc) that detail specific attributes that can be presented in an ID token.
 
-<ApiStandard id="HNZAS_MAY_REQUEST_PROFILE_SCOPES" type="MAY" toolTip="An API Consumer MAY request the profile or other information scopes." wrapper="li">
-  An API Consumer **MAY** request the profile or other information scopes
-</ApiStandard>
-<ApiStandard id="HNZAS_SHOULD_DETAIL_AVAILABLE_SCOPES" type="SHOULD" toolTip="The API Provider SHOULD detail what scopes are available to the API Consumer." wrapper="li">
-  The API Provider **SHOULD** detail what scopes are available to the API Consumer
-</ApiStandard>
-<ApiStandard id="HNZAS_MUST_ENSURE_CONSENT_PROVIDED_FOR_INFORMATIONAL_SCOPES" type="MUST" toolTip="The API Provider MUST ensure consent to share information in profile scopes has been provided by the information owner, typically a health sector participant." wrapper="li">
-  The API Provider **MUST** ensure consent to share this information has been provided by the information owner, typically a health sector participant.
-</ApiStandard>
-<ApiStandard id="HNZAS_MUST_RECORD_PROFILE_SCOPE_CONSENT" type="MUST" toolTip="The API Provider MUST record any consent and its associated parameters when granting consent to informational scopes." wrapper="li">
-  The API Provider **MUST** record any consent and its associated parameters.
-</ApiStandard>
+<ApiStandard id="HNZAS_MAY_REQUEST_PROFILE_SCOPES" type="MAY" toolTip="An API Consumer MAY request the profile or other information scopes." wrapper="li">An API Consumer **MAY** request the profile or other information scopes</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_DETAIL_AVAILABLE_SCOPES" type="SHOULD" toolTip="The API Provider SHOULD detail what scopes are available to the API Consumer." wrapper="li">The API Provider **SHOULD** detail what scopes are available to the API Consumer</ApiStandard>
+<ApiStandard id="HNZAS_MUST_ENSURE_CONSENT_PROVIDED_FOR_INFORMATIONAL_SCOPES" type="MUST" toolTip="The API Provider MUST ensure consent to share information in profile scopes has been provided by the information owner, typically a health sector participant." wrapper="li">The API Provider **MUST** ensure consent to share this information has been provided by the information owner, typically a health sector participant.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_RECORD_PROFILE_SCOPE_CONSENT" type="MUST" toolTip="The API Provider MUST record any consent and its associated parameters when granting consent to informational scopes." wrapper="li">The API Provider **MUST** record any consent and its associated parameters.</ApiStandard>
 
 ### SMART on FHIR Scopes
 
@@ -239,8 +227,7 @@ OAuth 2.0 and OpenID Connect supports two types of API Consumer, confidential an
 
 The initial authorisation call to the API Provider from the API Consumer as a parameter call resource_type this defines what Grant Type the API Consumer application would like to use.
 
-<ApiStandard id="HNZAS_MUST_LIMIT_GRANT_TYPES" type="MUST" toolTip="The API Provider MUST limit the grant types to those defined and agreed upon." wrapper="li">
-  The API Provider **MUST** limit these to the agreed grant type defined below.
+<ApiStandard id="HNZAS_MUST_LIMIT_GRANT_TYPES" type="MUST" toolTip="The API Provider MUST limit the grant types to those defined and agreed upon." wrapper="li">The API Provider **MUST** limit these to the agreed grant type defined below.
 </ApiStandard>
 
 OpenID Connect builds on the existing OAuth 2.0 grant flows.
