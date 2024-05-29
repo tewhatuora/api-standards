@@ -12,7 +12,7 @@ FHIR APIs **MUST** comply with all of the following in the interests of intercha
 
 <ol>
 <ApiStandard id="HNZAS_SHOULD_BASE_ON_FHIR_R4B" type="SHOULD" toolTip="FHIR APIs SHOULD be based on FHIR Release R4B." wrapper='li'>**SHOULD** be based on FHIR Release R4B</ApiStandard>
-<ApiStandard id="HNZAS_MAY_BASE_ON_FHIR_R4_WITH_PLANS_FOR_R4B" type="MAY" toolTip="FHIR APIs MAY be based on FHIR Release R4; however, plans SHOULD be in place to support FHIR Release 4B or newer." wrapper='li'>**MAY** be based on FHIR Release R4; however, plans **SHOULD** be in place to support FHIR Release 4B or newer</ApiStandard>
+<ApiStandard id="HNZAS_MAY_BASE_ON_FHIR_R4" type="MAY" toolTip="FHIR APIs MAY be based on FHIR Release R4; however, plans SHOULD be in place to support FHIR Release 4B or newer." wrapper='li'>**MAY** be based on FHIR Release R4; however, plans **SHOULD** be in place to support FHIR Release 4B or newer</ApiStandard>
 <ApiStandard id="HNZAS_MUST_PUBLISH_CAPABILITY_STATEMENT" type="MUST" toolTip="FHIR APIs MUST publish a CapabilityStatement resource at the {{API_URL}}/metadata endpoint." wrapper='li'>**MUST** publish a **CapabilityStatement** resource at the `{{API_URL}}/metadata` endpoint</ApiStandard>
 <ApiStandard id="HNZAS_MUST_PUBLISH_IMPLEMENTATION_GUIDE" type="MUST" toolTip="FHIR APIs MUST publish an Implementation Guide at a recognised site/registry." wrapper='li'>**MUST** publish an **Implementation Guide** at a recognised site/registry</ApiStandard>
 <ApiStandard id="HNZAS_MUST_SUPPORT_JSON" type="MUST" toolTip="FHIR APIs MUST support JSON, at minimum, for resource representations." wrapper='li'>**MUST** support **JSON**, at minimum, for resource representations</ApiStandard>

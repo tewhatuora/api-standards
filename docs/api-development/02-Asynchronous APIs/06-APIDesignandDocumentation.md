@@ -18,7 +18,7 @@ API Providers of an Asynchronous API **MUST** document the API using a combinati
 
 [AsyncAPI](https://www.asyncapi.com) is the preferred documentation standard for Asynchronous APIs published within the New Zealand Health Sector.
 
-<ApiStandard id="HNZAS_SHOULD_ASYNCAPI" type="SHOULD" toolTip="When using AsyncAPI, Version 2.5 SHOULD be used." >[Version 2.5](https://v2.asyncapi.com/docs/reference/specification/v2.5.0) and above of the AsyncAPI specification **SHOULD** be used when using this standard.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_USE_ASYNC_API_2_5" type="SHOULD" toolTip="When using AsyncAPI, Version 2.5 SHOULD be used." >[Version 2.5](https://v2.asyncapi.com/docs/reference/specification/v2.5.0) and above of the AsyncAPI specification **SHOULD** be used when using this standard.</ApiStandard>
 
 An example AsyncAPI spec is displayed below, which demonstrates an Event-Carried State Message, using a Pub/Sub pattern. It defines the event by extending the CloudEvents specification, which specifies the custom data contained in the `birthEventMessage` message.
 
@@ -39,7 +39,7 @@ An example AsyncAPI spec is displayed below, which demonstrates an Event-Carried
 
 [CloudEvents](https://cloudevents.io) is a specification for describing event data in a common way. It is best used **together** with [AsyncAPI](#asyncapi), as opposed to in place of.
 
-<ApiStandard id="HNZAS_SHOULD_CLOUDEVENTS" type="SHOULD" toolTip="Non-FHIR Asynchronous APIs SHOULD use CloudEvents specification." >APIs published within the Health sector are **RECOMMENDED** to use the CloudEvents specification to document message structure when Asynchronous APIs are used for messaging purposes, unless they are using FHIR Messaging (see [FHIR Implementation Guides](#fhir-implementation-guides)).</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_USE_CLOUD_EVENTS_IF_NOT_FHIR" type="SHOULD" toolTip="Non-FHIR Asynchronous APIs SHOULD use CloudEvents specification." >APIs published within the Health sector are **RECOMMENDED** to use the CloudEvents specification to document message structure when Asynchronous APIs are used for messaging purposes, unless they are using FHIR Messaging (see [FHIR Implementation Guides](#fhir-implementation-guides)).</ApiStandard>
 
 This allows a level of consistency in events to be achieved which allows 100s of events to be published with a lowered barrier to consumption.
 
@@ -107,12 +107,12 @@ A schema registry is a location where API Provider teams can publish and maintai
 
 Both of these pieces of software may be offered by a message broker, however can be implemented regardless of the underlying messaging technology. Often, they will be accessible via an API so they can be used programmatically.
 
-<ApiStandard id="HNZAS_MAY_ASYNC_CATALOGUE" type="MAY" toolTip="Asynchronous API Providers MAY choose to offer an event catalog or schema registry for their API." >API Providers **MAY** choose to offer an event catalog or schema registry for their API.</ApiStandard>
+<ApiStandard id="HNZAS_MAY_OFFER_EVENT_CATALOG" type="MAY" toolTip="Asynchronous API Providers MAY choose to offer an event catalog or schema registry for their API.">API Providers **MAY** choose to offer an event catalog or schema registry for their API.</ApiStandard>
 
 Health New Zealand will use the Digital Services Hub to publish its Event Catalog.
 
 ## FHIR Implementation Guides
 
-<ApiStandard id="HNZAS_MUST_IG" type="MAY" toolTip="Asynchronous API Providers MUST publish a FHIR Implementation Guide (IG) to detail the implementation." >When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation Guide (IG) to detail the implementation.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_PUBLISH_FHIR_IG_FOR_SUBSCRIPTIONS" type="MUST" toolTip="When FHIR Subscriptions are being used, API Providers MUST publish a FHIR Implementation Guide (IG) to detail the implementation.">When FHIR Subscriptions are being used, API Providers **MUST** publish a FHIR Implementation Guide (IG) to detail the implementation.</ApiStandard>
 
 For more information on FHIR Implementation Guide standards, review [FHIR Implementation Guides.](../../fhir-api-standard/Standards/05-IGInformation.md)
