@@ -42,7 +42,7 @@ const ApiStandardsChecklist = () => {
             <tr key={item.id}>
               <td>
                 <p style={{ marginBottom: "10px", wordWrap: "break-all" }}>
-                  <strong>{item.id}</strong>
+                  <strong>{item.id.replaceAll("_", "_<wbr>")}</strong>
                 </p>
                 <p style={{ marginBottom: 0 }}>{item.content}</p>
               </td>
