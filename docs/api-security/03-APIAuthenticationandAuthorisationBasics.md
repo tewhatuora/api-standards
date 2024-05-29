@@ -593,7 +593,7 @@ this decide if API Keys are required.
 
 ## Certificates (Mutual) Authentication
 
-<ApiStandard id="HNZAS_MAY_USE_CERT_AUTH" type="MUST" toolTip="API providers MAY use certificate authentication, when the model depends on legacy authentication mechanisms.">**MAY** use this model when the API depends on legacy authentication mechanisms such as [HealthSecure Certificates](https://www.acc.co.nz/health/)</ApiStandard>
+<ApiStandard id="HNZAS_MAY_USE_CERT_AUTH" type="MAY" toolTip="API providers MAY use certificate authentication, when the model depends on legacy authentication mechanisms.">**MAY** use this model when the API depends on legacy authentication mechanisms such as [HealthSecure Certificates](https://www.acc.co.nz/health/)</ApiStandard>
 
 In Certificate (Mutual) Authentication both the API consumer and
 the API provider hold a digital certificate. The digital certificate can

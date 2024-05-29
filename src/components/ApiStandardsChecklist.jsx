@@ -41,7 +41,7 @@ const ApiStandardsChecklist = () => {
           {tableData.map((item) => (
             <tr key={item.id}>
               <td>
-                <p style={{ marginBottom: "10px" }}>
+                <p style={{ marginBottom: "10px", fontSize: "1rem" }}>
                   <strong dangerouslySetInnerHTML={{ __html: item.id.replaceAll("_", "_<wbr>") }}></strong>
                 </p>
                 <p style={{ marginBottom: 0 }}>{item.content}</p>
