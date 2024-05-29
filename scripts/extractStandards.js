@@ -8,6 +8,8 @@ const outputFilePath = "./build/assets/api-standards.json";
 // Set to store Standards IDs and content to check uniqueness
 const standardsIds = new Set();
 const standardsContent = {};
+const duplicates = new Set();
+const invalid = new Set();
 
 // Regular expression to match the desired format (e.g., HNZAS_MUST_NOT_X_NOTATION_HEADERS)
 const idFormatRegex = /^HNZAS_(MUST|MUST_NOT|SHOULD|SHOULD_NOT|MAY)_[\w_]+$/;
@@ -29,7 +31,7 @@ function extractDataFromHTML(filePath, htmlContent) {
       if (standardsContent[id] !== content) {
         console.log(standardsContent[id], content);
         // An unintentional dupe has been written with different content for the same rule
-        throw new Error(`Duplicate Standards ID found: ${id}`);
+        duplicates.add(id);
       }
       else {
         // This is just the second time this rule's been used; skip it from the checklist
@@ -37,9 +39,8 @@ function extractDataFromHTML(filePath, htmlContent) {
       }
     }
     if (!idFormatRegex.test(id)) {
-      throw new Error(
-        `Invalid ID Standards format found: ${id}. Check the docs for format`
-      );
+      invalid.add(id);
+      return;
     }
 
     standardsIds.add(id);
@@ -74,6 +75,19 @@ function processDirectory(directoryPath) {
 
 function main() {
   const data = processDirectory(sourceDir);
+
+  // After data is processed, check for duplicates or invalid standards
+
+  if (duplicates.size > 0) { 
+    console.log(`Duplicate Standards ID found: ${[...duplicates].join("\n")}`);
+  }
+  if (invalid.size > 0) {
+    console.log(`Invalid Standards ID found: ${[...invalid].join("\n")}`);
+  }
+  if (duplicates.size > 0 || invalid.size > 0) {
+    throw new Error("Duplicate or invalid Standards ID found. Please fix the issues before proceeding.");
+  }
+
   const groupedData = {};
 
   data.forEach(({ standardType, content, id, filePath }) => {
