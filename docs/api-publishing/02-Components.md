@@ -48,7 +48,7 @@ Terms and conditions **SHOULD** be available via a web experience.
 
 ## Developer Onboarding
 
-API consumer application developers 
+API consumer application developers will expect to be able to follow a simple and well documented onboarding process.
 
 API Providers **MUST** provide a developer onboarding function that enables API Consumer developers to create and manage their client application credentials and request application level access to API Provider APIs.
 
