@@ -35,6 +35,7 @@ View example API specifications
 ### Servers Property
 
 |Property|Description|Requirement|
+|---|---|---|
 |`servers`| Property defining a list of endpoints where the API can be accessed. | **MUST** |
 
 ```yaml
