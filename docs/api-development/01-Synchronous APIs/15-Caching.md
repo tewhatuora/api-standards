@@ -18,7 +18,7 @@ on a unique resource. The response should be cached as close to the
 consumer as possible while remaining inside the security and control boundaries of
 the agency. Response caches are usually fast, in-memory caches. Many off
 the shelf API gateway/management solutions provide a built-in response
-cache. 
+cache.
 
 <ApiStandard id="HNZAS_SHOULD_MONITOR_RESPONSE_CACHE" type="SHOULD" toolTip="API Providers SHOULD monitor their response cache to minimize stale objects and ensure sufficient system memory for caching loads.">When using a response cache, API Providers **SHOULD** ensure that they understand and monitor their cache to ensure that stale objects are kept to a minimum and that they have sufficient system memory to service caching loads. This means ensuring that the cache is refreshed once a user has updated the information or a cache timeout has occurred.</ApiStandard>
 
