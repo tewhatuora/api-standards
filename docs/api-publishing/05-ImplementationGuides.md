@@ -49,7 +49,7 @@ In addition, every page within the IG website **MUST** clearly show:
 
 ### Canonical URL
 
-The Implementation Guide **MUST** nominate a canonical URL. This canonical URL is used throughout most of the generated resources. The canonical URL should point to the current version of the IG that you're publishing, so if someone enters the canonical URL into their browser, they will get the IG home page (for example, `https://implementation-guides.digital.health.nz/fhir-screening`). Selection of an appropriate canonical URL is important as by default this will be used as the base URL for conformance resources which are part of the IG such as `StructureDefinition` resources. This **MAY** be a FHIR Server which can host resources. For example, `https://implementation-guides.digital.health.nz/fhir-screening/StructureDefinition/example` would return an example StructureDefinition instance defined as part of the IG.
+The Implementation Guide **MUST** nominate a canonical URL. This canonical URL is used throughout most of the generated resources. The canonical URL should point to the current version of the IG that you're publishing, so if someone enters the canonical URL into their browser, they will get the IG home page (for example, `https://fhir-ig.digital.health.nz/fhir-screening`). Selection of an appropriate canonical URL is important as by default this will be used as the base URL for conformance resources which are part of the IG such as `StructureDefinition` resources. This **MAY** be a FHIR Server which can host resources. For example, `https://fhir-ig.digital.health.nz/fhir-screening/StructureDefinition/example` would return an example StructureDefinition instance defined as part of the IG.
 
 ### FHIR Artifacts
 
