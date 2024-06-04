@@ -103,7 +103,6 @@ HL7 International produce a standard for [App Launch called SMART](https://hl7.o
 
 <ApiStandard id="HNZAS_MUST_AUTH_INCLUDED_RESOURCES" type="MUST" toolTip="When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation MUST extend to the other resources.">When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation **MUST** extend to the other resources.</ApiStandard>
 
-
 For example, `GET Immunization/{id}?_include=patient`, must include authorisation scopes of:
 <ul>
 <li>system/Immunization.r</li>
