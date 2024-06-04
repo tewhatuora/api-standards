@@ -203,7 +203,7 @@ There are a number of additional scopes that OpenID Connect introduces (e.g. `pr
 - The API Provider **MUST** ensure consent to share this information has been provided by the information owner, typically a health sector participant.
 - The API Provider **MUST** record any consent and it's associated parameters.
 
-See [FHIR security](/#14-FHIRSecurity) for details on SMART on FHIR scopes.
+See [FHIR security](./14-FHIRSecurity.md) for details on SMART on FHIR scopes.
 
 ## OpenID Connect Implementation Patterns
 
