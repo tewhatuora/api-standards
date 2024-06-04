@@ -97,11 +97,12 @@ For further reading, visit [FHIR Security.](https://build.fhir.org/security.html
 
 ### SMART on FHIR Scopes
 
-HL7 International produce a standard for [App Launch called SMART](https://hl7.org/fhir/smart-app-launch/). SMART uses [scopes to control access to resources](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html). Where API Providers are delivering FHIR APIs they **SHOULD** consider the use of SMART scopes.
+HL7 International produce a standard for [App Launch called SMART](https://hl7.org/fhir/smart-app-launch/). SMART uses [scopes to control access to resources](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html). <ApiStandard id="HNZAS_SHOULD_USE_SMART_ON_FHIR" type="SHOULD" toolTip="Where API Providers are delivering FHIR APIs they SHOULD consider the use of SMART scopes.">Where API Providers are delivering FHIR APIs they **SHOULD** consider the use of SMART scopes.</ApiStandard>
 
 ### A note on include and contained resources
 
-When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation **MUST** extend to the other resources.
+<ApiStandard id="HNZAS_MUST_AUTH_INCLUDED_RESOURCES" type="MUST" toolTip="When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation MUST extend to the other resources.">When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation **MUST** extend to the other resources.</ApiStandard>
+
 
 For example, `GET Immunization/{id}?_include=patient`, must include authorisation scopes of:
 <ul>
