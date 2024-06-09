@@ -34,7 +34,7 @@ Where Canonical URLs are defined under the https://implementation-guides.digital
 | `Extension` (StructureDefinition) | `https://implementation-guides.digital.health.nz/{{IgName}}/StructureDefinition/{{ExtensionName}}` |
 | `Profile` (StructureDefinition) | `https://implementation-guides.digital.health.nz/{{IgName}}/StructureDefinition/{{ProfileName}}` |
 | `Questionnaire` | `https://implementation-guides.digital.health.nz/{{IgName}}/Questionnaire/{{QuestionnaireName}}` |
-| `CodeSystem` | `https://implementation-guides/{{IgName}}/CodeSystem/{{CodeSystemName}}` |
+| `CodeSystem` | `https://implementation-guides.digital.health.nz/{{IgName}}/CodeSystem/{{CodeSystemName}}` |
 | `ConceptMap` | `https://implementation-guides.digital.health.nz/{{IgName}}/ConceptMap/{{ConceptMapName}}` |
 | `ValueSet` | `https://nzhts.digital.health.nz/fhir/ValueSet/{{ValueSetName}}` |
 
