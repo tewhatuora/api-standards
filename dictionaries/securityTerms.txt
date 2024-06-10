@@ -1,7 +1,10 @@
 ABAC
+datacontenttype
 DELAU
+DPOP
 ECDH
 ECDSA
+ETAG
 HATEOAS
 HISF
 HMAC
