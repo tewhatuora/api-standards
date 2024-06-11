@@ -22,4 +22,4 @@ The contents of this page is displayed on the deployed website at /community/con
 * [David Grainger](https://github.com/dgrainge-mwnz)
 * [Chris Watts](https://github.com/ChrisSquats)
 * [Felix Shi](https://github.com/felix-tewhatuora)
-* [Daniel Thompson](https://github.com/daniel-thomson)
+* [Daniel Thomson](https://github.com/daniel-thomson)
