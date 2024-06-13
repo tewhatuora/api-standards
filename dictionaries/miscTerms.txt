@@ -18,6 +18,7 @@ GEAG
 HATEOS
 healthabc
 HTEST
+HNZAS
 Kaia
 MBIE
 nextofkin
