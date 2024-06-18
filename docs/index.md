@@ -36,6 +36,10 @@ Part C contains technical details for API development, including general API imp
 
 Part D contains standards information and guidance for HL7 FHIR APIs
 
+[**Part E: API Publishing Standards - HISO 10108**](/api-publishing)
+
+Part E contains standards information and guidance for publishing APIs
+
 :::info
 
 The decision has been taken to split FHIR API standards into a standalone section - note that there may be some repetition between sections. A FHIR implementer or consumer only needs to comply with the FHIR standards
@@ -69,6 +73,10 @@ Therefore, most of the specific technical guidance is marked as ‘recommended�
 It is recognised that many sectors or industries will have existing APIs and associated standards, which may be established and governed outside an organisation's control. In such cases, industry standards will prevail, but organisations are encouraged to review their existing use of APIs against these guidelines and consider whether any discrepancies reflect material business risks.
 
 Organisations that have their own existing APIs will also need to balance the risk and cost of the change against the benefits of conforming with these guidelines — a phased approach may be appropriate.
+
+### Part E: API Publishing
+
+The target audience for part E is primarily API Providers and provides guidance and standards for appropriate API publication.
 
 ## Documentation terminology
 

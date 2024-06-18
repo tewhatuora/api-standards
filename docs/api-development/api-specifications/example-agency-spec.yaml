@@ -4,7 +4,7 @@ info:
   title: Example Agency API
   description: A sample API specification demonstrating OpenAPI capabilities - this is for
     example purposes only
-  termsOfService: https:// api.example.govt.nz/termsandconditions/
+  termsOfService: https://api.example.govt.nz/termsandconditions/
   contact:
     name: Example Agency API team
     email: exampleteam@api.govt.nz
@@ -12,6 +12,8 @@ info:
 paths:
   "/customers/{customerId}":
     get:
+      operationId: getCustomer
+      summary: Retrieve a specific customer record
       parameters:
         - name: customerId
           in: path
