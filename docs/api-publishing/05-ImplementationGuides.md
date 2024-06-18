@@ -69,7 +69,7 @@ Once authored, all artifacts **MUST** pass validation before being published in 
 
 #### Capability Statement
 
-Each Implementation Guide which is representing a FHIR API Implementation **MUST** include a `CapabilityStatement` resource (or, sometimes multiple `CapabilityStatement` resources) which **MUST** be displayed within the Implementation Guide content. The Capability Statement **MUST** provide detail around which FHIR resource endpoints have been published, and which FHIR operations are available, such as `read`, `search-type`, `create` or any [custom operations](#custom-fhir-operations). 
+Each Implementation Guide which is representing a FHIR API Implementation **MUST** include a `CapabilityStatement` resource (or, sometimes multiple `CapabilityStatement` resources) which **MUST** be displayed within the Implementation Guide content. The Capability Statement **MUST** provide detail around which FHIR resource endpoints have been published, and which FHIR operations are available, such as `read`, `search-type`, `create` or any [custom operations](#custom-fhir-operations). The Capability Statement **MUST** include [rest security details](https://hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.rest.security) for REST APIs. The Capability Statement **SHOULD** indicate documentation indicating authorisation scopes required to consume the API.
 
 #### Custom FHIR Operations
 
