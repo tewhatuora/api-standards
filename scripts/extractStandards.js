@@ -17,7 +17,6 @@ function extractDataFromHTML(filePath, htmlContent, standardsIds) {
   $("[data-standard-type]").each((index, element) => {
     const $element = $(element);
     if ($element.attr("data-duplicate") === "true") {
-      console.log(`Skipping duplicate: ${$element.attr("id")}`);
       return;
     }
 
@@ -35,7 +34,6 @@ function extractDataFromHTML(filePath, htmlContent, standardsIds) {
 
     standardsIds.add(id);
     elementsWithDataStandardType.push({ standardType, content, id, filePath });
-    console.log(`Extracted: ${id}`);
   });
 
   return elementsWithDataStandardType;
@@ -55,7 +53,6 @@ function processDirectory(directoryPath, excludeDraft = false) {
     const filePath = path.join(directoryPath, fileName);
     if (fs.statSync(filePath).isDirectory()) {
       if (excludeDraft && filePath === draftDir) {
-        console.log(`Skipping draft directory: ${filePath}`);
         return [];
       }
       return processDirectory(filePath, excludeDraft);
