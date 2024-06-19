@@ -11,7 +11,7 @@ Learn about how Health NZ are implementing APIs to their systems and what the be
 These standards provide both API Providers and API consumers with context for focused design and implementation as well as API best practices. This is intended to help both producers and consumers achieve a consistent and common approach to developing and delivering APIs.
 
 :::info
-These standards are have been ratified and approved by Health Information Standards Organisation (HISO).
+These standards have been approved by the Health Information Standards Organisation (HISO).
 
 Please see the [list of approved HISO standards](https://www.tewhatuora.govt.nz/health-services-and-programmes/digital-health/data-and-digital-standards/approved-standards/).
 :::
