@@ -3,12 +3,6 @@ title: "OpenAPI Specifications"
 slug: "openapi-specifications"
 ---
 
-:::warning
-
-This page is currently incomplete and additional items will be added
-
-:::
-
 :::info
 
 All components of the [OpenAPI Specification](https://swagger.io/specification/) are supported by this standard and should be interpreted as a **MAY** unless stated otherwise below.
@@ -57,6 +51,7 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 |`info.license`| | `info.license.name` **MUST** `info.license.url` **MUST** |
 |`info.version`| The version of the OpenAPI document (not the API or OpenAPI version used) | **MUST** |
 | `info.contact`| Contains details on appropriate mechanism for contacting the API provider | `info.contact.name` **MUST** `info.contact.url` **MUST** |
+| `info.termsOfService`| Contains a link to the terms of service for the API | **SHOULD** |
 
 ### External Documentation
 
