@@ -6,7 +6,7 @@ slug: /
 
 
 
-Learn about how Health NZ are implementing APIs to their systems and what the benefits are of doing this.
+Learn about how Health NZ are implementing application programming interfaces (APIs) to their systems and what the benefits are of doing this.
 
 These standards provide both API Providers and API consumers with context for focused design and implementation as well as API best practices. This is intended to help both producers and consumers achieve a consistent and common approach to developing and delivering APIs.
 
