@@ -17,7 +17,7 @@ rectangle Organisations {
     actor "Application Developer" as APPD
     actor "API Developer" as APID
 }
-rectangle Hira {
+rectangle HNZ {
     component "Developer Portal" as DP
     component "Connector Plane" as CP
     component "API Provider"  as HAP

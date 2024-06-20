@@ -85,7 +85,7 @@ rectangle "Health Sector Organisations" {
 
 <DetailedDescription text="This shows the relationships between actors in health sector organisations. An API Developer at a Health Sector Organisation is an API Provider, and an Application Developer is an API consumer." />
 
-```plantuml alt="Diagram showing API Developer interactions within HIRA"
+```plantuml alt="Diagram showing API Developer interactions within HNZ"
 @startuml
 
 skinparam {
@@ -99,7 +99,7 @@ skinparam {
     linetype polyline
 }
 
-rectangle Hira {
+rectangle HNZ {
     component "Developer Portal" as DP
     component "Connector Plane" as CP
     component "API Provider"  as HAP

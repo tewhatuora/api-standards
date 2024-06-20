@@ -10,7 +10,7 @@ The patterns documented on this page reflect a small number of patterns implemen
 
 ## Direct
 
-The API Service is hosted and published by and from the primary environment in which the Hira API Management capability is implemented.
+The API Service is hosted and published by and from the primary environment in which the Digital Services Hub capability is implemented.
 
 ```plantuml alt="PlantUML diagram describing the direct consumption pattern"
 
@@ -60,7 +60,7 @@ end legend
 
 ## Proxy
 
-Publishes an API Service hosted and published by an External Sector Partner, using API Management owned and managed by them, for sole use by Hira. The Hira API Management capability republishes the API Service and routes (proxies) incoming traffic to the provider service through the Hira API Service governance capability (aka our Control Plane).
+Publishes an API Service hosted and published by an External Sector Partner, using API Management owned and managed by them. The Digital Services Hub API Management capability republishes the API Service and routes (proxies) incoming traffic to the provider service through the Digital Services Hub governance capability.
 
 ```plantuml alt="PlantUML diagram describing the proxy consumption pattern"
 
