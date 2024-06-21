@@ -31,7 +31,7 @@ The table below provides an overview on the elements to be included in the URI.
 
 `[basePath]/fhir/r4b/air/v1/Immunization/_search`
 
-`[basePath]/fhir/r4b/nzps/v1/Patient/$summary`n
+`[basePath]/fhir/r4b/nzps/v1/Patient/$summary`
 
 `[basePath]/contracts/v2/laboratories/33245/locations/P100782`
 
