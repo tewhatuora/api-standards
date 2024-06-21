@@ -26,11 +26,17 @@ The table below provides an overview on the elements to be included in the URI.
 | 8 | `sub-resource-id`| 0..1 MUST be provided when interacting with a Sub-resource instance |
 
 **<span class="smallcaps">Examples</span>**
+
 `[basePath]/fhir/r4b/nhi/v1/Patient/ZZZ008`
+
 `[basePath]/fhir/r4b/air/v1/Immunization/_search`
-`[basePath]/fhir/r4b/nzps/v1/Patient/$summary`
+
+`[basePath]/fhir/r4b/nzps/v1/Patient/$summary`n
+
 `[basePath]/contracts/v2/laboratories/33245/locations/P100782`
+
 `[basePath]/v3/vaccinators/43265/certifications/7281`
+
 `[basePath]/openid-connect/token`
 
 In some situations an implemented standard may define the URI structure
