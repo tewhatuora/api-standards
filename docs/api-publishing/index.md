@@ -1,5 +1,5 @@
 ---
-title: Part E - API Publishing Standards - HISO 10108
+title: "Part E: API Publishing Standards - HISO 10108"
 sidebar_position: 6
 ---
 
