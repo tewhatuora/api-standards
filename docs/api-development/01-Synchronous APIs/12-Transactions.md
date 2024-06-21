@@ -35,7 +35,7 @@ With batch APIs, the sub-requests are treated as a collection of operations with
 
 ## Transactions and Temporary IDs
 
-<ApiStandard id="HNZAS_MUST_USE_SUB_REQUEST_IDENTIFIERS" type="MUST" toolTip="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end." dupe='true'>Because sub-requests within a transaction are, by definition, tightly linked it's a common use case for the identifiers or data from a prior request to be used in a subsequent sub-request. In this case, the sub-request identifier **SHOULD** be used for references in other sub-requests.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_SUB_REQUEST_IDENTIFIERS" type="REQUIRED" toolTip="Sub-request identifiers, as Request Headers, to be built into bulk API calls to ensure the sub-requests are traceable end-to-end.">Because sub-requests within a transaction are, by definition, tightly linked it's a common use case for the identifiers or data from a prior request to be used in a subsequent sub-request. In this case, the sub-request identifier **SHOULD** be used for references in other sub-requests.</ApiStandard>
 
 ### Examples
 
