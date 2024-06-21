@@ -431,7 +431,7 @@ The downside of this model is that it makes it difficult to gather
 effective analytics, and therefore to understand the implications of
 proposed changes to, and deprecation of, an API.
 
-<ApiStandard id="HNZAS_MUST_IMPLEMENT_VULNERABILITY_PROTECTION_FOR_ANON_AUTH" type="MUST" toolTip="When using anonymous authentication providers must implement appropriate vulnerabiity protection." >If using the Anonymous authentication model the API **MUST** implement appropriate protection against typical API vulnerabilities and threats, as listed on the [OWASP (Open Web Application Security Project)](https://owasp.org/www-project-api-security/) site.</ApiStandard>
+<ApiStandard id="HNZAS_MUST_IMPLEMENT_VULNERABILITY_PROTECTION_FOR_ANON_AUTH" type="MUST" toolTip="When using anonymous authentication providers must implement appropriate vulnerability protection." >If using the Anonymous authentication model the API **MUST** implement appropriate protection against typical API vulnerabilities and threats, as listed on the [OWASP (Open Web Application Security Project)](https://owasp.org/www-project-api-security/) site.</ApiStandard>
 
 Typically, these relate to:
 

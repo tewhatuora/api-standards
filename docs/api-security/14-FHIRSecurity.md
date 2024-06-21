@@ -71,7 +71,28 @@ FHIR provides an [AuditEvent](https://build.fhir.org/auditevent.html) resource s
 
 ## Access control considerations
 
+### SMART on FHIR Scopes
+
+HL7 International produce a standard for [App Launch called SMART](https://hl7.org/fhir/smart-app-launch/). SMART uses [scopes to control access to resources](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html). <ApiStandard id="HNZAS_SHOULD_USE_SMART_ON_FHIR" type="SHOULD" toolTip="Where API Providers are delivering FHIR APIs they SHOULD consider the use of SMART scopes.">Where API Providers are delivering FHIR APIs they **SHOULD** consider the use of SMART scopes.</ApiStandard>
+
+Examples of SMART on FHIR Scopes:
+- `patient/Patient.r` : A patient viewing their own `Patient` resource
+- `system/Observation.c` : A system creating `Observation` resources 
+
+#### SMART Scopes for Operations
+While SMART on FHIR provides a robust set of rules for CRUDS operations, the standard is still emerging as how best to represent Operations using the same syntax.<ApiStandard id="HNZAS_MUST_USE_OPDEF" type="MUST" toolTip="Operations MUST be authorised with the OperationDefinition URL as the scope string.">Where API Providers are authorising FHIR Operations with SMART on FHIR, they **MUST** use the URL of the OperationDefinition as the scope string.</ApiStandard>
+
+#### FHIR search considerations
 A REST API conforming to FHIR will likely support much more than standard CRUD operations. FHIR Search offers a rich interface which supports consumers to retrieve related resources using search parameters `_include` and `_revinclude`. It is important that the security model used considers whether the client has permission to access the resource being searched on, in addition to all of the possible included resources.
+
+<ApiStandard id="HNZAS_MUST_AUTH_INCLUDED_RESOURCES" type="MUST" toolTip="When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation MUST extend to the other resources.">When searching or retrieving resources, if `_include` or `_revinclude` query modifiers are included, the authorisation **MUST** extend to the other resources.</ApiStandard>
+
+For example, `GET Immunization/{id}?_include=patient`, must include authorisation scopes of:
+
+- `system/Immunization.r`
+- `system/Patient.r`
+
+In the case of a `contained` resource. The authorisation for the resource is not required as it is inherited from the base profile.
 
 ## Resource sensitivity
 

@@ -206,9 +206,7 @@ There are a number of additional scopes that OpenID Connect introduces (e.g. `pr
 <ApiStandard id="HNZAS_MUST_ENSURE_CONSENT_PROVIDED_FOR_INFORMATIONAL_SCOPES" type="MUST" toolTip="The API Provider MUST ensure consent to share information in profile scopes has been provided by the information owner, typically a health sector participant." wrapper="li">The API Provider **MUST** ensure consent to share this information has been provided by the information owner, typically a health sector participant.</ApiStandard>
 <ApiStandard id="HNZAS_MUST_RECORD_PROFILE_SCOPE_CONSENT" type="MUST" toolTip="The API Provider MUST record any consent and its associated parameters when granting consent to informational scopes." wrapper="li">The API Provider **MUST** record any consent and its associated parameters.</ApiStandard>
 
-### SMART on FHIR Scopes
-
-HL7 International produce a standard for [App Launch called SMART](https://hl7.org/fhir/smart-app-launch/). SMART uses [scopes to control access to resources](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html). Where API Providers are delivering FHIR APIs they **SHOULD** consider the use of SMART scopes.
+See [FHIR security](./14-FHIRSecurity.md) for details on SMART on FHIR scopes.
 
 ## OpenID Connect Implementation Patterns
 

@@ -48,7 +48,7 @@ Terms and conditions **SHOULD** be available via a web experience.
 
 ## Developer Onboarding
 
-API consumer application developers 
+API consumer application developers will expect to be able to follow a simple and well documented onboarding process.
 
 API Providers **MUST** provide a developer onboarding function that enables API Consumer developers to create and manage their client application credentials and request application level access to API Provider APIs.
 
@@ -64,6 +64,6 @@ What SLAs are published will vary depending on the implementation, however commo
 - Latency
 - Request throughput (number of requests in a given timeframe)
 
-API producer **MAY** provide _SLA Tiering_ in which different SLAs are applied to different clients. For example, a "gold" tier can be applied to a high-value consumer-facing application to grant higher request quotas and faster response times. Conserverly, a "bronze" tier could be applied to a non-critical back-office application consuming the same API.
+API producer **MAY** provide _SLA Tiering_ in which different SLAs are applied to different clients. For example, a "gold" tier can be applied to a high-value consumer-facing application to grant higher request quotas and faster response times. Conversely, a "bronze" tier could be applied to a non-critical back-office application consuming the same API.
 
 SLAs **SHOULD** be available via a web experience.
