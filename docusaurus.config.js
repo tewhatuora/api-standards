@@ -166,8 +166,8 @@ module.exports = async function createConfig() {
                   href: 'https://github.com/tewhatuora/api-standards/issues',
                 },
                 {
-                  label: 'Hira Marketplace',
-                  href: 'https://marketplace.hira.health.nz',
+                  label: 'Digital Services Hub',
+                  href: 'https://www.tewhatuora.govt.nz/health-services-and-programmes/digital-health/digital-services-hub',
                 },
                 {
                   label: 'Health New Zealand | Te Whatu Ora',
