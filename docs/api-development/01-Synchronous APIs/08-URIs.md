@@ -11,8 +11,30 @@ verb, without needing to see a query string.
 
 <ApiStandard id="HNZAS_SHOULD_USE_INTUITIVE_ENDPOINTS" type="SHOULD" toolTip="Endpoint purpose SHOULD be intuitive from the URI, avoiding verbs." >Endpoint URLs **SHOULD** advertise resources, and avoid verbs.</ApiStandard>
 
+The table below provides an overview on the elements to be included in the URI.
+
+| Level | Name | Cardinality|
+|--------|--------|--------|
+| 0 |`[basePath]`| 1..1 MUST be provided | 
+| 1 |`protocol\|standard` | 0..1 MUST if the implementation is a FHIR API |
+| 2 | `protocol version` | 0..1 SHOULD be provided if protocol\|standard is provided and relevant |
+| 3 | `namespace` | 0..1 SHOULD be provided |
+| 4 | `version` | 0..1 MAY be provided |
+| 5 | `resource`| 1..1 MUST be provided |
+| 6 | `resource-id` | 0..1 MUST be provided when interacting with a Resource Instance |
+| 7 | `sub-resource` | 0..1 MUST be provided when interacting with a Sub-resource |
+| 8 | `sub-resource-id`| 0..1 MUST be provided when interacting with a Sub-resource instance |
+
+**<span class="smallcaps">Examples</span>**
+`[basePath]/fhir/r4b/nhi/v1/Patient/ZZZ008`
+`[basePath]/fhir/r4b/air/v1/Immunization/_search`
+`[basePath]/fhir/r4b/nzps/v1/Patient/$summary`
+`[basePath]/contracts/v2/laboratories/33245/locations/P100782`
+`[basePath]/v3/vaccinators/43265/certifications/7281`
+`[basePath]/openid-connect/token`
+
 In some situations an implemented standard may define the URI structure
-for you. A good example of this is [Fast Health Interoperability Resources (FHIR)](https://www.hl7.org/fhir/resource.html). For additional guidance on the use of FHIR see [Part D: FHIR API Design and Development Standards](../../fhir-api-standard/)
+for you. A good example of this is [Fast Health Interoperability Resources (FHIR)](https://www.hl7.org/fhir/resource.html). For additional guidance on the use of FHIR see [Part D: FHIR API Design and Development Standards](../../fhir-api-standard/).
 
 ### API Offering
 
@@ -23,6 +45,7 @@ for you. A good example of this is [Fast Health Interoperability Resources (FHIR
 [https://**api**.example.govt.nz]
 
 [https://example.govt.nz/**api**]
+
 
 ### Version
 
