@@ -17,7 +17,7 @@ const ApiStandardsChecklist = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/assets/api-standards.json");
+        const response = await fetch("./assets/api-standards.json");
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
