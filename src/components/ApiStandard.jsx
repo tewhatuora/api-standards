@@ -23,7 +23,7 @@ const extractText = (Component) => {
  * <ApiStandard id="HNZAS_MUST_NOT_X_NOTATION_HEADERS" type="MUST NOT" toolTip="API Providers **MUST NOT** used X-Notation headers, as they have been deprecated in the HTTP standard.">Providers **MUST NOT** use X- notation headers</ApiStandard>
  */
 
-function ApiStandard({ id, type, toolTip, dupe, wrapper, children }) {
+function ApiStandard({ id, type, toolTip, wrapper, children }) {
   if (children === undefined) {
     throw new Error(
       "Error in rendering ApiStandard component; please check the format for " +
@@ -34,8 +34,6 @@ function ApiStandard({ id, type, toolTip, dupe, wrapper, children }) {
   if (toolTip === undefined) {
     toolTip = extractText(children);
   }
-
-  dupe = dupe === undefined ? false : dupe;
 
   const Component = wrapper === undefined ? "p" : wrapper;
 
@@ -55,7 +53,6 @@ function ApiStandard({ id, type, toolTip, dupe, wrapper, children }) {
         id={id}
         data-standard-type={type}
         data-extended-text={toolTip}
-        data-duplicate={dupe}
       >
         {children}
         <sup>💡</sup>

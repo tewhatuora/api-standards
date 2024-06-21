@@ -6,7 +6,7 @@ title: "API State"
 
 ## Consideration of state
 
-<ApiStandard id="HNZAS_SHOULD_USE_STATELESS_REST_API" type="SHOULD" toolTip="A REST API SHOULD be stateless">In almost all cases a REST API **SHOULD** be entirely stateless.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_USE_STATELESS_REST_API" type="SHOULD" toolTip="A REST API SHOULD be stateless.">In almost all cases a REST API **SHOULD** be entirely stateless.</ApiStandard>
 
 As part of
 processing it is possible for an API to gather context and pass this to

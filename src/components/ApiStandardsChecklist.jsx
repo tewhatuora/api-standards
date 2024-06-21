@@ -30,13 +30,19 @@ const ApiStandardsChecklist = () => {
 
   const createTable = (tableData) => {
     return (
-      <table>
+      <table style={{ maxWidth: "100%" }}>
+        <thead>
+          <tr>
+            <th>Standard</th>
+            <th style={{ width: "50px" }}>Link</th>
+          </tr>
+        </thead>
         <tbody>
           {tableData.map((item) => (
             <tr key={item.id}>
-              <td style={{ wordWrap: "break-all" }}>
-                <p style={{ marginBottom: "10px" }}>
-                  <strong>{item.id}</strong>
+              <td>
+                <p style={{ marginBottom: "10px", fontSize: "1rem" }}>
+                  <strong dangerouslySetInnerHTML={{ __html: item.id.replaceAll("_", "_<wbr>") }}></strong>
                 </p>
                 <p style={{ marginBottom: 0 }}>{item.content}</p>
               </td>

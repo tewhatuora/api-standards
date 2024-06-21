@@ -144,7 +144,7 @@ Query arguments are generally used for:
   acts as a filter and limits the result set returned. This is
   particularly useful with large response data sets.
   
-  <ApiStandard id="HNZAS_SHOULD_GIVE_PAGINATION_LINKS" type="SHOULD" toolTip="Response SHOULD detail locations of previous and next result sets using hypermedia (HATEOS).">When using pagination, the response **SHOULD** inform the consumer where they can find previous and subsequent result sets using hypermedia as discussed in [the HATEOS](./Content#hateoas) section of this document.</ApiStandard>
+  <ApiStandard id="HNZAS_SHOULD_IMPLEMENT_HATEOAS" type="SHOULD" toolTip="HATEOAS (Hypermedia as the Engine of Application State) SHOULD be implemented to return links to other useful capabilities in responses.">When using pagination, the response **SHOULD** inform the consumer where they can find previous and subsequent result sets using hypermedia as discussed in [the HATEOAS](./Content#hateoas) section of this document.</ApiStandard>
 
 **<span class="smallcaps">Example</span>**
 
