@@ -8,10 +8,11 @@ The API Standards are set at the standard the health sector should be operating 
 
 Non-conformance **MUST** be documented for API Consumers and API Producers of the Digital Services Hub where applicable.
 
-Digital Services Hub maintains a register of non-conformance:
-Documentation includes:
-- Submitting A register of services and their conformance is maintained
-- For non-conformant services, include a list of standards that aren't met
-- List any compensating controls
+Digital Services Hub maintains a register of non-conformance.
+
+The registers includes:
+- A list of standards that aren't met
+- Any compensating controls
 - Outline a path to resolution
-- Define a grace period of non-conformance. Proposal is for 24 months to accommodate large changes in architecture that may be required to achieve conformance.
+
+The grace period of non-conformance is 24 months from entering the register. This is to accommodate large changes that may be required to achieve conformance e.g. architecture, or technology changes.
