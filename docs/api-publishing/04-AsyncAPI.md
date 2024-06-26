@@ -18,7 +18,7 @@ The AsyncAPI Specification defines a set of files required to describe such an A
 
 |Property|Description|Requirement|
 |:---|:---|:---|
-|`asyncapi`| The version of the AsyncAPI specification being used | <ApiStandard id="HNZAS_MUST_ASYNCAPI_VERSION" type="MUST" toolTip="An AsyncAPI specification MUST identify which version of the specification is used">**MUST**</ApiStandard> |
+|`asyncapi`| The version of the AsyncAPI specification being used | <ApiStandard id="HNZAS_MUST_ASYNCAPI_SPEC_VERSION" type="MUST" toolTip="An AsyncAPI specification MUST identify which version of the specification is used">**MUST**</ApiStandard> |
 
 ### Info Section
 
@@ -56,7 +56,7 @@ The below details describe what is expected, through different properties across
 
 |Property|Description|Requirement|
 |:---|:---|:---|
-|`externalDocs.url`| A URL for further documentation about about the API. | <ApiStandard id="HNZAS_MUST_ASYNCAPI_DESCRIPTION" type="MUST" toolTip="An AsyncAPI specification MUST include externalDocs with further information about the API">**MUST**</ApiStandard> |
+|`externalDocs.url`| A URL for further documentation about about the API. | <ApiStandard id="HNZAS_MUST_ASYNCAPI_EXTERNALDOCS" type="MUST" toolTip="An AsyncAPI specification MUST include externalDocs with further information about the API">**MUST**</ApiStandard> |
 
 ## AsyncAPI Validation
 

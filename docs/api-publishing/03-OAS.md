@@ -169,7 +169,7 @@ responses:
           $ref: '#/components/schemas/OperationOutcome'
 ```
 
-<ApiStandard id="HNZAS_SHOULD_NOT_USE_DEFAULT_RESPONSE" type="SHOULD_NOT" toolTip="An OpenAPI specification SHOULD_NOT use default responses">API Providers **SHOULD NOT** include a `default` response. Whilst supported by OpenAPI this is discouraged.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_NOT_USE_DEFAULT_RESPONSE" type="SHOULD NOT" toolTip="An OpenAPI specification SHOULD_NOT use default responses">API Providers **SHOULD NOT** include a `default` response. Whilst supported by OpenAPI this is discouraged.</ApiStandard>
 
 Below is an example of a `default` response to illustrate what **SHOULD NOT** be used
 
@@ -232,7 +232,7 @@ components:
 
 <ApiStandard id="HNZAS_SHOULD_OPENAPI_SCHEMA" type="SHOULD" toolTip="An OpenAPI specification SHOULD use schema references">OpenAPI specifications **SHOULD** use schema references to define content.</ApiStandard>
 
-<ApiStandard id="HNZAS_SHOULD_OPENAPI_NESTED_SCHEMA" type="MAY" toolTip="An OpenAPI specification MAY use nested schema references">API providers **MAY** use nested schema references where reusable schema elements are appropriate.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_OPENAPI_NESTED_SCHEMA" type="SHOULD" toolTip="An OpenAPI specification MAY use nested schema references">API providers **MAY** use nested schema references where reusable schema elements are appropriate.</ApiStandard>
 
 e.g.
 

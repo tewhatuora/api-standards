@@ -6,7 +6,7 @@ title: Publishing Components
 
 An API specification acts like a blueprint for an API, outlining how it functions and how applications can interact with it. It is a document or collection of documents that provides both technical details and user-friendly explanations for API Consumer developers who want to integrate with the API.
 
-<ApiStandard id="HNZAS_MUST_USE_SPECDRIVEN_DEVELOPMENT" type="MUST" toolTip="API Providers MUST follow a Specification-Driven Development Approach.">An API specification is also a key document for API Providers as it can be used as a design, implementation and testing artifact. Given the importance of this document, API Providers **MUST** follow a [Specification-Driven Development Approach](./api-development/Synchronous%20APIs/API%20Design#design-driven-development).</ApiStandard>
+<ApiStandard id="HNZAS_MUST_USE_SPECDRIVEN_DEVELOPMENT" type="MUST" toolTip="API Providers MUST follow a Specification-Driven Development Approach.">An API specification is also a key document for API Providers as it can be used as a design, implementation and testing artifact. Given the importance of this document, API Providers **MUST** follow a [Specification-Driven Development Approach](/api-development/Synchronous%20APIs/API%20Design#design-driven-development).</ApiStandard>
 
 See [OpenAPI Specification](./openapi-specifications).
 
@@ -64,6 +64,6 @@ What SLAs are published will vary depending on the implementation, however commo
 - Latency
 - Request throughput (number of requests in a given timeframe)
 
-<ApiStandard id="HNZAS_MAY_PROVIDE_SLA_TIERING" type="SHOULD" toolTip="API Providers MAY provide SLA tiering.">API Providers **MAY** provide _SLA Tiering_ in which different SLAs are applied to different clients. For example, a "gold" tier can be applied to a high-value consumer-facing application to grant higher request quotas and faster response times. Conversely, a "bronze" tier could be applied to a non-critical back-office application consuming the same API.</ApiStandard>
+<ApiStandard id="HNZAS_MAY_PROVIDE_SLA_TIERING" type="MAY" toolTip="API Providers MAY provide SLA tiering.">API Providers **MAY** provide _SLA Tiering_ in which different SLAs are applied to different clients. For example, a "gold" tier can be applied to a high-value consumer-facing application to grant higher request quotas and faster response times. Conversely, a "bronze" tier could be applied to a non-critical back-office application consuming the same API.</ApiStandard>
 
 <ApiStandard id="HNZAS_SHOULD_PROVIDE_WEB_SLA" type="SHOULD" toolTip="API Providers SHOULD provide SLAs via a web experience.">SLAs **SHOULD** be available via a web experience.</ApiStandard>
