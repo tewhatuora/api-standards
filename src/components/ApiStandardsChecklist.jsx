@@ -2,47 +2,73 @@ import React, { useEffect, useState } from "react";
 
 const RFC_DEFINITIONS = {
   MUST: 'This word, or the terms "REQUIRED" or "SHALL", mean that the definition is an absolute requirement of the specification.',
-  "MUST NOT":
-    'This phrase, or the phrase "SHALL NOT", mean that the definition is an absolute prohibition of the specification.',
-  SHOULD:
-    'This word, or the adjective "RECOMMENDED", mean that there may exist valid reasons in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.',
-  "SHOULD NOT":
-    'This phrase, or the phrase "NOT RECOMMENDED" mean that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed before implementing any behavior described with this label.',
+  "MUST NOT": 'This phrase, or the phrase "SHALL NOT", mean that the definition is an absolute prohibition of the specification.',
+  SHOULD: 'This word, or the adjective "RECOMMENDED", mean that there may exist valid reasons in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.',
+  "SHOULD NOT": 'This phrase, or the phrase "NOT RECOMMENDED" mean that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed before implementing any behavior described with this label.',
   MAY: 'This word, or the adjective "OPTIONAL", mean that an item is truly optional. One vendor may choose to include the item because a particular marketplace requires it or because the vendor feels that it enhances the product while another vendor may omit the same item.',
+};
+
+const SECTIONS = {
+  'All sections': '',
+  'Part B: API Security': '/api-security/',
+  'Part C: API Design and Development Standards': '/api-development/',
+  'Part D: HL7 FHIR API Design and Development Standards': '/fhir-api-standard/',
+  'Part E: API Publishing Standards': '/api-publishing/'
 };
 
 const ApiStandardsChecklist = () => {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentSection, setCurrentSection] = useState('All sections');
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       try {
         const baseUrl = window.location.href;
-        const isDraft = baseUrl.includes('/draft/');
-        const path = isDraft ? '/draft/assets/api-standards.json' : '/assets/api-standards.json';
+        const path = baseUrl.includes('/draft/') ? '/draft/assets/api-standards.json' : '/assets/api-standards.json';
         const response = await fetch(path);
         const jsonData = await response.json();
         setData(jsonData);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setIsLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
+  const filteredData = () => {
+    if (currentSection === 'All sections') {
+      return data;
+    } else {
+      const sectionUrl = SECTIONS[currentSection];
+      const filtered = {};
+      Object.keys(data).forEach(key => {
+        const sectionData = data[key].filter(item => {
+          return item.link.includes(sectionUrl)
+        });
+        if (sectionData.length > 0) {
+          filtered[key] = sectionData;
+        }
+      });
+      return filtered;
+    }
+  };
+
   const createTable = (tableData) => {
     return (
-      <table style={{ maxWidth: "100%" }}>
+      <table style={{ maxWidth: "100%", tableLayout: "fixed" }}>
         <thead>
           <tr>
-            <th>Standard</th>
-            <th style={{ width: "50px" }}>Link</th>
+            <th style={{ width: "90%" }}>Standard</th>
+            <th style={{ width: "5%" }}>Link</th>
           </tr>
         </thead>
         <tbody>
-          {tableData.map((item) => (
-            <tr key={item.id}>
+          {tableData.map((item, idx) => (
+            <tr key={`${item.id}-${idx}`}>
               <td>
                 <p style={{ marginBottom: "10px", fontSize: "1rem" }}>
                   <strong dangerouslySetInnerHTML={{ __html: item.id.replaceAll("_", "_<wbr>") }}></strong>
@@ -76,26 +102,42 @@ const ApiStandardsChecklist = () => {
     );
   };
 
+  const displayData = filteredData();
+
   return (
     <div>
-      <p>
-        The below table captures the API Standards according to{" "}
-        <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a> in
-        this document into one place.
-      </p>
-      {data ? (
-        <div>
-          {Object.keys(data).map((key) => (
-            <div key={key}>
-              <h3 id={key}>{key}</h3>
-              <p>{RFC_DEFINITIONS[key]}</p>
-              {createTable(data[key])}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>This page is generated as part of the build process.</p>
-      )}
+      <label htmlFor="sectionSelect">Filter by section:</label>
+      <br />
+      <select id="sectionSelect" style={{ color: '#00558c' }} value={currentSection} onChange={e => setCurrentSection(e.target.value)}>
+        {Object.keys(SECTIONS).map(section => (
+          <option key={section} value={section}>{section}</option>
+        ))}
+      </select>
+      <br />
+      <br />
+      <div>
+        {isLoading ? (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className="spinner"></div> {/* Styling for spinner is assumed to be in CSS */}
+          </div>
+        ) : (
+          <div>
+            {Object.keys(displayData || {}).length ? (
+              Object.keys(displayData).map((key) => (
+                displayData[key].length > 0 ? (
+                  <div key={key}>
+                    <h3 id={key}>{key}</h3>
+                    <p>{RFC_DEFINITIONS[key]}</p>
+                    {createTable(displayData[key])}
+                  </div>
+                ) : (<p>No data available for this section.</p>)
+              ))
+            ) : (
+              <p>No data available for this section.</p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
