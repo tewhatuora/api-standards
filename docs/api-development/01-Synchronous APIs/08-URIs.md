@@ -9,21 +9,21 @@ consumers enter to obtain API resources. It should be intuitive and
 easy to guess what an endpoint does just by looking at the URI and HTTP
 verb, without needing to see a query string.
 
-<ApiStandard id="HNZAS_SHOULD_USE_INTUITIVE_ENDPOINTS" type="SHOULD" toolTip="Endpoint purpose SHOULD be intuitive from the URI, avoiding verbs." >Endpoint URLs **SHOULD** advertise resources, and avoid verbs.</ApiStandard>
+<ApiStandard id="HNZAS_SHOULD_USE_INTUITIVE_ENDPOINTS" type="SHOULD" toolTip="Endpoint purpose SHOULD be intuitive from the URI, avoiding verbs.">Endpoint URLs **SHOULD** advertise resources, and avoid verbs.</ApiStandard>
 
 The table below provides an overview on the elements to be included in the URI.
 
 | Level | Name | Cardinality|
 |--------|--------|--------|
-| 0 |`[basePath]`| 1..1 MUST be provided | 
-| 1 |`protocol\|standard` | 0..1 MUST if the implementation is a FHIR API |
-| 2 | `protocol version` | 0..1 SHOULD be provided if protocol\|standard is provided and relevant |
-| 3 | `namespace` | 0..1 SHOULD be provided |
-| 4 | `version` | 0..1 MAY be provided |
-| 5 | `resource`| 1..1 MUST be provided |
-| 6 | `resource-id` | 0..1 MUST be provided when interacting with a Resource Instance |
-| 7 | `sub-resource` | 0..1 MUST be provided when interacting with a Sub-resource |
-| 8 | `sub-resource-id`| 0..1 MUST be provided when interacting with a Sub-resource instance |
+| 0 |`[basePath]`| <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_BASEPATH" type="MUST" toolTip="Endpoint URI structure MUST include a base path.">1..1 **MUST** be provided</ApiStandard> | 
+| 1 |`protocol\|standard` | <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_PROTOCOL" type="MUST" toolTip="Endpoint URI structure MUST include the protocol, if the implementation is a FHIR API.">0..1 **MUST** if the implementation is a FHIR API</ApiStandard> |
+| 2 | `protocol version` | <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_PROTOCOL_VERSION" type="MUST" toolTip="Endpoint URI structure MUST include the protocol/standard version, if protocol/standard is used">0..1 **SHOULD** be provided if protocol\|standard is provided and relevant</ApiStandard> |
+| 3 | `namespace` | <ApiStandard id="HNZAS_SHOULD_URI_STRUCTURE_NAMESPACE" type="SHOULD" toolTip="Endpoint URI structure SHOULD include a namespace">0..1 **SHOULD** be provided</ApiStandard> |
+| 4 | `version` | <ApiStandard id="HNZAS_MAY_URI_STRUCTURE_VERSION" type="MAY" toolTip="Endpoint URI structure MAY include a version">0..1 **MAY** be provided</ApiStandard> |
+| 5 | `resource`| <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_RESOURCE" type="MUST" toolTip="Endpoint URI structure MUST include a resource">1..1 **MUST** be provided</ApiStandard> |
+| 6 | `resource-id` | <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_RESOURCE_ID" type="MUST" toolTip="Endpoint URI structure MUST include a resource id when interacting with a resource instance">0..1 **MUST** be provided when interacting with a Resource instance</ApiStandard> |
+| 7 | `sub-resource` | <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_SUB_RESOURCE" type="MUST" toolTip="Endpoint URI structure MUST include a sub-resource, when interacting with a sub-resource">0..1 **MUST** be provided when interacting with a Sub-resource</ApiStandard> |
+| 8 | `sub-resource-id`| <ApiStandard id="HNZAS_MUST_URI_STRUCTURE_SUB_RESOURCE_ID" type="MUST" toolTip="Endpoint URI structure MUST include a sub-resource id, when interacting with a sub-resource instance">0..1 **MUST** be provided when interacting with a Sub-resource instance</ApiStandard> |
 
 **<span class="smallcaps">Examples</span>**
 
@@ -48,9 +48,9 @@ for you. A good example of this is [Fast Health Interoperability Resources (FHIR
 
 **<span class="smallcaps">Examples</span>**
 
-[https://**api**.example.govt.nz]
+`https://**api**.example.govt.nz`
 
-[https://example.govt.nz/**api**]
+`https://example.govt.nz/**api**`
 
 
 ### Version
