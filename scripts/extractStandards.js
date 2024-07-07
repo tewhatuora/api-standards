@@ -37,7 +37,6 @@ function extractDataFromHTML(filePath, standardsIds, htmlContent, excludeDraft) 
     // Check for duplicate IDs
     if (standardsIds.has(id)) {
       if (standardsContent[id] !== content) {
-        console.log(standardsContent[id], content);
         // An unintentional dupe has been written with different content for the same rule
         if (excludeDraft) duplicates.add(id);
         else draftDuplicates.add(id);
@@ -57,7 +56,6 @@ function extractDataFromHTML(filePath, standardsIds, htmlContent, excludeDraft) 
 
     // Check that `type` is valid and matches ID
     if (!standardTypes.includes(standardType) || !id.startsWith(`HNZAS_${standardType.replace(' ', '_')}`)) {
-      console.log(standardTypes.includes(standardType), id.startsWith(`HNZAS_${standardType.replace(' ', '_')}`), standardType, id);
       if (excludeDraft) invalid.add(id);
       else draftInvalid.add(id);
       return;
