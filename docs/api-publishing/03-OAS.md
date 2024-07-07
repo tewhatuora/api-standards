@@ -48,7 +48,7 @@ The `info` section of an OpenAPI specification contains details on the API Provi
 |:---|:---|:---|
 |`info.title`| | <ApiStandard id="HNZAS_MUST_OPENAPI_TITLE" type="MUST" toolTip="An OpenAPI specification MUST include a title">**MUST**</ApiStandard> |
 |`info.description`|See [Property Descriptions](#property-descriptions) | <ApiStandard id="HNZAS_MUST_OPENAPI_DESCRIPTION" type="MUST" toolTip="An OpenAPI specification MUST include a description">**MUST**</ApiStandard> |
-|`info.license`| | <ApiStandard id="HNZAS_MUST_OPENAPI_LICENCE" type="MUST" toolTip="An OpenAPI specification MUST include a license name and url">**MUST**</ApiStandard>|
+|`info.license`| | <ApiStandard id="HNZAS_MUST_OPENAPI_LICENSE" type="MUST" toolTip="An OpenAPI specification MUST include a license name and url">**MUST**</ApiStandard>|
 |`info.version`| The version of the OpenAPI document (not the API or OpenAPI version used) | <ApiStandard id="HNZAS_MUST_OPENAPI_VERSION" type="MUST" toolTip="An OpenAPI specification MUST include the API specification document version">**MUST**</ApiStandard> |
 | `info.contact`| Contains details on appropriate mechanism for contacting the API provider | <ApiStandard id="HNZAS_MUST_OPENAPI_CONTACT" type="MUST" toolTip="An OpenAPI specification MUST include contact details">**MUST**</ApiStandard> `info.contact.name` **MUST** `info.contact.url` **MUST** |
 | `info.termsOfService`| Contains a link to the terms of service for the API | <ApiStandard id="HNZAS_SHOULD_OPENAPI_TOS" type="SHOULD" toolTip="An OpenAPI specification SHOULD include terms of service">**MUST**</ApiStandard> |
