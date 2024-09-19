@@ -12,9 +12,9 @@ The goal of compliance testing is to ensure that the API consumer application me
 
 ### Key Benefits of Compliance Testing: 
 
-**Legal and regulatory adherence**: Ensures that the product or system complies with laws and regulations to avoid legal penalties. 
-
 **API Provider and API Consumer confidence**: Demonstrates that API consumption meets compliance requirements, which can help build confidence with API Providers, API Consumers and stakeholders.
+
+**Legal and regulatory adherence**: Ensures that the product or system complies with laws and regulations to avoid legal penalties. 
 
 **Risk mitigation**: Identifies risks and vulnerabilities early in the development process, minimising the chances of security breaches, data leaks, privacy violations, or regulatory issues. 
 
@@ -32,16 +32,44 @@ API Providers should take the following key considerations into account when des
 - Provide example or test data where feasible 
 
 - Address the **SPICE** concerns:
-    - **S**ecurity - For example,  Given the user is authenticated
-    And the user does not have permission to view sensitive information
-    When the user attempts to access the sensitive information
-    Then the sensitive information should not be displayed to the user
-    - **P**rivacy - For example, [AsyncAPI Consumer](./04-AsyncAPI.md) discard the irrelevant events 
-    - **I**dentity - For example, API Consumer uses MFA to authenticate service users 
-    - **C**linical Safety - For example, the Patient immunisation information must be displayed in full regardless the screen resolution
-    - **E**quity - For example, Given the API returns data with macrons
-    When the user views the data containing macrons
-    Then the macron characters should render properly across all supported devices and platforms
+    - **S**ecurity - For example,
+
+        >Given the user is authenticated
+        >
+        >And the user does not have permission to view sensitive information
+        >
+        >When the user attempts to access the sensitive information
+        > Then the sensitive information should not be displayed to the user
+    - **P**rivacy - For example,
+        >Given the [AsyncAPI Consumer](./04-AsyncAPI.md) receives an event of a patient death
+        >
+        >When the patient is not relevant to the Consumer system
+        >
+        >Then any information of the event should be discarded and not persisted or logged
+    - **I**dentity - For example,
+        >Given the API returns information
+        >
+        >And API consumer display the information in their user application
+        >
+        >And a user is not authenticated
+        >
+        >When the user tries to access the application
+        >
+        >Then the user is redirected to be authenticated with MFA before access is permitted
+    - **C**linical Safety - For example,
+        >Given the API returns the Patient immunisation information
+        >
+        >And regardless the viewing user's screen resolution 
+        >
+        >When the user views the data containing this immunisation information 
+        >
+        >Then the user is aware whether full information is viewed or there is undisplayed content
+    - **E**quity - For example, 
+        >Given the API returns data with macrons
+        >
+        >When the user views the data containing macrons
+        >
+        >Then the macron characters should render properly across all supported devices and platforms
 
 - Tests should reflect real life scenarios including edge cases (e.g. long names of patients) and data quality issues (e.g. non-compliant historical data or missing information.
 
@@ -65,7 +93,7 @@ API Providers should take the following key considerations into account when des
 
 ## Compliance testing process 
 
-*API Provider* **MUST** provide compliant testing process definition. Diagrams **SHOULD** be used that describe an API Consumer compliance testing journey. 
+API Provider **MUST** provide compliant testing process definition. Diagrams **SHOULD** be used that describe an API Consumer compliance testing journey. 
  
 The process of compliance testing involves several steps to verify that the system meets the required compliance. Below is how a typical compliance test process looks like:
 ```plantuml alt="Example of Compliance Testing Process"
@@ -134,4 +162,4 @@ A Compliance Testing Process should cover the following steps:
 ## Examples 
 
 - Get Match And Validate Patient Compliance Testing
-https://nhi-ig.hip.digital.health.nz/GetMatchAndValidatePatientComplianceTesting.html
+    > https://nhi-ig.hip.digital.health.nz/GetMatchAndValidatePatientComplianceTesting.html
