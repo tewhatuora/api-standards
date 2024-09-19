@@ -96,7 +96,7 @@ API Providers should take the following key considerations into account when des
 API Provider **MUST** provide compliant testing process definition. Diagrams **SHOULD** be used that describe an API Consumer compliance testing journey. 
  
 The process of compliance testing involves several steps to verify that the system meets the required standards. Below is an overview of a typical compliance testing process:
-```plantuml alt="Example of Compliance Testing Process"
+```plantuml alt="Flowchart illustrating the compliance testing process between an API Provider and API Consumer. It begins with the API Consumer identifying test requirements and guidelines, followed by a request for compliance testing. Test planning occurs with the API Provider preparing the test environment, while the API Consumer prepares the tests. The API Consumer then executes the tests and records the outcomes. Results are evaluated, and if necessary, remediation is performed. The cycle repeats until compliance is certified. Once certified, compliance monitoring is conducted by the API Provider and continues while ongoing."
 @startuml
 
 |#pink|p|API Provider
