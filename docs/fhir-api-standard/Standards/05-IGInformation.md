@@ -41,7 +41,7 @@ An Implementation Guide **SHOULD** have the following:
 - What is the process for onboarding
 - How to start that process
 - Links to required information or services involved in the process
-- Any compliance or conformance testing required for service consumers
+- Any [compliance](../../api-publishing/08-ComplianceTesting.md) or conformance testing required for service consumers
 - Contact information
 
 ### Profiles

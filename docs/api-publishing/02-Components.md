@@ -52,6 +52,10 @@ API consumer application developers will expect to be able to follow a simple an
 
 API Providers **MUST** provide a developer onboarding function that enables API Consumer developers to create and manage their client application credentials and request application level access to API Provider APIs.
 
+<ApiStandard id="HNZAS_MUST_have_compliance" type="MUST">API Providers **MUST** provide and publish Compliance Tests with minimum requirements that API Consumers are obligated to pass in order to onboard to In Confidence or higher-level APIs.</ApiStandard>
+
+<ApiStandard id="HNZAS_MAY_have_compliance" type="MAY">API Providers **MAY** provide API Compliance Tests for onboarding to Unclassified APIs.</ApiStandard>
+
 API Providers **SHOULD** make this functionality available via an authenticated web experience.
 
 ## Service Level Agreements (SLA)
