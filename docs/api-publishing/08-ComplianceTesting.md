@@ -25,7 +25,7 @@ API Providers should take the following key considerations into account when des
 
 - Align Compliance Testing to business use cases, ensuring the process is easy to adopt 
 
-- Provide clear instructions and criteria (e.g. using [Gherkin syntax](https://cucumber.io/docs/gherkin/reference/)) 
+- Provide clear instructions for executing tests and success criteria. [Gherkin syntax](https://cucumber.io/docs/gherkin/reference/)) provides a useful framework for structuring tests
 
 - Provide information of mandatory tests and conditions (e.g. a test is only required to complete if API Consumer has permission to view a patient's contact details)
 
