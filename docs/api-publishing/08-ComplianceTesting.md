@@ -21,7 +21,7 @@ The goal of compliance testing is to ensure that the API consumer application me
 **Improved quality**: Enhances the overall services quality, security, and performance; improves data quality and data integrity by embedding the quality requirements into design and assurance process.
 
 ## Key Considerations of Compliance Testing
-API Provide **SHOULD** take the following key considerations during the design of the compliance test:
+API Providers should take the following key considerations into account when designing the compliance test:
 
 - Align Compliance Testing to business use cases, ensuring the process is easy to adopt 
 
