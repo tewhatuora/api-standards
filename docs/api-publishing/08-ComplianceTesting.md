@@ -134,4 +134,4 @@ A Compliance Testing Process should cover the following steps:
 ## Examples 
 
 - Get Match And Validate Patient Compliance Testing
-    https://master.d3b08qop7whnnl.amplifyapp.com/GetMatchAndValidatePatientComplianceTesting.html 
+https://nhi-ig.hip.digital.health.nz/GetMatchAndValidatePatientComplianceTesting.html
