@@ -23,7 +23,7 @@ The goal of compliance testing is to ensure that the API consumer application me
 ## Key Considerations of Compliance Testing
 API Providers should take the following key considerations into account when designing the compliance test:
 
-- Align Compliance Testing to business use cases, ensuring the process is easy to adopt 
+- Align Compliance Testing to business use cases. This will help API consumers complete the compliance tests relevant to them
 
 - Provide clear instructions for executing tests and success criteria. [Gherkin syntax](https://cucumber.io/docs/gherkin/reference/)) provides a useful framework for structuring tests
 
