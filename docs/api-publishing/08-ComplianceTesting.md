@@ -31,7 +31,7 @@ API Provide **SHOULD** take the following key considerations during the design o
 
 - Provide example or test data where feasible 
 
-- Address the **SPICE** concerns
+- Address the **SPICE** concerns:
     - **S**ecurity - For example, 
     - **P**rivacy - For example, [AsyncAPI Consumer](./04-AsyncAPI.md) discard the irrelevant events 
     - **I**dentity - For example, API Consumer uses MFA to authenticate service users 
