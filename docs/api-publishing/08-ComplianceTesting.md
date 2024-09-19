@@ -43,7 +43,7 @@ API Providers should take the following key considerations into account when des
     When the user views the data containing macrons
     Then the macron characters should render properly across all supported devices and platforms
 
-- Tests should reflect real life scenarios
+- Tests should reflect real life scenarios including edge cases (e.g. long names of patients) and data quality issues (e.g. non-compliant historical data or missing information.
 
 - Automate testing where it can
 
