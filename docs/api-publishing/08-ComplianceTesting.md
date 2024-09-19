@@ -45,7 +45,7 @@ API Providers should take the following key considerations into account when des
 
 - Tests should reflect real life scenarios including edge cases (e.g. long names of patients) and data quality issues (e.g. non-compliant historical data or missing information.
 
-- Automate testing where it can
+- Provide a mechanism to automate testing where possible
 
 - Tests can be extended with additional tests with incremental development 
 
