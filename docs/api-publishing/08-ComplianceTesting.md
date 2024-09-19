@@ -32,7 +32,10 @@ API Provide **SHOULD** take the following key considerations during the design o
 - Provide example or test data where feasible 
 
 - Address the **SPICE** concerns:
-    - **S**ecurity - For example, 
+    - **S**ecurity - For example,  Given the user is authenticated
+    And the user does not have permission to view sensitive information
+    When the user attempts to access the sensitive information
+    Then the sensitive information should not be displayed to the user
     - **P**rivacy - For example, [AsyncAPI Consumer](./04-AsyncAPI.md) discard the irrelevant events 
     - **I**dentity - For example, API Consumer uses MFA to authenticate service users 
     - **C**linical Safety - For example, the Patient immunisation information must be displayed in full regardless the screen resolution
