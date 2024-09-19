@@ -39,7 +39,9 @@ API Providers should take the following key considerations into account when des
     - **P**rivacy - For example, [AsyncAPI Consumer](./04-AsyncAPI.md) discard the irrelevant events 
     - **I**dentity - For example, API Consumer uses MFA to authenticate service users 
     - **C**linical Safety - For example, the Patient immunisation information must be displayed in full regardless the screen resolution
-    - **E**quity - For example, 
+    - **E**quity - For example, Given the API returns data with macrons
+    When the user views the data containing macrons
+    Then the macron characters should render properly across all supported devices and platforms
 
 - Tests should reflect real life scenarios
 
