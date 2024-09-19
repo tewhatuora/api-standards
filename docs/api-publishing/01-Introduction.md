@@ -34,4 +34,4 @@ Well-designed APIs follow established standards and best practices, making them 
 
 API publishing allows organisations to maintain control over how their services are accessed. Security measures such as authentication, authorisation, and rate limiting can be implemented to protect against unauthorised access.
 
-Organisations can also control how their services are used. On boarding processes can be applied to ensure API consumers agree to terms of use for the service. This includes measures such as conformance or [compliance testing](./08-ComplianceTesting.md). Service level agreement such as request quotas and rate limiting can be implemented to protect against abuse.
+Organisations can also control how their services are used. On boarding processes can be applied to ensure API consumers agree to terms of use for the service. This includes measures such as [compliance testing](./08-ComplianceTesting.md). Service level agreement such as request quotas and rate limiting can be implemented to protect against abuse and ensure fair use.
