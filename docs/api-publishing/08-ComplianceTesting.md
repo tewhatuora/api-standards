@@ -130,50 +130,6 @@ stop
 @enduml
 ```
 
-A Compliance Testing Process should cover the following steps:
-
-1. Identify Test Requirements and Guidelines 
-
-    - Identify the compliance requirements (e.g. NHI Compliance Test requirements) that the API Consumer must comply with.
-    - Gather documentation: Collect and review the relevant guidelines, technical specifications, or examples. 
-    - Define criteria: Clarify the specific requirements that need to be tested, such as functional behaviour, security, data integrity, etc.
-
-1. Request Compliance Test
-    - API Consumer SHOULD request compliance test
-
-1. Test Planning 
-    - Create a test plan
-    - Define tooling
-    - Allocate resources 
-
-1. Prepare Tests and Test Environment 
-    - Set up the controlled test environment 
-    - Configure the test environment to capture the necessary data
-    - The test environment should reflect realistic usage conditions to validate the system’s compliance in expected operational scenarios 
-
-1. Execute Tests 
-    - Run compliance tests
-    - Use a combination of automated and manual tests but automate when possible
-
-1. Record Test Outcomes
-    - Document the results of each test case against the compliance criteria. 
-
-1. Evaluate Test Results 
-    - Review and assess the test result
-    - Identify gaps or issues: document the non-compliant areas if any and analyse the root cause. 
-    - Generate reports: Summarise compliance status, any failures, and suggestions for remediation. 
-
-1. Remediation (if necessary)
-    - Fix the identified non-compliance issues 
-    - Re-test after corrections: After fixes have been implemented, re-run the necessary tests to ensure compliance. 
-
-    - Iterate until compliance is achieved: Repeat the process of fixing and testing until all compliance requirements are met. 
-
-
-1. Ongoing Compliance Monitoring (if necessary)
-    API Provider can require continuous monitoring or periodic reassessment to ensure ongoing compliance. When compliance requirements are changed, ensure that the API Consumer undergoes updated compliance testing.
-
 ## Examples 
-
 - Get Match And Validate Patient Compliance Testing
     > https://nhi-ig.hip.digital.health.nz/GetMatchAndValidatePatientComplianceTesting.html
