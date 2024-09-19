@@ -98,18 +98,32 @@ API Provider **MUST** provide compliant testing process definition. Diagrams **S
 The process of compliance testing involves several steps to verify that the system meets the required compliance. Below is how a typical compliance test process looks like:
 ```plantuml alt="Example of Compliance Testing Process"
 @startuml
+
+|#pink|p|API Provider
+|#antiquewhite|c|API Consumer
+|c|
 start
 repeat:identify test requirements and guidelines;
 :Request compliance test;
 repeat:Test planning;
-:Prepare test environment;
+fork
+    |p|
+    :Prepare test environment;
+fork again
+    |c|
+    :Prepare tests;
+end fork
+|c|
 :Execute tests;
 :Record test outcomes;
 :Evaluate test results;
-backward:Remediation; 
-repeat while (Compliance achieved) is (no);
+backward: Remediation;
+|p|
+repeat while (Compliance certified) is (no);
 ->yes;
+|c|
 backward: Compliance monitoring;
+|p|
 repeat while (On going) is (yes);
 ->no;
 stop
@@ -132,7 +146,7 @@ A Compliance Testing Process should cover the following steps:
     - Define tooling
     - Allocate resources 
 
-1. Prepare Test Environment 
+1. Prepare Tests and Test Environment 
     - Set up the controlled test environment 
     - Configure the test environment to capture the necessary data
     - The test environment should reflect realistic usage conditions to validate the system’s compliance in expected operational scenarios 
