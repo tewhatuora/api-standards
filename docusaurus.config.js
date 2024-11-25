@@ -119,7 +119,7 @@ module.exports = async function createConfig() {
               label: 'Raise issue',
               position: 'right',
               target: '_blank',
-              style: {'font-size': '0.9125rem'}
+              style: {'fontSize': '0.9125rem'}
             }
           ]
         },

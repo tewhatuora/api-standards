@@ -57,6 +57,10 @@ The below details describe what is expected, through different properties across
 |:---|:---|:---|
 |`externalDocs.url`| A URL for further documentation about about the API. | **MUST** |
 
+### Property Descriptions
+
+AsyncAPI property descriptions are intended to be used by API Consumer developers to understand the purpose of a specification property. Description fields support [CommonMark Syntax](https://spec.commonmark.org/) which **SHOULD** be used as it enables formatting supported by most rich text OpenAPI tooling.
+
 ## AsyncAPI Validation
 
 The AsyncAPI document **MUST** pass validation against the AsyncAPI specification. There are a number of tools available which can perform validation such as the online [Swagger Editor](https://swagger.io/tools/swagger-editor). This validation can be added into an automated pipeline or within a developer IDE.
