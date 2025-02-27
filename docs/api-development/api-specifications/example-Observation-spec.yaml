@@ -448,26 +448,124 @@ components:
   schemas:
     Request-Context:
       type: object
-      properties: 
+      description: HNZ | Te Whatu Ora request context header schema definition
+      properties:
         userIdentifier:
           type: string
           example: AABBCC
+          description: >-
+            Unique user identifier of the person, usually practitioner or health
+            workforce team member, triggering the request, as user in the client
+            system. Every request is triggered by a person, who is a user of the
+            client system. Every client system maintains a directory of their users,
+            including a unique identifier and other features. The personal identifier
+            maintained about a person in the client system and transmitted via this
+            field is expected to be an alphanumeric string and must not be the name or
+            email address of the person. This value is mandatory and must be correct
+            and accurate, due to legal requirements.
         userRole:
           type: string
-        secondaryIdentifiers: 
+          description: >-
+            FHIR role the user assumes for the specific request, as specified in
+            https://hl7.org/fhir/R4B/valueset-participation-role-type.html. This value
+            is mandatory and must be correct, due to legal requirements.
+          enum:
+            - PAT
+            - PROV
+        secondaryIdentifier:
           type: object
-          properties: 
-            use: 
+          description: >-
+            A secondary identifier used to further identify the end user of the
+            interface. See https://build.fhir.org/datatypes.html#Identifier
+          properties:
+            use:
               type: string
-            system: 
+              description: Static value official
+            system:
               type: string
-            value: 
+              description: >-
+                Registration body namespace. If the person, usually practitioner or
+                health workforce team member, triggering the request is registered
+                with a New Zealand health body such as the Medical Council of New
+                Zealand, the Nursing Council of New Zealand, they will have a
+                registration identifier within that body. The list of valid
+                registration identifier namespaces is available here:
+                standards.digital.health.nz. This value is mandatory and must be
+                correct and accurate, due to legal requirements. If the person
+                triggering the request is not registered with any New Zealand health
+                body on the list provided, the value must remain empty (empty string).
+            value:
               type: string
-          required: 
-          - use
-          - system
-          - value
-      required: 
-      - userIdentifier
-      - userRole
-      - secondaryIdentifiers
+              description: >-
+                Registration Id of the practitioner or health workforce team member
+                with a New Zealand health body. If the person, usually practitioner or
+                health workforce team member, triggering the request is registered
+                with a New Zealand health body such as the Medical Council of New
+                Zealand, the Nursing Council of New Zealand, they will have a
+                registration identifier within that body. The list of valid
+                registration identifier namespaces is available here:
+                standards.digital.health.nz. In many cases the value will be the
+                “CPN”. This value is mandatory and must be correct and accurate, due
+                to legal requirements. If the person triggering the request is not
+                registered with any New Zealand health body on the list provided, the
+                value must remain empty (empty string).
+          additionalProperties: false
+          required:
+            - use
+            - system
+            - value
+        purposeOfUse:
+          type: array
+          description: >-
+            Purpose of the request as specified in
+            https://terminology.hl7.org/3.1.0/ValueSet-v3-PurposeOfUse.html. The field
+            contains a list of one or multiple purposeOfUse values. At least one value
+            must be given. Technically, multiple values can be added according to the
+            JSON specification, such as ['<pou1>', '<pou2>', '<pou3>']. For acceptable
+            and permitted values, please refer to the onboarding documents and
+            contractual documentation, as some values may be technically accepted, but
+            not legally acceptable. The value is mandatory, must be correct and
+            accurate, and the list must contain at least one purpose of use, due to
+            legal audit requirements.
+          items:
+            enum:
+            - PATRQT
+            - POPHLTH
+            - TREAT
+            - ETREAT
+            - PUBHLTH
+            - SYSDEV
+        userFullName:
+          type: string
+          description: >-
+            Full name of the person, usually practitioner or health workforce team
+            member, causing the request. The value is mandatory and must be correct
+            and accurate, due to legal audit requirements.
+          example: Dr. Jane Doe
+        orgIdentifier:
+          type: string
+          description: >-
+            Organisation of the person, usually practitioner or health workforce team
+            member, causing the request. The value must be a valid HPI ORG ID as
+            specified in
+            https://www.tewhatuora.govt.nz/health-services-and-programmes/health-identity/health-provider-index/hpi-overview/.
+            This value is mandatory and must be correct and accurate, due to legal
+            audit requirements.
+          example: O12345
+        facilityIdentifier:
+          type: string
+          description: >-
+            Facility of the person, usually practitioner or health workforce team
+            member, causing the request. The value must be a valid HPI FAC ID as
+            specified in
+            https://www.tewhatuora.govt.nz/health-services-and-programmes/health-identity/health-provider-index/hpi-overview/.
+            This value is mandatory and must be correct and accurate, due to legal
+            audit requirements.
+          example: F12345
+      required:
+        - userIdentifier
+        - userRole
+        - secondaryIdentifier
+        - purposeOfUse
+        - userFullName
+      additionalProperties: false

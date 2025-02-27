@@ -156,8 +156,6 @@ An API artefact should, where possible, comprise the following:
 
 As discussed in [HTTP Verbs - PUT](./HTTPVerbs#put) there are some scenarios in REST where an API may be vulnerable to race conditions. This is a situation where an API Consumer and an API Provider become out of sync with regards to their expectations of a resource. <ApiStandard id="HNZAS_MUST_IMPLEMENT_CONCURRENCY_MECHANISM" type="MUST" toolTip="API Providers MUST implement either optimistic or pessimistic concurrency.">There are two common ways of handling this situation and, in the context of these standards, API Providers **MUST** implement one of the two concurrency mechanisms listed below.</ApiStandard>
 
-```​⬤
-
 | Feature | Optimistic Concurrency | Pessimistic Concurrency |
 |:---|:---|:---|
 | Locks resources before updates | No | Yes |
