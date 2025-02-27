@@ -20,8 +20,6 @@ both a human and machine-consumable way.
 
 <ApiStandard id="HNZAS_MUST_USE_STANDARD_HTTP_ERROR_RESPONSES" type="MUST" toolTip="RESTful APIs MUST always use standard HTTP error responses.">RESTful APIs **MUST** always use the standard HTTP error responses when an error occurs, but different codes may be pertinent depending on the HTTP verb being used and the quantity of data being retrieved (e.g., single item vs. list/collection of data).</ApiStandard>
 
-```​⬤
-
 The following tables give an example of good practice use of HTTP error codes:
 
 ### GET Response Status Codes
