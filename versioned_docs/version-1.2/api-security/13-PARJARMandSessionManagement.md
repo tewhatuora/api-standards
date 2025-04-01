@@ -17,7 +17,7 @@ PAR was introduced to address these concerns and basically introduces a new PAR 
 
 ### The PAR Sequence Flow
 
-The API Consumer pushes the authorise request (as a JWT) the the API Providers dedicated PAR endpoint. A request_uri is provides back to the API Consumer. This is then used in the authorise request to the API Provider.
+The API Consumer pushes the authorise request (as a JWT) to the API Providers dedicated PAR endpoint. A request_uri is provides back to the API Consumer. This is then used in the authorise request to the API Provider.
 
 The sequence diagram below includes the PAR flow with Authorisation Code Grant flow with PKCE.
 

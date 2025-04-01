@@ -175,7 +175,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 - Used in the authorisation code flow when using `response_type=code id_token` and `response_type=code id_token token`
 - The response to the client is a `code` and the first `id_token` (and `access_token` if requested)
-- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- The `id_token` signature is validated by obtaining the JWKS from the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `c_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the code with the `c_hash`
 - Provides authorisation code integrity.
 
@@ -183,7 +183,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 - Used in the authorisation code flow when using `response_type=id_token token` and `response_type=code id_token token` [^1]
 - The response to the client when the code is presented to the token endpoint is a JWT access token and and `id_token`
-- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- The `id_token` signature is validated by obtaining the JWKS from the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `at_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the access token with the `at_hash`
 - Provides Access token integrity.
 
@@ -193,7 +193,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 - Used in the authorisation code flow and implicit flow when using `response_type=code id_token` the authorisation request includes a `state` value created by the client
 - The response to the client is a code and and the first `id_token`
-- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- The `id_token` signature is validated by obtaining the JWKS from the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `s_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the `state` with the `s_hash`.
 - Provides [state integrity](./SecurityControls#state-integrity).
 
