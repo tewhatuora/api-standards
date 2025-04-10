@@ -175,7 +175,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 - Used in the authorisation code flow when using `response_type=code id_token` and `response_type=code id_token token`
 - The response to the client is a `code` and the first `id_token` (and `access_token` if requested)
-- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- The `id_token` signature is validated by obtaining the JWKS from the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `c_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the code with the `c_hash`
 - Provides authorisation code integrity.
 
@@ -183,7 +183,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 - Used in the authorisation code flow when using `response_type=id_token token` and `response_type=code id_token token` [^1]
 - The response to the client when the code is presented to the token endpoint is a JWT access token and and `id_token`
-- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- The `id_token` signature is validated by obtaining the JWKS from the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `at_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the access token with the `at_hash`
 - Provides Access token integrity.
 
@@ -193,7 +193,7 @@ In OpenID Connect, the `c_hash`, `at_hash`, and `s_hash` values are used to enha
 
 - Used in the authorisation code flow and implicit flow when using `response_type=code id_token` the authorisation request includes a `state` value created by the client
 - The response to the client is a code and and the first `id_token`
-- The `id_token` signature is validated by obtaining the JWKS from the the Authorisation Server JWK endpoint
+- The `id_token` signature is validated by obtaining the JWKS from the Authorisation Server JWK endpoint
 - Parsing the `id_token`, the `s_hash` is found and using SHA-256 (defined in the header of the `id_token` `alg`) compares the `state` with the `s_hash`.
 - Provides [state integrity](./SecurityControls#state-integrity).
 
@@ -261,7 +261,7 @@ Below is a table of risk types and some approaches that **SHOULD** be used to he
 |Denial of Service attacks|<ApiStandard id="HNZAS_SHOULD_THROTTLE_API_ACCESS" type="SHOULD" toolTip="Throttle access to all exposed APIs and monitor use to prevent DoS attacks." wrapper='li'>Throttle access to all exposed APIs. Monitor use to indicate possible DoS attacks</ApiStandard>|
 |Malicious Input, Injection attacks and Fuzzing|<ApiStandard id="HNZAS_SHOULD_VALIDATE_INPUT" type="SHOULD" toolTip="Validate input to ensure secure parsing and strong typing to mitigate malicious input." wrapper='li'>Validate input: Secure parsing and strong typing</ApiStandard> <ApiStandard id="HNZAS_SHOULD_VALIDATE_INCOMING_CONTENT_TYPE" type="SHOULD" toolTip="Validate incoming content-type as application/json to mitigate malicious input." wrapper='li'>Validate incoming content-type application/json</ApiStandard> <ApiStandard id="HNZAS_SHOULD_VALIDATE_JSON_CONTENT" type="SHOULD" toolTip="Validate JSON content to mitigate malicious input." wrapper='li'>Validate JSON content</ApiStandard> <ApiStandard id="HNZAS_SHOULD_VALIDATE_XML" type="SHOULD" toolTip="Validate XML against schema and format to mitigate malicious input." wrapper='li'>Validate XML (schema and format)</ApiStandard> <ApiStandard id="HNZAS_SHOULD_SCAN_ATTACHMENTS" type="SHOULD" toolTip="Scan attachments for malware and vulnerabilities to mitigate malicious input." wrapper='li'>Scan attachments</ApiStandard> <ApiStandard id="HNZAS_SHOULD_PRODUCE_VALID_HTTP_RETURN_CODE" type="SHOULD" toolTip="Produce valid HTTP Return Codes to mitigate malicious input." wrapper='li'>Produce valid HTTP Return Code</ApiStandard> <ApiStandard id="HNZAS_SHOULD_VALIDATE_RESPONSE" type="SHOULD" toolTip="Validate responses to mitigate malicious input." wrapper='li'>Validate response</ApiStandard>|
 |Cross-Site Request Forgery|<ApiStandard id="HNZAS_SHOULD_USE_TOKENS_WITH_STATE_NONCE" type="SHOULD" toolTip="Use tokens with `state` and `nonce` parameters to prevent CSRF attacks." wrapper='li'>Use tokens with `state` and `nonce` parameters</ApiStandard>|
-|Cross-Site Scripting Attacks|<li><ApiStandard id="HNZAS_SHOULD_VALIDATE_INPUT" type="SHOULD" toolTip="Validate input to ensure secure parsing and strong typing to mitigate malicious input." wrapper='li'>Validate Input</ApiStandard></li>|
+|Cross-Site Scripting Attacks|<ApiStandard id="HNZAS_SHOULD_VALIDATE_INPUT" type="SHOULD" toolTip="Validate input to ensure secure parsing and strong typing to mitigate malicious input." wrapper='li'>Validate Input</ApiStandard>|
 
 ### Token Threat Mitigation
 
