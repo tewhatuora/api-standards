@@ -25,7 +25,7 @@ module.exports = async function createConfig() {
 
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-
+    trailingSlash: false,
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
