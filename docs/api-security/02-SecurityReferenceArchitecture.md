@@ -27,14 +27,14 @@ actors.
 skinparam {
     defaultFontColor #4080a9
     defaultBackgroundColor #d7f8ff
-    defaultComponentColour #61d9de
-    defaultActorColour #61d9de
+    defaultComponentColor #61d9de
+    defaultActorColor #61d9de
     defaultFontSize 16
     defaultArrowThickness 6
     actorStyle awesome
     linetype ortho
 }
-skinparam defaultTextAlignment centre
+skinparam defaultTextAlignment center
 allowmixing
 
 package "Health Sector Participants" as HSP {
